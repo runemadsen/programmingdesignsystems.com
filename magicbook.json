@@ -1,0 +1,21 @@
+{
+  "title" : "Programming Design Systems",
+  "author" : "Rune Madsen",
+  "twitter" : "https://twitter.com/runemadsen",
+  "files" : [
+    "content/1-toc.html",
+    "content/2-introduction.md",
+    "content/**/*.md"
+  ],
+  "stylesheets" : {
+    "files" : [
+      "stylesheets/html.scss"
+    ]
+  },
+  "builds" : [
+    {
+      "format" : "html"
+    }
+  ],
+  "layout" : "layouts/default.html"
+}

@@ -1,0 +1,12 @@
+<figure class="{{ include.class }}">
+  {% comment %}
+  {% if include.datauri == "true" %}
+    {% img '{{ include.src }}' data:uri %}
+  {% else %}
+    {% img '{{ include.src }}' %}
+  {% endif %}
+  {% if include.caption %}
+    <figcaption>{{ include.caption }}</figcaption>
+  {% endif %}
+  {% endcomment %}
+</figure>

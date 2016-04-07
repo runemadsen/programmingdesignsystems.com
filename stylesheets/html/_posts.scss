@@ -1,0 +1,93 @@
+.post-card {
+
+  position: relative;
+
+  a {
+    border-bottom: none;
+    color: $fontBlack;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin: 0;
+    position: absolute;
+    top: 0.8em;
+    left: 0.8em;
+  }
+}
+
+.post {
+
+  header {
+    max-width: 730px;
+    border-bottom: 1px solid $colorGray;
+    padding: 1em 0;
+    margin-bottom: 2em;
+
+    h1 {
+      margin: 0 0 0.5em 0;
+    }
+
+    p.dek {
+      max-width: 100%;
+      margin: 0 0 0.5em 0;
+      font-size: 1.3em;
+      line-height: 1.5em;
+    }
+
+    p.author {
+      font-size: 1.1em;
+      font-family: $fontBold;
+      margin: 0;
+
+      a {
+        border-bottom: none;
+        color: $fontBlack;
+      }
+    }
+  }
+
+  p, h2, .text-width {
+    max-width: 640px;
+  }
+
+  figure {
+    margin-bottom: 1.8em;
+    img {
+      margin-bottom: 0.8em;
+    }
+  }
+
+  figure img {
+    width: 100%;
+    height: auto;
+  }
+
+  .media-width {
+    max-width: 720px;
+  }
+
+  .two-grid {
+    margin-top: 1.8em;
+  }
+
+}
+
+// Bigger than mobile
+// -------------------------------------------
+
+@media (min-width: $mobileBreak) {
+
+  .post {
+
+    p, h2, .text-width {
+      margin-left: 40px;
+    }
+  }
+
+}

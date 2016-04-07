@@ -1,0 +1,81 @@
+body {
+  font-size: 100%;
+  font-family: $fontNormal;
+  color: $fontBlack;
+  font-weight: 400;
+}
+
+a {
+  color: $fontBlack;
+  text-decoration: none;
+  border-bottom: 1px solid $fontGrayLight;
+}
+
+p {
+  font-size: 1.15em;
+  line-height: 1.6em;
+}
+
+strong {
+  font-family: $fontBold;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.4em;
+  line-height: 0.95em;
+  letter-spacing: -0.02em;
+  font-family: $fontBold;
+  margin-bottom: 0.1em;
+  font-weight: 700;
+}
+
+h2 {
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.8em;
+  line-height: 0.95em;
+  letter-spacing: -0.02em;
+  font-family: $fontBold;
+  margin-bottom: 0.1em;
+  font-weight: 500;
+}
+
+code, pre {
+  font-size: 0.95em;
+  font-family: $fontCode;
+}
+
+code {
+  color: $fontBlack;
+
+  line-height: 1.3em;
+  max-width: 730px;
+  background-color: $colorGrayLight;
+  padding: 0.1em 0.3em;
+}
+
+.caption, figcaption {
+  color: $fontGray;
+  line-height: 1.4em;
+}
+
+// Front
+
+#front {
+
+  h1 {
+    margin-top: 10%;
+    text-align: center;
+    font-size: 3.8em;
+    margin-bottom: 0.8em;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    text-align: center;
+    font-family: $fontNormal;
+    font-weight: 400;
+    font-size: 1.9em;
+  }
+
+}

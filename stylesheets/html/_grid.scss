@@ -1,0 +1,58 @@
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding-top: 3em;
+}
+
+// Layout: Sidebar and main view
+// -------------------------------------------------
+
+.aside-main {
+  aside {
+    display: none;
+  }
+}
+
+@media (min-width: $mobileBreak) {
+
+  .aside-main {
+
+    display: flex;
+
+    main {
+      flex: 1 1 auto;
+    }
+
+    aside {
+      display: block;
+      flex: 0 0 180px;
+    }
+
+  }
+
+}
+
+// Layout: Two grid
+// -------------------------------------------------
+
+.two-grid {
+  .grid-item {
+    padding-bottom: 0.8em;
+  }
+}
+
+@media (min-width: $tabletBreak) {
+  .two-grid {
+    display: flex;
+    flex-wrap: wrap;
+    > * {
+      flex: 0 0 50%;
+      &:nth-child(odd) {
+        padding-right: 0.5em;
+      }
+      &:nth-child(even) {
+        padding-left: 0.5em;
+      }
+    }
+  }
+}
