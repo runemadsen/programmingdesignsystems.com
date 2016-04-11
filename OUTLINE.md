@@ -1,6 +1,8 @@
 # Outline
 
 - Introduction
+  - ADD: modular content.
+  - ADD: P5.js section
 
 - Form
   - [ ] History of form

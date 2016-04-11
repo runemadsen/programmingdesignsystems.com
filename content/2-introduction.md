@@ -1,7 +1,7 @@
 ---
 svg: test.svg
 title:  Introduction
-dek: I need a description of this.
+dek: This is a book that tries to re-imagine the graphic design curriculum by using a programming language as the tool for the designer.
 ---
 
 {% include header.html %}
