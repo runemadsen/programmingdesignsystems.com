@@ -1,0 +1,8 @@
+<div data-type="footnotes" class="text-width">
+  <hr />
+  <ol>
+    {% for footnote in footnotes %}
+      <li id="{{ footnote.id }}">{{ footnote.label }}</li>
+    {% endfor %}
+  </ol>
+</div>

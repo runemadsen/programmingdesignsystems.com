@@ -59,6 +59,41 @@ code {
   line-height: 1.4em;
 }
 
+span[data-type="footnote"] {
+  display: inline-block;
+  margin-left: 0.2em;
+  margin-right: 0.1em;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 0.8em;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid $colorGray;
+  margin: 1em 0;
+  padding: 0;
+}
+
+div[data-type="footnotes"] {
+  hr {
+    width: 100px;
+  }
+  ol {
+    font-size: 0.9em;
+    color: $fontGray;
+    padding: 0;
+    li {
+      margin: 0 0 0.6em 1em;
+      padding: 0;
+
+    }
+  }
+}
+
 // Front
 
 #front {
