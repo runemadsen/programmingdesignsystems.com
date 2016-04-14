@@ -30,7 +30,7 @@ h1 {
   font-weight: 700;
 }
 
-h2 {
+section[data-type="sect1"] h1, h2 {
   -webkit-font-smoothing: antialiased;
   font-size: 1.8em;
   line-height: 0.95em;

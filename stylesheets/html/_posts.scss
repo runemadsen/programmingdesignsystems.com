@@ -54,7 +54,7 @@
     }
   }
 
-  p, h2, .text-width {
+  p, section[data-type="sect1"] h1, h2, .text-width {
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
@@ -88,6 +88,9 @@
     font-size: 1.3em;
     font-family: $fontBold;
     margin-bottom: 0.5em;
+  }
+  a:nth-child(2) {
+    color: $fontGray;
   }
   div:nth-child(2) {
     text-align: right;

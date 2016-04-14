@@ -39,7 +39,7 @@
   .two-grid {
     display: flex;
     flex-wrap: wrap;
-    > * {
+    > .col {
       flex: 0 0 50%;
       &:nth-child(odd) {
         padding-right: 0.5em;

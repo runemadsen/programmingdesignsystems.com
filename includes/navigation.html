@@ -1,13 +1,13 @@
 <div class="navigation two-grid text-width">
 
-  <div>
+  <div class="col">
   {% if navigation.prev %}
     <a href="{{ navigation.prev.href }}">Previous</a>
     <a href="{{ navigation.prev.href }}">{{navigation.prev.label}}</a>
   {% endif %}
   </div>
 
-  <div>
+  <div class="col">
   {% if navigation.next %}
     <a href="{{ navigation.next.href }}">Next</a>
     <a href="{{ navigation.next.href }}">{{navigation.next.label}}</a>
