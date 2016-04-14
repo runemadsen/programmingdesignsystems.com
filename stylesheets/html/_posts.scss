@@ -30,7 +30,7 @@
     margin-bottom: 2em;
     border-bottom: 1px solid $colorGray;
     padding: 1em 0;
-    
+
     h1 {
       margin: 0 0 0.5em 0;
     }
@@ -76,10 +76,22 @@
     max-width: 720px;
   }
 
-  .two-grid {
-    margin-top: 1.8em;
-  }
+}
 
+.navigation {
+  margin: 4em auto;
+  a {
+    display: block;
+    border-bottom: none;
+  }
+  a:nth-child(1) {
+    font-size: 1.3em;
+    font-family: $fontBold;
+    margin-bottom: 0.5em;
+  }
+  div:nth-child(2) {
+    text-align: right;
+  }
 }
 
 // Bigger than mobile

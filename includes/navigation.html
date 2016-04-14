@@ -1,7 +1,17 @@
-{% if navigation.prev %}
-<a id="prev-link" href="{{ navigation.prev.href }}">Previous: {{navigation.prev.label}}</a>
-{% endif %}
+<div class="navigation two-grid text-width">
 
-{% if navigation.next %}
-<a id="next-link" href="{{ navigation.next.href }}">Next: {{navigation.next.label}}</a>
-{% endif %}
+  <div>
+  {% if navigation.prev %}
+    <a href="{{ navigation.prev.href }}">Previous</a>
+    <a href="{{ navigation.prev.href }}">{{navigation.prev.label}}</a>
+  {% endif %}
+  </div>
+
+  <div>
+  {% if navigation.next %}
+    <a href="{{ navigation.next.href }}">Next</a>
+    <a href="{{ navigation.next.href }}">{{navigation.next.label}}</a>
+  {% endif %}
+  </div>
+
+</div>

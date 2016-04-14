@@ -35,12 +35,6 @@
 // Layout: Two grid
 // -------------------------------------------------
 
-.two-grid {
-  .grid-item {
-    padding-bottom: 0.8em;
-  }
-}
-
 @media (min-width: $tabletBreak) {
   .two-grid {
     display: flex;

@@ -85,11 +85,9 @@ div[data-type="footnotes"] {
   ol {
     font-size: 0.9em;
     color: $fontGray;
-    padding: 0;
+    padding-left: 1em;
     li {
-      margin: 0 0 0.6em 1em;
-      padding: 0;
-
+      margin-bottom: 0.6em;
     }
   }
 }
