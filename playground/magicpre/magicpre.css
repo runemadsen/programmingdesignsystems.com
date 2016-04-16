@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  font-family: Helvetica;
+  font-size: 100%;
+}
+
+.example {
+  width: 700px;
+}
+
+div.comment {
+  color: #4e4e4e;
+  padding: 0.5em 1em;
+  background-color: #e9e9e6;
+}
+
+div.comment p {
+  margin: 0;
+  padding: 0
+}
+
+pre.code {
+  color: #808080;
+  padding: 0.5em 1em;
+  margin: 0;
+  font-family: Consolas, Menlo, monospace;
+  font-size: 1.1em;
+  background-color: #f3f2ef;
+}
+
+/* Horizontal example */
+
+.example.horiz .wrapper {
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.example.horiz div.comment {
+  flex: 0 0 50%;
+}
+
+.example.horiz pre.code {
+  flex: 0 0 50%;
+}
