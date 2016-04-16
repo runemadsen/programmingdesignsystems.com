@@ -4,8 +4,31 @@ function renderExample(opt) {
 
   // run full opt.code
 
-  // split code from comments
+  // if we pick out just some code
+  if(opt.pick) {
+    var startIndex = opt.code.indexOf(opt.pick.start)
+    var stopIndex = opt.code.indexOf(opt.pick.stop)
+    if(startIndex > -1 && stopIndex > -1) {
+      opt.code = opt.code.substring(startIndex, stopIndex + opt.pick.stop.length);
+    } else {
+      console.log("pick values not found");
+    }
+
+  }
+
   var split = opt.code.split('\n');
+
+  // if the first line has indent, let's remove this indent from all
+  // lines. This is good when picking lines that are indented.
+  var padnum = split[0].search(/\S|$/);
+  var regex = new RegExp("^\\s{"+padnum+"}");
+  if(padnum > 0) {
+    split = _.map(split, function(line) {
+      return line.replace(regex, '');
+    });
+  }
+
+  // split code from comments
   var containers = [];
   for(var i = 0; i < split.length; i++) {
     var type = split[i].match(/^\s*\/\//) ? "comment" : "code";
@@ -48,5 +71,10 @@ $(function() {
     title: 'Horizontal splitting',
     code: code,
     klass: 'horiz'
+  });
+  renderExample({
+    title: 'Showing parts of code',
+    code: code,
+    pick: { start: "// Remember", stop: "  y = y + yspeed;" }
   });
 });
