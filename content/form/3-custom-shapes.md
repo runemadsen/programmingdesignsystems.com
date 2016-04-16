@@ -51,6 +51,30 @@ Although you don't really need to know how the computer calculates a curved line
 
 CONCEPTS RUNNING. SEE NOTEBOOK.
 
+You can draw both quadratic and cubic Bézier curves with the `curveVertex()` function. The line of code to the left draws a quadratic bezier curve with a COLOR:single control point and the COLOR:vertex position. The line of code to the right draws a cubic Bézier curve with COLOR:two control points and the COLOR:vertex position.
+
+INTERACTIVE EXAMPLE: SEE NOTEBOOK.
+
+You cannot start a custom shape with `curveVertex()`. You always need a single `vertex()` function call to define the starting point of the shape.
+
+Using Bézier curves is harder than drawing straight lines, and even knowing how many curves to use for a specific shape can be hard. Here are some examples showing how to draw different shapes with the `curveVertex()` function.
+
+1-2-3: SEE NOTEBOOK
+
+GRAPHIC DESIGN EXAMPLES
+
+## Contours
+
+While `vertex()` and `curveVertex()` gives us the ability to draw most custom shapes from scratch, there is one thing tha we still don't know how to do: Draw a shape with a hole in it. In P5.js, a hole is called a contour, and you can draw shapes with contours using the `beginContour()` and `endContour()` functions.
+
+example.... NOTEBOOK
+
+GRAPHIC DESIGN EXAMPLES WITH HOLES
+
+## Wet and Sharp
+
+Yup
+
 
 
 
