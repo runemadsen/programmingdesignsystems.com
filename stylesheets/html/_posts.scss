@@ -1,3 +1,15 @@
+.header-width {
+  max-width: $headerWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-width {
+  max-width: $textWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .post-card {
 
   position: relative;
@@ -24,9 +36,7 @@
 .post {
 
   header {
-    max-width: 730px;
-    margin-left: auto;
-    margin-right: auto;
+    @extend .header-width;
     margin-bottom: 2em;
     border-bottom: 1px solid $colorGray;
     padding: 1em 0;
@@ -54,10 +64,8 @@
     }
   }
 
-  p, section[data-type="sect1"] h1, h2, .text-width {
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
+  p, section[data-type="sect1"] h1, h2 {
+    @extend .text-width;
   }
 
   figure {
@@ -72,14 +80,14 @@
     height: auto;
   }
 
-  .media-width {
-    max-width: 720px;
-  }
-
 }
 
 .navigation {
+  @extend .header-width;
+  padding-top: 1.5em;
+  border-top: 1px solid $colorGray;
   margin: 4em auto;
+
   a {
     display: block;
     border-bottom: none;
