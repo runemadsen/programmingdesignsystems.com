@@ -1,6 +1,6 @@
 function renderExample(opt) {
 
-  var div = $('<div class="example '+opt.klass+'"><h1>' + opt.title + '</h1><div class="wrapper"></div></div>');
+  var div = $('<div class="example '+opt.klass+'"><div class="wrapper"></div></div>');
 
   // run full opt.code
 
@@ -46,7 +46,7 @@ function renderExample(opt) {
     if(containers[i].type == "comment") {
       var para = _.map(containers[i].lines, function(line) {
         return line.replace('//', '').trim();
-      }).join('');
+      }).join(' ');
       var jel = $('<div class="comment"><p>' + para + '</p></div>');
       div.find('.wrapper').append(jel);
     // if this is lines of code, put in a pre element
@@ -57,24 +57,40 @@ function renderExample(opt) {
     }
   }
 
-  $('body').append(div);
+  // highlight all code examples
+  div.find('pre.code').each(function() {
+    var preEl = $(this);
+    var content = preEl.find('code').text();
+    CodeMirror.runMode(content, "text/javascript", preEl[0]);
+    preEl.addClass(opt.theme || 'cm-s-default');
+  });
+
+  $(opt.el).append(div);
 
 }
 
 $(function() {
+
   var code = $('pre').text();
+
   renderExample({
-    title: 'Vertical splitting',
-    code: code
-  });
-  renderExample({
-    title: 'Horizontal splitting',
+    el: '#one',
     code: code,
-    klass: 'horiz'
+    theme: 'cm-s-zenburn'
   });
+
   renderExample({
-    title: 'Showing parts of code',
+    el: '#two',
     code: code,
-    pick: { start: "// Remember", stop: "  y = y + yspeed;" }
+    klass: 'horiz',
+    theme: 'cm-s-zenburn'
   });
+
+  renderExample({
+    el: '#three',
+    code: code,
+    pick: { start: "// Remember", stop: "  y = y + yspeed;" },
+    theme: 'cm-s-zenburn'
+  });
+
 });

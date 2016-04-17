@@ -2,48 +2,40 @@
   box-sizing: border-box;
 }
 
-body {
-  padding: 20px;
-  font-family: Helvetica;
-  font-size: 100%;
-}
-
-.example {
-  width: 700px;
-}
-
 div.comment {
-  color: #4e4e4e;
-  padding: 0.5em 1em;
-  background-color: #e9e9e6;
-}
-
-div.comment p {
-  margin: 0;
-  padding: 0
+  padding-right: 2em;
 }
 
 pre.code {
-  color: #808080;
-  padding: 0.5em 1em;
   margin: 0;
-  font-family: Consolas, Menlo, monospace;
-  font-size: 1.1em;
-  background-color: #f3f2ef;
+  font-family: 'AtlasTypewriter-Regular';
+  font-size: 1.05em;
+  background-color: #333;
+  line-height: 1.4em;
 }
 
-/* Horizontal example */
+#one, #three {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-.example.horiz .wrapper {
-  width: 1000px;
+#two .wrapper {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
-.example.horiz div.comment {
+#two div.comment {
   flex: 0 0 50%;
+  border-top: 1px dashed gray;
 }
 
-.example.horiz pre.code {
+#two div.comment p {
+  margin-top: 0;
+}
+
+#two pre.code {
   flex: 0 0 50%;
+  border-top: 1px dashed gray;
 }

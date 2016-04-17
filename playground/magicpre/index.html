@@ -3,26 +3,51 @@
   <head>
     <meta charset="utf-8">
     <title>Magic Pre</title>
+    <link rel="stylesheet" href="../fonts.css">
     <link rel="stylesheet" href="magicpre.css">
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="underscore.js"></script>
     <script type="text/javascript" src="p5.min.js"></script>
+
+    <script type="text/javascript" src="../codemirror/lib/codemirror.js"></script>
+    <script type="text/javascript" src="../codemirror/addon/runmode/runmode.js"></script>
+    <script type="text/javascript" src="../codemirror/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="../codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="../codemirror/theme/zenburn.css">
   </head>
   <body>
-    <h1>Original code</h1>
-<pre id="source">// Variables for location and speed of ball.
+    <div class="container">
+
+    <h2>Vertical</h2>
+    <p>However, we find ourselves at an interesting time in the design world, not because this definition of design has changed much, but because the products we're required to build have changed. Looking at the media landscape of today, it's hard to find a design product that hasn't changed because of the digital revolution. Designing layouts for a smartphone app means taking into account a complex set of states, where each screen can have tens or hundreds of possible transitions. Designing the scenery of most computer games forces the designer to use procedural techniques, as it's simply impossible to design every detail by hand. Even logos are becoming dynamic, with designers building dynamic identities fit for representing many faces of the same entity. Common to all of these examples is that none of them can be built using traditional design tools, and all of them require the use of a programming language.</p>
+    <div id="one"></div>
+    <p>For a long time, the role of a graphic designer was rather easy to define. It meant working with your hands to find the right visual form for a piece of content, and delivery of a final, static design e.g. in the form of a poster, business card or letterhead. Amazingly clever and beautiful art has been created this way.</p>
+
+    <h2>Horizontal</h2>
+    <p>However, we find ourselves at an interesting time in the design world, not because this definition of design has changed much, but because the products we're required to build have changed. Looking at the media landscape of today, it's hard to find a design product that hasn't changed because of the digital revolution. Designing layouts for a smartphone app means taking into account a complex set of states, where each screen can have tens or hundreds of possible transitions. Designing the scenery of most computer games forces the designer to use procedural techniques, as it's simply impossible to design every detail by hand. Even logos are becoming dynamic, with designers building dynamic identities fit for representing many faces of the same entity. Common to all of these examples is that none of them can be built using traditional design tools, and all of them require the use of a programming language.</p>
+    <div id="two"></div>
+    <p>For a long time, the role of a graphic designer was rather easy to define. It meant working with your hands to find the right visual form for a piece of content, and delivery of a final, static design e.g. in the form of a poster, business card or letterhead. Amazingly clever and beautiful art has been created this way.</p>
+
+    <h2>Parts</h2>
+    <p>However, we find ourselves at an interesting time in the design world, not because this definition of design has changed much, but because the products we're required to build have changed. Looking at the media landscape of today, it's hard to find a design product that hasn't changed because of the digital revolution. Designing layouts for a smartphone app means taking into account a complex set of states, where each screen can have tens or hundreds of possible transitions. Designing the scenery of most computer games forces the designer to use procedural techniques, as it's simply impossible to design every detail by hand. Even logos are becoming dynamic, with designers building dynamic identities fit for representing many faces of the same entity. Common to all of these examples is that none of them can be built using traditional design tools, and all of them require the use of a programming language.</p>
+    <div id="three"></div>
+    <p>For a long time, the role of a graphic designer was rather easy to define. It meant working with your hands to find the right visual form for a piece of content, and delivery of a final, static design e.g. in the form of a poster, business card or letterhead. Amazingly clever and beautiful art has been created this way.</p>
+
+  <h2>Original</h2>
+  <pre id="source">// First we need to set up the variables
+// to be used throughout the sketch.
 var x = 100;
 var y = 100;
 var xspeed = 1;
 var yspeed = 3.3;
 
 // Remember how Processing works? setup() is executed once when the sketch starts and draw() loops forever and ever (until you quit).
-void setup() {
+function setup() {
   createCanvas(640, 360);
   background(255);
 }
 
-void draw() {
+function draw() {
   background(255);
 
   // Move the ball according to its speed.
@@ -43,6 +68,8 @@ void draw() {
   // Display the ball at the location (x,y).
   ellipse(x,y,16,16);
 }</pre>
+
     <script type="text/javascript" src="magicpre.js"></script>
+  </div>
   </body>
 </html>
