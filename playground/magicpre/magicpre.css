@@ -2,16 +2,19 @@
   box-sizing: border-box;
 }
 
-div.comment {
+ .cs-comment {
   padding-right: 2em;
 }
 
-pre.code {
-  margin: 0;
-  font-family: 'AtlasTypewriter-Regular';
+.cs-code {
+  background: #F6F7F9;
+}
+
+.cs-code pre {
   font-size: 1.05em;
-  background-color: #333;
-  line-height: 1.4em;
+  line-height: 1.35em;
+  font-family: 'AtlasTypewriter-Regular';
+  margin: 0;
 }
 
 #one, #three {
@@ -20,22 +23,46 @@ pre.code {
   margin-right: auto;
 }
 
+#one .cs-code pre, #one .cs-code pre,
+#three .cs-code pre, #three .cs-code pre {
+  padding: 0.8em 1em;
+}
+
 #two .wrapper {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
-#two div.comment {
+#two .cs-comment {
   flex: 0 0 50%;
-  border-top: 1px dashed gray;
 }
 
-#two div.comment p {
-  margin-top: 0;
+#two .cs-comment p {
+  margin-top: 0.2em;
 }
 
-#two pre.code {
+#two .cs-code {
   flex: 0 0 50%;
-  border-top: 1px dashed gray;
 }
+
+#two .cs-code pre {
+  margin-top: 1em;
+  padding-left: 1em;
+  border-left: 1px solid red;
+}
+
+#two .cs-code:last-of-type pre {
+  margin-bottom: 0.8em;
+}
+
+/* Codemirror theme */
+.cm-s-pds { color: #4d463e; }
+.cm-s-pds .CodeMirror-activeline-background { background: #eeeeee; }
+.cm-s-pds .CodeMirror-selected { background: #60A365; }
+.cm-s-pds .cm-keyword { color: #7A99B8; }
+.cm-s-pds .cm-string { color: #857AB8; }
+.cm-s-pds .cm-number { color: #857AB8; }
+.cm-s-pds .cm-variable { color: #3D668F; }
+.cm-s-pds .cm-def {  }
+.cm-s-pds .cm-property { color: #95CC5E; }
