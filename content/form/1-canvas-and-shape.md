@@ -16,12 +16,9 @@ When you start drawing shapes in a blank canvas, one of the first considerations
 
 A shape will appear dominant if it takes up most of the canvas. We recognize this pattern from many design products that we encounter daily: Traffic signs have the word *STOP* taking up most of the area of the sign. Dialog boxes block out most of the text of a website to leave you with a single or binary option. It is a natural way to call attention to the shape.
 
-THIS NEEDS CODE:
+{% p5img form/canvas-and-shape/dominant.js %}
 
-<div class="two-grid">
-  {% include img.html src="canvas-and-shape/dominant.svg" caption="A dominant rectangle." datauri="true" %}
-  {% include img.html src="canvas-and-shape/non-dominant.svg" caption="A non-dominant rectangle." datauri="true" %}
-</div>
+{% p5img form/canvas-and-shape/non-dominant.js %}
 
 The size of a shape can therefore be used to bring clarity to a design, by increasing the size of important shapes and decreasing the size of less important shapes. It can often help to draw black boxes on top of actual designs to reveal this relationship, and doing it on work by famous designers will reveal how this is an integral part of most design processes.
 

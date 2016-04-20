@@ -2,8 +2,6 @@ function renderExample(opt) {
 
   var div = $('<div class="example"><div class="wrapper"></div></div>');
 
-  // run full opt.code
-
   // if we pick out just some code
   if(opt.pick) {
     var startIndex = opt.code.indexOf(opt.pick.start)

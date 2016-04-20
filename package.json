@@ -1,0 +1,7 @@
+{
+  "dependencies" : {
+    "magicbook-codesplit" : "^0.0.3",
+    "lodash": "^4.6.1",
+    "tinyliquid": "^0.2.31"
+  }
+}
