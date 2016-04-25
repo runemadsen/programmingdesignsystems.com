@@ -13,7 +13,7 @@ dek: We'll start by looking at one of the most basic relationships in graphic de
 
   <p>As we begin our journey into the field of graphic design, it's important to start at the very beginning. Graphic design is the art of manipulating form and color to successfully convey a message. The design process is one of trial and error, and it often takes a lot of iteration to create a design that clearly communicates what you're trying to say.</p>
 
-  <p>One can argue that the first step to becoming a better designer involves learning how to see. You can practice this by starting with a simple exercise: Making a design for a word. This allows you to become comfortable with some basic design techniques, and this is exactly where we'll start: By looking at the most basic relationship in graphic design, the relationship between a single shape and the canvas, and using three simple variables, the **position**, **size**, and **rotation** of a rectangle, to create designs for different words.</p>
+  <p>One can argue that the first step to becoming a better designer involves learning how to see. You can practice this by starting with a simple exercise: Making a design for a word. This allows you to become comfortable with some basic design techniques, and this is exactly where we'll start: By looking at the most basic relationship in graphic design, the relationship between a single shape and the canvas, and using three simple variables, the position, size, and rotation of a rectangle, to create designs for different words.</p>
 
   <section data-type="sect1">
 
@@ -24,15 +24,19 @@ dek: We'll start by looking at one of the most basic relationships in graphic de
     <p>A shape will appear dominant if it takes up most of the canvas. We recognize this pattern from many design products that we encounter daily: Traffic signs have the word *STOP* taking up most of the area of the sign. Dialog boxes block out most of the text of a website to leave you with a single or binary option. It is a natural way to call attention to the shape.</p>
 
     <div class="two-grid">
-      <div class="col">{% p5 form/canvas-and-shape/dominant.js class="img" %}</div>
-      <div class="col">{% p5 form/canvas-and-shape/non-dominant.js class="img" %}</div>
+      <figure class="col">
+        {% p5 form/canvas-and-shape/dominant.js class="fig" %}
+        <figcaption>A large square appears dominant.</figcaption>
+      </figure>
+      <figure class="col">
+        {% p5 form/canvas-and-shape/non-dominant.js class="fig" %}
+        <figcaption>A small square appears less dominant.</figcaption>
+      </figure>
     </div>
 
     <p>The size of a shape can therefore be used to bring clarity to a design, by increasing the size of important shapes and decreasing the size of less important shapes. It can often help to draw black boxes on top of actual designs to reveal this relationship, and doing it on work by famous designers will reveal how this is an integral part of most design processes.</p>
 
-    <p>GOOD RELATIONSHIP - GOOD RELATIONSHIP WITH BLACK BOXES</p>
-
-    <p>BAD RELATIONSHIP - BAD RELATIONSHIP WITH BLACK BOXES</p>
+    <p>GRAPHIC DESIGN EXAMPLE WITH BLACK BOXES</p>
 
   </section>
 
@@ -44,13 +48,22 @@ dek: We'll start by looking at one of the most basic relationships in graphic de
 
     <p>This pattern is used throughout the design world to create, in lack of a better word, rhythm. Graphic novels use the positioning of captions to guide the reader through the storyline. Newspapers place the most important text in a heading at the top of an article, which also tends to have a larger size to set it apart.</p>
 
-    <p>THREE BOXES WITH LEFT, CENTER AND RIGHT POSITIONING. SEE NOTES.</p>
+    <div class="two-grid">
+      <figure class="col">
+        {% p5 form/canvas-and-shape/left.js class="fig" %}
+        <figcaption>First, because of reading direction.</figcaption>
+      </figure>
+      <figure class="col">
+        {% p5 form/canvas-and-shape/right.js class="fig" %}
+        <figcaption>Last, because of reading direction.</figcaption>
+      </figure>
+    </div>
 
-    <p>When you change the position of a shape, you also change the empty space between the shapes. This concept, often called whitespace, is another thing to notize. In example X2, there is an equal amount of whitespace on the sides of the rectangle. This creates symmetry and balance, which is broken in example X3 where the square moves off center.</p>
+    <p>When you change the position of a shape, you also change the empty space between the shapes. This concept, often called whitespace, is another thing to keep in mind. In example X2, there is an equal amount of whitespace on the sides of the rectangle. This creates symmetry and balance, which is broken in example X3 where the square moves off center.</p>
 
     {% include img.html src="test.svg" caption="In his famous ads for Volkswagen, William Bernbach used the position and size of the car to convey the message of the text." class="media-width" %}
 
-    ANOTHER EXAMPLE
+    <p>EXAMPLE: William Bernbache</p>
 
   </section>
 
@@ -60,9 +73,16 @@ dek: We'll start by looking at one of the most basic relationships in graphic de
 
     <p>A third important relationship relates to the rotation of shapes. Rotation can be used to make shapes come alive, as the whitespace around them becomes more complex and breaks the symmetry of the design.</p>
 
-    <p>DORMANT</p>
-
-    <p>DYNAMIC</p>
+    <div class="two-grid">
+      <figure class="col">
+        {% p5 form/canvas-and-shape/dormant.js class="fig" %}
+        <figcaption>Dormant.</figcaption>
+      </figure>
+      <figure class="col">
+        {% p5 form/canvas-and-shape/motion.js class="fig" %}
+        <figcaption>Motion</figcaption>
+      </figure>
+    </div>
 
     <p>We define rotation as a degree between 0 and 360 (often converted to radians that go between 0 and 2PI), and there is a natural relationship between the amount of rotation a shape has, and how complex a whitespace it produces. A rectangle with internal angles at 90 degrees will seem most dynamic with a rotation that is not a division of 90.</p>
 

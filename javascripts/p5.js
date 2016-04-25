@@ -1,4 +1,4 @@
-function P5toImg(el) {
+function P5toFig(el) {
 
   // Setup basic variables to use in iframe
   var code = el.innerHTML;
@@ -35,7 +35,7 @@ function P5toImg(el) {
 
   setSizeAttributes();
 
-  // insert after iframe after el
+  // insert iframe after el
   el.parentNode.insertBefore(iframe, el.nextSibling);
 
   // Set size attributes again when the window is done resizing.
@@ -49,8 +49,8 @@ function P5toImg(el) {
 
 (function() {
 
-  // Convert P5 to iframe images
-  var imgs = document.getElementsByClassName('p5 img');
-  for(var i = 0; i < imgs.length; i++) { P5toImg(imgs[i]); }
+  // Convert P5 to figures with iframes
+  var imgs = document.getElementsByClassName('p5 fig');
+  for(var i = 0; i < imgs.length; i++) { P5toFig(imgs[i]); }
 
 })();

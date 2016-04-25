@@ -1,0 +1,1 @@
+- Button to open a code editor / runner for all examples, also figures.

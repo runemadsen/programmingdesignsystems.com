@@ -42,10 +42,34 @@
     > .col {
       overflow-x: hidden;
       flex: 0 0 50%;
-      &:nth-child(odd) {
+      &:nth-child(1) {
         padding-right: 0.5em;
       }
-      &:nth-child(even) {
+      &:nth-child(2) {
+        padding-left: 0.5em;
+      }
+    }
+  }
+}
+
+// Layout: Three grid
+// -------------------------------------------------
+
+@media (min-width: $tabletBreak) {
+  .three-grid {
+    display: flex;
+    flex-wrap: wrap;
+    > .col {
+      overflow-x: hidden;
+      flex: 0 0 33.333332%;
+      &:nth-child(1) {
+        padding-right: 0.5em;
+      }
+      &:nth-child(2) {
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+      }
+      &:nth-child(3) {
         padding-left: 0.5em;
       }
     }

@@ -70,8 +70,12 @@
 
   figure {
     margin-bottom: 1.8em;
-    img {
+    img, iframe {
       margin-bottom: 0.8em;
+    }
+    figcaption {
+      margin-left: 1em;
+      max-width: 450px;
     }
   }
 
