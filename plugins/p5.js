@@ -17,9 +17,17 @@ Plugin.prototype = {
     var that = this;
 
     // function that gets called for every p5img tag
-    function p5img(context, tag, example) {
+    function p5img(context, tag, input) {
 
+      // Get name of example file to load
+      var example = input.split(' ')[0];
       var examplePath = path.join('examples', example);
+
+      // Get the attributes
+      var attrs = {};
+      var pattern = new RegExp('([a-zA-Z]+)="([a-zA-Z\s]+)"', 'g');
+      var match = null;
+      while (match = pattern.exec(input)) { attrs[match[1]] = match[2]; }
 
       // let's use caching so we don't load the same files over
       // and over again.
@@ -27,18 +35,13 @@ Plugin.prototype = {
         that.cache[examplePath] = fs.readFileSync(examplePath).toString();
       }
 
-      // find the width and the height from the code
-      var code = that.cache[examplePath];
-      var match = /createCanvas\((\d+),\s*(\d+)\)/.exec(code)
-      if(!match) console.warn('Example appears to not have a createCanvas function.');
-      var w = match[1];
-      var h = match[2];
-
-      var output = '<script class="p5img" data-width="'+w+'" data-height="'+h+'" data-p5-version="'+config.p5Version+'" type="text/p5">'+that.cache[examplePath]+'</script>';
+      // Render baby
+      var output = '<script type="text/p5" class="p5'+ (attrs["class"] ? ' '+attrs["class"] : '') +'">'+that.cache[examplePath]+'</script>';
       context.astStack.push(tinyliquid.parse(output));
+
     }
 
-    _.set(config, 'liquid.customTags.p5img', p5img);
+    _.set(config, 'liquid.customTags.p5', p5img);
 
     cb(null, config, extras);
   }

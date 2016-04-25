@@ -2,15 +2,14 @@
   "title" : "Programming Design Systems",
   "author" : "Rune Madsen",
   "twitter" : "https://twitter.com/runemadsen",
-  "p5Version" : "0.4.23",
   "addPlugins" : [
     "magicbook-codesplit",
-    "./plugins/p5img"
+    "./plugins/p5"
   ],
   "files" : [
     "content/1-toc.html",
     "content/2-introduction.md",
-    "content/**/*.md"
+    "content/**/*.html"
   ],
   "stylesheets" : {
     "files" : [
@@ -20,7 +19,8 @@
   "javascripts" : {
     "files" : [
       "javascripts/srcdoc-polyfill.js",
-      "javascripts/p5img.js"
+      "javascripts/utils.js",
+      "javascripts/p5.js"
     ]
   },
   "builds" : [

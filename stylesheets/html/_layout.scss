@@ -40,6 +40,7 @@
     display: flex;
     flex-wrap: wrap;
     > .col {
+      overflow-x: hidden;
       flex: 0 0 50%;
       &:nth-child(odd) {
         padding-right: 0.5em;
