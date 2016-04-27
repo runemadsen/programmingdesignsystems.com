@@ -1,4 +1,7 @@
-- Button to open a code editor / runner for all examples, also figures.
+- Codesplitter should be able to take lines string, which can be line range (4-7) or lines to pick out: (4, 5-6, 7). Use for rotation examples.
+
+
+
 
 
 Logos
