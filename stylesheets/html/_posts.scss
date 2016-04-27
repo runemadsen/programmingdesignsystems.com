@@ -1,41 +1,6 @@
-.header-width {
-  max-width: $headerWidth;
-  margin-left: auto;
-  margin-right: auto;
-}
+section[data-type="chapter"] {
 
-.text-width {
-  max-width: $textWidth;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.post-card {
-
-  position: relative;
-
-  a {
-    border-bottom: none;
-    color: $fontBlack;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-  h2 {
-    font-size: 1.5em;
-    margin: 0;
-    position: absolute;
-    top: 0.8em;
-    left: 0.8em;
-  }
-}
-
-.post {
-
-  header {
+  > header {
     @extend .header-width;
     margin-bottom: 2em;
     border-bottom: 1px solid $colorGray;
@@ -48,24 +13,16 @@
     p.dek {
       max-width: 100%;
       margin: 0 0 0.5em 0;
-      font-size: 1.3em;
-      line-height: 1.5em;
-    }
-
-    p.author {
-      font-size: 1.1em;
-      font-family: $fontBold;
-      margin: 0;
-
-      a {
-        border-bottom: none;
-        color: $fontBlack;
-      }
+      @extend .font-large;
     }
   }
 
-  p, section[data-type="sect1"] h1, h2 {
-    @extend .text-width;
+  // Paragraphs and headings directly inside chapter
+  // or sect should have text width.
+  &, section[data-type^="sect"] {
+    > p, > h1, > h2 {
+      @extend .text-width;
+    }
   }
 
   figure {
@@ -95,9 +52,8 @@
     border-bottom: none;
   }
   a:nth-child(1) {
-    font-size: 1.3em;
+    @extend .font-large;
     font-family: $fontBold;
-    margin-bottom: 0.5em;
   }
   a:nth-child(2) {
     color: $fontGray;

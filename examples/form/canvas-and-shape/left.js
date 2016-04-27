@@ -1,12 +1,12 @@
 function setup() {
 
   createCanvas(600, 450);
-  background(230);
+  background(255, 255, 220);;
 
   var rectSize = height * 0.15;
 
   noStroke();
-  fill(30);
+  fill(40);
   rect(rectSize, rectSize, rectSize, rectSize);
 
   noLoop();

@@ -1,0 +1,34 @@
+iframe {
+  border: none;
+  overflow: hidden;
+}
+
+div[data-type="exercise"] {
+
+  margin-top: 4em;
+  @extend .header-width;
+
+  header {
+    position: relative;
+    @extend .text-width;
+    margin-bottom: 2em;
+    h2 {
+      padding: 0 0.5em;
+      display: inline-block;
+      background-color: white;
+      @extend .allcaps;
+      position: absolute;
+      top: -1.4em;
+      left: -0.5em;
+    }
+  }
+
+  ul {
+    @extend .font-small;
+    @extend .text-width;
+    @extend .nobullets;
+    li {
+      margin-bottom: 1em;
+    }
+  }
+}

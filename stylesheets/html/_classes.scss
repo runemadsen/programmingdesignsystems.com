@@ -1,0 +1,54 @@
+// Typography
+// -------------------------------------------
+
+.allcaps {
+  text-transform: uppercase;
+  font-size: 1.25em;
+}
+
+.header-width {
+  max-width: $headerWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-width {
+  max-width: $textWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.font-xsmall {
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.font-small {
+  font-size: 1em;
+  line-height: 1.4em;
+}
+
+.font-normal {
+  font-size: 1.15em;
+  line-height: 1.6em;
+}
+
+.font-large {
+  font-size: 1.3em;
+  line-height: 1.6em;
+}
+
+// Lists
+// -------------------------------------------
+
+.nobullets {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+// Boxes
+// -------------------------------------------
+
+.placeholder {
+  background-color: $colorGrayLight;
+}

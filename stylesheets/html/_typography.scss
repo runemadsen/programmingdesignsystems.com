@@ -56,7 +56,7 @@ code {
 
 .caption, figcaption {
   color: $fontGray;
-  line-height: 1.4em;
+  @extend .font-small;
 }
 
 span[data-type="footnote"] {
@@ -66,7 +66,7 @@ span[data-type="footnote"] {
   vertical-align: baseline;
   position: relative;
   top: -0.4em;
-  font-size: 0.8em;
+  @extend .font-xsmall;
 }
 
 hr {
@@ -83,7 +83,7 @@ div[data-type="footnotes"] {
     width: 100px;
   }
   ol {
-    font-size: 0.9em;
+    @extend .font-xsmall;
     color: $fontGray;
     padding-left: 1em;
     li {
