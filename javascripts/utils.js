@@ -20,20 +20,23 @@ function lazyload(el, cb) {
   function checkVisibility() {
     if (!isElementInViewport(el, 1000))return;
     clearInterval(interval);
-    window.removeEventListener('scroll', checkVisibility, false);
+    window.removeEventListener('scrollEnd', checkVisibility, false);
     window.removeEventListener('resize', checkVisibility, false);
     cb(el);
   }
 
-  window.addEventListener('scroll', checkVisibility, false);
+  window.addEventListener('scrollEnd', checkVisibility, false);
   window.addEventListener('resize', checkVisibility, false);
-  //interval = setInterval(checkVisibility, 2000); // fallback
+  interval = setInterval(checkVisibility, 2000); // fallback
   checkVisibility();
 }
 
-// Emit a resizeEnd event on window whenever it is done
-// resizing.
+// Events
+// ---------------------------------------------
+
 (function() {
+
+  // resizeEnd
   var resizeTimer;
   window.onresize = function() {
     clearTimeout(resizeTimer);
@@ -41,4 +44,15 @@ function lazyload(el, cb) {
       window.dispatchEvent(new Event('resizeEnd'));
     }, 250);
   }
+
+  // scrollEnd
+  var scrollTimer;
+  window.onscroll = function() {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+      window.dispatchEvent(new Event('scrollEnd'));
+    }, 250);
+  }
+
+
 })();

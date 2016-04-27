@@ -47,14 +47,13 @@ code, pre {
 
 code {
   color: $fontBlack;
-
   line-height: 1.3em;
   max-width: 730px;
   background-color: $colorGrayLight;
   padding: 0.1em 0.3em;
 }
 
-.caption, figcaption {
+.caption, figcaption, figcaption code {
   color: $fontGrayLight;
   @extend .font-small;
 }
