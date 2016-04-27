@@ -73,20 +73,22 @@ dek: We'll start by looking at one of the most basic relationships in graphic de
 
     <p>A third important relationship relates to the rotation of shapes. Rotation can be used to make shapes come alive, as the whitespace around them becomes more complex and breaks the symmetry of the design.</p>
 
-    <div class="two-grid">
+    <p>We define rotation as a degree between 0 and 360 (often converted to radians that go between 0 and 2PI), and there is a natural relationship between the amount of rotation a shape has, and how complex a whitespace it produces. A rectangle with internal angles at 90 degrees will seem most dynamic with a rotation that is not a division of 90. This also happens to be the angles where the whitespace around the shape is most complex.</p>
+
+    <div class="three-grid">
       <figure class="col">
-        {% p5 form/canvas-and-shape/dormant.js class="fig" %}
-        <figcaption>A rectangle without rotation looks static.</figcaption>
+        {% p5 form/canvas-and-shape/rotation1.js class="fig" %}
+        <figcaption>A rectangle with no rotation appears static because of the symmetric whitespace.</figcaption>
       </figure>
       <figure class="col">
-        {% p5 form/canvas-and-shape/motion.js class="fig" %}
-        <figcaption>Adding rotation makes the rectangle appear in motion.</figcaption>
+        {% p5 form/canvas-and-shape/rotation2.js class="fig" %}
+        <figcaption>A rotation of 45&deg; creates more complex – but still symmetric – whitespace.</figcaption>
+      </figure>
+      <figure class="col">
+        {% p5 form/canvas-and-shape/rotation3.js class="fig" %}
+        <figcaption>A rotation of 27&deg; breaks the symmetry, and the rectangle appears in motion.</figcaption>
       </figure>
     </div>
-
-    <p>We define rotation as a degree between 0 and 360 (often converted to radians that go between 0 and 2PI), and there is a natural relationship between the amount of rotation a shape has, and how complex a whitespace it produces. A rectangle with internal angles at 90 degrees will seem most dynamic with a rotation that is not a division of 90.</p>
-
-    <p>45 degrees, 90 degrees, 27 degrees</p>
 
     <p>Rotation is used in many types of design products: Children's books use rotated shapes to make them look fun and playful. Popular magazines use rotated grid systems to make the content look less dry, while publications for a narrow target audience use horizontal grid systems to imply quality of the content within.</p>
 

@@ -4,12 +4,10 @@ function setup() {
   background(230);
 
   var rectSize = height * 0.15;
-  var x = rectSize;
-  var y = rectSize;
 
   noStroke();
   fill(30);
-  rect(x, y, rectSize, rectSize);
+  rect(rectSize, rectSize, rectSize, rectSize);
 
   noLoop();
 }

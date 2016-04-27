@@ -1,14 +1,11 @@
 function setup() {
-
   createCanvas(600, 450);
   background(230);
-
-  var rectSize = height * 0.7;
-
   rectMode(CENTER);
   noStroke();
   fill(30);
-  rect(width/2, height/2, rectSize, rectSize);
-
+  translate(width/2, height/2);
+  rotate(radians(-27));
+  rect(0, 0, height * 0.4, height * 0.4);
   noLoop();
 }
