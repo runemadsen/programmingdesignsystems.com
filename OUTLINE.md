@@ -3,13 +3,21 @@
 - Introduction
   - ADD: modular content.
   - ADD: P5.js section
+  - ADD: About magicbook
+
+- Quick introducion to P5.js
 
 - Form
   - [ ] History of form
-  - [x] Canvas and shape
-  - [/] Basic Shapes
+  - [ ] Canvas and shape
+  - [ ] Basic Shapes
   - [ ] Custom Shapes
-  - [ ] Shape interactions
+  - [ ] Basic repetition
+
+  FOR THESE, USE VISUAL LANGUAGE...
+  - [ ] Basic randomization
+  - [ ] Shape Relationships
+    - THESE: https://quizlet.com/25971522/basic-elements-and-principles-of-the-visual-language-flash-cards/
     - Positive and negative
     - Tension
     - Rhythm
@@ -17,17 +25,20 @@
     - Clustering and separation
     - Aligning
     - Overlapping
-  - [ ] Layout techniques
-    - Law of thirds
-    - Golden ratio
-    - Root 2/3/4/5?
-    - Exponential
-    - More from Geometry of design
-
 
 - Color
   - [ ] History of color
   - [ ] Color models
+
+- Layout
+  - Law of thirds
+  - Golden ratio
+  - Root 2/3/4/5?
+  - Exponential
+  - More from Geometry of design
+  - Grid systems
+    - [ ] History of grid systems
+    - .... different grids
 
 - Repetition
   - [ ] History of repetition
@@ -42,11 +53,6 @@
   - [ ] History of randomization
   - [ ] What is randomization?
     - It's just a number. You choose what you use it for (illustrations with using a number for size or color)
-
-
-- Grid systems
-  - [ ] History of grid systems
-  - .... different grids
 
 - Motion
   - [ ] History of motion
