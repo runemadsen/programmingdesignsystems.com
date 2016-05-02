@@ -106,29 +106,25 @@ dek: We'll start by looking at one of the most basic relationships in graphic de
 
     <p>In code, we define rotation as a number between 0 and 360 (degrees), often converted to a number between 0 and 6.28318530718 (radians) with the <code>radians()</code> function. It is important to understand how graphic programming languages – and P5.js in particular – applies rotation to shapes. When you use the <code>rotate()</code> function, you are actually rotating the entire coordinate system, and all shapes drawn after this rotation will be drawn in the rotated coordinate system.</p>
 
-    <div class="two-grid">
-      <figure class="col">
-        {% p5 form/canvas-and-shape/coordinates.js class="fig" %}
-        <figcaption>Without rotation, the coordinate system is placed in the top left of the canvas.</figcaption>
-      </figure>
-      <figure class="col">
-        {% p5 form/canvas-and-shape/coordinates-rotated.js class="fig" %}
-        <figcaption>When calling <code>rotate()</code> the coordinate system rotates, and shapes are drawn in the rotated coordinate system.</figcaption>
-      </figure>
+    <div class="commentator">
+      {% codesplit form/canvas-and-shape/coordinates.js lines="11-17" %}
+      <figure>{% p5 form/canvas-and-shape/coordinates.js class="fig" %}</figure>
     </div>
 
-    <p>This means that when using just the <code>rotate()</code> function, all shapes are rotated around the top left of the canvas. However, you can use the <code>translate()</code> function to move the entire coordinate system, and this is very helpful if you want to rotate shapes around a specific point on the screen. This example shows how you can rotate a rectangle around its own position.
+    <div class="commentator">
+      {% codesplit form/canvas-and-shape/coordinates-rotated.js lines="6-12,17" %}
+      <figure>{% p5 form/canvas-and-shape/coordinates-rotated.js class="fig" %}</figure>
+    </div>
 
-      <div class="two-grid">
-        <figure class="col">
-          {% p5 form/canvas-and-shape/coordinates-translated.js class="fig" %}
-          <figcaption>Calling <code>translate()</code> moves the coordinate system. This rectangle is drawn at 0,0.</figcaption>
-        </figure>
-        <figure class="col">
-          {% p5 form/canvas-and-shape/coordinates-translated-rotated.js class="fig" %}
-          <figcaption>Combining <code>rotate()</code> and <code>translate()</code> allows you to rotate around any location in the canvas.</figcaption>
-        </figure>
-      </div>
+    <div class="commentator">
+      {% codesplit form/canvas-and-shape/coordinates-translated.js lines="6-13,18" %}
+      <figure>{% p5 form/canvas-and-shape/coordinates-translated.js class="fig" %}</figure>
+    </div>
+
+    <div class="commentator">
+      {% codesplit form/canvas-and-shape/coordinates-translated-rotated.js lines="6-13,18" %}
+      <figure>{% p5 form/canvas-and-shape/coordinates-translated-rotated.js class="fig" %}</figure>
+    </div>
 
     <p>As we dive into more layout techniques, we will further investigate how to use <code>translate()</code> and <code>rotate()</code> to make more sophisticated designs.</p>
 

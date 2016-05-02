@@ -12,7 +12,7 @@ a {
 }
 
 p {
-  font-size: 1.15em;
+  @extend .font-normal;
   line-height: 1.6em;
 }
 
@@ -38,19 +38,6 @@ section[data-type="sect1"] h1, h2 {
   font-family: $fontBold;
   margin-bottom: 0.1em;
   font-weight: 500;
-}
-
-code, pre {
-  font-size: 0.95em;
-  font-family: $fontCode;
-}
-
-code {
-  color: $fontBlack;
-  line-height: 1.3em;
-  max-width: 730px;
-  background-color: $colorGrayLight;
-  padding: 0.1em 0.3em;
 }
 
 .caption, figcaption, figcaption code {

@@ -8,11 +8,13 @@ function setup() {
   rect(0, 0, width, height);
   fill(40);
 
-  // THIS SHOULD HAVE TEXT THAT GOES INTO CAPTION.
-  var rectSize = height * 0.3;
-  var rectX = width * 0.3;
-  var rectY = height * 0.3;
-  rect(rectX, rectY, rectSize, rectSize);
+  // In this example, the coordinate system is not rotated, so the rectangle
+  // is simply drawn at the specified location.
+  var x = width / 3;
+  var y = height / 3;
+  var s = height / 3;
+  
+  rect(x, y, s, s);
 
   noLoop();
 }

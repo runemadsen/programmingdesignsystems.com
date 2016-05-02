@@ -75,3 +75,23 @@
     }
   }
 }
+
+// Layout: Commentator
+// -------------------------------------------------
+
+@media (min-width: $tabletBreak) {
+  .commentator {
+    display: flex;
+    flex-wrap: wrap;
+    > .codesplit, figure {
+      overflow-x: hidden;
+      flex: 0 0 50%;
+      &:nth-child(1) {
+        padding-right: 1em;
+      }
+      &:nth-child(2) {
+        padding-left: 1em;
+      }
+    }
+  }
+}

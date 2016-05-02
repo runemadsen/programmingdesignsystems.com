@@ -1,7 +1,10 @@
 {
-  "dependencies" : {
-    "magicbook-codesplit" : "^0.0.3",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "codemirror": "^5.14.2",
     "lodash": "^4.6.1",
+    "magicbook-codesplit": "^0.1.0",
+    "through2": "^2.0.1",
     "tinyliquid": "^0.2.31"
   }
 }

@@ -4,7 +4,8 @@
   "twitter" : "https://twitter.com/runemadsen",
   "addPlugins" : [
     "magicbook-codesplit",
-    "./plugins/p5"
+    "./plugins/p5",
+    "./plugins/highlight"
   ],
   "files" : [
     "content/1-toc.html",

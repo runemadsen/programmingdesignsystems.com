@@ -3,16 +3,19 @@ function setup() {
   createCanvas(600, 450);
   background(255, 255, 220);
 
-  var rectSize = height * 0.3;
-  var rectX = width * 0.3;
-  var rectY = height * 0.3;
+  // Here we move the coordinate system by using translate. We draw
+  // the rectangle at 0,0 because the coordinate system has moved to the
+  // point where we want to draw the rectangle.
+  var x = width / 3;
+  var y = height / 3;
+  var s = height / 3;
 
-  translate(rectX, rectY);
+  translate(x, y);
   noStroke();
   fill(255, 255, 170);
   rect(0, 0, width, height);
   fill(40);
-  rect(0, 0, rectSize, rectSize);
+  rect(0, 0, s, s);
 
   noLoop();
 }
