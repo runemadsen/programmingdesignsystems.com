@@ -25,9 +25,9 @@ Plugin.prototype = {
 
       // Get the attributes
       var attrs = {};
-      var pattern = new RegExp('([a-zA-Z]+)="([a-zA-Z\s]+)"', 'g');
+      var pattern = new RegExp('([a-zA-Z]+)\:("|\')(.+)("|\')', 'g');
       var match = null;
-      while (match = pattern.exec(input)) { attrs[match[1]] = match[2]; }
+      while (match = pattern.exec(input)) { attrs[match[1]] = match[3]; }
 
       // let's use caching so we don't load the same files over
       // and over again.
