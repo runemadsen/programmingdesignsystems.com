@@ -18,21 +18,11 @@
 
 body {
   font-size: 100%;
-  color: #333;
+  color: #404040;
   font-family: "AtlasGrotesk-Regular";
 }
 
-.container {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 80px;
-}
-
 h1 {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 2.4em;
   line-height: 0.95em;
   letter-spacing: -0.02em;
@@ -41,9 +31,6 @@ h1 {
 }
 
 h2 {
-  max-width: 630px;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 1.8em;
   line-height: 0.95em;
   letter-spacing: -0.02em;
@@ -51,20 +38,7 @@ h2 {
   font-weight: 700;
 }
 
-p#dek {
-  font-size: 1.3em;
-  line-height: 1.5em;
-  margin-left: 0;
-  margin-right: 0;
-}
-
 p {
   font-size: 1.15em;
   line-height: 1.6em;
-}
-
-.container > p {
-  max-width: 630px;
-  margin-left: auto;
-  margin-right: auto;
 }
