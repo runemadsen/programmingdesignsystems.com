@@ -1,5 +1,4 @@
-- Codesplitter should be able to take lines string, which can be line range (4-7) or lines to pick out: (4, 5-6, 7).
-- Use codesplitter in rotation examples with 3-box layout like in playground.
+- The static/dynamic examples are not explained super well. Need color coding and figcaptions.
 
 
 

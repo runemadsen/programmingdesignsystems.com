@@ -48,6 +48,12 @@
       &:nth-child(2) {
         padding-left: 0.5em;
       }
+      &.one-third {
+        flex: 0 0 33.33333%;
+      }
+      &.two-thirds {
+        flex: 0 0 66.66666%;
+      }
     }
   }
 }

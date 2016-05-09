@@ -40,11 +40,33 @@ dek: We'll start by looking at one of the most basic relationships in graphic de
 
     <p>Using the drawing functions in P5.js, it's easy to draw shapes in different sizes. The following example shows the simplest possible way to draw a rectangle on the left half of the canvas. However, if you change the width of the canvas, the rectangle will no longer fill half the canvas. So even though the code is simple, it is hard to test variations of the design when using static number to size your shapes.</p>
 
-    <p>EXAMPLE: RED NON SCALED AND RED SCALED WHERE RECT IS SAME SIZE</p>
+    THIS SHOULD BE RED.
 
-    <p>You can write smarter code by basing the size of your shapes on the size of the canvas. Here's that same sketch where the width of the rectangle is calculated using the width of the canvas. This simple change makes it easy to resize your canvas without needing to change any other line of code. This is a method that is used throughout this book, as it's simply good practice, and it will make it easier for you to test variations of your code-based designs.
+    <div class="two-grid">
+      <figure class="col one-third">
+        <figure>{% p5 form/canvas-and-shape/static-half.js class:'fig' %}</figure>
+        {% codesplit form/canvas-and-shape/static-half.js lines:'3,8' %}
+      </figure>
+      <figure class="col two-thirds">
+        <figure>{% p5 form/canvas-and-shape/static-half-scaled.js class:'fig' %}</figure>
+        {% codesplit form/canvas-and-shape/static-half-scaled.js lines:'3,8' %}
+      </figure>
+    </div>
 
-    <p>EXAMPLE: GREEN: NON SCALED AND GREEN SCALED WHERE RECT SCALES TOO</p>
+    <p>You can write smarter code by basing the size of your shapes on the size of the canvas. Here's that same sketch where the width of the rectangle is calculated using the width of the canvas. This simple change makes it easy to resize your canvas without needing to change any other line of code. This is a method that is used throughout this book, as it's simply good practice, and it will make it easier for you to test variations of your code-based designs.</p>
+
+    THIS SHOULD BE GREEN.
+
+      <div class="two-grid">
+        <figure class="col one-third">
+          <figure>{% p5 form/canvas-and-shape/dynamic-half.js class:'fig' %}</figure>
+          {% codesplit form/canvas-and-shape/dynamic-half.js lines:'3,8' %}
+        </figure>
+        <figure class="col two-thirds">
+          <figure>{% p5 form/canvas-and-shape/dynamic-half-scaled.js class:'fig' %}</figure>
+          {% codesplit form/canvas-and-shape/dynamic-half-scaled.js lines:'3,8' %}
+        </figure>
+      </div>
 
   </section>
 
