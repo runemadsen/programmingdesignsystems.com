@@ -1,7 +1,7 @@
 ---
 svg: test.svg
 title:  Canvas and shape
-dek: We'll start by looking at one of the most basic relationships in graphic design&#58; The relationship between the canvas and a single shape.
+dek: Our first step into the world of graphic design involves looking at the relationship between the canvas and a single shape.
 ---
 
 <section data-type="chapter">
@@ -11,32 +11,34 @@ dek: We'll start by looking at one of the most basic relationships in graphic de
     <p class="dek">{{ page.dek }}</p>
   </header>
 
-  <p>As we begin our journey into the field of graphic design, it's important to start at the very beginning. Graphic design is the art of manipulating form and color to successfully convey a message. The design process is one of trial and error, and it often takes a lot of iteration to create a design that clearly communicates what you're trying to say.</p>
+  <p>As we begin our journey into the field of graphic design, it's important to start at the very beginning. Graphic design is the art of using form and color to successfully convey a message, but this is not as easy as it sounds. The design process is one of trial and error, and it often takes many iterations to create a design that clearly communicates what you're trying to say. Although we tend to think of this design process as something involving gut instinct, experienced designers have an ever-expanding checklist of visual relationships that helps guide them through to the end.</p>
 
-  <p>One can argue that the first step to becoming a better designer involves learning how to see. You can practice this by starting with a simple exercise: Making a design for a word. This allows you to become comfortable with some basic design techniques, and this is exactly where we'll start: By looking at the most basic relationship in graphic design, the relationship between a single shape and the canvas, and using three simple variables, the position, size, and rotation of a rectangle, to create designs for different words.</p>
+  <p>The first item on this checklist is learning how to manipulate a single shape to produce desired outcomes. We will investigate how changing three simple variables of a rectangle – the position, size, and rotation – can result in drastically different expressions. Although somehow basic, these variables are an important first set of techniques to be employed at the beginning of every design process, replacing hours of searching through online portfolios of the latest trends in the design world.</p>
 
   <section data-type="sect1">
 
     <h1>Size</h1>
 
-    <p>When you start drawing shapes in a blank canvas, one of the first considerations to make, is what size your shapes should be. Size matters because it effectively communicates whether a shape is important or not.</p>
-
-    <p>A shape will appear dominant if it takes up most of the canvas. We recognize this pattern from many design products that we encounter daily: Traffic signs have the word *STOP* taking up most of the area of the sign. Dialog boxes block out most of the text of a website to leave you with a single or binary option. The size of a shape can therefore be used to bring clarity to a design, by increasing the size of important shapes and decreasing the size of less important shapes.</p>
+    <p>The size of a shape is important, as it communicates whether that shape is important or not. By increasing the size of important shapes and decreasing the size of less important shapes, you can bring clarity to a design, and this is a pattern we encounter daily in everything from traffic signs to website dialog boxes.</p>
 
     <div class="two-grid">
       <figure class="col">
         {% p5 form/canvas-and-shape/dominant.js class:'fig' %}
-        <figcaption>A large square appears dominant.</figcaption>
+        <figcaption>This square is dominant because it takes up most of the canvas.</figcaption>
       </figure>
       <figure class="col">
         {% p5 form/canvas-and-shape/non-dominant.js class:'fig' %}
-        <figcaption>A small square appears less dominant.</figcaption>
+        <figcaption>This square is less dominant because of the large empty space around it.</figcaption>
       </figure>
     </div>
 
+    <p>Spiel about thinking about your content.</p>
+
+    <p>WILLIAM BERNBACHE</p>
+
     <p>It can often help to draw black boxes on top of actual designs to reveal this relationship, and doing it on work by famous designers will reveal how this is an integral part of most design processes.</p>
 
-    <p>GRAPHIC DESIGN EXAMPLE WITH BLACK BOXES</p>
+    <p>TWO DESIGNS WITH BLACK BOXES, ONE SUCCESSFUL AND ONE NOT. BOTH TRYING TO DO THE SAME THING.</p>
 
     <p>Using the drawing functions in P5.js, it's easy to draw shapes in different sizes. The following example shows the simplest possible way to draw a rectangle on the left half of the canvas. However, if you change the width of the canvas, the rectangle will no longer fill half the canvas. So even though the code is simple, it is hard to test variations of the design when using static number to size your shapes.</p>
 

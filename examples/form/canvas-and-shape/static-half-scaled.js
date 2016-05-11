@@ -5,7 +5,7 @@ function setup() {
   noStroke();
 
   fill(40);
-  rect(0, 0, 200, height);
+  rect(0, 0, 180, height);
 
   noLoop();
 }
