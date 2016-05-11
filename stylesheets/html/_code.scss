@@ -18,7 +18,14 @@ code {
   padding: 0.1em 0.3em;
 }
 
-.cm-s-pds { color: #4d463e; background: #F6F7F9; }
+// Default CodeMirror theme
+.cm-s-pds {
+  color: #4d463e;
+  background: #F6F7F9;
+  code {
+    background: transparent;
+  }
+}
 .cm-s-pds .CodeMirror-activeline-background { background: #eeeeee; }
 .cm-s-pds .CodeMirror-selected { background: #60A365; }
 .cm-s-pds .cm-keyword { color: #7A99B8; }
@@ -27,3 +34,9 @@ code {
 .cm-s-pds .cm-variable { color: #3D668F; }
 .cm-s-pds .cm-def {  }
 .cm-s-pds .cm-property { color: #95CC5E; }
+
+// Red CodeMirror theme
+.cm-s-pds.red { background: $colorRedLight; }
+
+// Green CodeMirror theme
+.cm-s-pds.green { background: $colorGreenLight; }

@@ -1,7 +1,7 @@
 ---
 svg: test.svg
 title:  Canvas and shape
-dek: Our first step into the world of graphic design involves looking at the relationship between the canvas and a single shape.
+dek: Our first steps into the world of graphic design involves looking at the relationship between the canvas and a single shape.
 ---
 
 <section data-type="chapter">
@@ -13,7 +13,7 @@ dek: Our first step into the world of graphic design involves looking at the rel
 
   <p>As we begin our journey into the field of graphic design, it's important to start at the very beginning. Graphic design is the art of using form and color to successfully convey a message, but this is not as easy as it sounds. The design process is one of trial and error, and it often takes many iterations to create a design that clearly communicates what you're trying to say. Although we tend to think of this design process as something involving gut instinct, experienced designers have an ever-expanding checklist of visual relationships that helps guide them through to the end.</p>
 
-  <p>The first item on this checklist is learning how to manipulate a single shape to produce desired outcomes. We will investigate how changing three simple variables of a rectangle – the position, size, and rotation – can result in drastically different expressions. Although somehow basic, these variables are an important first set of techniques to be employed at the beginning of every design process, replacing hours of searching through online portfolios of the latest trends in the design world.</p>
+  <p>The first item on this checklist is learning how to manipulate a single shape to produce desired outcomes. We will investigate how changing three simple variables of a rectangle – the position, size, and rotation – can result in drastically different expressions. Although somehow basic, these variables are an important first set of techniques to be employed at the beginning of every design process, replacing hours of searching through online portfolios of the latest trends in the design world. We will also look at a few related techniques that can help you write flexible, dynamic code.</p>
 
   <section data-type="sect1">
 
@@ -32,7 +32,7 @@ dek: Our first step into the world of graphic design involves looking at the rel
       </figure>
     </div>
 
-    <p>In his famous advertising designs for Volkswagen, William Bernbach used the size of a car to emphasize the supporting text copy. This is a great example of a simple but highly effective design using sizing as a guiding principle.</p>
+    <p>A famous example of sizing in graphic design is Helmut Krone and William Bernbach's <em>Think Small</em> advertising campaign for Volkswagen. In this series of magazine ads, an image of the Volkwagen Beetle is printed in different sizes to emphasize the supporting text copy.</p>
 
     <div class="two-grid header-width">
       <figure class="col">
@@ -43,39 +43,23 @@ dek: Our first step into the world of graphic design involves looking at the rel
       </figure>
     </div>
 
-    <p>It can often help to draw black boxes on top of actual designs to reveal this relationship, and doing it on work by famous designers will reveal how this is an integral part of most design processes.</p>
+    <p>It is a worthwhile exercise to find designs that you consider successful or unsucessful, and draw black boxes on top of the shapes to reveal the underlying relationship of sizes. This will highlight how sizing is an integral part of most successful designs, and how neglecting to think about sizing can lead to cluttered or unorganized layouts.</p>
 
     <p>TWO DESIGNS WITH BLACK BOXES, ONE SUCCESSFUL AND ONE NOT. BOTH TRYING TO DO THE SAME THING.</p>
 
-    <p>Using the drawing functions in P5.js, it's easy to draw shapes in different sizes. The following example shows the simplest possible way to draw a rectangle on the left half of the canvas. However, if you change the width of the canvas, the rectangle will no longer fill half the canvas. So even though the code is simple, it is hard to test variations of the design when using static number to size your shapes.</p>
+    <p>The title of this book, <em>Programming Design Systems</em>, refers to the fact that when we create graphic designs in code, we are not merely drawing something, but programming a system to draw something. It is therefore up to us, the designers, to write this system so it is easy to understand and to improve upon. In this particular instance, you can make your code more flexible by dynamically calculating the size of your shapes using the width and height of the canvas.</p>
 
-    THIS SHOULD BE RED.
+    <p>Let's say that we're writing a simple sketch with a rectangle that fills half the canvas. We could write the following code, where we use basic arithmetic to figure out that 250 pixels is half of the 500 pixels wide canvas.</p>
 
-    <div class="two-grid">
-      <figure class="col one-third">
-        <figure>{% p5 form/canvas-and-shape/static-half.js class:'fig' %}</figure>
-        {% codesplit form/canvas-and-shape/static-half.js lines:'3,8' %}
-      </figure>
-      <figure class="col two-thirds">
-        <figure>{% p5 form/canvas-and-shape/static-half-scaled.js class:'fig' %}</figure>
-        {% codesplit form/canvas-and-shape/static-half-scaled.js lines:'3,8' %}
-      </figure>
-    </div>
+    <pre class="text-width"><code>createCanvas(500, 500);
+rect(0, 0, 250, 500);</code></pre>
 
-    <p>You can write smarter code by basing the size of your shapes on the size of the canvas. Here's that same sketch where the width of the rectangle is calculated using the width of the canvas. This simple change makes it easy to resize your canvas without needing to change any other line of code. This is a method that is used throughout this book, as it's simply good practice, and it will make it easier for you to test variations of your code-based designs.</p>
+    <p>However, this doesn't really describe the relationship between the screen and the rectangle in code. If I were to change the size of the canvas, the rectangle would no longer span half the canvas. Instead, we want to dynamically calculate the size of the rectangle based on dimension of the canvas, using the <code>width</code> and <code>height</code> variables.</p>
 
-    THIS SHOULD BE GREEN.
+    <pre class="text-width"><code>createCanvas(500, 500);
+rect(0, 0, width/2, height);</code></pre>
 
-      <div class="two-grid">
-        <figure class="col one-third">
-          {% p5 form/canvas-and-shape/dynamic-half.js class:'fig' %}
-          {% codesplit form/canvas-and-shape/dynamic-half.js lines:'3,8' %}
-        </figure>
-        <figure class="col two-thirds">
-          {% p5 form/canvas-and-shape/dynamic-half-scaled.js class:'fig' %}
-          {% codesplit form/canvas-and-shape/dynamic-half-scaled.js lines:'3,8' %}
-        </figure>
-      </div>
+    <p>This produces the same result, but it makes sure that the rectangle dynamically resizes based on the size of the canvas. This is a method that is used throughout this book, as it's simply good practice, and it will make it easier for you to test variations of your code-based designs.</p>
 
   </section>
 
