@@ -47,19 +47,17 @@ dek: Our first steps into the world of graphic design involves looking at the re
 
     <p>TWO DESIGNS WITH BLACK BOXES, ONE SUCCESSFUL AND ONE NOT. BOTH TRYING TO DO THE SAME THING.</p>
 
-    <p>The title of this book, <em>Programming Design Systems</em>, refers to the fact that when we create graphic designs in code, we are not merely drawing something, but programming a system to draw something. It is therefore up to us, the designers, to write this system so it is easy to understand and to improve upon. In this particular instance, you can make your code more flexible by dynamically calculating the size of your shapes using the width and height of the canvas.</p>
-
-    <p>Let's say that we're writing a simple sketch with a rectangle that fills half the canvas. We could write the following code, where we use basic arithmetic to figure out that 250 pixels is half of the 500 pixels wide canvas.</p>
+    <p>To draw a rectangle with P5.js, we use the <code>rect(x, y, width, height)</code> function. In the following example, we draw a 250 pixels wide rectangle, which takes up half the width of the 500 pixels wide canvas.</p>
 
     <pre class="text-width"><code>createCanvas(500, 500);
 rect(0, 0, 250, 500);</code></pre>
 
-    <p>However, this doesn't really describe the relationship between the screen and the rectangle in code. If I were to change the size of the canvas, the rectangle would no longer span half the canvas. Instead, we want to dynamically calculate the size of the rectangle based on dimension of the canvas, using the <code>width</code> and <code>height</code> variables.</p>
+    <p>Although this code certainly works, it doesn't really do a good job describing the relationship between the canvas and the rectangle. If I were to change the size of the canvas, the rectangle would no longer span half the canvas. The title of this book, <em>Programming Design Systems</em>, refers to the fact that when we create graphic designs in code, we are not merely drawing something, but programming a system to draw something. It is therefore up to us, the designers, to write our code so it is easy to understand and to improve upon. In this case, you can make your code more flexible by calculating the size of your rectangle with the <code>width</code> and <code>height</code> variables. These variables are created for you by P5.js, and they will always hold the size of the canvas.</p>
 
     <pre class="text-width"><code>createCanvas(500, 500);
 rect(0, 0, width/2, height);</code></pre>
 
-    <p>This produces the same result, but it makes sure that the rectangle dynamically resizes based on the size of the canvas. This is a method that is used throughout this book, as it's simply good practice, and it will make it easier for you to test variations of your code-based designs.</p>
+    <p>The code above produces the same result, but it makes sure that the rectangle resizes based on the size of the canvas. This method is used throughout this book, as it's simply good practice, and it will make it easier for you to test variations of your code-based designs.</p>
 
   </section>
 
@@ -67,7 +65,7 @@ rect(0, 0, width/2, height);</code></pre>
 
     <h1>Position</h1>
 
-    <p>Another important relationship is the positioning of shapes in the canvas. Most languages have a natural reading direction (english is left to right, arabic right to left) that can be used to prioritize the importance of shapes. Proper use of positioning simply gives the reader a clue about where to start.</p>
+    <p>Another important relationship is the positioning of shapes in the canvas. Most languages have a natural reading direction (english is left to right, arabic right to left) that can be used to prioritize the importance of shapes. Positioning shapes in the reading direction gives the user a clue about where to start.</p>
 
     <p>This pattern is used throughout the design world to create, in lack of a better word, rhythm. Graphic novels use the positioning of captions to guide the reader through the storyline. Newspapers place the most important text in a heading at the top of an article, which also tends to have a larger size to set it apart.</p>
 
@@ -157,15 +155,7 @@ rect(0, 0, width/2, height);</code></pre>
 
   <section data-type="sect1">
 
-    <h1>Combining the three</h1>
-
-    <p>These variables are all proportional to the dimensions of the canvas, so if you make the canvas bigger, the shapes should be bigger too. This would take a lot of manual work in a program like Illustrator, but in code we can use the width and height of the canvas to automatically calculate the position of our shapes.</p>
-
-    <p>The following two lines of code have identical outcomes, but the latter will place the rectangle in the bottom right corner, no matter the canvas size. The former will not.</p>
-
-    {% include code_static.html caption="Do not use hardcoded numbers." class="media-width dont" code="rect(900, 900, 100, 100);" %}
-
-    {% include code_static.html caption="Do use width and height to calculate position." class="media-width do" code="rect(width - 100, height - 100, 100, 100);" %}
+    <h1>Designing a word</h1>
 
     <p>By constraining yourself to just a rectangle and these three variables, you will train one of the most fundamental skills in design: Seeing visual relationships. The following examples of designs for a single word will give you some idea of what the result might look like.</p>
 
