@@ -43,16 +43,16 @@ dek: Our first steps into the world of graphic design involves looking at the re
       </figure>
     </div>
 
-    <p>It is a worthwhile exercise to find designs that you consider successful or unsucessful, and draw black boxes on top of the shapes to reveal the underlying relationship of sizes. This will highlight how sizing is an integral part of most successful designs, and how neglecting to think about sizing can lead to cluttered or unorganized layouts.</p>
+    <p>You can reveal the underlying relationship of sizes by drawing black boxes on top of shapes in existing designs. This will highlight how sizing is an integral part of most successful designs, and how neglecting to think about sizing can lead to cluttered or unorganized layouts.</p>
 
     <p>TWO DESIGNS WITH BLACK BOXES, ONE SUCCESSFUL AND ONE NOT. BOTH TRYING TO DO THE SAME THING.</p>
 
-    <p>To draw a rectangle with P5.js, we use the <code>rect(x, y, width, height)</code> function. In the following example, we draw a 250 pixels wide rectangle, which takes up half the width of the 500 pixels wide canvas.</p>
+    <p>All basic drawing functions in P5.js allows you to specify the size of the shape you're drawing. To draw a rectangle, we use the <code>rect(x, y, width, height)</code> function. In the following example, we draw a rectangle that takes up half the width of canvas.</p>
 
     <pre class="text-width"><code>createCanvas(500, 500);
 rect(0, 0, 250, 500);</code></pre>
 
-    <p>Although this code certainly works, it doesn't really do a good job describing the relationship between the canvas and the rectangle. If I were to change the size of the canvas, the rectangle would no longer span half the canvas. The title of this book, <em>Programming Design Systems</em>, refers to the fact that when we create graphic designs in code, we are not merely drawing something, but programming a system to draw something. It is therefore up to us, the designers, to write our code so it is easy to understand and to improve upon. In this case, you can make your code more flexible by calculating the size of your rectangle with the <code>width</code> and <code>height</code> variables. These variables are created for you by P5.js, and they will always hold the size of the canvas.</p>
+    <p>Although this code certainly works, it doesn't really do a good job describing the relationship between the canvas and the rectangle. If I were to change the size of the canvas, the rectangle would no longer span half the canvas. The title of this book, <em>Programming Design Systems</em>, refers to the fact that when we create graphic designs in code, we are not merely drawing something, but programming a system to draw something. It is therefore up to us, the designers, to write our code so it is flexible, easy to understand, and easy to improve upon. In this case, you can make your code more flexible by calculating the size of your rectangle with the <code>width</code> and <code>height</code> variables. These variables are created for you by P5.js, and they will always hold the size of the canvas.</p>
 
     <pre class="text-width"><code>createCanvas(500, 500);
 rect(0, 0, width/2, height);</code></pre>
@@ -65,7 +65,7 @@ rect(0, 0, width/2, height);</code></pre>
 
     <h1>Position</h1>
 
-    <p>Another important relationship is the positioning of shapes in the canvas. Most languages have a natural reading direction (english is left to right, arabic right to left) that can be used to prioritize the importance of shapes. Positioning shapes in the reading direction gives the user a clue about where to start.</p>
+    <p>Like words in a paragraph of text, the position of a shape indicates the order of the shape in the design. Most written languages have a natural reading direction (english is left to right, arabic right to left), and this can be used to prioritize the importance of shapes, and tell the user where to start reading.</p>
 
     <p>This pattern is used throughout the design world to create, in lack of a better word, rhythm. Graphic novels use the positioning of captions to guide the reader through the storyline. Newspapers place the most important text in a heading at the top of an article, which also tends to have a larger size to set it apart.</p>
 
@@ -80,9 +80,16 @@ rect(0, 0, width/2, height);</code></pre>
       </figure>
     </div>
 
-    <p>When you change the position of a shape, you also change the empty space between the shapes. This concept, often called whitespace, is another thing to keep in mind. In example X2, there is an equal amount of whitespace on the sides of the rectangle. This creates symmetry and balance, which is broken in example X3 where the square moves off center.</p>
+    <p>In these posters for Swiss Auto Club, Joseph Müller-Brockmann uses both position and size to prioritize certain shapes. On the left, the vehicle in motion is prioritized to make it apparent that it is about to run into the child. On the right, the bicycle is prioritized to indicate that the car has seen the bike. Notice also how changing the position of shapes also changes the whitespace between them, which can be used to create both balance and asymmetry.</p>
 
-    <p>EXAMPLE: William Bernbache. In his famous ads for Volkswagen, William Bernbach used the position and size of the car to convey the message of the text. BOTH SMALL AND LARGE</p>
+    <div class="two-grid header-width">
+      <figure class="col">
+        <img src="form/canvas-and-shape/brockmann-motorbike.jpg" />
+      </figure>
+      <figure class="col">
+        <img src="form/canvas-and-shape/brockmann-bicycle.jpg" />
+      </figure>
+    </div>
 
     <p>It is often helpful to use variables at the top of your code to store the position of your shapes. The example on the left shows the simplest possible way to draw a rectangle near the bottom right of the canvas. However, if you want to change the amount of space between the rectangle and the edge of the canvas, you will need to change many numbers in your code. As your code becomes more complex, this becomes hard to maintain. The same design is implemented in a much better way in the example to the right, introducing two variables that is used throughout the code.</p>
 
@@ -155,7 +162,7 @@ rect(0, 0, width/2, height);</code></pre>
 
   <section data-type="sect1">
 
-    <h1>Designing a word</h1>
+    <h1>Designing a word</h1>magicb
 
     <p>By constraining yourself to just a rectangle and these three variables, you will train one of the most fundamental skills in design: Seeing visual relationships. The following examples of designs for a single word will give you some idea of what the result might look like.</p>
 
