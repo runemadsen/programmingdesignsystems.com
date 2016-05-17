@@ -67,7 +67,7 @@ rect(0, 0, width/2, height);</code></pre>
 
     <p>Like words in a paragraph of text, the position of a shape indicates the order of the shape in the design. Most written languages have a natural reading direction (english is left to right, arabic right to left), and this can be used to prioritize the importance of shapes, and tell the user where to start reading.</p>
 
-    <p>This pattern is used throughout the design world to create, in lack of a better word, rhythm. Graphic novels use the positioning of captions to guide the reader through the storyline. Newspapers place the most important text in a heading at the top of an article, which also tends to have a larger size to set it apart.</p>
+    <p>This pattern is used throughout the design world to create, in lack of a better word, rhythm. Graphic novels use the positioning of captions to guide the reader through the storyline. Newspapers place the most important text in a heading at the top of an article, which also tends to have a larger size to set it apart. Notice also how changing the position of shapes also changes the whitespace between them, which can be used to create both balance and asymmetry.</p>
 
     <div class="two-grid">
       <figure class="col">
@@ -80,7 +80,7 @@ rect(0, 0, width/2, height);</code></pre>
       </figure>
     </div>
 
-    <p>In these posters for Swiss Auto Club, Joseph Müller-Brockmann uses both position and size to prioritize certain shapes. On the left, the vehicle in motion is prioritized to make it apparent that it is about to run into the child. On the right, the bicycle is prioritized to indicate that the car has seen the bike. Notice also how changing the position of shapes also changes the whitespace between them, which can be used to create both balance and asymmetry.</p>
+    <p>In these posters for Swiss Auto Club, Joseph Müller-Brockmann uses both position and size to prioritize certain shapes. On the left, the vehicle is emphasized to heighten the tension, making it apparent that the vehicle is on a collision course with the kid. On the right, the bicycle is emphasized to achieve the exact opposite.</p>
 
     <div class="two-grid header-width">
       <figure class="col">
@@ -91,12 +91,20 @@ rect(0, 0, width/2, height);</code></pre>
       </figure>
     </div>
 
-    <p>It is often helpful to use variables at the top of your code to store the position of your shapes. The example on the left shows the simplest possible way to draw a rectangle near the bottom right of the canvas. However, if you want to change the amount of space between the rectangle and the edge of the canvas, you will need to change many numbers in your code. As your code becomes more complex, this becomes hard to maintain. The same design is implemented in a much better way in the example to the right, introducing two variables that is used throughout the code.</p>
+    <p>P5.js uses a coordinate system to position shapes in 2D space, as do most other graphics programming languages. In the following example, we draw a rectangle near the bottom right of the canvas.</p>
 
-    <div class="three-grid">
+    <div class="two-grid header-width">
       <div class="col">
         {% codesplit form/canvas-and-shape/use-variables-wrong.js lines:'8' %}
       </div>
+      <figure class="col">
+        {% p5 form/canvas-and-shape/use-variables-wrong.js class:'fig' %}
+      </figure>
+    </div>
+
+    <p>However, now that we need to calculate numbers for both size and position of the rectangle, things are starting to look a little cluttered, and the code has become hard to read. To solve this problem, it is often helpful to use variables at the top of your code to store these numbers. This not only makes the code more readable, but it also makes it easier to test variations of your design. The following example results in the exact same design, but each of the numbers are now saved into a variable.</p>
+
+    <div class="two-grid header-width">
       <div class="col">
         {% codesplit form/canvas-and-shape/use-variables-right.js lines:'6-10,13' %}
       </div>
