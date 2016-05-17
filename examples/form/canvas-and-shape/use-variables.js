@@ -1,6 +1,6 @@
 function setup() {
 
-  createCanvas(600, 600);
+  createCanvas(600, 350);
   background(255, 255, 220);
 
   var size = height * 0.3;

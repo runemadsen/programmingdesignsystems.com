@@ -91,27 +91,23 @@ rect(0, 0, width/2, height);</code></pre>
       </figure>
     </div>
 
-    <p>P5.js uses a coordinate system to position shapes in 2D space, as do most other graphics programming languages. In the following example, we draw a rectangle near the bottom right of the canvas.</p>
+    <p>P5.js uses a coordinate system to position shapes in 2D space, as do most other graphics programming languages. To demonstrate best practice, take the following image.</p>
 
-    <div class="two-grid header-width">
-      <div class="col">
-        {% codesplit form/canvas-and-shape/use-variables-wrong.js lines:'8' %}
-      </div>
-      <figure class="col">
-        {% p5 form/canvas-and-shape/use-variables-wrong.js class:'fig' %}
-      </figure>
-    </div>
+    <figure class="text-width">
+      {% p5 form/canvas-and-shape/use-variables.js class:'fig' %}
+    </figure>
 
-    <p>However, now that we need to calculate numbers for both size and position of the rectangle, things are starting to look a little cluttered, and the code has become hard to read. To solve this problem, it is often helpful to use variables at the top of your code to store these numbers. This not only makes the code more readable, but it also makes it easier to test variations of your design. The following example results in the exact same design, but each of the numbers are now saved into a variable.</p>
+    <p>We could easily implement this like the following code, where we correctly rely on the <code>width</code> and <code>height</code> variables to position the rectangle near the bottom right corner of the canvas.</p>
 
-    <div class="two-grid header-width">
-      <div class="col">
-        {% codesplit form/canvas-and-shape/use-variables-right.js lines:'6-10,13' %}
-      </div>
-      <figure class="col">
-        {% p5 form/canvas-and-shape/use-variables-right.js class:'fig' %}
-      </figure>
-    </div>
+    <pre class="text-width"><code>rect(width - 150, height - 150, 100, 100);</code></pre>
+
+    <p>However, even though the position of the rectangle is dynamic, the size is not. In the following example, we use the size of the canvas to calculate the size of the rectangle.</p>
+
+    <pre class="text-width"><code>rect(width - (height*0.4), height - (height*0.4), height * 0.3, height * 0.3);</code></pre>
+
+    <p>There is one big problem with the code above: It has become very hard to read. If you need to change the position of the rectangle, it will take you a while to mentally parse what's going on. To solve this problem, it is often helpful to use variables at the top of your code to store these numbers. This not only makes the code more readable, but it also makes it easier to test variations of your design. The following example generates the same design, but all numbers are now saved into variables with names that make sense.</p>
+
+    {% codesplit form/canvas-and-shape/use-variables.js lines:'6-10,13' class:'text-width' %}
 
   </section>
 
@@ -170,7 +166,7 @@ rect(0, 0, width/2, height);</code></pre>
 
   <section data-type="sect1">
 
-    <h1>Designing a word</h1>magicb
+    <h1>Designing a word</h1>
 
     <p>By constraining yourself to just a rectangle and these three variables, you will train one of the most fundamental skills in design: Seeing visual relationships. The following examples of designs for a single word will give you some idea of what the result might look like.</p>
 
