@@ -13,13 +13,13 @@ dek: Our first steps into the world of graphic design involves looking at the re
 
   <p>As we begin our journey into the field of graphic design, it's important to start at the very beginning. Graphic design is the art of using form and color to successfully convey a message, but this is not as easy as it sounds. The design process is one of trial and error, and it often takes many iterations to create a design that clearly communicates what you're trying to say. Although we tend to think of this design process as something involving gut instinct, experienced designers have an ever-expanding checklist of visual relationships that helps guide them through to the end.</p>
 
-  <p>The first item on this checklist is learning how to manipulate a single shape to produce desired outcomes. We will investigate how changing three simple variables of a rectangle – the position, size, and rotation – can result in drastically different expressions. Although somehow basic, these variables are an important first set of techniques to be employed at the beginning of every design process, replacing hours of searching through online portfolios of the latest trends in the design world. We will also look at a few related techniques that can help you write flexible, dynamic code.</p>
+  <p>The first item on this checklist is learning how to manipulate a single shape to produce desired outcomes. We will investigate how changing three simple variables of a rectangle – the position, size, and rotation – can result in drastically different expressions. Although basic, these variables are an important first set of techniques to be employed at the beginning of every design process. Design students are much better off focusing solely on getting these simple relationships right, instead of searching through online portfolios for inspiration. So let's look at the canvas, some simple shape variables, and how all of this relates to programming.</p>
 
   <section data-type="sect1">
 
     <h1>Size</h1>
 
-    <p>The size of a shape is important, as it communicates whether that shape is important or not. By increasing the size of important shapes and decreasing the size of less important shapes, you can bring clarity to a design, and this is a pattern we encounter daily in everything from traffic signs to website dialog boxes.</p>
+    <p>The size of a shape can be used to communicate whether that shape is important or not. Thus, by increasing the size of important shapes and decreasing the size of less important shapes, you can bring clarity to a design, and this is a pattern we encounter daily in everything from traffic signs to website dialog boxes.</p>
 
     <div class="two-grid">
       <figure class="col">
@@ -65,7 +65,7 @@ rect(0, 0, width/2, height);</code></pre>
 
     <h1>Position</h1>
 
-    <p>Like words in a paragraph of text, the position of a shape indicates the order of the shape in the design. Most written languages have a natural reading direction (english is left to right, arabic right to left), and this can be used to prioritize the importance of shapes, and tell the user where to start reading.</p>
+    <p>Like words in a paragraph of text, the position of a shape indicates the order of the shape in the design. Most written languages have a natural reading direction, and this can be used to prioritize the importance of shapes, and tell the user where to start reading.</p>
 
     <p>This pattern is used throughout the design world to create, in lack of a better word, rhythm. Graphic novels use the positioning of captions to guide the reader through the storyline. Newspapers place the most important text in a heading at the top of an article, which also tends to have a larger size to set it apart. Notice also how changing the position of shapes also changes the whitespace between them, which can be used to create both balance and asymmetry.</p>
 
@@ -109,6 +109,8 @@ rect(0, 0, width/2, height);</code></pre>
 
     {% codesplit form/canvas-and-shape/use-variables.js lines:'6-10,13' class:'text-width' %}
 
+    <p>Keeping your code organized is very important, especially as you start to write more sophisticated code.</p>
+
   </section>
 
   <section data-type="sect1">
@@ -145,7 +147,11 @@ rect(0, 0, width/2, height);</code></pre>
       </figure>
     </div>
 
-    <p>In code, we define rotation as a number between 0 and 360 (degrees), often converted to a number between 0 and 6.28318530718 (radians) with the <code>radians()</code> function. It is important to understand how graphic programming languages – and P5.js in particular – applies rotation to shapes. When you use the <code>rotate()</code> function, you are actually rotating the entire coordinate system, and all shapes drawn after this rotation will be drawn in the rotated coordinate system.</p>
+    <p>In code, we rotate shapes by calling the <code>rotate()</code> function before drawing the shapes that need to be rotated. This function expects the rotation to be defined in radians, but it's often helpful to use the <code>radians()</code> function to convert degrees into radians. The following code will rotate all following shapes by 90 degrees.</p>
+
+    <pre class="text-width"><code>rotate(radians(90));</code></pre>
+
+    <p>It's important to understand that when you use the <code>rotate()</code> function, you are not rotating individual shapes. Instead, you are rotating the entire coordinate system, and because the shapes are drawn within the coordinate system, the shapes are rotated too. Combined with <code>translate()</code>, which moves the origin of the coordinate system, it's possible to achieve very different outcomes, as demonstrated in the following examples.</p>
 
     <div class="commentator">
       {% codesplit form/canvas-and-shape/coordinates.js lines:'11-17' %}
@@ -175,9 +181,28 @@ rect(0, 0, width/2, height);</code></pre>
 
     <h1>Designing a word</h1>
 
-    <p>By constraining yourself to just a rectangle and these three variables, you will train one of the most fundamental skills in design: Seeing visual relationships. The following examples of designs for a single word will give you some idea of what the result might look like.</p>
+    <p>You can practice these techniques by picking an adjective from the dictionary and make a design for it by changing the position, size, and rotation of a single rectangle. This helps you build one of the most fundamental skills in graphic design: The ability to create visual relationships that make sense for your content. Note that with such a constrained exercise, some adjectives are very hard to make designs for.</p>
 
-    <p>SHOW WORD/DESIGN GRID</p>
+    <p>As a simple example, let's take the word <em>steep</em>. How would you make a design for this word using just a rectangle and the three variables? Start by looking for connections between the word and your variables, and you'll notice that steepness and rotation are related: You can make the rectangle appear like a steep hill by rotating it. By changing the size, you can make that hill longer, continuing outside the canvas. By changing the position of the rectangle, you can create asymmetric whitespace, making sure that the user notices the rectangle.</p>
+
+    <div class="three-grid">
+      <figure class="col">
+        {% p5 form/canvas-and-shape/steep1.js class:'fig' %}
+        <figcaption>First we rotate the rectangle until it looks steep.</figcaption>
+      </figure>
+      <figure class="col">
+        {% p5 form/canvas-and-shape/steep2.js class:'fig' %}
+        <figcaption>Then we change the size to make it go beyond the canvas.</figcaption>
+      </figure>
+      <figure class="col">
+        {% p5 form/canvas-and-shape/steep3.js class:'fig' %}
+        <figcaption>Then we draw attention to the rectangle by moving it away from the center.</figcaption>
+      </figure>
+    </div>
+
+    <p>Although this exercise is very constrained, </p>
+
+    <p>SHOW WORD/DESIGN GRID: flat, big, shy,</p>
 
     <p>Although this is just our first step into the world of graphic design, many extra-ordinary works of art have been created using this approach.</p>
 
@@ -195,7 +220,7 @@ rect(0, 0, width/2, height);</code></pre>
       <h2>Exercises</h2>
     </header>
     <ul>
-      <li>Pick a random word from the dictionary, and write a sketch that tries to convey that word by changing the position, size, and rotation of a single rectangle. Do this for a couple of words, and ask friends to guess the word-image combinations.</li>
+      <li>Pick a random adjective from the dictionary, and write a sketch that tries to convey that word by changing the position, size, and rotation of a single rectangle. Do this for a couple of words, and ask friends to guess the word-image combinations.</li>
     </ul>
   </div>
 

@@ -1,4 +1,4 @@
-
+- Ability to see code in all code examples and figs
 
 
 Logos
