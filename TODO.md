@@ -1,3 +1,5 @@
+- Copyright
+- Image resize
 - Ability to see code in all code examples and figs
 - Bruce Mau canada identity
 
