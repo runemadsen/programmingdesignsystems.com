@@ -115,7 +115,7 @@ rect(0, 0, width/2, height);</code></pre>
 
     <h1>Rotation</h1>
 
-    <p>A third important relationship relates to the rotation of shapes. Rotation can be used to make shapes come alive, as the whitespace around them becomes more complex and breaks the symmetry of the design.</p>
+    <p>Rotation can be used to make shapes come alive, as the whitespace around them becomes more complex and breaks the symmetry of the design.</p>
 
     <div class="three-grid">
       <figure class="col">
@@ -134,9 +134,16 @@ rect(0, 0, width/2, height);</code></pre>
 
     <p>Rotation is used in many types of design products: Children's books use rotated shapes to make them look fun and playful. Popular magazines use rotated grid systems to make the content look less dry, while publications for a narrow target audience use horizontal grid systems to imply quality of the content within.</p>
 
-    <p>EXAMPLE: Paul Rand uses squares with different rotations to make a playful cover for a children's book.</p>
-
-    <p>EXAMPLE: Josef muller brockman: 45 degree rotations. streamlined and digital.</p>
+    <div class="two-grid header-width">
+      <figure class="col">
+        <img src="form/canvas-and-shape/rand-iknow.jpg" />
+        <figcaption>Paul Rand uses rotation to make a playful cover for a children's book.</figcaption>
+      </figure>
+      <figure class="col">
+        <img src="form/canvas-and-shape/adidas.jpg" />
+        <figcaption>The podium in the Adidas logo is rotated to convey speed and dynamism.</figcaption>
+      </figure>
+    </div>
 
     <p>In code, we define rotation as a number between 0 and 360 (degrees), often converted to a number between 0 and 6.28318530718 (radians) with the <code>radians()</code> function. It is important to understand how graphic programming languages – and P5.js in particular – applies rotation to shapes. When you use the <code>rotate()</code> function, you are actually rotating the entire coordinate system, and all shapes drawn after this rotation will be drawn in the rotated coordinate system.</p>
 
