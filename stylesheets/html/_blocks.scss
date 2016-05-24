@@ -24,7 +24,7 @@ div[data-type="exercise"] {
   }
 
   ul {
-    @extend .font-small;
+    @extend .font-normal;
     @extend .text-width;
     @extend .nobullets;
     li {
