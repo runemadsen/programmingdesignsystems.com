@@ -3,8 +3,8 @@ function setup() {
   createCanvas(600, 450);
   background(255, 255, 220);
 
-  // By translating before rotating, the rectangle now rotates around its
-  // top left corner.
+  // Here we rotate after moving the coordinate system, which makes it rotate around,
+  // the top left corner of the rectangle.
   var x = width / 3;
   var y = height / 3;
   var s = height / 3;
