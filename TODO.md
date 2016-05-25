@@ -2,3 +2,4 @@
 - Image resize
 - Ability to see code in all code examples and figs
 - Fix overflow on shy example.
+- All functions should link to P5 reference
