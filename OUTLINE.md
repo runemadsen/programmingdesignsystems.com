@@ -1,72 +1,90 @@
 # Outline
 
-- Introduction
-  - ADD: modular content.
-  - ADD: P5.js section
-  - ADD: About magicbook
+Introduction
+------------
 
+- ADD: modular content.
+- ADD: P5.js section
+- ADD: About magicbook
 - Quick introducion to P5.js
 
-- Form
-  - [ ] History of form
-  - [ ] Canvas and shape
-  - [ ] Basic Shapes
-  - [ ] Custom Shapes
-  - [ ] Basic repetition
+Shape
+-------------
 
-  FOR THESE, USE VISUAL LANGUAGE...
-  - [ ] Basic randomization
-  - [ ] Shape Relationships
-    - THESE: https://quizlet.com/25971522/basic-elements-and-principles-of-the-visual-language-flash-cards/
-    - Positive and negative
-    - Tension
-    - Rhythm
-    - Symmetry
-    - Clustering and separation
-    - Aligning
-    - Overlapping
+- Introduction (and history?)
+- Canvas and shape
+- Basic Shapes
+- Custom Shapes
+- Composition
+  - https://quizlet.com/25971522/basic-elements-and-principles-of-the-visual-language-flash-cards/
+  - Positive and negative
+  - Tension
+  - Rhythm
+  - Symmetry
+  - Clustering and separation
+  - Aligning
+  - Overlapping
 
-- Color
-  - [ ] History of color
-  - [ ] Color models
+Color
+-------------
 
-- Layout
-  - Law of thirds
-  - Golden ratio
-  - Root 2/3/4/5?
-  - Exponential
-  - More from Geometry of design
-  - Grid systems
-    - [ ] History of grid systems
-    - .... different grids
+- Introduction (and history?)
+- Color models
 
-- Repetition
-  - [ ] History of repetition
-  - [ ] Basic repetition (I HAVE EXAMPLE IN NOTES)
-  - [ ] Column and row repetition
-    - Using nested for loops (Paul Rand hearts example)
-    - Using randomization (Paul Rand I know example)
-    - Using col and row to create gradients / color changes
-  - [ ] Recursion and non-repeatable patterns
+Layout
+-------------
 
-- Randomization
-  - [ ] History of randomization
-  - [ ] What is randomization?
-    - It's just a number. You choose what you use it for (illustrations with using a number for size or color)
+- Law of thirds
+- Golden ratio
+- Root 2/3/4/5?
+- Exponential
+- More from Geometry of design
+- Grid systems
+  - History of grid systems
+  - .... different grids
 
-- Motion
-  - [ ] History of motion
-  - [ ] Meaning through animation?
-  - [ ] Easings?
+Repetition
+-------------
 
-- Pixel manipulation
+- Introduction (and history?)
+- Basic repetition (I HAVE EXAMPLE IN NOTES)
+  - Using i for spacing, etc...
+- Column and row repetition
+  - Using nested for loops (Paul Rand hearts example)
+  - Using randomization (Paul Rand I know example)
+  - Using col and row to create gradients / color changes
+- Recursion and non-repeatable patterns
 
+Randomization
+-------------
 
+- Introduction (and history?)
+- Basic randomization
+  - It's just a number. You choose what you use it for (illustrations with using a number for size or color)
+
+Motion
+-------------
+
+- Introduction (and history?)
+  - Meaning through animation
+- Easings
+
+Pixels
+-------------
+
+- Pixel array
+- Filters
+- Patterns based on pixels
+
+3D
+-------------
 
 Things that currently do not fit:
   - Something about polygons (simple/complex/concave, etc). A definition in geometry.
-  - Positive and negative space?
-  - Other layout mechanisms than grid systems?
   - Machine learning?
-  - Vectors
-  - Peter jackson King Kong
+  - Computational geometry
+    - Vectors
+    - point in polygon
+    - matrix calculation
+  - Peter jackson King Kong example
+  - LOGO: http://www.adweek.com/adfreak/brands-amazing-new-logo-responds-voice-and-looks-different-each-person-170955
