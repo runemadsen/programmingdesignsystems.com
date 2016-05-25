@@ -5,21 +5,19 @@ iframe {
 
 div[data-type="exercise"] {
 
-  margin-top: 4em;
+  margin-top: 2em;
   @extend .header-width;
 
   header {
     position: relative;
     @extend .text-width;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
     h2 {
-      padding: 0 0.5em;
       display: inline-block;
       background-color: white;
       @extend .allcaps;
-      position: absolute;
-      top: -1.4em;
-      left: -0.5em;
     }
   }
 

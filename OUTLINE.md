@@ -62,6 +62,11 @@ Randomization
 - Basic randomization
   - It's just a number. You choose what you use it for (illustrations with using a number for size or color)
 
+Logo
+-------------
+
+- Separate or in shape chapter?
+
 Motion
 -------------
 
@@ -87,4 +92,5 @@ Things that currently do not fit:
     - point in polygon
     - matrix calculation
   - Peter jackson King Kong example
-  - LOGO: http://www.adweek.com/adfreak/brands-amazing-new-logo-responds-voice-and-looks-different-each-person-170955
+  - Bruce Mau canada identity
+  - http://www.adweek.com/adfreak/brands-amazing-new-logo-responds-voice-and-looks-different-each-person-170955
