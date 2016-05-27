@@ -85,6 +85,7 @@ Pixels
 -------------
 
 Things that currently do not fit:
+  - TEchniques for drawing multiple shapes with push and pop.
   - Something about polygons (simple/complex/concave, etc). A definition in geometry.
   - Machine learning?
   - Computational geometry
