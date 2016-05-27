@@ -3,14 +3,22 @@ function setup() {
   background(255);
   fill(255);
   stroke(0);
-  strokeWeight(width * 0.02);
-  strokeJoin(ROUND);
+  strokeWeight(width * 0.024);
 
   var coneX = width / 2;
-  var coneY = height * 0.65;
+  var coneY = height * 0.6;
   var coneSize = width * 0.18;
 
   translate(coneX, coneY);
+
+  // Cookie
+  push();
+  rotate(radians(-25));
+  translate(coneSize*0.8, -(coneSize*3));
+  rect(0, 0, coneSize * 0.3, coneSize);
+  pop();
+
+  strokeJoin(ROUND);
 
   // Ice cream
   for(var i = 3; i >= 0; i--) {
