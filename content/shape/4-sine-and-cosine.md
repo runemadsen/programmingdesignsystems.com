@@ -4,7 +4,14 @@ title:  Sine and cosine
 dek: I need a description of this.
 ---
 
-{% include header.html %}
+<section data-type="chapter" id="sine-and-cosine">
+
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p class="dek">{{ page.dek }}</p>
+  </header>
+
+</section>
 
 Now that we know how to draw more complex shapes, we need to examine an important concept that is incredibly helpful when generating shapes in code: Sine and Cosine.
 
