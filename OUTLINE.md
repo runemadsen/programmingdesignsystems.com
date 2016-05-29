@@ -47,7 +47,6 @@ Repetition
 -------------
 
 - Introduction (and history?)
-- Basic repetition (I HAVE EXAMPLE IN NOTES)
   - Using i for spacing, etc...
 - Column and row repetition
   - Using nested for loops (Paul Rand hearts example)
@@ -95,3 +94,11 @@ Things that currently do not fit:
   - Peter jackson King Kong example
   - Bruce Mau canada identity
   - http://www.adweek.com/adfreak/brands-amazing-new-logo-responds-voice-and-looks-different-each-person-170955
+
+  Case Studies
+  ------------
+
+  A section that all other chapters can link to, with examples of work that has been re-created in code. It's in its own section because all of the implementation use techniques from all the chapters.
+
+  - Giovanni Pintori - Olivetti poster
+  - A Sagmeister
