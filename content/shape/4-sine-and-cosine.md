@@ -8,7 +8,6 @@ dek: I need a description of this.
 
   <header>
     <h1>{{ page.title }}</h1>
-    <p class="dek">{{ page.dek }}</p>
   </header>
 
 </section>

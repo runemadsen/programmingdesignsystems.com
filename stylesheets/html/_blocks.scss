@@ -6,11 +6,9 @@ iframe {
 div[data-type="exercise"] {
 
   margin-top: 2em;
-  @extend .header-width;
 
   header {
     position: relative;
-    @extend .text-width;
     margin-top: 1em;
     margin-bottom: 1em;
 
@@ -18,15 +16,6 @@ div[data-type="exercise"] {
       display: inline-block;
       background-color: white;
       @extend .allcaps;
-    }
-  }
-
-  ul {
-    @extend .font-normal;
-    @extend .text-width;
-    @extend .nobullets;
-    li {
-      margin-bottom: 1em;
     }
   }
 }

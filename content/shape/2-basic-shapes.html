@@ -1,14 +1,13 @@
 ---
 svg: test.svg
 title:  Basic shapes
-dek: Each of the basic shapes have characteristics that can be used to create meaningful designs. Learning to use them properly is a must.
+dek: We'll expand our toolset by taking a look at the three basic shapes and how they can be used in the design process.
 ---
 
 <section data-type="chapter">
 
   <header>
     <h1>{{ page.title }}</h1>
-    <p class="dek">{{ page.dek }}</p>
   </header>
 
   <p>Although it's a worthy exercise to focus solely on the <a href="{{ navigation.prev.href }}">size, position, and rotation</a> of a rectangle, we need to expand our toolset. We'll do this by taking a look at the three basic shapes and how they can be used in the design process.</p>
@@ -25,7 +24,7 @@ dek: Each of the basic shapes have characteristics that can be used to create me
     </figure>
   </div>
 
-  <p>Although we cannot ascribe absolute meaning to shapes, humans have a natural intuition towards them, shaped by a long history of cultural symbolism and iconology. If I draw a rectangle and an ellipse on a piece of paper, and I ask people which drawing is a depiction of the sun, an overwhelming majority would pick the ellipse. This is of course easy to explain: The ellipse is round, just like the sun. This is true no matter what size or position I used for the shapes, because the body of a shape has certain characteristics in and of itself. Let's spend a moment analyzing these characteristics for the three basic shapes.</p>
+  <p>Although we cannot ascribe absolute meaning to shapes, humans have a natural intuition towards them, shaped by a long history of cultural symbolism and iconology. If I draw a rectangle and an ellipse on a piece of paper, and I ask people which drawing is a depiction of the sun, an overwhelming majority would pick the ellipse. This is of course easy to explain: The ellipse is round, just like the sun. This tells us that the body of a shape has certain characteristics in and of itself. Let's spend a moment analyzing these characteristics for the three basic shapes.</p>
 
   <section data-type="sect1">
 
@@ -37,8 +36,8 @@ dek: Each of the basic shapes have characteristics that can be used to create me
 
     <div class="two-grid header-width">
       <figure class="col">
-        <img src="shape/basic-shapes/windows.jpg" />
-        <figcaption>The rectangles in the Windows logo become a symbol for a window, a flag, and a pixelated screen.</figcaption>
+        <img src="shape/basic-shapes/microsoft.jpg" />
+        <figcaption>The squares in the Microsoft logo become a symbol for a window, a flag, and a pixelated screen.</figcaption>
       </figure>
       <figure class="col">
         <img src="shape/basic-shapes/nullsleep.jpg" />
@@ -46,7 +45,7 @@ dek: Each of the basic shapes have characteristics that can be used to create me
       </figure>
     </div>
 
-    <p>In geometry, a rectangle consists of four points connected to form a closed shape with internal angles of 90 degrees. Instead of manually calculating these four points, the <code>rect()</code> function allows us to easily draw a rectangle using just the desired origin point and size of the rectangle. By default, the origin point will be the top left corner of the rectangle, but this can be changed using <a href="http://p5js.org/reference/#/p5/rectMode"><code>rectMode()</code></a> function.</p>
+    <p>In geometry, a rectangle consists of four points connected to form a closed shape with internal angles of 90 degrees. Instead of manually calculating these four points, the <code>rect()</code> function allows us to draw a rectangle with just the desired origin point and size of the rectangle. By default, the origin point will be the top left corner of the rectangle, but this can be changed using the <code>rectMode()</code> function.</p>
 
   </section>
 
@@ -67,7 +66,7 @@ dek: Each of the basic shapes have characteristics that can be used to create me
       </figure>
     </div>
 
-    <p>In geometry.. points...... ellipse().....</p>
+    <p>Although an ellipse looks like a single curved shape, computers actually draw them using a series of short, straight connected lines around a center point. We use the <code>ellipse()</code> function to let P5.js do this for us, but you can easily replicate this technique by using <a href="#sine-and-cosine">Sine and Cosine.</a></p>
 
   </section>
 
@@ -77,11 +76,9 @@ dek: Each of the basic shapes have characteristics that can be used to create me
 
     <p>The triangle is an asymmetric shape, which makes it unique among the basic shapes for its directionality and sense of movement. It is commonly known as the symbol for both masculinity (▲) and femininity (▼), and it is widely used for its aesthetic qualitites. The great pyramids in Giza are famous depictions of the triangle, thought to act as both a symbol for the life-giving rays of the sun, and as a giant arrow pointing towards the assumed center of rotation of the stars, to which the Egyptians ascribed godly qualities.</p>
 
-    <p>The triangle is also a symbol of Euclidian geometry, thus for mathematics itself, and it serves as the foundation for modern 2D and 3D graphics.</p>
-
     <p>GRAPHIC DESIGN EXAMPLES.</p>
 
-    <p>In geometru.....The <code>triangle()</code> function is a shortcut for drawing this thing: A closed shape with three points. SMALL IMAGE SHOW XY</p>
+    <p>In geometry, the triangle is a special shape. It is widely used in Euclidian geometry and it serves as a foundation for all trigonometry, and there's simply no way of escaping it if you work with modern 2D or 3D graphics rendering.</p>
 
   </section>
 
@@ -89,11 +86,9 @@ dek: Each of the basic shapes have characteristics that can be used to create me
 
     <h1>An ice cream cone</h1>
 
-    <p>I give my students the following highly constrained exercise to practice the use of basic shapes: Design an ice cream cone in black and white using the <code>rect()</code>, <code>ellipse()</code>, and <code>triangle()</code> functions only once in your code.</p>
+    <p>I give my students the following exercise to practice the use of basic shapes: Design an ice cream cone in black and white using the <code>rect()</code>, <code>ellipse()</code>, and <code>triangle()</code> functions only once in your code.</p>
 
-    <p>After seeing hundreds of solutions to this exercise, I have come to not only appreciate it as a great way for students to practice their design skills in a constrained way, but also a first important lesson on how good design can be both objective and highly subjective.</p>
-
-    <p>To demonstrate this, take a look at the two designs below. It doesn't require much effort to see that the one on the left looks the most like an ice cream cone. We can objectively say that it's the best design, even though the two designs use exactly the same shapes.</p>
+    <p>After seeing hundreds of solutions to this exercise, I have come to not only appreciate it as a great way for students to practice their design skills in a highly constrained way, but also a first important lesson on how design is both an objective and subjective artform. To demonstrate this, take a look at the two designs below. It doesn't require much effort to see that the design on the left looks the most like an ice cream cone. We can objectively say that it's the best design, even though the two designs use exactly the same shapes.</p>
 
     <div class="two-grid header-width">
       <figure class="col">
@@ -121,14 +116,14 @@ dek: Each of the basic shapes have characteristics that can be used to create me
       </figure>
     </div>
 
-    <p>This is to say that the fundamentals of design is very objective.... Execution is subjective. So how do we know whether something is right? -> Where is it being used? Design is finding the right form for the right content, and you must start by focusing on your content. Is it for an ice cream factory? Then many of the examples above are not great. Is it for xxxxx?</p>
+    <p>This is to say that the fundamentals of design is very objective, and you can learn basic compositional techniques by following a set of rules. However, we cannot fully evaulate design products by decomposing them into individual parts. This is especially true for digital design products, which are much more complex than their static predecessors. To tell whether something is a good or bad design product, we must see these parts as a system, and evaluate whether this system holistically makes sense for the purpose it is being used for. This too should be a guiding principle in the design process, where you should constantly analyze whether your implementation is creating a system that makes sense for the thing that you're trying to communicate. Without thinking – and analyzing the things that you see – code is but an excellent tool for creating complexity without reason.</p>
 
-    <blockquote>The design i s the product of your thinking. [..] But before you have focused your thoughts, you are all over the place, because you are searching. You are feeling. You are looking for things. You do no know what you are looking for. You are lost. You are in a maze. So thinking is the number on in the design process.<span data-type="footnote">Kroeger, Michael (2008) <em>Paul Rand: conversations with students</em>. Princeton Architectural Press.</span></blockquote>
-
-    <p>Exercise box: Design an ice cream cone</p>
+    <blockquote class="header-width">Before you have focused your thoughts, you are all over the place, because you are searching. You are feeling. You are looking for things. You do not know what you are looking for. You are lost. You are in a maze. So thinking is the number on in the design process.<span data-type="footnote">Kroeger, Michael (2008) <em>Paul Rand: conversations with students</em>. Princeton Architectural Press.</span></blockquote>
 
   </section>
 
   {{ footnotes }}
+
+  {% include exercise.html text="Design an ice cream cone in black and white using the <code>rect()</code>, <code>ellipse()</code>, and <code>triangle()</code> functions only once in your code." %}
 
 </section>

@@ -7,7 +7,7 @@ function setup() {
   var ellipseY = height * 0.3;
   var ellipseSize = width * 0.32;
   var triangleY = height * 0.36;
-  var spacing = width * 0.018;
+  var spacing = width * 0.01;
 
   fill(40);
   ellipse(ellipseX, ellipseY, ellipseSize, ellipseSize);

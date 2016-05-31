@@ -3,3 +3,4 @@
 - Ability to see code in all code examples and figs
 - Fix overflow on shy example.
 - All functions should link to P5 reference
+- Plugin to create links to function documentation in P5 and JS.

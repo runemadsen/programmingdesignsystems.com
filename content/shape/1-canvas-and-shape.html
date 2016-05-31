@@ -8,7 +8,6 @@ dek: Our first steps into the world of graphic design involves looking at the re
 
   <header>
     <h1>{{ page.title }}</h1>
-    <p class="dek">{{ page.dek }}</p>
   </header>
 
   <p>As we begin our journey into the field of graphic design, it's important to start at the very beginning. Graphic design is the art of using form and color to successfully convey a message, but this is not as easy as it sounds. The design process is one of trial and error, and it often takes many iterations to create a design that clearly communicates what you're trying to say. Although we tend to think of this design process as something involving gut instinct, experienced designers have an ever-expanding checklist of visual relationships that helps guide them through to the end.</p>
@@ -221,16 +220,6 @@ rect(0, 0, width/2, height);</code></pre>
 
   </section>
 
-  <div data-type="exercise">
-    <svg width="100%" height="3" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="1" x2="100%" y2="1" stroke-dasharray="6, 3" stroke-width="2" stroke="#ecc94a" />
-    </svg>
-    <header>
-      <h2>Exercises</h2>
-    </header>
-    <ul>
-      <li>Pick a random adjective from the dictionary, and write a sketch that tries to convey that word by changing the position, size, and rotation of a single rectangle. Do this for a couple of words, and ask friends to guess the word-image combinations.</li>
-    </ul>
-  </div>
+  {% include exercise.html text="Pick a random adjective from the dictionary, and write a sketch that tries to convey that word by changing the position, size, and rotation of a single rectangle. Do this for a couple of words, and ask friends to guess the word-image combinations." %}
 
 </section>
