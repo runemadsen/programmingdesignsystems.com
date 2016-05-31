@@ -4,6 +4,17 @@
   padding-top: 3em;
 }
 
+nav {
+  padding: 1.5em;
+  background-color: #F0F0F0;
+  a {
+    border: none;
+  }
+  .signup {
+    float: right;
+  }
+}
+
 // Layout: Sidebar and main view
 // -------------------------------------------------
 
