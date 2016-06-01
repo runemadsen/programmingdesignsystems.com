@@ -1,24 +1,13 @@
 body {
   font-size: 100%;
-  font-family: $fontNormal;
+  font-family: "AtlasGrotesk";
   color: $fontBlack;
   font-weight: 400;
-}
-
-a {
-  color: $fontBlack;
-  text-decoration: none;
-  border-bottom: 1px solid $fontGrayLight;
 }
 
 p {
   @extend .font-normal;
   line-height: 1.6em;
-}
-
-strong {
-  font-family: $fontBold;
-  font-weight: 700;
 }
 
 blockquote {
@@ -30,9 +19,8 @@ h1 {
   font-size: 2.4em;
   line-height: 0.95em;
   letter-spacing: -0.02em;
-  font-family: $fontBold;
   margin-bottom: 0.1em;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 section[data-type="sect1"] h1, h2 {
@@ -40,9 +28,8 @@ section[data-type="sect1"] h1, h2 {
   font-size: 1.8em;
   line-height: 0.95em;
   letter-spacing: -0.02em;
-  font-family: $fontBold;
   margin-bottom: 0.1em;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .caption, figcaption, figcaption code {
@@ -81,25 +68,4 @@ div[data-type="footnotes"] {
       margin-bottom: 0.6em;
     }
   }
-}
-
-// Front
-
-#front {
-
-  h1 {
-    margin-top: 10%;
-    text-align: center;
-    font-size: 3.8em;
-    margin-bottom: 0.8em;
-    letter-spacing: -0.03em;
-  }
-
-  h2 {
-    text-align: center;
-    font-family: $fontNormal;
-    font-weight: 400;
-    font-size: 1.9em;
-  }
-
 }

@@ -17,6 +17,12 @@ section[data-type="chapter"] {
     }
   }
 
+  a {
+    color: $fontBlack;
+    text-decoration: none;
+    box-shadow: inset 0 -3px 0 #FBC400;
+  }
+
   // Paragraphs and headings directly inside chapter
   // or sect should have text width.
   &, section[data-type^="sect"] {
@@ -54,7 +60,7 @@ section[data-type="chapter"] {
   }
   a:nth-child(1) {
     @extend .font-large;
-    font-family: $fontBold;
+    font-family: 700;
   }
   a:nth-child(2) {
     color: $fontGray;

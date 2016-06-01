@@ -6,12 +6,19 @@
 
 nav {
   padding: 1.5em;
-  background-color: #F0F0F0;
+  font-size: 1.2em;
+  font-weight: 500;
   a {
-    border: none;
+    text-decoration: none;
   }
   .signup {
+    border: none;
+    font-weight: 500;
+    font-size: 1em;
     float: right;
+    &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &:-moz-placeholder {
+      color: pink;
+    }
   }
 }
 
