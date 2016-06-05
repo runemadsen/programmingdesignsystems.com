@@ -1,11 +1,8 @@
 section[data-type="chapter"] {
 
   > header {
-    @extend .header-width;
+    @extend .text-width;
     margin-bottom: 2em;
-    border-bottom: 1px solid $colorGray;
-    padding: 1em 0;
-
     h1 {
       margin: 0 0 0.5em 0;
     }

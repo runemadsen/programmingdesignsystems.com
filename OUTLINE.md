@@ -15,7 +15,7 @@ Shape
 - Canvas and shape
 - Basic Shapes
 - Custom Shapes
-- Composition
+- Composing multiple shapes
   - https://quizlet.com/25971522/basic-elements-and-principles-of-the-visual-language-flash-cards/
   - Positive and negative
   - Tension
@@ -59,7 +59,14 @@ Randomization
 
 - Introduction (and history?)
 - Basic randomization
-  - It's just a number. You choose what you use it for (illustrations with using a number for size or color)
+  - Techniques for dynamic designs: Size, color, etc
+
+Data
+----
+
+- Introduction
+  One of the biggest demands ... is the ability to parse and display data...
+  - Stuff from talks: Minard, data viz, etc
 
 Logo
 -------------
@@ -84,7 +91,7 @@ Pixels
 -------------
 
 Things that currently do not fit:
-  - TEchniques for drawing multiple shapes with push and pop.
+  - Techniques for drawing multiple shapes with push and pop.
   - Something about polygons (simple/complex/concave, etc). A definition in geometry.
   - Machine learning?
   - Computational geometry
@@ -95,6 +102,12 @@ Things that currently do not fit:
   - Bruce Mau canada identity
   - http://www.adweek.com/adfreak/brands-amazing-new-logo-responds-voice-and-looks-different-each-person-170955
 
+Interaction
+-----------
+
+- Introduction, history of user interfaces, etc
+- Mouse
+
   Case Studies
   ------------
 
@@ -102,3 +115,9 @@ Things that currently do not fit:
 
   - Giovanni Pintori - Olivetti poster
   - A Sagmeister
+
+  EXTRAS
+  ------
+
+  - http://www.no-mans-sky.com generativt landskab. Farve temperamanter.
+  - http://adrianavarro.net/projects/generative-play/
