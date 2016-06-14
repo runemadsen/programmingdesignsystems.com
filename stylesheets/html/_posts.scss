@@ -52,11 +52,11 @@ section[data-type="chapter"] {
 
   a {
     display: block;
-    border-bottom: none;
+    text-decoration: none;
   }
   a:nth-child(1) {
     @extend .font-large;
-    font-family: 700;
+    font-weight: 700;
   }
   a:nth-child(2) {
     color: $fontGray;
