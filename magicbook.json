@@ -2,6 +2,7 @@
   "title" : "Programming Design Systems",
   "author" : "Rune Madsen",
   "twitter" : "https://twitter.com/runemadsen",
+  "permalink" : ":parts/:title/index.html",
   "addPlugins" : [
     "magicbook-codesplit",
     "./plugins/p5",
@@ -10,7 +11,13 @@
   "files" : [
     "content/1-toc.html",
     "content/2-introduction.md",
-    "content/**/*.html"
+    {
+      "label" : "Shape",
+      "files" : [ "content/test.html", "content/shape/*.html" ],
+      "colors" : {
+        "strong" : "#FBC400"
+      }
+    }
   ],
   "stylesheets" : {
     "files" : [

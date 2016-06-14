@@ -2,16 +2,32 @@
 <html>
 
   <head>
-    <title>{{ config.title }}</title>
     <meta charset="utf-8">
+    <title>{{ config.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ stylesheets }}
+    {% if part.colors %}
+      <style media="screen">
+        section[data-type="chapter"] a {
+          box-shadow: inset 0 -3px 0 #ffe68d;
+        }
+        code, .cm-s-pds {
+          color: #59502c;
+          background: #ffffe2;
+        }
+        .cm-s-pds .cm-keyword { color: #dfaf03; }
+        .cm-s-pds .cm-variable { color: #d5a705; }
+        .cm-s-pds .cm-property { color: #c88f58; }
+        .cm-s-pds .cm-string { color: #adb412; }
+        .cm-s-pds .cm-number { color: #adb412; }
+      </style>
+    {% endif %}
   </head>
   <nav>
     <svg width="31px" height="25px" viewBox="0 0 31 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <path d="M3,13.8469488 C3,13.8469488 6.40838028,28.7747892 9.82996634,21.0849644 C13.2515524,13.3951395 16.0839754,-8.99997561 19.884073,6.61845625 C23.0706906,19.7154805 28.4217548,19.5552421 28.4217548,19.5552421" stroke="#FBC400" stroke-width="2" fill="none"></path>
-      <circle id="Oval-2" fill="#FBC400" cx="2.5" cy="12.5" r="2.5"></circle>
-      <circle id="Oval-2" fill="#FBC400" cx="28.5" cy="19.5" r="2.5"></circle>
+      <path d="M3,13.8469488 C3,13.8469488 6.40838028,28.7747892 9.82996634,21.0849644 C13.2515524,13.3951395 16.0839754,-8.99997561 19.884073,6.61845625 C23.0706906,19.7154805 28.4217548,19.5552421 28.4217548,19.5552421" stroke="{{part.colors.strong}}" stroke-width="2" fill="none"></path>
+      <circle id="Oval-2" fill="{{part.colors.strong}}" cx="2.5" cy="12.5" r="2.5"></circle>
+      <circle id="Oval-2" fill="{{part.colors.strong}}" cx="28.5" cy="19.5" r="2.5"></circle>
     </svg>
     <a href="/" id="logo">Programming Design Systems</a>
     <input type="email" placeholder="Sign up for updates" class="signup" />

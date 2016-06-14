@@ -108,16 +108,23 @@ Interaction
 - Introduction, history of user interfaces, etc
 - Mouse
 
-  Case Studies
-  ------------
+Design Intelligence
+-------------------
 
-  A section that all other chapters can link to, with examples of work that has been re-created in code. It's in its own section because all of the implementation use techniques from all the chapters.
+Section about machine learning, etc?
 
-  - Giovanni Pintori - Olivetti poster
-  - A Sagmeister
+Case Studies
+------------
 
-  EXTRAS
-  ------
+A section that all other chapters can link to, with examples of work that has been re-created in code. It's in its own section because all of the implementation use techniques from all the chapters.
 
-  - http://www.no-mans-sky.com generativt landskab. Farve temperamanter.
-  - http://adrianavarro.net/projects/generative-play/
+- Giovanni Pintori - Olivetti poster
+- A Sagmeister
+
+EXTRAS
+------
+
+- http://www.no-mans-sky.com generativt landskab. Farve temperamanter.
+- http://adrianavarro.net/projects/generative-play/
+- http://titouanm.com/mucartographer/
+- Why is code important?
