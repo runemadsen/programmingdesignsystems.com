@@ -9,13 +9,19 @@
     "./plugins/highlight"
   ],
   "files" : [
+    "content/index.html",
     "content/1-toc.html",
     "content/2-introduction.md",
     {
       "label" : "Shape",
       "files" : [ "content/test.html", "content/shape/*.html" ],
       "colors" : {
-        "strong" : "#FBC400"
+        "link" : "#FFDAA2",
+        "codeBackground" : "#FFFFE2",
+        "codeText" : "#726C54",
+        "codeVariable" : "#E1B000",
+        "codeStringNum" : "#acb835",
+        "codeKeyword" : "#C17C2D"
       }
     }
   ],

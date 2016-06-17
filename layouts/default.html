@@ -9,17 +9,16 @@
     {% if part.colors %}
       <style media="screen">
         section[data-type="chapter"] a {
-          box-shadow: inset 0 -3px 0 #ffe68d;
+          box-shadow: inset 0 -3px 0 {{part.colors.link}};
         }
         code, .cm-s-pds {
-          color: #59502c;
-          background: #ffffe2;
+          color: {{part.colors.codeText}};
+          background: {{part.colors.codeBackground}};
         }
-        .cm-s-pds .cm-keyword { color: #dfaf03; }
-        .cm-s-pds .cm-variable { color: #937e52; }
-        .cm-s-pds .cm-property { color: #c88f58; }
-        .cm-s-pds .cm-string { color: #adb412; }
-        .cm-s-pds .cm-number { color: #adb412; }
+        .cm-s-pds .cm-keyword { color: {{part.colors.codeKeyword}}; }
+        .cm-s-pds .cm-variable { color: {{part.colors.codeVariable}}; }
+        .cm-s-pds .cm-property { color: {{part.colors.codeText}}; }
+        .cm-s-pds .cm-string, .cm-s-pds .cm-number { color: {{part.colors.codeStringNum}}; }
       </style>
     {% endif %}
   </head>
