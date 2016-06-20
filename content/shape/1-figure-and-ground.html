@@ -1,6 +1,6 @@
 ---
 svg: test.svg
-title:  Canvas and shape
+title:  Figure and ground
 dek: Our first steps into the world of graphic design involves looking at the relationship between the canvas and a single shape.
 ---
 
@@ -22,11 +22,11 @@ dek: Our first steps into the world of graphic design involves looking at the re
 
     <div class="two-grid">
       <figure class="col">
-        {% p5 shape/canvas-and-shape/dominant.js class:'fig' %}
+        {% p5 shape/figure-and-ground/dominant.js class:'fig' %}
         <figcaption>This square is dominant because it takes up most of the canvas.</figcaption>
       </figure>
       <figure class="col">
-        {% p5 shape/canvas-and-shape/non-dominant.js class:'fig' %}
+        {% p5 shape/figure-and-ground/non-dominant.js class:'fig' %}
         <figcaption>This square is less dominant because of the large empty space around it.</figcaption>
       </figure>
     </div>
@@ -35,10 +35,10 @@ dek: Our first steps into the world of graphic design involves looking at the re
 
     <div class="two-grid header-width">
       <figure class="col">
-        <img src="shape/canvas-and-shape/vw-thinksmall.jpg" />
+        <img src="shape/figure-and-ground/vw-thinksmall.jpg" />
       </figure>
       <figure class="col">
-        <img src="shape/canvas-and-shape/vw-lemon.jpg" />
+        <img src="shape/figure-and-ground/vw-lemon.jpg" />
       </figure>
     </div>
 
@@ -70,11 +70,11 @@ rect(0, 0, width/2, height);</code></pre>
 
     <div class="two-grid">
       <figure class="col">
-        {% p5 shape/canvas-and-shape/left.js class:'fig' %}
+        {% p5 shape/figure-and-ground/left.js class:'fig' %}
         <figcaption>First, because of reading direction.</figcaption>
       </figure>
       <figure class="col">
-        {% p5 shape/canvas-and-shape/right.js class:'fig' %}
+        {% p5 shape/figure-and-ground/right.js class:'fig' %}
         <figcaption>Last, because of reading direction.</figcaption>
       </figure>
     </div>
@@ -83,17 +83,17 @@ rect(0, 0, width/2, height);</code></pre>
 
     <div class="two-grid header-width">
       <figure class="col">
-        <img src="shape/canvas-and-shape/brockmann-motorbike.jpg" />
+        <img src="shape/figure-and-ground/brockmann-motorbike.jpg" />
       </figure>
       <figure class="col">
-        <img src="shape/canvas-and-shape/brockmann-bicycle.jpg" />
+        <img src="shape/figure-and-ground/brockmann-bicycle.jpg" />
       </figure>
     </div>
 
     <p>To position 2D shapes in code, we use the concept of a coordinate system, where shapes are given <code>x</code> and <code>y</code> values that determine their position. To demonstrate best practice, take the following image.</p>
 
     <figure class="text-width">
-      {% p5 shape/canvas-and-shape/use-variables.js class:'fig' %}
+      {% p5 shape/figure-and-ground/use-variables.js class:'fig' %}
     </figure>
 
     <p>We could easily implement this like the following code, where we correctly rely on the <code>width</code> and <code>height</code> variables to position the rectangle near the bottom right corner of the canvas.</p>
@@ -106,7 +106,7 @@ rect(0, 0, width/2, height);</code></pre>
 
     <p>There is one big problem with the code above: It has become very hard to read. If you need to change the position of the rectangle, it will take you a while to mentally parse what's going on. To solve this problem, it is often helpful to use variables at the top of your code to store these numbers. This not only makes the code more readable, but it also makes it easier to test variations of your design. The following example generates the same design, but all numbers are now saved into variables with names that make sense.</p>
 
-    {% codesplit shape/canvas-and-shape/use-variables.js lines:'6-10,13' class:'text-width' %}
+    {% codesplit shape/figure-and-ground/use-variables.js lines:'6-10,13' class:'text-width' %}
 
     <p>Keeping your code organized is very important, especially as you start to write more sophisticated code.</p>
 
@@ -120,15 +120,15 @@ rect(0, 0, width/2, height);</code></pre>
 
     <div class="three-grid">
       <figure class="col">
-        {% p5 shape/canvas-and-shape/rotation1.js class:'fig' %}
+        {% p5 shape/figure-and-ground/rotation1.js class:'fig' %}
         <figcaption>A rectangle with no rotation appears static because of the symmetric whitespace.</figcaption>
       </figure>
       <figure class="col">
-        {% p5 shape/canvas-and-shape/rotation2.js class:'fig' %}
+        {% p5 shape/figure-and-ground/rotation2.js class:'fig' %}
         <figcaption>A rotation of 45&deg; creates more complex – but still symmetric – whitespace.</figcaption>
       </figure>
       <figure class="col">
-        {% p5 shape/canvas-and-shape/rotation3.js class:'fig' %}
+        {% p5 shape/figure-and-ground/rotation3.js class:'fig' %}
         <figcaption>A rotation of 27&deg; breaks the symmetry, and the rectangle appears in motion.</figcaption>
       </figure>
     </div>
@@ -137,11 +137,11 @@ rect(0, 0, width/2, height);</code></pre>
 
     <div class="two-grid header-width">
       <figure class="col">
-        <img src="shape/canvas-and-shape/rand-iknow.jpg" />
+        <img src="shape/figure-and-ground/rand-iknow.jpg" />
         <figcaption>Paul Rand uses rotation to make a playful cover for a children's book.</figcaption>
       </figure>
       <figure class="col">
-        <img src="shape/canvas-and-shape/adidas.jpg" />
+        <img src="shape/figure-and-ground/adidas.jpg" />
         <figcaption>The podium in the Adidas logo is rotated to convey speed and dynamism.</figcaption>
       </figure>
     </div>
@@ -153,23 +153,23 @@ rect(0, 0, width/2, height);</code></pre>
     <p>It's important to understand that when you use the <code>rotate()</code> function, you are not rotating individual shapes. Instead, you are rotating the entire coordinate system, and because the shapes are drawn within the coordinate system, the shapes are rotated too. Combined with <code>translate()</code>, which moves the origin of the coordinate system, it's possible to achieve very different outcomes, as demonstrated in the following examples.</p>
 
     <div class="commentator">
-      {% codesplit shape/canvas-and-shape/coordinates.js lines:'11-17' %}
-      <figure>{% p5 shape/canvas-and-shape/coordinates.js class:'fig' %}</figure>
+      {% codesplit shape/figure-and-ground/coordinates.js lines:'11-17' %}
+      <figure>{% p5 shape/figure-and-ground/coordinates.js class:'fig' %}</figure>
     </div>
 
     <div class="commentator">
-      {% codesplit shape/canvas-and-shape/coordinates-rotated.js lines:'6-12,17' %}
-      <figure>{% p5 shape/canvas-and-shape/coordinates-rotated.js class:'fig' %}</figure>
+      {% codesplit shape/figure-and-ground/coordinates-rotated.js lines:'6-12,17' %}
+      <figure>{% p5 shape/figure-and-ground/coordinates-rotated.js class:'fig' %}</figure>
     </div>
 
     <div class="commentator">
-      {% codesplit shape/canvas-and-shape/coordinates-translated.js lines:'6-13,18' %}
-      <figure>{% p5 shape/canvas-and-shape/coordinates-translated.js class:'fig' %}</figure>
+      {% codesplit shape/figure-and-ground/coordinates-translated.js lines:'6-13,18' %}
+      <figure>{% p5 shape/figure-and-ground/coordinates-translated.js class:'fig' %}</figure>
     </div>
 
     <div class="commentator">
-      {% codesplit shape/canvas-and-shape/coordinates-translated-rotated.js lines:'6-13,18' %}
-      <figure>{% p5 shape/canvas-and-shape/coordinates-translated-rotated.js class:'fig' %}</figure>
+      {% codesplit shape/figure-and-ground/coordinates-translated-rotated.js lines:'6-13,18' %}
+      <figure>{% p5 shape/figure-and-ground/coordinates-translated-rotated.js class:'fig' %}</figure>
     </div>
 
     <p>As we dive into more layout techniques, we will further investigate how to use <code>translate()</code> and <code>rotate()</code> to make more sophisticated designs.</p>
@@ -186,15 +186,15 @@ rect(0, 0, width/2, height);</code></pre>
 
     <div class="three-grid">
       <figure class="col">
-        {% p5 shape/canvas-and-shape/steep1.js class:'fig' %}
+        {% p5 shape/figure-and-ground/steep1.js class:'fig' %}
         <figcaption>1. First we rotate the rectangle until it looks steep.</figcaption>
       </figure>
       <figure class="col">
-        {% p5 shape/canvas-and-shape/steep2.js class:'fig' %}
+        {% p5 shape/figure-and-ground/steep2.js class:'fig' %}
         <figcaption>2. Then we change the size to make it go beyond the canvas.</figcaption>
       </figure>
       <figure class="col">
-        {% p5 shape/canvas-and-shape/steep3.js class:'fig' %}
+        {% p5 shape/figure-and-ground/steep3.js class:'fig' %}
         <figcaption>3. Then we draw attention to the rectangle by moving it away from the center.</figcaption>
       </figure>
     </div>
@@ -203,15 +203,15 @@ rect(0, 0, width/2, height);</code></pre>
 
     <div class="three-grid">
       <figure class="col">
-        {% p5 shape/canvas-and-shape/flat.js class:'fig' %}
+        {% p5 shape/figure-and-ground/flat.js class:'fig' %}
         <figcaption>Flat</figcaption>
       </figure>
       <figure class="col">
-        {% p5 shape/canvas-and-shape/big.js class:'fig' %}
+        {% p5 shape/figure-and-ground/big.js class:'fig' %}
         <figcaption>Big</figcaption>
       </figure>
       <figure class="col">
-        {% p5 shape/canvas-and-shape/shy.js class:'fig' %}
+        {% p5 shape/figure-and-ground/shy.js class:'fig' %}
         <figcaption>Shy</figcaption>
       </figure>
     </div>

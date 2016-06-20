@@ -1,29 +1,52 @@
-var r = new Rune({
-  container: "#canvas",
-  width: 1000,
-  height: 700
-});
+var queue = [];
+var cur = 0;
 
-function Line(start, stop, color, type) {
-  this.line = r.line(start, start).strokeWidth(2);
-  this.change = stop.sub(start);
-  this.normalized = this.change.normalize();
+// Line
+// --------------------------------------------
+
+function Line(start, stop) {
+  this.start = start;
+  this.stop = stop;
+  this.cur = createVector(0, 0);
+  var diff = p5.Vector.sub(stop, start);
+  this.mag = diff.mag();
+  this.speed = diff.copy().normalize().mult(2);
 }
 
 Line.prototype = {
-  update: function() {
-    this.line.add(this.normalized);
+  display: function() {
+    fill(30);
+    stroke(30);
+    line(this.start.x, this.start.y, this.start.x + this.cur.x, this.start.y + this.cur.y);
+    if(!this.done) {
+      this.cur.add(this.speed);
+      this.done = this.cur.mag() > this.mag;
+    } else {
+      ellipse(this.stop.x, this.stop.y, 6, 6);
+    }
   }
 }
 
-var line = new Line(
-  new Rune.Vector(0, 0),
-  new Rune.Vector(400, 200),
-  new Rune.Color(255, 0, 0)
-);
+// P5.js
+// --------------------------------------------
 
-r.on('draw', function() {
-  line.update();
-});
+function setup() {
+  createCanvas(1000, 700);
+}
 
-r.play();
+function draw() {
+  background(245);
+
+  for(var i = 0; i < queue.length; i++) {
+    queue[i].display();
+  }
+
+  var last = queue[queue.length-1];
+  if(!last || last.done) {
+    queue.push(new Line(
+      last ? last.stop.copy() : createVector(random(0, width),random(0, height)),
+      createVector(random(0, width),random(0, height))
+    ));
+  }
+
+}

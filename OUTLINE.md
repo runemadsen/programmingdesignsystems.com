@@ -12,7 +12,8 @@ Shape
 -------------
 
 - Introduction (and history?)
-- Canvas and shape
+- Figure and ground
+  - Add introduction that is specifically around figure, ground. Maybe the FEDEX logo arrow problem?
 - Basic Shapes
 - Custom Shapes
 - Composing multiple shapes
@@ -127,4 +128,5 @@ EXTRAS
 - http://www.no-mans-sky.com generativt landskab. Farve temperamanter.
 - http://adrianavarro.net/projects/generative-play/
 - http://titouanm.com/mucartographer/
+- https://github.com/a1studmuffin/SpaceshipGenerator/
 - Why is code important?
