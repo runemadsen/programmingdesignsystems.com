@@ -39,6 +39,10 @@ function Line(start, stop, lineType) {
   this.norm = this.diff.copy().normalize();
   this.mag = this.diff.mag();
   this.speed = this.norm.copy().mult(2);
+
+  if(lineType.type == 'dashed') {
+    this.dashLine = this.norm.copy().mult(lineType.dashing);
+  }
 }
 
 Line.prototype = {
@@ -53,20 +57,20 @@ Line.prototype = {
     if(this.lineType.type == 'solid') {
       line(this.start.x, this.start.y, this.start.x + this.cur.x, this.start.y + this.cur.y);
     }
-    else if(this.lineType.type == 'dotted') {
-      var dot = createVector(0, 0);
-      while(dot.mag() < this.cur.mag()) {
-        ellipse(this.start.x + dot.x, this.start.y + dot.y, 1.5, 1.5);
-        dot.add(this.norm.x * this.lineType.spacing, this.norm.y * this.lineType.spacing);
-      }
-    } else if(this.lineType.type == 'dashed') {
-      var dash = createVector(0, 0);
-      var dashLine = this.norm.copy().mult(this.lineType.dashing);
-      while(dash.mag() < this.cur.mag()) {
-        var dashStart = p5.Vector.add(this.start, dash);
-        var dashEnd = dashStart.copy().add(dashLine);
-        line(dashStart.x, dashStart.y, dashEnd.x, dashEnd.y);
-        dash.add(this.norm.x * (this.lineType.spacing + this.lineType.dashing), this.norm.y * (this.lineType.spacing + this.lineType.dashing));
+    else if(this.lineType.type == 'dotted' || this.lineType.type == 'dashed') {
+      var progress = createVector(0, 0);
+      while(progress.mag() < this.cur.mag()) {
+        if(this.lineType.type == 'dotted') {
+          ellipse(this.start.x + progress.x, this.start.y + progress.y, 1.5, 1.5);
+          progress.add(this.norm.x * this.lineType.spacing, this.norm.y * this.lineType.spacing);
+        }
+        else {
+          var dashStart = this.start.copy().add(progress);
+          var dashEnd = dashStart.copy().add(this.dashLine);
+          line(dashStart.x, dashStart.y, dashEnd.x, dashEnd.y);
+          progress.add(this.norm.x * (this.lineType.spacing + this.lineType.dashing), this.norm.y * (this.lineType.spacing + this.lineType.dashing))
+        }
+
       }
     }
 
