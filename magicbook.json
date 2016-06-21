@@ -33,8 +33,10 @@
   "javascripts" : {
     "files" : [
       "javascripts/srcdoc-polyfill.js",
+      "javascripts/rune.js",
       "javascripts/utils.js",
-      "javascripts/p5.js"
+      "javascripts/p5.js",
+      "javascripts/splash.js"
     ]
   },
   "builds" : [

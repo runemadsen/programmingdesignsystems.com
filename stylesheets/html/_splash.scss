@@ -2,6 +2,12 @@
 
   text-align: center;
 
+  #canvas {
+    position: absolute;
+    z-index: -1000;
+    top: 0;
+  }
+
   h1, h2, .byline {
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
   }
