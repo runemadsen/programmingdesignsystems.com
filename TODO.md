@@ -1,3 +1,5 @@
+- Setup svg to be 100% width and some height.
+- Make first line go under programming design systems
 - Copyright
 - Image resize
 - Ability to see code in all code examples and figs
