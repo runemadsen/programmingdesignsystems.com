@@ -5561,7 +5561,6 @@ module.exports = Anchor;
     }
     var len = args.length;
     if(len!==6 && len!==8 && len!==9 && len!==12) {
-      console.log(coords);
       throw new Error("This Bezier curve library only supports quadratic and cubic curves (in 2d and 3d)");
     }
     var _3d = (len === 9 || len === 12);
@@ -6706,29 +6705,36 @@ var svg = require('virtual-dom/virtual-hyperscript/svg');
 // --------------------------------------------------
 
 var Rune = function(options) {
+
   var params = defaults(options || {}, {
-      width: 640,
-      height: 480,
       debug: false,
       frameRate: 60
     }
   );
 
-  this.width = params.width;
-  this.height = params.height;
-  this.tree = svg('svg', {
+  var attrs = {
     xmlns: 'http://www.w3.org/2000/svg',
-    'xmlns:xlink': 'http://www.w3.org/1999/xlink',
-    width: params.width.toString(),
-    height: params.height.toString()
-  });
+    'xmlns:xlink': 'http://www.w3.org/1999/xlink'
+  }
+
+  if(params.width)  {
+    attrs.width = Utils.s(params.width);
+    this.width = params.width;
+  }
+
+  if(params.height) {
+    attrs.height = Utils.s(params.height);
+    this.height = params.height;
+  }
+
+  this.tree = svg('svg', attrs);
   this.el = createElement(this.tree);
   this.stage = new Group();
   this.debug = params.debug;
   this.frameCount = 1;
   this.frameRate = params.frameRate;
 
-  if(params.container && typeof window !== 'undefined') {
+  if(params.container && Utils.isBrowser()) {
 
     if(typeof params.container === 'string') {
       params.container = document.querySelector(params.container);
@@ -6736,15 +6742,43 @@ var Rune = function(options) {
 
     if(params.container) {
       this.appendTo(params.container);
+      var bounds = this.el.getBoundingClientRect();
+      if(!this.width)   {
+        this.width = bounds.width;
+        this.ignoreWidth = true;
+      }
+      if(!this.height) {
+        this.height = bounds.height;
+        this.ignoreHeight = true;
+      }
     } else {
       console.error("Container element not found");
     }
   }
 
+  // last resort to catch no dimensions
+  if(!this.width)   this.width = 640;
+  if(!this.height) this.height = 480;
+
   this.initEvents();
 };
 
 Rune.prototype = {
+
+  // Helpers
+  // --------------------------------------------------
+
+  //
+  handleSize: function() {
+
+  },
+
+  relativePos: function(pageX, pageY) {
+    var bounds = this.el.getBoundingClientRect();
+    var relX = pageX - window.scrollX - bounds.left;
+    var relY = pageY - window.scrollY - bounds.top;
+    return { x: relX, y: relY };
+  },
 
   // Events
   // --------------------------------------------------
@@ -6754,13 +6788,6 @@ Rune.prototype = {
     if(typeof window !== 'undefined') {
       this.initMouseEvents();
     }
-  },
-
-  relativePos: function(pageX, pageY) {
-    var bounds = this.el.getBoundingClientRect();
-    var relX = pageX - window.scrollX - bounds.left;
-    var relY = pageY - window.scrollY - bounds.top;
-    return { x: relX, y: relY };
   },
 
   initMouseEvents: function() {
@@ -6888,11 +6915,15 @@ Rune.prototype = {
 
   draw: function() {
 
-    var newTree = svg('svg', {
-      width: Utils.s(this.width),
-      height: Utils.s(this.height)
-    }, [this.stage.renderChildren({ debug: this.debug })]);
+    var attrs = {
+      xmlns: 'http://www.w3.org/2000/svg',
+      'xmlns:xlink': 'http://www.w3.org/1999/xlink'
+    }
 
+    if(!this.ignoreWidth)  attrs.width = Utils.s(this.width);
+    if(!this.ignoreHeight) attrs.height = Utils.s(this.height);
+
+    var newTree = svg('svg', attrs, [this.stage.renderChildren({ debug: this.debug })]);
     var diffTree = diff(this.tree, newTree);
     this.el = patch(this.el, diffTree);
     this.tree = newTree;
@@ -7963,6 +7994,10 @@ module.exports = Triangle;
 },{"../mixins/shape":120,"../mixins/styles":121,"../utils":132,"lodash/object/assign":70,"virtual-dom/virtual-hyperscript/svg":100}],132:[function(require,module,exports){
 var Utils = {
 
+  isBrowser: function() {
+    return typeof window !== 'undefined';
+  },
+
   // function to turn any non-string into a string. We need
   // this when running server-side node.
   s: function(val) {
@@ -8007,7 +8042,7 @@ var Utils = {
   round: function(value, decimals) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
   }
-  
+
 };
 
 module.exports = Utils;

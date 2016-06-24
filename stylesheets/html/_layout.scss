@@ -3,6 +3,22 @@
   max-width: 1100px;
 }
 
+// Body
+// -------------------------------------------------
+
+body {
+  padding: 20px;
+}
+
+@media (min-width: $mobileBreak) {
+  body {
+    padding: 0;
+  }
+}
+
+// Navigation
+// -------------------------------------------------
+
 nav {
   padding: 1.5em;
   font-size: 1.2em;
@@ -29,7 +45,7 @@ nav {
   }
 }
 
-// Layout: Sidebar and main view
+// Sidebar and main view
 // -------------------------------------------------
 
 .aside-main {
@@ -57,7 +73,7 @@ nav {
 
 }
 
-// Layout: Two grid
+// Two grid
 // -------------------------------------------------
 
 @media (min-width: $tabletBreak) {
@@ -83,7 +99,7 @@ nav {
   }
 }
 
-// Layout: Three grid
+// Three grid
 // -------------------------------------------------
 
 @media (min-width: $tabletBreak) {
@@ -107,7 +123,7 @@ nav {
   }
 }
 
-// Layout: Commentator
+// Commentator
 // -------------------------------------------------
 
 @media (min-width: $tabletBreak) {

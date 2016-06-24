@@ -1,13 +1,8 @@
 function runSplash() {
 
   var r = new Rune({
-    container: "#canvas",
-    width: 1000,
-    height: 600
+    container: "#canvas"
   });
-
-  var queue = [];
-  var cur = 0;
 
   // Line
   // --------------------------------------------
@@ -100,6 +95,20 @@ function runSplash() {
     return arr.sort();
   }
 
+  function nextArea(areas) {
+    var index = Math.floor(r.random(areas.length));
+    var ran = areas.splice(index, 1)[0];
+    return ran;
+  }
+
+  function nextVector(areas, areaPx) {
+    var area = nextArea(areas);
+    if(!area) return null;
+    var max = area.x + areaPx > r.width ? r.width : area.x + areaPx;
+    var may = area.y + areaPx > r.height ? r.height : area.y + areaPx;
+    return new Rune.Vector(r.random(area.x, max),r.random(area.y, may));
+  }
+
   function evenSpacedArray(num) {
     var ite = 1 / num;
     var arr = [];
@@ -109,6 +118,25 @@ function runSplash() {
     return arr;
   }
 
+  function calcAreas(px) {
+    var areas = [];
+    var x = 0;
+    while(x < window.innerWidth) {
+      var y = 0;
+      while(y < window.innerHeight) {
+        areas.push(new Rune.Vector(x, y));
+        y += px;
+      }
+      x += px;
+    }
+    return areas;
+  }
+
+  var queue = [];
+  var cur = 0;
+  var areaPx = 50;
+  var areas = calcAreas(areaPx);
+
   r.on('update', function() {
 
     // If we need to add more things to the queue
@@ -116,11 +144,18 @@ function runSplash() {
 
       // find the start and stop of the new line
       var last = queue[queue.length-1]
-      var start = last ? last.stop.copy() : new Rune.Vector(r.random(0, r.width),r.random(0, r.height));
-      var stop = new Rune.Vector(r.random(0, r.width),r.random(0, r.height));
+      var start = last ? last.stop.copy() : null;
+      if(!start) start = nextVector(areas, areaPx);
+      var stop = nextVector(areas, areaPx);
+      if(!stop) {
+        r.pause();
+        return;
+      }
+      var diff = stop.sub(start);
+      var maxSegments = Math.floor(diff.length() / 15);
 
       // split this line into several line objects
-      var numLines = Math.round(r.random(1, 5));
+      var numLines = Math.round(r.random(1, maxSegments > 5 ? 5 : maxSegments));
       var evenSpaced = r.random(1) > 0.5;
       var zigzag = r.random(1) > 0.8;
       var segments;
