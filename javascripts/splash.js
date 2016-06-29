@@ -68,7 +68,7 @@ function runSplash() {
   function addStyles(o) {
 
     // choose color
-    var colors = ["#6e97b2", "#ae3c37", "#ecc94a", "#3f8358", "#9372ae"];
+    var colors = ["#08ac8c"]//["#6e97b2", "#ae3c37", "#ecc94a", "#3f8358", "#9372ae"];
     var color = colors[Math.floor(r.random(colors.length))];
     o.line.stroke(color);
     o.line.fill(false);
