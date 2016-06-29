@@ -36,9 +36,13 @@ function runSplash() {
     var mid = start.lerp(stop, 0.5);
     var offset = r.random(-100, 100);
     this.control = stop.sub(start).normalize().rotate(90).multiply(offset).add(mid);
-    this.line = r.path(0, 0).moveTo(start.x, start.y).curveTo(start.x, start.y, start.x, start.y);
+    this.line = r.path(0, 0).moveTo(start.x, start.y).curveTo(this.control.x, this.control.y, stop.x, stop.y);
     this.cur = 0;
-    this.speed = 2 / stop.sub(start).length();
+    this.speed = 2 / this.line.length();
+    // after calculating length, set bezier to 0 to start animation
+    // from nothing.
+    this.line.state.anchors[1].vec1 = start;
+    this.line.state.anchors[1].vec2 = start;
   }
 
   Bezier.prototype = {
