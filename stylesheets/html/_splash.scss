@@ -15,7 +15,7 @@
     }
   }
 
-  h1, h2, .byline {
+  h1, h2, .byline, .newsletter-help {
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
   }
 
@@ -39,16 +39,61 @@
     font-size: 1.3em;
     line-height: 1.3em;
     font-weight: normal;
-
+    margin-bottom: 1.5em;
   }
 
   a {
     text-decoration: none;
   }
 
-  #mc_embed_signup {
-    margin-top: 2em;
-    background-color: gray;
+  .newsletter {
+
+    ::-webkit-input-placeholder {
+      color: #99c2be;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: #99c2be;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: #99c2be;
+    }
+
+    :-ms-input-placeholder {
+       color: #99c2be;
+    }
+
+    input {
+      outline: none;
+      text-align: center;
+      border: none;
+      width: 100%;
+      font-family: $fontNormal;
+    }
+
+    #mce-EMAIL {
+      font-size: 1em;
+      padding: 1em 0;
+      background-color: rgba(222, 246, 234, 0.86);
+    }
+
+    #mc-embedded-subscribe {
+      font-size: 1.2em;
+      padding: 0.7em 0;
+      -webkit-font-smoothing: antialiased;
+      background-color: rgba(8,172,140,0.86);
+      font-weight: 700;
+      border: none;
+      color: #fff;
+    }
+
+  }
+
+  .newsletter-help {
+    font-size: 0.8em;
+    color: #2ba78f;
+    line-height: 1.3em;
   }
 
 }
