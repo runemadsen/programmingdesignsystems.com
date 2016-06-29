@@ -67,16 +67,14 @@ function runSplash() {
 
   function addStyles(o) {
 
-    // choose color
-    var colors = ["#08ac8c"]//["#6e97b2", "#ae3c37", "#ecc94a", "#3f8358", "#9372ae"];
-    var color = colors[Math.floor(r.random(colors.length))];
-    o.line.stroke(color);
+    // set color
+    o.line.stroke("#08ac8c");
     o.line.fill(false);
     o.line.strokeWidth(1.5);
 
     // choose line type
     var seed = r.random(1);
-    if(seed > 0.8) {
+    if(seed > 0.7) {
       o.line.strokeDash('2,2')
     }
     else if(seed > 0.6) {
