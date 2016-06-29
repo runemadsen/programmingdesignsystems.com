@@ -1,3 +1,4 @@
+- Add Slack room
 - Setup svg to be 100% width and some height.
 - Make first line go under programming design systems
 - feedback button that goes to github issues

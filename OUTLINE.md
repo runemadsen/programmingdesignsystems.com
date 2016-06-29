@@ -3,10 +3,11 @@
 Introduction
 ------------
 
+- ADD: Data viz to how products are changing.
 - ADD: modular content.
 - ADD: P5.js section
 - ADD: About magicbook
-- Quick introducion to P5.js
+- Quick introduction to P5.js
 
 Shape
 -------------
