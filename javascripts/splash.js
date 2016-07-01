@@ -41,8 +41,6 @@ function runSplash() {
     this.line = r.path(0, 0).moveTo(start.x, start.y).curveTo(this.control.x, this.control.y, stop.x, stop.y);
     this.cur = 0;
     this.speed = 2 / this.line.length();
-    // after calculating length, set bezier to 0 to start animation
-    // from nothing.
     this.line.state.anchors[1].vec1 = start;
     this.line.state.anchors[1].vec2 = start;
   }
@@ -56,7 +54,6 @@ function runSplash() {
       this.line.state.anchors[1].vec1 = pos1;
       this.line.state.anchors[1].vec2 = pos3;
       this.line.changed();
-
       if(!this.done) {
         this.cur += this.speed;
         this.done = this.cur >= 1;
@@ -76,19 +73,14 @@ function runSplash() {
 
     // choose line type
     var seed = r.random(1);
-    if(seed > 0.7) {
-      o.line.strokeDash('2,2')
-    }
-    else if(seed > 0.6) {
-      var dashing = r.random(5, 10);
-      var spacing = r.random(5, 10);
-      o.line.strokeDash([dashing, spacing].join(','))
-    }
+    if(seed > 0.7)      o.line.strokeDash('2,2')
+    else if(seed > 0.6) o.line.strokeDash([r.random(5, 10), r.random(5, 10)].join(','))
 
     return o;
   }
 
-  function spacedRandArray(num, minSpace) {
+  function randSpacedArray(num, minSpace) {
+    if(num == 1) return [];
     var arr = [r.random(1)];
     var temp = null;
     for(var x = 0; x < num-2; x++) {
@@ -97,20 +89,6 @@ function runSplash() {
       arr.push( temp );
     }
     return arr.sort();
-  }
-
-  function nextArea(areas) {
-    var index = Math.floor(r.random(areas.length));
-    var ran = areas.splice(index, 1)[0];
-    return ran;
-  }
-
-  function nextVector(areas, areaPx) {
-    var area = nextArea(areas);
-    if(!area) return null;
-    var max = area.x + areaPx > r.width ? r.width : area.x + areaPx;
-    var may = area.y + areaPx > r.height ? r.height : area.y + areaPx;
-    return new Rune.Vector(r.random(area.x, max),r.random(area.y, may));
   }
 
   function evenSpacedArray(num) {
@@ -122,85 +100,131 @@ function runSplash() {
     return arr;
   }
 
-  function calcAreas(px) {
-    var areas = [];
-    var x = 0;
-    while(x < window.innerWidth) {
-      var y = 0;
-      while(y < window.innerHeight) {
-        areas.push(new Rune.Vector(x, y));
-        y += px;
+  function nextPosition(grid) {
+
+    // for now just choose a random module
+    // this should be substituted for random walk
+    // using curCol and curRow
+    var flattened = [];
+    for(var i = 0; i < grid.cols; i++) {
+      for(var j = 0; j < grid.rows; j++) {
+        var mod = grid.modules[i][j];
+        if(!mod.used) flattened.push(mod);
       }
-      x += px;
     }
-    return areas;
+
+    if(flattened.length == 0) return null;
+
+    var mod = flattened[Math.floor(r.random(flattened.length))];
+    mod.used = true;
+
+    var insideMod = mod.pos.add(new Rune.Vector(r.random(mod.siz.x), r.random(mod.siz.y)));
+    return insideMod;
   }
 
-  var queue = [];
-  var cur = 0;
-  var areaPx = 50;
-  var areas = calcAreas(areaPx);
+  function calcGrid(px) {
 
-  r.on('update', function() {
+    var grid = {
+      curCol: 0,
+      curRow: 0,
+      modules: [],
+      cols: Math.round(window.innerWidth / px),
+      rows: Math.round(window.innerHeight / px)
+    }
 
-    // If we need to add more things to the queue
-    if(cur >= queue.length - 1) {
+    var moduleWidth = window.innerWidth / grid.cols;
+    var moduleHeight = window.innerHeight / grid.rows;
 
-      // find the start and stop of the new line
-      var last = queue[queue.length-1]
-      var start = last ? last.stop.copy() : null;
-      if(!start) start = nextVector(areas, areaPx);
-      var stop = nextVector(areas, areaPx);
-      if(!stop) {
-        r.pause();
-        return;
-      }
-
-      var diff = stop.sub(start);
-      var maxSegments = Math.floor(diff.length() / 25);
-
-      // split this line into several line objects
-      var numLines = Math.round(r.random(1, maxSegments > 5 ? 5 : maxSegments));
-      var evenSpaced = r.random(1) > 0.5;
-      var zigzag = r.random(1) > 0.8;
-      var segments;
-
-      // space them evenly or random
-      if(evenSpaced) {
-        segments = evenSpacedArray(numLines);
-      } else {
-        segments = spacedRandArray(numLines, 0.15);
-      }
-      segments.unshift(0)
-      segments.push(1);
-      var vecs = [];
-      for(var i = 0; i < numLines; i++) {
-        vecs.push(start.lerp(stop, segments[i]));
-      }
-
-      // zigzag the points?
-      if(zigzag) {
-        var move = r.random(100);
-        var offset = stop.sub(start).normalize().rotate(90).multiply(move);
-        for(var i = 1; i < numLines-1; i++) {
-          var inout = ((i % 2) * 2) - 1;
-          vecs[i] = vecs[i].add(offset.multiply(inout));
-        }
-      }
-
-      // create the line objects
-      for(var i = 1; i < numLines; i++) {
-        var bezier = r.random(1) > 0.5;
-        if(bezier) queue.push(addStyles(new Bezier(vecs[i-1], vecs[i])));
-        else queue.push(addStyles(new Line(vecs[i-1], vecs[i])));
+    for(var i = 0; i < grid.cols; i++) {
+      grid.modules[i] = [];
+      for(var j = 0; j < grid.rows; j++) {
+        grid.modules[i][j] = {
+          used: false,
+          pos: new Rune.Vector(i * moduleWidth, j * moduleHeight),
+          siz: new Rune.Vector(moduleWidth, moduleHeight)
+        };
       }
     }
+
+    return grid;
+  }
+
+  function drawGrid(grid) {
+    for(var i = 0; i < grid.modules.length; i++) {
+      for(var j = 0; j < grid.modules[i].length; j++) {
+        var m = grid.modules[i][j];
+        r.rect(m.pos.x, m.pos.y, m.siz.x, m.siz.y).fill(false).stroke(200);
+      }
+    }
+  }
+
+  var grid = calcGrid(400);
+  drawGrid(grid);
+
+  // Create queue
+  var queue = [];
+  var start;
+  var stop = grid.modules[grid.curCol][grid.curRow].pos;
+
+  while(true) {
+
+    start = stop;
+    stop = nextPosition(grid);
+    if(!stop) break;
+
+    // break into several line segments
+    var segments;
+    var diff = stop.sub(start);
+    var maxSegments = Math.floor(diff.length() / 25);
+    var numSegments = 1;//Math.round(r.random(1, maxSegments));
+
+    // space them evenly or random?
+    if(r.random(1) > 0.5) segments = evenSpacedArray(numSegments);
+    else                  segments = randSpacedArray(numSegments, 0.15);
+    segments.unshift(0)
+    segments.push(1);
+
+    // create segments vectors
+    var vecs = [];
+    for(var i = 0; i < segments.length; i++) {
+      vecs.push(start.lerp(stop, segments[i]));
+    }
+
+    // zigzag the vectors?
+    var zigzag = false;//r.random(1) > 0.8;
+    if(zigzag) {
+      var move = r.random(100);
+      var offset = stop.sub(start).normalize().rotate(90).multiply(move);
+      for(var i = 1; i < vecs.length-1; i++) {
+        var inout = ((i % 2) * 2) - 1;
+        vecs[i] = vecs[i].add(offset.multiply(inout));
+      }
+    }
+
+    // create line objects for each vector
+    for(var i = 1; i < vecs.length; i++) {
+      var bezier = r.random(1) > 0.5;
+      if(bezier) queue.push(addStyles(new Bezier(vecs[i-1], vecs[i])));
+      else queue.push(addStyles(new Line(vecs[i-1], vecs[i])));
+    }
+
+  }
+
+  var cur = 0;
+
+  r.on('update', function() {
 
     if(queue[cur].done) {
       r.circle(queue[cur].stop.x, queue[cur].stop.y, 3)
         .fill(queue[cur].line.state.stroke)
         .stroke(false)
-      cur++;
+
+      if(cur == queue.length-1) {
+        r.pause();
+        return;
+      } else {
+        cur++;
+      }
     }
 
     queue[cur].update();
