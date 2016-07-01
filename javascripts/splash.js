@@ -1,6 +1,8 @@
+var r;
+
 function runSplash() {
 
-  var r = new Rune({
+  r = new Rune({
     container: "#canvas"
   });
 
@@ -153,8 +155,9 @@ function runSplash() {
         r.pause();
         return;
       }
+
       var diff = stop.sub(start);
-      var maxSegments = Math.floor(diff.length() / 15);
+      var maxSegments = Math.floor(diff.length() / 25);
 
       // split this line into several line objects
       var numLines = Math.round(r.random(1, maxSegments > 5 ? 5 : maxSegments));
@@ -207,3 +210,13 @@ function runSplash() {
 }
 
 if(window.location.pathname == "/") runSplash();
+
+window.addEventListener('resizeEnd', function() {
+
+  if(r) {
+    r.pause();
+    r.el.parentNode.removeChild(r.el);
+  }
+
+  runSplash();
+});

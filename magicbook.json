@@ -14,7 +14,7 @@
     "content/2-introduction.md",
     {
       "label" : "Shape",
-      "files" : [ "content/test.html", "content/shape/*.html" ],
+      "files" : [ "content/shape/*.html" ],
       "colors" : {
         "link" : "#FFDAA2",
         "codeBackground" : "#FFFFE2",

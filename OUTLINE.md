@@ -15,6 +15,7 @@ Shape
 - Introduction (and history?)
 - Figure and ground
   - Add introduction that is specifically around figure, ground. Maybe the FEDEX logo arrow problem?
+  - Add running examples to width and height variables in size
 - Basic Shapes
 - Custom Shapes
 - Composing multiple shapes
