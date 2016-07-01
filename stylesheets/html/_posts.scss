@@ -1,5 +1,7 @@
 section[data-type="chapter"] {
 
+  margin-top: 3em;
+
   > header {
     @extend .text-width;
     margin-bottom: 2em;
@@ -64,11 +66,4 @@ section[data-type="chapter"] {
   div:nth-child(2) {
     text-align: right;
   }
-}
-
-// Bigger than mobile
-// -------------------------------------------
-
-@media (min-width: $mobileBreak) {
-
 }

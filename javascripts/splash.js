@@ -209,14 +209,15 @@ function runSplash() {
   r.play();
 }
 
-if(window.location.pathname == "/") runSplash();
-
-window.addEventListener('resizeEnd', function() {
-
-  if(r) {
-    r.pause();
-    r.el.parentNode.removeChild(r.el);
-  }
-
+if(window.location.pathname == "/") {
   runSplash();
-});
+  window.addEventListener('resizeEnd', function() {
+
+    if(r) {
+      r.pause();
+      r.el.parentNode.removeChild(r.el);
+    }
+
+    runSplash();
+  });
+}
