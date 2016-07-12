@@ -92,9 +92,9 @@
   }
 
   .newsletter-help {
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: #2ba78f;
-    line-height: 1.3em;
+    line-height: 1.4em;
   }
 
 }
@@ -112,13 +112,18 @@
       font-size: 2.55em;
     }
 
+    h2, .newsletter-help {
+      display: inline-block;
+    }
+
     h2 {
       font-size: 1.35em;
       margin-bottom: 6em;
+      max-width: 670px;
     }
 
-    h2, .newsletter-help {
-      display: inline-block;
+    .newsletter-help {
+      margin-top: 2em;
       max-width: 550px;
     }
 
