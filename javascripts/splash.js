@@ -102,20 +102,53 @@ function runSplash() {
 
   function nextPosition(grid) {
 
-    // for now just choose a random module
-    // this should be substituted for random walk
-    // using curCol and curRow
-    var flattened = [];
-    for(var i = 0; i < grid.cols; i++) {
-      for(var j = 0; j < grid.rows; j++) {
-        var mod = grid.modules[i][j];
-        if(!mod.used) flattened.push(mod);
+    console.log(grid)
+
+    // is this the first module?
+    if(typeof grid.curCol === 'undefined') {
+      grid.curCol = Math.floor(r.random(grid.cols));
+      grid.curRow = Math.floor(r.random(grid.rows));
+      console.log('first')
+    }
+    // can we go right?
+    else if(grid.curCol + 1 < grid.cols  && !grid.modules[grid.curCol+1][grid.curRow].used) {
+      grid.curCol++;
+      console.log('right')
+    }
+    // can we go left?
+    else if(grid.curCol > 0  && !grid.modules[grid.curCol-1][grid.curRow].used) {
+      grid.curCol--;
+      console.log('left')
+    }
+    // can we go down?
+    else if(grid.curRow + 1 < grid.rows  && !grid.modules[grid.curCol][grid.curRow+1].used) {
+      grid.curRow++;
+      console.log('down')
+    }
+    // can we go up?
+    else if(grid.curRow > 0  && !grid.modules[grid.curCol][grid.curRow-1].used) {
+      grid.curRow--;
+      console.log('up')
+    }
+    // else random
+    else {
+      console.log('random')
+      var combinations = [];
+      for(var i = 0; i < grid.cols; i++) {
+        for(var j = 0; j < grid.rows; j++) {
+          if(!grid.modules[i][j].used) {
+            combinations.push([i, j]);
+          }
+        }
       }
+      var combination = combinations[Math.floor(r.random(combinations.length))];
+      if(!combination) return null;
+
+      grid.curCol = combination[0];
+      grid.curRow = combination[1];
     }
 
-    if(flattened.length == 0) return null;
-
-    var mod = flattened[Math.floor(r.random(flattened.length))];
+    var mod = grid.modules[grid.curCol][grid.curRow];
     mod.used = true;
 
     var insideMod = mod.pos.add(new Rune.Vector(r.random(mod.siz.x), r.random(mod.siz.y)));
@@ -125,8 +158,6 @@ function runSplash() {
   function calcGrid(px) {
 
     var grid = {
-      curCol: 0,
-      curRow: 0,
       modules: [],
       cols: Math.round(window.innerWidth / px),
       rows: Math.round(window.innerHeight / px)
@@ -164,7 +195,7 @@ function runSplash() {
   // Create queue
   var queue = [];
   var start;
-  var stop = grid.modules[grid.curCol][grid.curRow].pos;
+  var stop = nextPosition(grid);
 
   while(true) {
 
