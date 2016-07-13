@@ -74,7 +74,7 @@ function runSplash() {
     // choose line type
     var seed = r.random(1);
     if(seed > 0.7)      o.line.strokeDash('2,2')
-    else if(seed > 0.6) o.line.strokeDash([r.random(5, 10), r.random(5, 10)].join(','))
+    else if(seed > 0.4) o.line.strokeDash([r.random(5, 10), r.random(5, 10)].join(','))
 
     return o;
   }
@@ -102,37 +102,29 @@ function runSplash() {
 
   function nextPosition(grid) {
 
-    console.log(grid)
-
     // is this the first module?
     if(typeof grid.curCol === 'undefined') {
       grid.curCol = Math.floor(r.random(grid.cols));
       grid.curRow = Math.floor(r.random(grid.rows));
-      console.log('first')
     }
     // can we go right?
     else if(grid.curCol + 1 < grid.cols  && !grid.modules[grid.curCol+1][grid.curRow].used) {
       grid.curCol++;
-      console.log('right')
     }
     // can we go left?
     else if(grid.curCol > 0  && !grid.modules[grid.curCol-1][grid.curRow].used) {
       grid.curCol--;
-      console.log('left')
     }
     // can we go down?
     else if(grid.curRow + 1 < grid.rows  && !grid.modules[grid.curCol][grid.curRow+1].used) {
       grid.curRow++;
-      console.log('down')
     }
     // can we go up?
     else if(grid.curRow > 0  && !grid.modules[grid.curCol][grid.curRow-1].used) {
       grid.curRow--;
-      console.log('up')
     }
     // else random
     else {
-      console.log('random')
       var combinations = [];
       for(var i = 0; i < grid.cols; i++) {
         for(var j = 0; j < grid.rows; j++) {
@@ -189,8 +181,8 @@ function runSplash() {
     }
   }
 
-  var grid = calcGrid(400);
-  drawGrid(grid);
+  var grid = calcGrid(300);
+  // drawGrid(grid);
 
   // Create queue
   var queue = [];
@@ -206,8 +198,8 @@ function runSplash() {
     // break into several line segments
     var segments;
     var diff = stop.sub(start);
-    var maxSegments = Math.floor(diff.length() / 25);
-    var numSegments = 1;//Math.round(r.random(1, maxSegments));
+    var maxSegments = Math.floor(diff.length() / 50);
+    var numSegments = Math.round(r.random(1, maxSegments));
 
     // space them evenly or random?
     if(r.random(1) > 0.5) segments = evenSpacedArray(numSegments);
@@ -222,7 +214,7 @@ function runSplash() {
     }
 
     // zigzag the vectors?
-    var zigzag = false;//r.random(1) > 0.8;
+    var zigzag = r.random(1) > 0.5;
     if(zigzag) {
       var move = r.random(100);
       var offset = stop.sub(start).normalize().rotate(90).multiply(move);
