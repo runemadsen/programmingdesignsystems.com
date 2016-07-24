@@ -102,42 +102,50 @@ function runSplash() {
 
   function nextPosition(grid) {
 
-    // is this the first module?
+    // is this the first module, then start a random place
     if(typeof grid.curCol === 'undefined') {
       grid.curCol = Math.floor(r.random(grid.cols));
       grid.curRow = Math.floor(r.random(grid.rows));
     }
-    // can we go right?
-    else if(grid.curCol + 1 < grid.cols  && !grid.modules[grid.curCol+1][grid.curRow].used) {
-      grid.curCol++;
-    }
-    // can we go left?
-    else if(grid.curCol > 0  && !grid.modules[grid.curCol-1][grid.curRow].used) {
-      grid.curCol--;
-    }
-    // can we go down?
-    else if(grid.curRow + 1 < grid.rows  && !grid.modules[grid.curCol][grid.curRow+1].used) {
-      grid.curRow++;
-    }
-    // can we go up?
-    else if(grid.curRow > 0  && !grid.modules[grid.curCol][grid.curRow-1].used) {
-      grid.curRow--;
-    }
-    // else random
     else {
-      var combinations = [];
-      for(var i = 0; i < grid.cols; i++) {
-        for(var j = 0; j < grid.rows; j++) {
-          if(!grid.modules[i][j].used) {
-            combinations.push([i, j]);
-          }
+
+      // try first to move to tile next to current pos
+      // we randomize the moves so it doesn't always follow
+      // the same pattern.
+      var moves = [
+        [grid.curCol+1, grid.curRow], // right
+        [grid.curCol-1, grid.curRow], // left
+        [grid.curCol, grid.curRow+1], // down
+        [grid.curCol, grid.curRow-1]  // up
+      ];
+
+      var found = false;
+      while(moves.length > 0) {
+        var move = moves.splice(Math.floor(r.random(moves.length)), 1)[0];
+        if(move[0] < grid.cols && move[0] >= 0 && move[1] < grid.rows && move[1] >= 0 && !grid.modules[move[0]][move[1]].used) {
+          grid.curCol = move[0];
+          grid.curRow = move[1];
+          found = true;
+          break;
         }
       }
-      var combination = combinations[Math.floor(r.random(combinations.length))];
-      if(!combination) return null;
 
-      grid.curCol = combination[0];
-      grid.curRow = combination[1];
+      // if no moves were found, go to random place
+      if(!found) {
+        var combinations = [];
+        for(var i = 0; i < grid.cols; i++) {
+          for(var j = 0; j < grid.rows; j++) {
+            if(!grid.modules[i][j].used) {
+              combinations.push([i, j]);
+            }
+          }
+        }
+        var combination = combinations[Math.floor(r.random(combinations.length))];
+        if(!combination) return null;
+        grid.curCol = combination[0];
+        grid.curRow = combination[1];
+      }
+
     }
 
     var mod = grid.modules[grid.curCol][grid.curRow];
