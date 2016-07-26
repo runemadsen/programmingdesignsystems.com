@@ -26,11 +26,17 @@
     }
   ],
   "stylesheets" : {
+    "bundle" : true,
+    "compress" : true,
+    "digest" : true,
     "files" : [
       "stylesheets/html.scss"
     ]
   },
   "javascripts" : {
+    "bundle" : true,
+    "compress" : true,
+    "digest" : true,
     "files" : [
       "javascripts/srcdoc-polyfill.js",
       "javascripts/rune.js",

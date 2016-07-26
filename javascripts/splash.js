@@ -163,6 +163,9 @@ function runSplash() {
       rows: Math.round(window.innerHeight / px)
     }
 
+    if(grid.cols < 3) grid.cols = 3;
+    if(grid.rows < 3) grid.rows = 3;
+
     var moduleWidth = window.innerWidth / grid.cols;
     var moduleHeight = window.innerHeight / grid.rows;
 
