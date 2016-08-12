@@ -10,19 +10,7 @@
   ],
   "files" : [
     "content/index.html",
-    "content/2-introduction.html",
-    {
-      "label" : "Shape",
-      "files" : [ "content/shape/*.html" ],
-      "colors" : {
-        "link" : "#FFDAA2",
-        "codeBackground" : "#FFFFE2",
-        "codeText" : "#726C54",
-        "codeVariable" : "#E1B000",
-        "codeStringNum" : "#acb835",
-        "codeKeyword" : "#C17C2D"
-      }
-    }
+    "content/2-introduction.html"
   ],
   "stylesheets" : {
     "bundle" : true,
