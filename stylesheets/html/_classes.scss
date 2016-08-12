@@ -7,13 +7,14 @@
 }
 
 .header-width {
-  max-width: $headerWidth;
+  max-width: 730px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .text-width {
-  max-width: $textWidth;
+  max-width: 690px;
+  padding: 0 1em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -51,4 +52,29 @@
 
 .placeholder {
   background-color: $colorGrayLight;
+}
+
+// Buttons
+// -------------------------------------------
+
+.btn {
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  font-size: 1em;
+  padding: 0.55em 0.8em;
+  border: 2px solid #29b79b;
+  background-color: #29b79b;
+  font-weight: 700;
+}
+
+.btn.large {
+  font-size: 1.2em;
+  padding: 0.7em 1.2em;
+}
+
+.btn.invert {
+  background: white;
+  color: #29b79b;
 }

@@ -10,8 +10,7 @@
   ],
   "files" : [
     "content/index.html",
-    "content/1-toc.html",
-    "content/2-introduction.md",
+    "content/2-introduction.html",
     {
       "label" : "Shape",
       "files" : [ "content/shape/*.html" ],
