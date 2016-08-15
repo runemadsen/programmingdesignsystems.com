@@ -11,11 +11,9 @@
   "files" : [
     "content/index.html",
     "content/2-introduction.html",
-    "content/colors.html",
     {
       "label" : "Shape",
       "files" : [
-        "content/colors.html"
       ],
       "colors" : {
         "color1" : "#E1B000",

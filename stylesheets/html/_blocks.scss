@@ -19,3 +19,11 @@ div[data-type="exercise"] {
     }
   }
 }
+
+.newsletter {
+  margin-bottom: 5em; /* delete when chapters are in */
+  padding: 1em;
+  .btn {
+    display: inline-block;
+  }
+}
