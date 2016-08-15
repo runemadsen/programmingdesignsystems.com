@@ -8,28 +8,49 @@
     {{ stylesheets }}
     {% include ga.html %}
     <style media="screen">
+      .color1 { color: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
+      .color2 { color: {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %} !important; }
+      .color3 { color: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %} !important; }
+      .color4 { color: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %} !important; }
+      .color5 { color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %} !important; }
+      .color6 { color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %} !important; }
+      .color7 { color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %} !important; }
+      .bg1 { background: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
+      .bg2 { background: {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %} !important; }
+      .bg3 { background: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %} !important; }
+      .bg4 { background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %} !important; }
+      .bg5 { background: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %} !important; }
+      .bg6 { background: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %} !important; }
+      .bg7 { background: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %} !important; }
+      .border1 { border-color: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
+      .border2 { border-color: {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %} !important; }
+      .border3 { border-color: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %} !important; }
+      .border4 { border-color: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %} !important; }
+      .border5 { border-color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %} !important; }
+      .border6 { border-color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %} !important; }
+      .border7 { border-color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %} !important; }
       section[data-type="chapter"] a {
-        box-shadow: inset 0 -3px 0 {% if part.colors.link %}{{part.colors.link}}{% else %}#86dcca{% endif %};
+        box-shadow: inset 0 -3px 0 {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %};
       }
       code, .cm-s-pds {
-        color: {% if part.colors.codeText %}{{part.colors.codeText}}{% else %}#29b79b{% endif %};
-        background: {% if part.colors.codeBackground %}{{part.colors.codeBackground}}{% else %}#29b79b{% endif %};
+        color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %};
+        background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %};
       }
-      .cm-s-pds .cm-keyword { color: {% if part.colors.codeKeyword %}{{part.colors.codeKeyword}}{% else %}#29b79b{% endif %}; }
-      .cm-s-pds .cm-variable { color: {% if part.colors.codeVariable %}{{part.colors.codeVariable}}{% else %}#29b79b{% endif %}; }
-      .cm-s-pds .cm-property { color: {% if part.colors.codeText %}{{part.colors.codeText}}{% else %}#29b79b{% endif %}; }
-      .cm-s-pds .cm-string, .cm-s-pds .cm-number { color: {% if part.colors.codeStringNum %}{{part.colors.codeStringNum}}{% else %}#29b79b{% endif %}; }
+      .cm-s-pds .cm-keyword { color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %}; }
+      .cm-s-pds .cm-variable { color: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %}; }
+      .cm-s-pds .cm-property { color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %}; }
+      .cm-s-pds .cm-string, .cm-s-pds .cm-number { color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %}; }
     </style>
   </head>
   <nav>
     <div class='wrapper'>
       <svg width="31px" height="25px" viewBox="0 0 31 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <path d="M3,13.8469488 C3,13.8469488 6.40838028,28.7747892 9.82996634,21.0849644 C13.2515524,13.3951395 16.0839754,-8.99997561 19.884073,6.61845625 C23.0706906,19.7154805 28.4217548,19.5552421 28.4217548,19.5552421" stroke="{% if part.colors.codeVariable %}{{part.colors.codeVariable}}{% else %}#29b79b{% endif %}" stroke-width="2" fill="none"></path>
-        <circle id="Oval-2" fill="{% if part.colors.codeVariable %}{{part.colors.codeVariable}}{% else %}#29b79b{% endif %}" cx="2.5" cy="12.5" r="2.5"></circle>
-        <circle id="Oval-2" fill="{% if part.colors.codeVariable %}{{part.colors.codeVariable}}{% else %}#29b79b{% endif %}" cx="28.5" cy="19.5" r="2.5"></circle>
+        <path d="M3,13.8469488 C3,13.8469488 6.40838028,28.7747892 9.82996634,21.0849644 C13.2515524,13.3951395 16.0839754,-8.99997561 19.884073,6.61845625 C23.0706906,19.7154805 28.4217548,19.5552421 28.4217548,19.5552421" stroke="{% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %}" stroke-width="2" fill="none"></path>
+        <circle id="Oval-2" fill="{% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %}" cx="2.5" cy="12.5" r="2.5"></circle>
+        <circle id="Oval-2" fill="{% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %}" cx="28.5" cy="19.5" r="2.5"></circle>
       </svg>
       <a id="logo" href="/" >Programming Design Systems</a>
-      <a id="newsletter" href="http://eepurl.com/b_kRKD" class="btn invert">Subscribe to Newsletter</a>
+      <a id="newsletter" href="http://eepurl.com/b_kRKD" class="btn invert border1 color1">Subscribe to Newsletter</a>
     </div>
   </nav>
 

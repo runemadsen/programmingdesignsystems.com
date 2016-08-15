@@ -8,12 +8,6 @@ section[data-type="chapter"] {
     h1 {
       margin: 0 0 0.5em 0;
     }
-
-    p.dek {
-      max-width: 100%;
-      margin: 0 0 0.5em 0;
-      @extend .font-large;
-    }
   }
 
   a {
@@ -47,7 +41,7 @@ section[data-type="chapter"] {
 }
 
 .navigation {
-  @extend .header-width;
+  @extend .media-width;
   padding-top: 1.5em;
   border-top: 1px solid $colorGray;
   margin: 4em auto;

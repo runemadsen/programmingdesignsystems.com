@@ -52,6 +52,7 @@
     max-width: 500px;
     display: block;
     background-color: rgba(8,172,140,0.86);
+    border: 2px solid #29b79b;
     margin: 0 auto 1em auto;
   }
 
@@ -74,7 +75,7 @@
       font-size: 2.7em;
     }
 
-    h2, .newsletter-help {
+    h2 {
       display: inline-block;
     }
 
