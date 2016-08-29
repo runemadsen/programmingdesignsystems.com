@@ -7,16 +7,25 @@ function P5toFig(el) {
 
   // Grab the size of the sketch
   var code = el.innerHTML;
+  var path = el.getAttribute('data-path');
   var pattern = /createCanvas\((\d+),\s*(\d+)\)/
   var hasCanvas = code.match(pattern)
   if(!hasCanvas) console.warn('Example appears to not have a createCanvas function.');
   var sketchWidth = parseInt(hasCanvas[1]);
   var sketchHeight = parseInt(hasCanvas[2]);
 
+  // add any other classes to the iframe
+  var iframeClass = 'placeholder';
+  var extraClasses = el.className.replace('p5 fig', '').trim();
+  if(extraClasses != '') iframeClass += ' ' + extraClasses;
+
   // function to set or update the iframe and sketch size
   function setSize(iframe, updateSketch) {
 
-    var ratio = el.parentNode.offsetWidth / sketchWidth;
+    // small hack to remove the padding from the width
+    var computed = window.getComputedStyle(el.parentNode);
+    var realWidth = parseFloat(computed.width) - parseFloat(computed.paddingLeft) - parseFloat(computed.paddingRight);
+    var ratio = realWidth / sketchWidth;
     var w = Math.floor(sketchWidth * ratio);
     var h = Math.floor(sketchHeight * ratio);
     var ws = w + 'px';
@@ -27,15 +36,20 @@ function P5toFig(el) {
       iframe.style.height = hs;
     }
 
+    var link = '';
+    if(path) {
+      link += '<a href="https://github.com/runemadsen/programmingdesignsystems.com/tree/master/'+path+'">&lt;&gt;</a>';
+    }
+
     if(updateSketch) {
       var fitCode = code.replace(pattern, 'createCanvas('+w+','+h+');');
-      iframe.setAttribute('srcdoc', '<html><head><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script><style>html,body{ margin:0; padding:0}</style></head><body><script type="text/javascript">' + fitCode + '</script></body></html>');
+      iframe.setAttribute('srcdoc', '<html><head><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script><style>html,body{ margin:0; padding:0} a{color:rgba(0,0,0,0.15); font-family:Courier New, sans-serif; text-decoration:none; position:absolute; top:10px; right:12px; letter-spacing:0.1em; font-weight: bold; font-size:0.9em}</style></head><body><script type="text/javascript">' + fitCode + '</script>'+link+'</body></html>');
     }
   }
 
   // Create iframe as placeholder and insert next to script
   var iframe = document.createElement('iframe');
-  iframe.setAttribute('class', 'placeholder');
+  iframe.setAttribute('class', iframeClass);
   iframe.setAttribute('scrolling', 'no');
   iframe.setAttribute('sandbox', 'allow-scripts');
   setSize(iframe);

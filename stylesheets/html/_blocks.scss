@@ -21,9 +21,57 @@ div[data-type="exercise"] {
 }
 
 .newsletter {
-  margin-bottom: 5em; /* delete when chapters are in */
+  margin-top: 2em;
   padding: 1em;
   .btn {
     display: inline-block;
+  }
+}
+
+.navigation {
+  @extend .media-width;
+  margin: 1em auto 4em auto;
+
+  .col {
+    margin-bottom: 1em;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+  a:nth-child(1) {
+    @extend .font-large;
+    font-weight: 700;
+  }
+  a:nth-child(2) {
+    color: $fontGray;
+  }
+  div:nth-child(2) {
+    text-align: right;
+  }
+}
+
+div[data-type="footnotes"] {
+  hr {
+    width: 100px;
+  }
+  ol {
+    @extend .font-xsmall;
+    color: $fontGray;
+    padding-left: 1em;
+    li {
+      margin-bottom: 0.6em;
+    }
+  }
+}
+
+div[data-type="copyright-page"] {
+  hr {
+    width: 100px;
+  }
+  p {
+    @extend .font-xsmall;
+    color: $fontGray;
   }
 }

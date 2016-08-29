@@ -10,10 +10,12 @@
   ],
   "files" : [
     "content/index.html",
-    "content/2-introduction.html",
+    "content/introduction.html",
+    "content/what-is-a-design-system.html",
     {
       "label" : "Shape",
       "files" : [
+        "content/shape/figure-and-ground.html"
       ],
       "colors" : {
         "color1" : "#E1B000",

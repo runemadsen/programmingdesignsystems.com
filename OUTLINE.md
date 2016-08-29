@@ -64,6 +64,12 @@ Randomization
 - Basic randomization
   - Techniques for dynamic designs: Size, color, etc
 
+Typography (or Text? go through generative text examples?)
+----------
+
+- Dexter Sinister - letter and spirit
+- Dave crossland - metapolator
+
 Data
 ----
 
@@ -131,4 +137,3 @@ EXTRAS
 - http://adrianavarro.net/projects/generative-play/
 - http://titouanm.com/mucartographer/
 - https://github.com/a1studmuffin/SpaceshipGenerator/
-- Why is code important?

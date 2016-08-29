@@ -85,7 +85,6 @@ nav {
     display: flex;
     flex-wrap: wrap;
     > .col {
-      overflow-x: hidden;
       flex: 0 0 50%;
       &:nth-child(1) {
         padding-right: 0.5em;
@@ -111,7 +110,6 @@ nav {
     display: flex;
     flex-wrap: wrap;
     > .col {
-      overflow-x: hidden;
       flex: 0 0 33.333332%;
       &:nth-child(1) {
         padding-right: 0.5em;
@@ -135,7 +133,6 @@ nav {
     display: flex;
     flex-wrap: wrap;
     > .codesplit, figure {
-      overflow-x: hidden;
       flex: 0 0 50%;
       &:nth-child(1) {
         padding-right: 1em;

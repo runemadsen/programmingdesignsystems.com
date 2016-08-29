@@ -1,3 +1,9 @@
+.part-info {
+  margin-bottom: 0.7em;
+  display: inline-block;
+}
+
+
 section[data-type="chapter"] {
 
   margin-top: 3em;
@@ -10,54 +16,11 @@ section[data-type="chapter"] {
     }
   }
 
-  a {
-    color: $fontBlack;
-    text-decoration: none;
-  }
-
   // Paragraphs and headings directly inside chapter
   // or sect should have text width.
   &, section[data-type^="sect"] {
     > p, > h1, > h2 {
       @extend .text-width;
     }
-  }
-
-  figure {
-    margin-top: 1em;
-    margin-bottom: 1.6em;
-    figcaption {
-      margin-top: 0.8em;
-      margin-left: 1em;
-      max-width: 450px;
-    }
-  }
-
-  figure img {
-    width: 100%;
-    height: auto;
-  }
-
-}
-
-.navigation {
-  @extend .media-width;
-  padding-top: 1.5em;
-  border-top: 1px solid $colorGray;
-  margin: 4em auto;
-
-  a {
-    display: block;
-    text-decoration: none;
-  }
-  a:nth-child(1) {
-    @extend .font-large;
-    font-weight: 700;
-  }
-  a:nth-child(2) {
-    color: $fontGray;
-  }
-  div:nth-child(2) {
-    text-align: right;
   }
 }

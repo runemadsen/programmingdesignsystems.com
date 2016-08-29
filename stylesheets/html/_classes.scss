@@ -1,3 +1,14 @@
+// Spacing
+// -------------------------------------------
+
+.no-margin-bottom {
+  margin-bottom: 0px;
+}
+
+.half-margin-bottom {
+  margin-bottom: 0.8em;
+}
+
 // Typography
 // -------------------------------------------
 
@@ -12,21 +23,23 @@
 
 .text-width {
   max-width: 690px;
-  padding: 0 1em;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 .media-width {
   max-width: 770px;
-  padding: 0 1em;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 .font-xsmall {
   font-size: 0.8em;
-  line-height: 1em;
+  line-height: 1.3em;
 }
 
 .font-small {
@@ -57,6 +70,13 @@
 
 .placeholder {
   background-color: $colorGrayLight;
+}
+
+.white-img {
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ededed;
+  border-right-color: #d4d3d3;
+  border-bottom-color: #d4d3d3
 }
 
 // Buttons

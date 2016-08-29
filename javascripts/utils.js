@@ -20,12 +20,12 @@ function lazyload(el, cb) {
   function checkVisibility() {
     if (!isElementInViewport(el, 1000))return;
     clearInterval(interval);
-    window.removeEventListener('scrollEnd', checkVisibility, false);
+    window.removeEventListener('scroll', checkVisibility, false);
     window.removeEventListener('resize', checkVisibility, false);
     cb(el);
   }
 
-  window.addEventListener('scrollEnd', checkVisibility, false);
+  window.addEventListener('scroll', checkVisibility, false);
   window.addEventListener('resize', checkVisibility, false);
   interval = setInterval(checkVisibility, 2000); // fallback
   checkVisibility();
@@ -42,7 +42,7 @@ function lazyload(el, cb) {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function() {
       window.dispatchEvent(new Event('resizeEnd'));
-    }, 250);
+    }, 150);
   }
 
   // scrollEnd
@@ -51,7 +51,7 @@ function lazyload(el, cb) {
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function() {
       window.dispatchEvent(new Event('scrollEnd'));
-    }, 250);
+    }, 150);
   }
 
 

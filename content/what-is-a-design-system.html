@@ -1,0 +1,71 @@
+---
+title:  What is a design system?
+---
+
+<section data-type="chapter">
+
+  <header>
+    <h1>{{ page.title }}</h1>
+  </header>
+
+  <p>No matter where you go, you are surrounded by systems. We use the word ‘system’ to describe a group of interacting parts as a common whole, and these can be simple, like a watch, or incredibly complex, like the web of computer networks we call the internet. In this book, the term ‘design system’ is used to describe a philosophy that encourages designers to define the rules of their designs as a system of instructions that can be used on more than a single product. This is best explained with a simple story.</p>
+
+  <p>Let’s suppose I’m asked to design a label for a local brewery’s famous stout beer. I want to make sure that my design is a good fit for the product, so I spend a lot of time researching and tasting the beer before making my final design. The brewery loves my new design, and they ask me to design labels for the rest of their 10 beer types. Now I’m faced with a problem. The colors, typography, and illustrations I chose for my label design was a great fit for a strong and dense beer, but it won’t work for the other beers. So I end up creating labels with a different visual style for each beer, but without a consistent branding for the brewery.</p>
+
+  <p>This problem could have been avoided had I designed the first label with the conviction that it would be a part of something bigger: A design system for the brewery. Instead of focusing on the particular stout, I would have defined a range of visual styles to be used for different beer types. This would include a set of related typefaces and colors with enough variance to be used for the individual beers, but recognizable enough to provide a common identity for the brewery. Only after creating this design system would I design the first label.</p>
+
+  <figure class="media-width">
+    <img src="what-is-a-design-system/transitmanual.jpg" />
+    <figcaption>The Graphics Standards Manual created for the New York Transit Authority in 1970 is one example of a design system. With more than 350 pages, it defines visual guidelines for all signage related to the New York City subway. <a href="#fairuse">©</a></figcaption>
+  </figure>
+
+  <p>Design systems offer a different way of thinking, where the designer is forced to consider many scenarios and constraints instead of relying on a one-off design process. This approach is of course nothing new, and some might say that it has always been a part of the designer’s job. Thousands of design systems have been created over the years, from the New York Transit Authority Graphics Standards Manual to Google’s Material Design. Most fortune 500 companies are recognizable for a reason: they have defined strict rules for use of typography and color across their product line.</p>
+
+  <figure class="media-width">
+    <img src="what-is-a-design-system/materialdesign.jpg" />
+    <figcaption>Google’s <a href="https://material.google.com/">Material Design</a> document was created to help explain the ideas behind the company’s visual language. This includes rules for use of color, layering, and animation.</figcaption>
+  </figure>
+
+  <p>A recent example of a simple design system is the MIT Media Lab logo created by Pentagram. The idea is simple: Fill a 7x7 grid with perpendicular lines to create abstract letters or symbols in black and white. This system is used to create logos with acronyms for the 23 research groups at the lab, and as a basis for building a custom typeface, icons, and patterns.</p>
+
+  <figure class="media-width white-img no-margin-bottom">
+    <img src="what-is-a-design-system/medialab1.jpg" />
+  </figure>
+
+  <div class="two-grid media-width">
+    <figure class="col">
+      <img src="what-is-a-design-system/medialab2.jpg" />
+      <figcaption>The MIT Media Lab design system. <a href="#fairuse">©</a></figcaption>
+    </figure>
+    <figure class="col">
+      <img src="what-is-a-design-system/medialab3.jpg" />
+    </figure>
+  </div>
+
+  <p>This logo is an excellent example of how a design system can be used to give both a consistent look and a distinct style to an organization. The system is both simple and flexible, and it has room for an almost infinite number of designs.</p>
+
+  <p>Design systems are especially interesting today, because digital products <em>are</em> systems, and designers who code are no longer confined to the creation of design systems that end up in printed manuals. Code allows designers to not just create designs, but build digital systems that create designs. Granted, more time will be spent on formulating the rules of the system in code, but designers will be free from the limitations imposed by traditional design software. The American computer scientist Donald Knuth writes about this very thing:</p>
+
+  <blockquote class="media-width">
+    <p>&ldquo;Meta-design is much more difficult than design; it’s easier to draw something than to explain how to draw it. One of the problems is that different sets of potential specifications can’t easily be envisioned all at once. Another is that a computer has to be told absolutely everything. However, once we have successfully explained how to draw something in a sufficiently general manner, the same explanation will work for related shapes, in different circumstances; so the time spent in formulating a precise explanation turns out to be worth it..&rdquo;</p>
+    <cite>Donald Knuth (1986), The Metafont Book</cite>
+  </blockquote>
+
+  <p>The words <em>&ldquo;sufficiently general manner&rdquo;</em> are important here. Software can be written to allow a range of possible outputs, and variations of a design system can be generated in (literally) fractions of a second. The ability to procedurally generate designs is one of the most empowering aspects of algorithmic design, whether it leads to generating <a href="http://thegreeneyl.com/mit-media-lab-identity-1">45,000 variations of a logo</a>, building an <a href="http://www.no-mans-sky.com/">infinite galaxy of planets</a> with generative landscapes, or creating a <a href="http://www.nytimes.com/interactive/2015/05/03/upshot/the-best-and-worst-places-to-grow-up-how-your-area-compares.html">dynamic article</a> that changes its content based on map selections.</p>
+
+  <div class="two-grid media-width">
+    <figure class="col">
+      <img src="what-is-a-design-system/earth-day.jpg" class="white-img" />
+      <figcaption>A poster designed by Paul Rand. <a href="#fairuse">©</a></figcaption>
+    </figure>
+    <figure class="col">
+      {% p5 what-is-a-design-system/earth-day.js class:'fig white-img' %}
+      <figcaption>The same poster recreated in code.</figcaption>
+    </figure>
+  </div>
+
+  <p>In this book, we will investigate what designers can build when they are encouraged to create design systems and make these systems come to life by writing software.</p>
+
+  {% include fairuse.html %}
+
+</section>

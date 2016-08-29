@@ -12,6 +12,7 @@ p {
 
 a {
   color: $fontBlack;
+  text-decoration: none;
 }
 
 blockquote {
@@ -46,9 +47,24 @@ section[data-type="sect1"] h1, h2 {
   font-weight: 700;
 }
 
-.caption, figcaption, figcaption code {
-  color: $fontGrayLight;
-  @extend .font-small;
+figure {
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  figcaption {
+    @extend .font-small;
+    color: $fontGrayLight;
+    margin-top: 0.8em;
+    margin-left: 1em;
+    a {
+      color: $fontGrayLight;
+      box-shadow: none;
+    }
+  }
+}
+
+figure img {
+  width: 100%;
+  height: auto;
 }
 
 span[data-type="footnote"] {
@@ -68,18 +84,4 @@ hr {
   border-top: 2px solid $colorGray;
   margin: 1em 0;
   padding: 0;
-}
-
-div[data-type="footnotes"] {
-  hr {
-    width: 100px;
-  }
-  ol {
-    @extend .font-xsmall;
-    color: $fontGray;
-    padding-left: 1em;
-    li {
-      margin-bottom: 0.6em;
-    }
-  }
 }

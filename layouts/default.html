@@ -29,7 +29,7 @@
       .border5 { border-color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %} !important; }
       .border6 { border-color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %} !important; }
       .border7 { border-color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %} !important; }
-      section[data-type="chapter"] a {
+      section a {
         box-shadow: inset 0 -3px 0 {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %};
       }
       code, .cm-s-pds {
@@ -59,6 +59,8 @@
       <article class="post">
         {{ content }}
       </article>
+      {% include newsletter.html %}
+      {% include navigation.html %}
     </div>
     {{ javascripts }}
   </body>
