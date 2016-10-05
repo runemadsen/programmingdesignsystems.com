@@ -28,7 +28,7 @@ Plugin.prototype = {
       var pattern = new RegExp(/(\S+):[\"\']([a-zA-Z\s\-]+)[\"\']/g);
       var match = null;
       while (match = pattern.exec(input)) { attrs[match[1]] = match[2]; }
-      
+
       // let's use caching so we don't load the same files over
       // and over again.
       if(!that.cache[examplePath]) {

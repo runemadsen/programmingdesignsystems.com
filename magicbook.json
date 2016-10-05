@@ -16,7 +16,8 @@
       "label" : "Shape",
       "files" : [
         "content/shape/figure-and-ground.html",
-        "content/shape/basic-shapes.html"
+        "content/shape/basic-shapes.html",
+        "content/shape/custom-shapes.html"
       ],
       "colors" : {
         "color1" : "#E1B000",
@@ -44,8 +45,9 @@
     "files" : [
       "javascripts/srcdoc-polyfill.js",
       "javascripts/rune.js",
-      "javascripts/utils.js",
       "javascripts/p5.js",
+      "javascripts/utils.js",
+      "javascripts/p5fig.js",
       "javascripts/splash.js"
     ]
   },
