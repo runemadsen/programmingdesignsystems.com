@@ -18,7 +18,7 @@ function lazyload(el, cb) {
   var interval;
 
   function checkVisibility() {
-    if (!isElementInViewport(el, 1000))return;
+    if (!isElementInViewport(el, 1000)) return;
     clearInterval(interval);
     window.removeEventListener('scroll', checkVisibility, false);
     window.removeEventListener('resize', checkVisibility, false);
@@ -44,15 +44,5 @@ function lazyload(el, cb) {
       window.dispatchEvent(new Event('resizeEnd'));
     }, 150);
   }
-
-  // scrollEnd
-  var scrollTimer;
-  window.onscroll = function() {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(function() {
-      window.dispatchEvent(new Event('scrollEnd'));
-    }, 150);
-  }
-
-
+  
 })();

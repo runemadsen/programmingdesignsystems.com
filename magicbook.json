@@ -5,6 +5,7 @@
   "permalink" : ":parts/:title/index.html",
   "addPlugins" : [
     "magicbook-codesplit",
+    "magicbook-webpack",
     "./plugins/p5",
     "./plugins/highlight"
   ],
@@ -30,25 +31,13 @@
       }
     }
   ],
+  "webpack" : "webpack.config.js",
   "stylesheets" : {
     "bundle" : true,
     "compress" : true,
     "digest" : true,
     "files" : [
       "stylesheets/html.scss"
-    ]
-  },
-  "javascripts" : {
-    "bundle" : true,
-    "compress" : true,
-    "digest" : true,
-    "files" : [
-      "javascripts/srcdoc-polyfill.js",
-      "javascripts/rune.js",
-      "javascripts/p5.js",
-      "javascripts/utils.js",
-      "javascripts/p5fig.js",
-      "javascripts/splash.js"
     ]
   },
   "builds" : [

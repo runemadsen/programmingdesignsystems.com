@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>{{ config.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ webpack.main }}"></script>
     {{ stylesheets }}
     {% include ga.html %}
     <style media="screen">
@@ -62,7 +63,6 @@
       {% include newsletter.html %}
       {% include navigation.html %}
     </div>
-    {{ javascripts }}
   </body>
 
 </html>

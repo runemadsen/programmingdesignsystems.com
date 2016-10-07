@@ -3,7 +3,6 @@ layout: layouts/blank.html
 permalink: index.html
 ---
 
-
 <div class="splash">
   <div id="canvas"></div>
   <h1>Programming Design Systems</h1>
@@ -11,3 +10,10 @@ permalink: index.html
   <a href="/introduction" class="btn large">Start Reading</a>
   <a href="http://eepurl.com/b_kRKD" class="btn large invert">Subscribe to Newsletter</a>
 </div>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+    new window.pds.Splash();
+    //window.ReactDOM.render(window.React.createElement(window.pds.Hello, {}), document.getElementById('canvas'))
+  });
+</script>

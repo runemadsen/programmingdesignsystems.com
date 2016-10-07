@@ -1,9 +1,16 @@
 {
-  "dependencies": {
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-react": "^6.16.0",
     "cheerio": "^0.20.0",
     "codemirror": "^5.14.2",
     "lodash": "^4.6.1",
     "magicbook-codesplit": "^0.1.2",
+    "magicbook-webpack": "0.0.2",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "rune.js": "0.4.3",
     "through2": "^2.0.1",
     "tinyliquid": "^0.2.31"
   }
