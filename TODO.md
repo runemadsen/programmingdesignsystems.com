@@ -1,10 +1,5 @@
-- Add Slack room
-- Setup svg to be 100% width and some height.
-- Make first line go under programming design systems
+- Remove iframes from p5fig and pass code into function that binds p instance mode to this
 - feedback button that goes to github issues
-- Copyright
 - Image resize
-- Ability to see code in all code examples and figs
-- Fix overflow on shy example.
 - All functions should link to P5 reference
 - Plugin to create links to function documentation in P5 and JS.
