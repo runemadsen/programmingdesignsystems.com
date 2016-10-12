@@ -17,18 +17,3 @@ code {
   background-color: $colorGrayLight;
   padding: 0.1em 0.3em;
 }
-
-// Default CodeMirror theme
-.cm-s-pds {
-  code {
-    padding: 0;
-    background: transparent;
-  }
-}
-.cm-s-pds .CodeMirror-activeline-background { background: #eeeeee; }
-.cm-s-pds .CodeMirror-selected { background: #60A365; }
-.cm-s-pds .cm-keyword { color: #7A99B8; }
-.cm-s-pds .cm-string { color: #857AB8; }
-.cm-s-pds .cm-number { color: #857AB8; }
-.cm-s-pds .cm-variable { color: #3D668F; }
-.cm-s-pds .cm-property { color: #95CC5E; }

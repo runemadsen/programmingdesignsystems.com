@@ -6,8 +6,7 @@
   "addPlugins" : [
     "magicbook-codesplit",
     "magicbook-webpack",
-    "./plugins/p5",
-    "./plugins/highlight"
+    "./plugins/p5"
   ],
   "files" : [
     "content/index.html",

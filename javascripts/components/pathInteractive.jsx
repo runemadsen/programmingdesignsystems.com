@@ -1,4 +1,5 @@
 var React = require('react');
+var Prism = require('prismjs');
 
 module.exports = React.createClass({
 
@@ -76,15 +77,20 @@ module.exports = React.createClass({
       if(v.cmd == 'L' || v.cmd == 'M') code += '  vertex(' + v.x + ', ' + v.y + ');\n';
       if(v.cmd == 'Z') code += 'endShape(CLOSE)';
     }
+    code = Prism.highlight(code, Prism.languages.javascript)
 
     return (
-      <div>
-        <svg style={styles} width="500" height="500" onMouseMove={this.mouseMoved} onMouseUp={this.mouseUp}>
-          <path d={d}></path>
-          {draggers}
-        </svg>
-        <pre><code>{code}</code></pre>
-    </div>
+      <div className="two-grid">
+        <div className="col">
+          <svg style={styles} width="500" height="500" onMouseMove={this.mouseMoved} onMouseUp={this.mouseUp}>
+            <path d={d}></path>
+            {draggers}
+          </svg>
+        </div>
+        <div className="col">
+          <pre><code dangerouslySetInnerHTML={{__html:code}} /></pre>
+        </div>
+      </div>
     )
   }
 

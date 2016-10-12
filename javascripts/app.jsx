@@ -12,10 +12,6 @@ window.pds = {
   PathInteractive: require('./components/pathInteractive')
 };
 
-// Dispatch an event to say that libs are loaded. This makes it
-// possible to have view-specific JS before the loaded libs.
-window.dispatchEvent(new Event('libsLoaded'));
-
 // Automatic Rendering
 // -----------------------------------------------------
 
@@ -23,12 +19,23 @@ window.dispatchEvent(new Event('libsLoaded'));
 // Create a div next to it
 // Create React components in that div with the code from <script>
 var P5Figure = require('./components/p5Figure');
-var tags = document.getElementsByClassName('p5 fig');
-for(var i = 0; i < tags.length; i++) {
+var figs = document.getElementsByClassName('p5 fig');
+for(var i = 0; i < figs.length; i++) {
   var el = document.createElement('div');
-  tags[i].parentNode.insertBefore(el, tags[i].nextSibling);
-  var code = tags[i].innerHTML;
-  var path = tags[i].getAttribute('data-path');
-  var klass = tags[i].className.replace('p5', '').replace('fig', '').trim();
+  figs[i].parentNode.insertBefore(el, figs[i].nextSibling);
+  var code = figs[i].innerHTML;
+  var path = figs[i].getAttribute('data-path');
+  var klass = figs[i].className.replace('p5', '').replace('fig', '').trim();
   window.ReactDOM.render(window.React.createElement(P5Figure, { code: code, path: path, klass: klass, parent:el }), el)
 }
+
+// Highlight all code tags
+var Prism = require('prismjs');
+var pres = document.getElementsByTagName('pre');
+for(var i = 0; i < pres.length; i++) {
+  pres[i].firstChild.innerHTML = Prism.highlight(pres[i].firstChild.innerHTML, Prism.languages.javascript)
+}
+
+// Dispatch an event to say that libs are loaded. This makes it
+// possible to have view-specific JS before the loaded libs.
+window.dispatchEvent(new Event('libsLoaded'));
