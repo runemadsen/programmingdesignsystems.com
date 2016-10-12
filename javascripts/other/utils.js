@@ -12,11 +12,6 @@ module.exports = {
         window.dispatchEvent(new Event('resizeEnd'));
       }, 150);
     }
-
-    // Dispatch an event to say that libs are loaded. This makes it
-    // possible to have view-specific JS before the loaded libs.
-    window.dispatchEvent(new Event('libsLoaded'));
-
   },
 
   // Script to check whether element is in viewport

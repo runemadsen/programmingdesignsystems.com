@@ -1,0 +1,11 @@
+// Blink animation
+// ---------------------------------------------
+
+@keyframes blinkAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0.4; }
+  100% { opacity:1; }
+}
+.animate-blink {
+    animation: blinkAnimation 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}

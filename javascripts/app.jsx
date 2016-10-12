@@ -8,8 +8,13 @@ utils.setupCustomEvents();
 var React = window.React = require('react');
 var ReactDOM = window.ReactDOM = require('react-dom');
 window.pds = {
-  Splash: require('./other/splash')
+  Splash: require('./other/splash'),
+  PathInteractive: require('./components/pathInteractive')
 };
+
+// Dispatch an event to say that libs are loaded. This makes it
+// possible to have view-specific JS before the loaded libs.
+window.dispatchEvent(new Event('libsLoaded'));
 
 // Automatic Rendering
 // -----------------------------------------------------
