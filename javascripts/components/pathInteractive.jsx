@@ -11,23 +11,18 @@ module.exports = React.createClass({
       codeWidth: 500,
       codeHeight: 400,
       currentDragger: null,
-      pathData: [
-        { cmd: 'M', x: 120, y: 80 },
-        { cmd: 'L', x: 400, y: 100 },
-        { cmd: 'L', x: 350, y: 270 },
-        { cmd: 'L', x: 160, y: 330 },
-        { cmd: 'Z' }
-      ]
+      currentControl: null,
+      pathData: this.props.pathData
     }
   },
 
-  startDrag: function(i) {
-    this.setState({ currentDragger: i, hasDragged: true });
+  startDrag: function(i, ci) {
+    this.setState({ currentDragger: i, currentControl:ci, hasDragged: true });
   },
 
   mouseUp: function(el) {
     if(this.state.currentDragger != null) {
-      this.setState({ currentDragger: null });
+      this.setState({ currentDragger: null, currentControl: null });
     }
   },
 
@@ -38,8 +33,18 @@ module.exports = React.createClass({
       var itemCopy = Object.assign({}, arrayCopy[this.state.currentDragger]);
 
       var svgPos = e.currentTarget.getBoundingClientRect();
-      itemCopy.x = ((e.clientX - svgPos.left) / svgPos.width) * this.state.codeWidth;
-      itemCopy.y = ((e.clientY - svgPos.top) / svgPos.height) * this.state.codeHeight;
+      var newX = ((e.clientX - svgPos.left) / svgPos.width) * this.state.codeWidth;
+      var newY = ((e.clientY - svgPos.top) / svgPos.height) * this.state.codeHeight;
+      if(this.state.currentControl == 1) {
+        itemCopy.cx = newX;
+        itemCopy.cy = newY;
+      } else if(this.state.currentControl == 2) {
+        itemCopy.c2x = newX;
+        itemCopy.c2y = newY;
+      } else {
+        itemCopy.x = newX;
+        itemCopy.y = newY;
+      }
 
       arrayCopy[this.state.currentDragger] = itemCopy;
       this.setState({pathData: arrayCopy});
@@ -71,15 +76,27 @@ module.exports = React.createClass({
 
     var d = this.state.pathData.map(function(v) {
       if(v.cmd == 'L' || v.cmd == 'M') return v.cmd + ' ' + v.x + ' ' + v.y;
-      if(v.cmd == 'Z') return v.cmd;
+      else if(v.cmd == 'Q') return 'Q ' + v.cx + ' ' + v.cy + ' ' + v.x + ' ' + v.y;
+      else if(v.cmd == 'C') return 'C ' + v.cx + ' ' + v.cy + ' ' + v.c2x + ' ' + v.c2y + ' ' + v.x + ' ' + v.y;
+      else if(v.cmd == 'Z') return v.cmd;
     }).join(' ');
 
-    var draggers = [];
+    function newDragger(x, y, r, key, fn) {
+      return <circle key={key} style={draggerStyles} className='dragger animate-blink' cx={x} cy={y} r={r} onMouseDown={fn} />;
+    }
+
+    var els = [];
     for(var i = 0; i < this.state.pathData.length; i++) {
       var p = this.state.pathData[i];
       if(p.x) {
-        draggers.push(<circle key={'dragger'+i} style={draggerStyles} className='dragger animate-blink' cx={p.x} cy={p.y} r="8" onMouseDown={this.startDrag.bind(this, i)} />);
+        els.push(newDragger(p.x, p.y, 10, 'd'+i, that.startDrag.bind(that, i)));
+        if(p.cmd == 'C' || p.cmd == 'Q') els.push(newDragger(p.cx, p.cy, 6, 'dd'+i, that.startDrag.bind(that, i, 1)));
+        if(p.cmd == 'C') els.push(newDragger(p.c2x, p.c2y, 6, 'ddd'+i, that.startDrag.bind(that, i, 2)));
       }
+    }
+
+    if(!this.state.hasDragged) {
+      els.push(<text key="help" x={this.state.pathData[0].x - 10} y={this.state.pathData[0].y - 20} style={helperStyles} className="animate-blink">Drag vertices to change code</text>);
     }
 
     // Code has pixels relative to viewport, even though resized.
@@ -88,22 +105,21 @@ module.exports = React.createClass({
     for(var i = 0; i < this.state.pathData.length; i++) {
       var v = this.state.pathData[i];
       if(v.cmd == 'L' || v.cmd == 'M') code += '  vertex(' + Math.round(v.x) + ', ' + Math.round(v.y) + ');\n';
-      if(v.cmd == 'Z') code += 'endShape(CLOSE)';
+      else if(v.cmd == 'Q') code += '  curveVertex(' + Math.round(v.cx)  + ', ' + Math.round(v.cy)  + ', ' + Math.round(v.x)  + ', ' + Math.round(v.y) + ');\n';
+      else if(v.cmd == 'C') code += '  curveVertex(' + Math.round(v.cx)  + ', ' + Math.round(v.cy)  + ', ' + Math.round(v.c2x)  + ', ' + Math.round(v.c2y)  + ', ' + Math.round(v.x) + ', ' + Math.round(v.y) + ');\n';
+      else if(v.cmd == 'Z') code += 'endShape(CLOSE)';
     }
     code = Prism.highlight(code, Prism.languages.javascript)
 
-    var helperText = this.state.hasDragged ? null : <text x={this.state.pathData[0].x - 10} y={this.state.pathData[0].y - 20} style={helperStyles} className="animate-blink">Drag vertices to change code</text>;
-
     return (
       <div className="two-grid">
-        <div className="col two-thirds">
+        <div className="col">
           <svg style={svgStyles} width="100%" viewBox={'0 0 ' + this.state.codeWidth + ' ' + this.state.codeHeight} onMouseMove={this.mouseMoved} onMouseUp={this.mouseUp}>
             <path d={d}></path>
-            {draggers}
-            {helperText}
+            {els}
           </svg>
         </div>
-        <div className="col one-third">
+        <div className="col">
           <pre className="no-margin"><code dangerouslySetInnerHTML={{__html:code}} /></pre>
         </div>
       </div>

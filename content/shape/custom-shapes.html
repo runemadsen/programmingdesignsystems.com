@@ -67,7 +67,7 @@ dek: I need a description of this.
 
     <p>You can draw both quadratic and cubic Bézier curves with the <code>curveVertex()</code> function. The line of code to the left draws a quadratic bezier curve with a COLOR:single control point and the COLOR:vertex position. The line of code to the right draws a cubic Bézier curve with COLOR:two control points and the COLOR:vertex position.</p>
 
-    <p>INTERACTIVE EXAMPLE: SEE NOTEBOOK.</p>
+    <div id="curve-interactive"></div>
 
     <p>You cannot start a custom shape with <code>curveVertex()</code>. You always need a single <code>vertex()</code> function call to define the starting point of the shape.</p>
 
@@ -111,7 +111,14 @@ dek: I need a description of this.
 
 <script type="text/javascript">
   window.addEventListener("libsLoaded", function(event) {
-    var vertexContainer = document.getElementById('vertex-interactive');
-    window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, { parent: vertexContainer}), vertexContainer)
+
+    var vertexBox = document.getElementById('vertex-interactive');
+    var vertexData = [ { cmd: 'M', x: 80, y: 100 }, { cmd: 'L', x: 400, y: 140 }, { cmd: 'L', x: 130, y: 310 }, { cmd: 'Z' } ];
+    window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, { pathData: vertexData, parent: vertexBox}), vertexBox);
+
+    var curveBox = document.getElementById('curve-interactive');
+    var curveData = [ { cmd: 'M', x: 80, y: 100 }, { cmd: 'C', x: 400, y: 140, cx: 160, cy:180, c2x:330, c2y:60 }, { cmd: 'Q', x: 130, y: 310, cx:400, cy:360 }, { cmd: 'Z' } ];
+    window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, { pathData: curveData, parent: curveBox}), curveBox);
+
   });
 </script>
