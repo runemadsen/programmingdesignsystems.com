@@ -111,6 +111,7 @@ dek: I need a description of this.
 
 <script type="text/javascript">
   window.addEventListener("libsLoaded", function(event) {
-    window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, {}), document.getElementById('vertex-interactive'))
+    var vertexContainer = document.getElementById('vertex-interactive');
+    window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, { parent: vertexContainer}), vertexContainer)
   });
 </script>

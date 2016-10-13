@@ -1,4 +1,5 @@
 var React = require('react');
+var utils = require('../other/utils');
 
 // P5Figure
 // Shows a P5 sketch in a sandboxed iframe
@@ -18,7 +19,7 @@ module.exports = React.createClass({
       showSketch: true,
       codeWidth: parseInt(hasCanvas[1]),
       codeHeight: parseInt(hasCanvas[2]),
-      parentWidth: this.getParentWidth()
+      parentWidth: utils.getElementWidth(this.props.parent)
     }
   },
 
@@ -30,14 +31,9 @@ module.exports = React.createClass({
     //lazyload(this.state.parent, function() { that.setState({ showSketch: true }); });
 
     window.addEventListener('resizeEnd', function(e) {
-      that.setState({ parentWidth: that.getParentWidth() });
+      that.setState({ parentWidth: that.getElementWidth(that.props.parent) });
     });
 
-  },
-
-  getParentWidth: function() {
-    var computed = window.getComputedStyle(this.props.parent);
-    return parseFloat(computed.width) - parseFloat(computed.paddingLeft) - parseFloat(computed.paddingRight);
   },
 
   getSketchHtml: function(w, h) {

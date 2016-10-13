@@ -46,6 +46,12 @@ module.exports = {
     window.addEventListener('resize', checkVisibility, false);
     interval = setInterval(checkVisibility, 2000); // fallback
     checkVisibility();
+  },
+
+  // Returns the width of the parent without padding
+  getElementWidth: function(el) {
+    var computed = window.getComputedStyle(el);
+    return parseFloat(computed.width) - parseFloat(computed.paddingLeft) - parseFloat(computed.paddingRight);
   }
 
 };
