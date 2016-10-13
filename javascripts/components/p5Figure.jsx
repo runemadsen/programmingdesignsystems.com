@@ -31,7 +31,7 @@ module.exports = React.createClass({
     //lazyload(this.state.parent, function() { that.setState({ showSketch: true }); });
 
     window.addEventListener('resizeEnd', function(e) {
-      that.setState({ parentWidth: that.getElementWidth(that.props.parent) });
+      that.setState({ parentWidth: utils.getElementWidth(that.props.parent) });
     });
 
   },

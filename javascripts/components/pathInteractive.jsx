@@ -69,7 +69,7 @@ module.exports = React.createClass({
     }
 
     var helperStyles = {
-      fontSize: 12,
+      fontSize: 13,
       fill: '#E1B000',
       stroke: 'none'
     }
@@ -115,7 +115,7 @@ module.exports = React.createClass({
       <div className="two-grid">
         <div className="col">
           <svg style={svgStyles} width="100%" viewBox={'0 0 ' + this.state.codeWidth + ' ' + this.state.codeHeight} onMouseMove={this.mouseMoved} onMouseUp={this.mouseUp}>
-            <path d={d}></path>
+            <path d={d} fill="#303030"></path>
             {els}
           </svg>
         </div>
