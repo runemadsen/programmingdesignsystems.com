@@ -112,14 +112,14 @@ module.exports = React.createClass({
     code = Prism.highlight(code, Prism.languages.javascript)
 
     return (
-      <div className="two-grid">
-        <div className="col">
+      <div className="grid">
+        <div className="col-1-2">
           <svg style={svgStyles} width="100%" viewBox={'0 0 ' + this.state.codeWidth + ' ' + this.state.codeHeight} onMouseMove={this.mouseMoved} onMouseUp={this.mouseUp}>
             <path d={d} fill="#303030"></path>
             {els}
           </svg>
         </div>
-        <div className="col">
+        <div className="col-1-2">
           <pre className="no-margin"><code dangerouslySetInnerHTML={{__html:code}} /></pre>
         </div>
       </div>

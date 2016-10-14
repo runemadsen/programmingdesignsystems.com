@@ -77,52 +77,38 @@ nav {
 
 }
 
-// Two grid
+// Grid
 // -------------------------------------------------
 
 @media (min-width: $tabletBreak) {
-  .two-grid {
-    display: flex;
-    flex-wrap: wrap;
-    > .col {
-      flex: 0 0 50%;
-      &:nth-child(1) {
-        padding-right: 0.5em;
-      }
-      &:nth-child(2) {
-        padding-left: 0.5em;
-      }
-      &.one-third {
-        flex: 0 0 33.33333%;
-      }
-      &.two-thirds {
-        flex: 0 0 66.66666%;
-      }
-    }
-  }
-}
 
-// Three grid
-// -------------------------------------------------
-
-@media (min-width: $tabletBreak) {
-  .three-grid {
-    display: flex;
-    flex-wrap: wrap;
-    > .col {
-      flex: 0 0 33.333332%;
-      &:nth-child(1) {
-        padding-right: 0.5em;
-      }
-      &:nth-child(2) {
-        padding-right: 0.5em;
-        padding-left: 0.5em;
-      }
-      &:nth-child(3) {
-        padding-left: 0.5em;
-      }
-    }
+  .grid {
+    margin: 0 -0.5em;
   }
+
+  .grid:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  [class*='col-'] {
+    float: left;
+    padding: 0 0.5em;
+  }
+
+  .col-1-2 {
+    width: 50%;
+  }
+
+  .col-1-3 {
+    width: 33.33%;
+  }
+
+  .col-2-3 {
+    width: 66.66%;
+  }
+
 }
 
 // Commentator

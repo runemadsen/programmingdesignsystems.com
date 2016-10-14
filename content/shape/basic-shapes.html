@@ -14,14 +14,14 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
   <p>In this chapter, we will look at the three basic shapes: the rectangle, the ellipse, and the triangle. First, we will analyze the characteristics of each shape, and then demonstrate how to use these basic shapes in the design process.</p>
 
-  <div class="three-grid">
-    <figure class="col">
+  <div class="grid">
+    <figure class="col-1-3">
       {% p5 shape/basic-shapes/rectangle.js class:'fig' %}
     </figure>
-    <figure class="col">
+    <figure class="col-1-3">
       {% p5 shape/basic-shapes/ellipse.js class:'fig' %}
     </figure>
-    <figure class="col">
+    <figure class="col-1-3">
       {% p5 shape/basic-shapes/triangle.js class:'fig' %}
     </figure>
   </div>
@@ -34,12 +34,12 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
     <p>The rectangle has been used throughout the history of the arts to set up constraints for the artist. We use rectangular canvasses, and grid systems to further divide this canvas into smaller modules. In this digital age, we use rectangular screens and operate with a square as the smallest visual denomination: the pixel.</p>
 
-    <div class="two-grid media-width">
-      <figure class="col">
+    <div class="grid media-width">
+      <figure class="col-1-2">
         <img src="shape/basic-shapes/microsoft.jpg" />
         <figcaption>The squares in the Microsoft logo become a symbol for a window, a flag, and a pixelated screen. <a href="#fairuse">©</a></figcaption>
       </figure>
-      <figure class="col">
+      <figure class="col-1-2">
         <img src="shape/basic-shapes/nullsleep.jpg" />
         <figcaption>The logo for the 8-bit musician Nullsleep has a rectangle on top of a pixelated font as a reference to both anti-authoritarianism and early computer art. <a href="#fairuse">©</a></figcaption>
       </figure>
@@ -47,12 +47,12 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
     <p>In geometry, a rectangle consists of four points connected to form a closed shape with internal angles of 90 degrees. However, the <code>rect()</code> function in P5 allows us to draw a rectangle simply by stating the position of the top left corner (which we will call the origin point <span class="color1">●</span>) as well as the size of the rectangle. As demonstrated below, the <code>rectMode()</code> function can be used to change the origin point of the rectangle to the center of the shape. This can be helpful in certain situations, e.g. if you want to draw a rectangle in the center of the canvas without needing to subtract half the size of the rectangle from its position.</p>
 
-    <div class="two-grid">
-      <figure class="col">
+    <div class="grid">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/rectmode-default.js class:'fig' %}
         {% codesplit shape/basic-shapes/rectmode-default.js lines:'6-7' %}
       </figure>
-      <figure class="col">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/rectmode-center.js class:'fig' %}
         {% codesplit shape/basic-shapes/rectmode-center.js lines:'6-8' %}
       </figure>
@@ -66,12 +66,12 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
     <p>The ellipse is a smooth shape found many places in nature, in the shape of planets, raindrops, and the eyes of most animals. With no apparent sense of direction, there is something neutral about the ellipse, and humans tend to gather in ellipses to achieve unity: We dance in circles, and design the seating of most parliaments in elliptical arrangements.</p>
 
-    <div class="two-grid media-width">
-      <figure class="col two-thirds">
+    <div class="grid media-width">
+      <figure class="col-2-3">
         <img src="shape/basic-shapes/olympics.jpg" />
         <figcaption>The symbol for the Olympic Games by Pierre de Coubertin consists of five connected ellipses with colors taken from the flags of the participating countries from the 1912 games. <a href="#fairuse">©</a></figcaption>
       </figure>
-      <figure class="col one-third">
+      <figure class="col-1-3">
         <img src="shape/basic-shapes/abc.jpg" />
         <figcaption>The ABC logo by Paul Rand features a simple ellipse with an elliptical typeface. <a href="#fairuse">©</a></figcaption>
       </figure>
@@ -79,12 +79,12 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
     <p>In geometry, an ellipse is a closed shape where the following is true: Pick two locations inside the ellipse, and draw lines to any place on the outline. No matter which location you pick on the outline, the combined length of your two lines will always be the same. Although the outline of an ellipse looks smooth to the human eye, computers actually draw ellipses as a series of short, straight, connected lines. Unlike <code>rect()</code>, the <code>ellipse()</code> function will draw an ellipse with an origin point in the center of the shape. As demonstrated below, the <code>ellipseMode()</code> function can be used to change the origin point to the top left corner. Given the nature of the ellipse, this means that the origin point is located outside the outline of the shape.</p>
 
-    <div class="two-grid">
-      <figure class="col">
+    <div class="grid">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/ellipsemode-default.js class:'fig' %}
         {% codesplit shape/basic-shapes/ellipsemode-default.js lines:'6-7' %}
       </figure>
-      <figure class="col">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/ellipsemode-corner.js class:'fig' %}
         {% codesplit shape/basic-shapes/ellipsemode-corner.js lines:'6-8' %}
       </figure>
@@ -105,12 +105,12 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
     <p>In geometry, a triangle is a closed shape consisting of three points. The sum of the internal angles of the triangle will always be 180 degrees (or 2PI radians). The triangle has played a central role in many mathematical breakthroughs, including Euclidian geometry, trigonometry, as well as 3D computer graphics. Unlike the <code>rect()</code> and <code>ellipse()</code> functions that both expect a single position for the shape’s origin point, the <code>triangle()</code> function needs the coordinates of all three corners of the triangle. This also means that there is no such thing as a <code>triangleMode()</code> function. You will need to perform your own calculations to draw a triangle around a specific origin point, which is demonstrated in the examples below.</p>
 
-    <div class="two-grid">
-      <figure class="col">
+    <div class="grid">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/triangleorigin-top.js class:'fig' %}
         {% codesplit shape/basic-shapes/triangleorigin-top.js lines:'6-8' %}
       </figure>
-      <figure class="col">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/triangleorigin-center.js class:'fig' %}
         {% codesplit shape/basic-shapes/triangleorigin-center.js lines:'6-8' %}
       </figure>
@@ -126,11 +126,11 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
     <p>The most important aspect of this exercise is obviously to create a design that a majority of users will recognize as an ice cream cone. Whether or not a design accomplishes this is a rather objective task. Of the two designs below, it is clear that the first design manages to solve the assignment while the latter does not. It’s also easy to analyze why: Although the shapes are almost identical between the two designs, the latter does not establish the proper visual relationships.</p>
 
-    <div class="two-grid media-width">
-      <figure class="col">
+    <div class="two media-width">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/cone-good.js class:'fig white-img' %}
       </figure>
-      <figure class="col">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/cone-bad.js class:'fig white-img' %}
       </figure>
     </div>
@@ -139,12 +139,12 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
     <p>In this exercise, I often encourage my students to practice designing in different styles, as it further develops their visual language. An important ingredient in the creation of style is the use of the <code>fill(),</code> <code>stroke()</code> and <code>strokeWeight()</code> functions. As demonstrated below, these function can drastically alter the style of a design.</p>
 
-    <div class="two-grid media-width">
-      <figure class="col">
+    <div class="grid media-width">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/cone-abstract.js class:'fig white-img' %}
         <figcaption>Equally proportioned shape with the same stroke results in an abstract design.</figcaption>
       </figure>
-      <figure class="col">
+      <figure class="col-1-2">
         {% p5 shape/basic-shapes/cone-playful.js class:'fig white-img' %}
         <figcaption>Thicker strokes and fills makes for a more playful design.</figcaption>
       </figure>
@@ -152,16 +152,16 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
 
     <p>This exercise also encourages students to think systematically when implementing their designs in code. The three basic shape functions can only appear once in the code, so students need to use loops to draw more intricate designs. The following three examples are all by former students of mine, and they are displayed here as successful examples of all the things mentioned above: They all objectively solve the assignment of constructing an ice cream cone out of basic shapes. They all achieve widely different styles by using a clever combination of the basic shape functions and the following relationships: position, size, rotation, fill, line and stroke weight. Finally, they all use repetition (to which we’ll dedicate an entire part of this book) to draw more than three shapes on the canvas.</p>
 
-    <div class="three-grid">
-      <figure class="col">
+    <div class="grid">
+      <figure class="col-1-3">
         {% p5 shape/basic-shapes/cone-luisa.js class:'fig' link:'true' %}
         <figcaption>Design by Luisa Pereira.</figcaption>
       </figure>
-      <figure class="col">
+      <figure class="col-1-3">
         {% p5 shape/basic-shapes/cone-shir.js class:'fig' link:'true' %}
         <figcaption>Design by Shir David.</figcaption>
       </figure>
-      <figure class="col">
+      <figure class="col-1-3">
         {% p5 shape/basic-shapes/cone-tan.js class:'fig' link:'true' %}
         <figcaption>Design by Tan Ma.</figcaption>
       </figure>
