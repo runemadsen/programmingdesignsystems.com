@@ -68,6 +68,11 @@ module.exports = React.createClass({
       pointerEvents: 'all'
     }
 
+    var lineStyles = {
+      stroke: '#E1B000',
+      strokeWidth: 1.5
+    }
+
     var helperStyles = {
       fontSize: 13,
       fill: '#E1B000',
@@ -90,8 +95,14 @@ module.exports = React.createClass({
       var p = this.state.pathData[i];
       if(p.x) {
         els.push(newDragger(p.x, p.y, 10, 'd'+i, that.startDrag.bind(that, i)));
-        if(p.cmd == 'C' || p.cmd == 'Q') els.push(newDragger(p.cx, p.cy, 6, 'dd'+i, that.startDrag.bind(that, i, 1)));
-        if(p.cmd == 'C') els.push(newDragger(p.c2x, p.c2y, 6, 'ddd'+i, that.startDrag.bind(that, i, 2)));
+        if(p.cmd == 'C' || p.cmd == 'Q') {
+          els.push(<line style={lineStyles} className='animate-blink' key={'l'+i} x1={p.x} y1={p.y} x2={p.cx} y2={p.cy} />)
+          els.push(newDragger(p.cx, p.cy, 6, 'dd'+i, that.startDrag.bind(that, i, 1)));
+        }
+        if(p.cmd == 'C') {
+          els.push(<line style={lineStyles} className='animate-blink' key={'ll'+i} x1={p.x} y1={p.y} x2={p.c2x} y2={p.c2y} />)
+          els.push(newDragger(p.c2x, p.c2y, 6, 'ddd'+i, that.startDrag.bind(that, i, 2)));
+        }
       }
     }
 
