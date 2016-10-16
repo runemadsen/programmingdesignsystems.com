@@ -38,14 +38,9 @@ module.exports = React.createClass({
 
   getSketchHtml: function(w, h) {
 
-    var link = '';
-    if(this.props.link) {
-      link += '<a href="https://github.com/runemadsen/programmingdesignsystems.com/tree/master/'+path+'">&lt;&gt;</a>';
-    }
-
     var codeResized = this.props.code.replace(this.state.regex, 'createCanvas('+w+','+h+');');
 
-    return '<html><head><base target="_parent" /><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.min.js"></script><style>html,body{ margin:0; padding:0} a{color:rgba(0,0,0,0.15); font-family:Courier New, sans-serif; text-decoration:none; position:absolute; top:10px; right:12px; letter-spacing:0.1em; font-weight: bold; font-size:0.9em}</style></head><body><script type="text/javascript">' + codeResized + '</script>'+link+'</body></html>';
+    return '<html><head><base target="_parent" /><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.min.js"></script><style>html,body{ margin:0; padding:0} a{color:rgba(0,0,0,0.15); font-family:Courier New, sans-serif; text-decoration:none; position:absolute; top:10px; right:12px; letter-spacing:0.1em; font-weight: bold; font-size:0.9em}</style></head><body><script type="text/javascript">' + codeResized + '</script></body></html>';
   },
 
   render: function() {
@@ -57,15 +52,19 @@ module.exports = React.createClass({
     var styles = { width: resizeWidth, height: resizeHeight }
 
     var klass = this.props.klass;
-    if(this.state.showSketch) klass += ' placeholder';
+    if(!this.state.showSketch) klass += ' placeholder';
+
+    var link = this.props.link ? <div className='codelink'><a href={this.props.link} className="color5">See Code</a></div> : null;
 
     return (
-      <iframe srcDoc={srcdoc}
-              style={styles}
-              className={klass}
-              scrolling="no"
-              sandbox="allow-scripts allow-top-navigation">
-      </iframe>
+      <div className={klass}>
+        <iframe srcDoc={srcdoc}
+                style={styles}
+                scrolling="no"
+                sandbox="allow-scripts allow-top-navigation">
+        </iframe>
+        {link}
+      </div>
     )
   }
 

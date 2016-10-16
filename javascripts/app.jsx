@@ -25,8 +25,9 @@ for(var i = 0; i < figs.length; i++) {
   figs[i].parentNode.insertBefore(el, figs[i].nextSibling);
   var code = figs[i].innerHTML;
   var path = figs[i].getAttribute('data-path');
+  if(path) path = 'https://github.com/runemadsen/programmingdesignsystems.com/tree/master/' + path;
   var klass = figs[i].className.replace('p5', '').replace('fig', '').trim();
-  window.ReactDOM.render(window.React.createElement(P5Figure, { code: code, path: path, klass: klass, parent:el }), el)
+  window.ReactDOM.render(window.React.createElement(P5Figure, { code: code, link: path, klass: klass, parent:el }), el)
 }
 
 // Highlight all code tags

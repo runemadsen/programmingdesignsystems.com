@@ -83,7 +83,21 @@ nav {
 @media (min-width: $tabletBreak) {
 
   .grid {
-    margin: 0 -0.5em;
+
+    margin-left: (-$hspacing/2);
+    margin-right: (-$hspacing/2);
+
+    &.media-width {
+      max-width: $mediaWidth + $hspacing;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &.text-width {
+      max-width: $textWidth + $hspacing;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .grid:after {
@@ -94,7 +108,8 @@ nav {
 
   [class*='col-'] {
     float: left;
-    padding: 0 0.5em;
+    padding-left: $hspacing/2;
+    padding-right: $hspacing/2;
   }
 
   .col-1-2 {
