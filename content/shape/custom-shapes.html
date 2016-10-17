@@ -71,7 +71,16 @@ dek: I need a description of this.
 
     <p>Although you don't really need to know how the computer calculates a curved line from the control point(s), the following figure can be helpful to illustrate the basic concepts.</p>
 
-    <p>CONCEPTS RUNNING. SEE NOTEBOOK.</p>
+    <div class="grid">
+      <figure class="col-1-2">
+        {% p5 shape/custom-shapes/quad-animation.js class:'fig' %}
+        <figcaption>This animation shows how a quadratic Bézier curve is calculated.</figcaption>
+      </figure>
+      <figure class="col-1-2">
+        {% p5 shape/custom-shapes/cubic-animation.js class:'fig' %}
+        <figcaption>This animation shows how a cubic Bézier curve is calculated.</figcaption>
+      </figure>
+    </div>
 
     <p>You can draw both quadratic and cubic Bézier curves with the <code>curveVertex()</code> function. The line of code to the left draws a quadratic bezier curve with a COLOR:single control point and the COLOR:vertex position. The line of code to the right draws a cubic Bézier curve with COLOR:two control points and the COLOR:vertex position.</p>
 
@@ -125,7 +134,7 @@ dek: I need a description of this.
     window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, { pathData: vertexData, parent: vertexBox}), vertexBox);
 
     var curveBox = document.getElementById('curve-interactive');
-    var curveData = [ { cmd: 'M', x: 80, y: 100 }, { cmd: 'C', x: 400, y: 140, cx: 160, cy:180, c2x:330, c2y:60 }, { cmd: 'Q', x: 130, y: 310, cx:400, cy:360 }, { cmd: 'Z' } ];
+    var curveData = [ { cmd: 'M', x: 80, y: 100 }, { cmd: 'Q', x: 400, y: 140, cx:245, cy:30 }, { cmd: 'C', x: 130, y: 310, cx: 430, cy:360, c2x:200, c2y:170 }, { cmd: 'Z' } ];
     window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, { pathData: curveData, parent: curveBox}), curveBox);
 
   });

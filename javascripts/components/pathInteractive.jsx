@@ -116,8 +116,8 @@ module.exports = React.createClass({
     for(var i = 0; i < this.state.pathData.length; i++) {
       var v = this.state.pathData[i];
       if(v.cmd == 'L' || v.cmd == 'M') code += '  vertex(' + Math.round(v.x) + ', ' + Math.round(v.y) + ');\n';
-      else if(v.cmd == 'Q') code += '  curveVertex(' + Math.round(v.cx)  + ', ' + Math.round(v.cy)  + ', ' + Math.round(v.x)  + ', ' + Math.round(v.y) + ');\n';
-      else if(v.cmd == 'C') code += '  curveVertex(' + Math.round(v.cx)  + ', ' + Math.round(v.cy)  + ', ' + Math.round(v.c2x)  + ', ' + Math.round(v.c2y)  + ', ' + Math.round(v.x) + ', ' + Math.round(v.y) + ');\n';
+      else if(v.cmd == 'Q') code += '  quadraticVertex(' + Math.round(v.cx)  + ', ' + Math.round(v.cy)  + ', ' + Math.round(v.x)  + ', ' + Math.round(v.y) + ');\n';
+      else if(v.cmd == 'C') code += '  bezierVertex(' + Math.round(v.cx)  + ', ' + Math.round(v.cy)  + ', ' + Math.round(v.c2x)  + ', ' + Math.round(v.c2y)  + ', ' + Math.round(v.x) + ', ' + Math.round(v.y) + ');\n';
       else if(v.cmd == 'Z') code += 'endShape(CLOSE)';
     }
     code = Prism.highlight(code, Prism.languages.javascript)
