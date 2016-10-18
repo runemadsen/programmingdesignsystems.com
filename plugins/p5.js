@@ -25,7 +25,7 @@ Plugin.prototype = {
 
       // Get the attributes
       var attrs = {};
-      var pattern = new RegExp(/(\S+):[\"\']([a-zA-Z\s\-]+)[\"\']/g);
+      var pattern = new RegExp(/(\S+):[\"\']([a-zA-Z0-9\s\-\.]+)[\"\']/g);
       var match = null;
       while (match = pattern.exec(input)) { attrs[match[1]] = match[2]; }
 
@@ -34,14 +34,12 @@ Plugin.prototype = {
       if(!that.cache[examplePath]) {
         that.cache[examplePath] = fs.readFileSync(examplePath).toString();
       }
-
       var extraAttrs = '';
-      if(attrs.link) {
-        extraAttrs += 'data-path="'+examplePath+'"';
-      }
+      if(attrs.link)    extraAttrs += ' data-path="'+examplePath+'"';
+      if(attrs.caption) extraAttrs += ' data-caption="'+attrs.caption+'"';
 
       // Render baby
-      var output = '<script type="text/p5" class="p5'+ (attrs["class"] ? ' '+attrs["class"] : '') +'" '+extraAttrs+'>'+that.cache[examplePath]+'</script>';
+      var output = '<script type="text/p5" class="p5' + (attrs["class"] ? ' '+attrs["class"] : '') +'" '+extraAttrs+'>'+that.cache[examplePath]+'</script>';
       context.astStack.push(tinyliquid.parse(output));
 
     }

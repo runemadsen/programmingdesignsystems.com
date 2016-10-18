@@ -54,7 +54,8 @@ module.exports = React.createClass({
     var klass = this.props.klass;
     if(!this.state.showSketch) klass += ' placeholder';
 
-    var link = this.props.link ? <div className='codelink'><a href={this.props.link} className="color5">See Code</a></div> : null;
+    var text = this.props.caption ? this.props.caption + ' ' : null;
+    var caption = this.props.link ? <figcaption>{text}<a href={this.props.link}>See Code</a></figcaption> : null;
 
     return (
       <div className={klass}>
@@ -63,7 +64,7 @@ module.exports = React.createClass({
                 scrolling="no"
                 sandbox="allow-scripts allow-top-navigation">
         </iframe>
-        {link}
+        {caption}
       </div>
     )
   }
