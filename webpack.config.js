@@ -1,6 +1,9 @@
 var webpack = require('webpack');
 
-module.exports = {
+// Defaults
+// -------------------------------------------------
+
+var config = {
   entry: './javascripts/app.jsx',
   output: {
     path: 'assets',
@@ -21,9 +24,24 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
-    })
-  ]
+  plugins: []
+};
+
+// Production
+// -------------------------------------------------
+
+if(process.env.NODE_ENV == 'production') {
+
+  // Pass ENV to webpack
+  config.plugins.push(new webpack.DefinePlugin({
+    'process.env.NODE_ENV': '"production"'
+  }));
+
+  // Uglify
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: { warnings: false }
+  }));
+
 }
+
+module.exports = config;
