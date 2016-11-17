@@ -88,6 +88,7 @@ Motion
 - Introduction (and history?)
   - Meaning through animation
 - Easings
+https://design.google.com/articles/making-motion-meaningful/
 
 Pixels
 -------------

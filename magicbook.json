@@ -17,7 +17,8 @@
       "files" : [
         "content/shape/figure-and-ground.html",
         "content/shape/basic-shapes.html",
-        "content/shape/custom-shapes.html"
+        "content/shape/custom-shapes.html",
+        "content/shape/procedural-shapes.html"
       ],
       "colors" : {
         "color1" : "#E1B000",
