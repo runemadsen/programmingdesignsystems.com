@@ -11,24 +11,23 @@ dek: I need a description of this.
     <h1>{{ page.title }}</h1>
   </header>
 
-  <p>The code for our custom shape examples has so far been rather tedious. We have manually created shapes by typing line after line of vertex function calls, and this strategy won’t work for more complex shapes. Also, given the title of the book, this approach might seem a bit anti-climatic. Now that we understand the basics of beginShape(), let’s have a first look at how to procedurally draw custom shapes using a for loop, and the sin() and cos() functions.</p>
+  <p>The code for our custom shape examples has so far been rather tedious. We have manually created shapes by typing line after line of vertex function calls, and this strategy won’t work for more complex shapes. Also, given the title of the book, this approach might seem a bit anti-climatic. Now that we understand the basics of <code>beginShape()</code>, let’s have a first look at how to procedurally draw custom shapes using a for loop, and the <code>sin()</code> and <code>cos()</code> functions.</p>
 
   <section data-type="sect1">
 
     <h1>Sine and Cosine</h1>
 
-    <p>Over the years, I’ve seen many students struggle with Sine and Cosine. It’s easy to understand why: These words seem rather scary and abstract, especially if you don’t consider yourself good at math. However, this is both unfortunate and unnecessary. Unfortunate, because these two functions are a fundamental part of most programmatic designs, and a good understanding of them will allow you to solve many visual problems. Unnecessary, because they are not that hard to learn. Even if you don’t understand everything presented in this chapter, you can get started by  memorizing two almost identical lines of code.</p>
+    <p>Over the years, I’ve seen many students struggle with Sine and Cosine. It’s easy to understand why: These words seem rather scary and abstract, especially if you don’t consider yourself good at math. However, this is both unfortunate and unnecessary. Unfortunate, because these two functions are a fundamental part of most programmatic designs, and a good understanding of them will allow you to solve many visual problems. Unnecessary, because they are not that hard to learn. Even if you don’t understand everything presented in this chapter, you can get started by memorizing two almost identical lines of code.</p>
 
+    <p>Simply put, Sine and Cosine allow us to find any position on the outline of an ellipse. They do this by converting an angle into an <code>x</code> position (Cosine) or a <code>y</code> position (Sine) for a circle with a 1 pixel radius. These values can then be multiplied by the radius of your actual circle to scale them up. Although it’s not strictly necessary to understand how these functions work internally, here’s a way to visualize what’s going on: Imagine a right sided triangle connecting the center of the circle to the point on the outline. The Sine function is simply a quick way to get the ratio between the left side (hypotenuse) and the right side (opposite) of that triangle. The Cosine function is likewise the ratio between the hypotenuse and the bottom side (adjacent) of the triangle.</p>
 
-    <p>Simply put, Sine and Cosine allow us to find any position on the outline of an ellipse. They do this by converting an angle into an x position (Cosine) or a y position (Sine) for a circle with a 1 pixel radius. These values can then be multiplied by the radius of your actual circle to scale them up. Although it’s not strictly necessary to understand how these functions work internally, here’s a way to visualize what’s going on: Imagine a right sided triangle connecting the center of the circle to the point on the outline. The Sine function is simply a quick way to get the ratio between the left side (hypotenuse) and the right side (opposite) of that triangle. The Cosine function is likewise the ratio between the hypotenuse and the bottom side (adjacent) of the triangle.</p>
+    <p>In P5, these functions are called <code>sin()</code> and <code>cos()</code>. As described above, they accept a single argument – an angle in radians – and return a value between <code>-1</code> and <code>1</code> representing the <code>x</code> or <code>y</code> position on a tiny circle. The two lines below demonstrate how to get these values and multiply them by the radius of your actual circle. Memorize these two lines, as they are very important.</p>
 
-    <p>In P5, these functions are called sin() and cos(). As described above, they accept a single argument – an angle in radians – and return a value between -1 and 1 representing the x or y position on a tiny circle. The two lines below demonstrate how to get these values and multiply them by the radius of your actual circle. Memorize these two lines, as they are very important.</p>
-
-    <pre><code>var x = cos(RADIANS) * RADIUS;
+    <pre class="text-width"><code>var x = cos(RADIANS) * RADIUS;
 var y = sin(RADIANS) * RADIUS;</code></pre>
 
 
-    <p>To put these lines into context, here’s an example where we use the same two lines to draw a small circle 330 degrees along the outline of a bigger circle.</p>
+    <p>To put this into context, here’s an example where we use the same code to draw a small circle 330 degrees along the outline of a bigger circle.</p>
 
 translate(width/2, height/2);
 ellipse(0, 0, 400, 400);
@@ -38,7 +37,7 @@ ellipse(x, y, 20, 20);
 SHOW OUTPUT
 
 
-    <p>If you consider all the basic shapes – as well as many complex shapes – they are characterized by having non-overlapping outlines that move around a center point. Some shapes, like the triangle, have just a few vertices, while others – like the ellipse – have many vertices. The sin() and cos() functions simply give a way to procedurally draw these types of shapes.</p>
+    <p>If you consider all the basic shapes – as well as many complex shapes – they are characterized by having non-overlapping outlines that move around a center point. Some shapes, like the triangle, have just a few vertices, while others – like the ellipse – have many vertices. The <code>sin()</code> and <code>cos()</code> functions simply give a way to procedurally draw these types of shapes.</p>
 
   </section>
 
@@ -46,29 +45,27 @@ SHOW OUTPUT
 
     <h1>The For Loop</h1>
 
-    <p>Although we will dedicate an entire part of this book to repetition, let’s briefly go over the basic functionality of a for loop. A for loop allows us to execute code multiple times in a row by incrementing (or decrementing) a variable – often called i – until an expression is no longer true and the loop stops. In the following example, we initialize a variable with the number zero, iterate as long as our variable is lower than the number ten, and increment our variable by one between each iteration. The result is a loop that iterates ten times with our variable incrementing from zero to nine, drawing ten rectangles on the screen.</p>
+    <p>Although we will dedicate an entire part of this book to repetition, let’s briefly go over the basic functionality of a <code>for</code> loop. A <code>for</code> loop allows us to execute code multiple times in a row by incrementing (or decrementing) a variable – often called <code>i</code> – until an expression is no longer true and the loop stops. In the following example, we initialize a variable with the number <code>0</code>, iterate as long as our variable is lower than <code>10</code>, and increment our variable by one between each iteration. The result is a loop that iterates ten times with our variable incrementing from zero to nine, drawing ten rectangles on the screen.</p>
 
 for(var i = 0; i < 10; i++) {
   rect(0, 0, 100, 100);
 }
 SHOW OUTPUT
 
-
-    <p>Unfortunately, all these rectangles have identical positions and sizes because we’re passing the same static numbers to the rect() function over and over again. This is where i comes into play: Because it changes between each iteration of the loop, it can be used to create variance between each rectangle. The example below uses i to position the ten rectangles one pixel apart on the x-axis.</p>
+    <p>Unfortunately, all these rectangles have identical positions and sizes because we’re passing the same static numbers to the <code>rect()</code> function over and over again. This is where <code>i</code> comes into play: Because it changes between each iteration of the loop, it can be used to create variance between each rectangle. The example below uses <code>i</code> to position the ten rectangles one pixel apart on the x-axis.</p>
 
 for(var i = 0; i < 10; i++) {
   rect(i, 0, 100, 100);
 }
 SHOW OUTPUT
 
-
-    <p>Although it might not be immediately clear, this is an important technique when drawing procedural designs. Because i increments by one between each iteration, it can be used as a scalar to distribute shapes across the canvas. For example, if we want to position the rectangles next to each other, we can simply multiply i with the width of the rectangles.</p>
+    <p>Although it might not be immediately clear, this is an important technique when drawing procedural designs. Because <code>i</code> increments by one between each iteration, it can be used as a scalar to distribute shapes across the canvas. For example, if we want to position the rectangles next to each other, we can simply multiply <code>i</code> with the width of the rectangles.</p>
 
 for(var i = 0; i < 10; i++) {
   rect(i * 100, 0, 100, 100);
 }
 
-    <p>We can use this same technique to draw custom shapes. Instead of drawing individual shapes in the loop, we simply use the for loop to procedurally add vertices between the beginShape() and endShape() function calls. In the example below, we use this technique to place ten vertices randomly around the center of the canvas.</p>
+    <p>We can use this same technique to draw custom shapes. Instead of drawing individual shapes in the loop, we simply use the for loop to procedurally add vertices between the <code>beginShape()</code> and <code>endShape()</code> function calls. In the example below, we use this technique to place ten vertices randomly around the center of the canvas.</p>
 
 translate(width/2, height/2);
 beginShape();
@@ -80,8 +77,7 @@ for(var i = 0; i < 10; i++) {
 endShape();
 SHOW OUTPUT
 
-
-    <p>The result is certainly a procedural shape, but the use of random() doesn’t give us a lot of control over the placement of the vertices: The shape is just a bunch of lines randomly crossing each other. The final step is to put our two techniques together and generate shapes with sin() and cos() inside of a for loop.</p>
+    <p>The result is certainly a procedural shape, but the use of <code>random()</code> doesn’t give us a lot of control over the placement of the vertices: The shape is just a bunch of lines randomly crossing each other. The final step is to put our two techniques together and generate shapes with <code>sin()</code> and <code>cos()</code> inside of a <code>for</code> loop.</p>
 
   </section>
 
@@ -89,7 +85,7 @@ SHOW OUTPUT
 
     <h1>Putting it together</h1>
 
-    <p>Starting from our random shape code above, let’s try to replace the random vertices with vertices placed sequentially along the outline of an ellipse. We do this by using the same two lines that we memorized earlier, but instead of passing the same angle to sin() and cos(), we calculate a different angle on every iteration by multiplying i with the angle we want between the vertices. The result is a shape with ten vertices evenly spread around the center of the canvas.</p>
+    <p>Starting from our random shape code above, let’s try to replace the random vertices with vertices placed sequentially along the outline of an ellipse. We do this by using the same two lines that we memorized earlier, but instead of passing the same angle to <code>sin()</code> and <code>cos()</code>, we calculate a different angle on every iteration by multiplying <code>i</code> with the angle we want between the vertices. The result is a shape with ten vertices evenly spread around the center of the canvas.</p>
 
 translate(width/2, height/2);
 beginShape();
@@ -119,7 +115,6 @@ SHOW OUTPUT
 
 ALL SHAPES OUTPUT
 
-
     <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. In the example below, we change the radius between each iteration of the loop to create a star shape.</p>
 
 STAR
@@ -128,15 +123,15 @@ STAR
 
 SQUIGGLY CIRCLE
 
-    <p>Here’s a flower created by using bezier vertices where both vertices and the control points are positioned using sin() and cos().</p>
+    <p>Here’s a flower created by using bezier vertices where both vertices and the control points are positioned using <code>sin()</code> and <code>cos()</code>.</p>
 
 FLOWER
 
-    <p>The two shapes below are created by using just one of the circular functions: The first one uses sin() and the second one uses cos(). Notice how both functions produce the same waveform with different starting points.</p>
+    <p>The two shapes below are created by using just one of the circular functions: The first one uses <code>sin()</code> and the second one uses <code>cos()</code>. Notice how both functions produce the same waveform with different starting points.</p>
 
 WAVES
 
-    <p>This wobbly shape is created by adding a Sine curve on top of the radius for every vertex. Also notice how we use a different radius for x and y to create an ellipse that is wider than tall.</p>
+    <p>This wobbly shape is created by adding a Sine curve on top of the radius for every vertex. Also notice how we use a different radius for <code>x</code> and <code>y</code> to create an ellipse that is wider than tall.</p>
 
 WOBBLY
 
@@ -150,11 +145,11 @@ BROCKMANN
 
 
 
-    <p>The project Generative Play is a card game by Adria Navarro that uses procedural drawing to create an infinite amount of generative characters. The body of the characters are created using sin() and cos().</p>
+    <p>The project Generative Play is a card game by Adria Navarro that uses procedural drawing to create an infinite amount of generative characters. The body of the characters are created using <code>sin()</code> and <code>cos()</code>.</p>
 
 ADRIA
 
-    <p>Sediment Mars is a series of generative poster designs by Sarah Hallacher and Alessandra Villaamil. The sin() and cos() functions are used to generate an elliptical shape, which is then distorted by adding random values to it.</p>
+    <p>Sediment Mars is a series of generative poster designs by Sarah Hallacher and Alessandra Villaamil. The <code>sin()</code> and <code>cos()</code> functions are used to generate an elliptical shape, which is then distorted by adding random values to it.</p>
 
 MARS
 
