@@ -21,6 +21,23 @@ dek: I need a description of this.
 
     <p>Simply put, Sine and Cosine allow us to find any position on the outline of an ellipse. They do this by converting an angle into an <code>x</code> position (Cosine) or a <code>y</code> position (Sine) for a circle with a 1 pixel radius. These values can then be multiplied by the radius of your actual circle to scale them up. Although it’s not strictly necessary to understand how these functions work internally, here’s a way to visualize what’s going on: Imagine a right sided triangle connecting the center of the circle to the point on the outline. The Sine function is simply a quick way to get the ratio between the left side (hypotenuse) and the right side (opposite) of that triangle. The Cosine function is likewise the ratio between the hypotenuse and the bottom side (adjacent) of the triangle.</p>
 
+    <figure class="text-width">
+      <svg width="100%" viewBox="0 0 600 500" class="bg4">
+        <circle cx="300" cy="250" r="200" stroke="#999999" fill="none" stroke-dasharray="5, 5" stroke-weight="1" />
+        <circle cx="473" cy="150" r="12" fill="#333333" stroke="none" />
+        <circle cx="300" cy="250" r="5" fill="#333333" stroke="none" />
+        <line x1="300" y1="250" x2="473" y2="150" stroke="#333333" />
+        <line x1="300" y1="250" x2="473" y2="250" stroke="#333333" />
+        <line x1="473" y1="250" x2="473" y2="150" stroke="#333333" />
+        <g transform="translate(350,108)">
+          <text>Given an angle on a</text>
+          <text y="20">circle with 1px radius</text>
+        </g>
+        <text x="340" y="275">Cosine finds x</text>
+        <text x="487" y="210">Sine finds y</text>
+      </svg>
+    </figure>
+
     <p>In P5, these functions are called <code>sin()</code> and <code>cos()</code>. As described above, they accept a single argument – an angle in radians – and return a value between <code>-1</code> and <code>1</code> representing the <code>x</code> or <code>y</code> position on a tiny circle. The two lines below demonstrate how to get these values and multiply them by the radius of your actual circle. Memorize these two lines, as they are very important.</p>
 
     <pre class="text-width"><code>var x = cos(RADIANS) * RADIUS;
@@ -29,13 +46,14 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <p>To put this into context, here’s an example where we use the same code to draw a small circle 330 degrees along the outline of a bigger circle.</p>
 
-translate(width/2, height/2);
-ellipse(0, 0, 400, 400);
-var x = cos(radians(330)) * 200;
-var y = sin(radians(330)) * 200;
-ellipse(x, y, 20, 20);
-SHOW OUTPUT
-
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/circles.js lines:'6-13' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/circles.js class:'fig' %}
+      </figure>
+    </div>
 
     <p>If you consider all the basic shapes – as well as many complex shapes – they are characterized by having non-overlapping outlines that move around a center point. Some shapes, like the triangle, have just a few vertices, while others – like the ellipse – have many vertices. The <code>sin()</code> and <code>cos()</code> functions simply give a way to procedurally draw these types of shapes.</p>
 
@@ -163,5 +181,7 @@ MARS
     <p>This approach is an essential part of this book. When designers learn to not only think systematically about the design process, but also to implement those systems in software, they can build things that weren’t possible before.</p>
 
   </section>
+
+  {% include exercise.html text="Try to use the techniques in this chapter to generate procedural shapes of different kinds. How can you use <code>vertex()</code> to make sharp shapes? How can you use <code>bezierVertex()</code> to make round shapes?" %}
 
 </section>

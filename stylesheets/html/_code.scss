@@ -17,3 +17,7 @@ code {
   background-color: $colorGrayLight;
   padding: 0.1em 0.3em;
 }
+
+pre code {
+  padding: 0;
+}

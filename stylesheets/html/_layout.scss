@@ -132,6 +132,12 @@ nav {
     width: 40%;
   }
 
+  // reset margins inside of grid so we don't get double space
+  figure, pre {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
 }
 
 // Commentator
