@@ -23,7 +23,7 @@ dek: I need a description of this.
 
     <figure class="text-width">
       <svg width="100%" viewBox="0 0 600 500" class="bg4">
-        <circle cx="300" cy="250" r="200" stroke="#999999" fill="none" stroke-dasharray="5, 5" stroke-weight="1" />
+        <circle cx="300" cy="250" r="200" stroke="#333333" fill="none" stroke-dasharray="5, 5" stroke-weight="1" />
         <circle cx="473" cy="150" r="12" fill="#333333" stroke="none" />
         <circle cx="300" cy="250" r="5" fill="#333333" stroke="none" />
         <line x1="300" y1="250" x2="473" y2="150" stroke="#333333" />
@@ -65,35 +65,47 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <p>Although we will dedicate an entire part of this book to repetition, let’s briefly go over the basic functionality of a <code>for</code> loop. A <code>for</code> loop allows us to execute code multiple times in a row by incrementing (or decrementing) a variable – often called <code>i</code> – until an expression is no longer true and the loop stops. In the following example, we initialize a variable with the number <code>0</code>, iterate as long as our variable is lower than <code>10</code>, and increment our variable by one between each iteration. The result is a loop that iterates ten times with our variable incrementing from zero to nine, drawing ten rectangles on the screen.</p>
 
-for(var i = 0; i < 10; i++) {
-  rect(0, 0, 100, 100);
-}
-SHOW OUTPUT
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/for.js lines:'7-9' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/for.js class:'fig' %}
+      </figure>
+    </div>
 
     <p>Unfortunately, all these rectangles have identical positions and sizes because we’re passing the same static numbers to the <code>rect()</code> function over and over again. This is where <code>i</code> comes into play: Because it changes between each iteration of the loop, it can be used to create variance between each rectangle. The example below uses <code>i</code> to position the ten rectangles one pixel apart on the x-axis.</p>
 
-for(var i = 0; i < 10; i++) {
-  rect(i, 0, 100, 100);
-}
-SHOW OUTPUT
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/for-i.js lines:'7-9' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/for-i.js class:'fig' %}
+      </figure>
+    </div>
 
     <p>Although it might not be immediately clear, this is an important technique when drawing procedural designs. Because <code>i</code> increments by one between each iteration, it can be used as a scalar to distribute shapes across the canvas. For example, if we want to position the rectangles next to each other, we can simply multiply <code>i</code> with the width of the rectangles.</p>
 
-for(var i = 0; i < 10; i++) {
-  rect(i * 100, 0, 100, 100);
-}
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/for-i-multiply.js lines:'7-9' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/for-i-multiply.js class:'fig' %}
+      </figure>
+    </div>
 
     <p>We can use this same technique to draw custom shapes. Instead of drawing individual shapes in the loop, we simply use the for loop to procedurally add vertices between the <code>beginShape()</code> and <code>endShape()</code> function calls. In the example below, we use this technique to place ten vertices randomly around the center of the canvas.</p>
 
-translate(width/2, height/2);
-beginShape();
-for(var i = 0; i < 10; i++) {
-  var x = random(-100, 100);
-  var y = random(-100, 100);
-  vertex(x, y);
-}
-endShape();
-SHOW OUTPUT
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/for-random.js lines:'8-15' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/for-random.js class:'fig' %}
+      </figure>
+    </div>
 
     <p>The result is certainly a procedural shape, but the use of <code>random()</code> doesn’t give us a lot of control over the placement of the vertices: The shape is just a bunch of lines randomly crossing each other. The final step is to put our two techniques together and generate shapes with <code>sin()</code> and <code>cos()</code> inside of a <code>for</code> loop.</p>
 
