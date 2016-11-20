@@ -117,49 +117,75 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <p>Starting from our random shape code above, let’s try to replace the random vertices with vertices placed sequentially along the outline of an ellipse. We do this by using the same two lines that we memorized earlier, but instead of passing the same angle to <code>sin()</code> and <code>cos()</code>, we calculate a different angle on every iteration by multiplying <code>i</code> with the angle we want between the vertices. The result is a shape with ten vertices evenly spread around the center of the canvas.</p>
 
-translate(width/2, height/2);
-beginShape();
-for(var i = 0; i < 10; i++) {
-  var x = cos(radians(i * 36)) * 100;
-  var y = sin(radians(i * 36)) * 100;
-  vertex(x, y);
-}
-endShape();
-SHOW OUTPUT
-
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/for-sincos.js lines:'8-15' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/for-sincos.js class:'fig' %}
+      </figure>
+    </div>
 
     <p>Simply by changing the number of iterations and the spacing between the vertices, you can draw all of the basic shapes. The code below adds a few variables on top of the sketch to automatically calculate the spacing based on the number of vertices. Simply change the numVertices variable and another shape will appear.</p>
 
-var numVertices = 3; // or 4 or 30
-var spacing = 360 / numVertices;
-translate(width/2, height/2);
-beginShape();
-for(var i = 0; i < 10; i++) {
-  var x = cos(radians(i * spacing)) * 100;
-  var y = sin(radians(i * spacing)) * 100;
-  vertex(x, y);
-}
-endShape();
-SHOW OUTPUT
-
-
-ALL SHAPES OUTPUT
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/for-sincos2.js lines:'8-17' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/for-sincos2.js class:'fig' %}
+      </figure>
+    </div>
 
     <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. In the example below, we change the radius between each iteration of the loop to create a star shape.</p>
 
-STAR
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/star.js lines:'8-23' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/star.js class:'fig' %}
+      </figure>
+    </div>
 
     <p>We can also draw many closely spaced vertices and randomize the radius for each of them, drawing a squiggly circle that appears to be drawn by hand.</p>
 
-SQUIGGLY CIRCLE
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/squiggly.js lines:'8-17' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/squiggly.js class:'fig' %}
+      </figure>
+    </div>
 
-    <p>Here’s a flower created by using bezier vertices where both vertices and the control points are positioned using <code>sin()</code> and <code>cos()</code>.</p>
+    <p>Here’s a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. When using Bézier curves, you need to remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
 
-FLOWER
+    <div class="grid">
+      <div class="col-1-2">
+        {% codesplit shape/procedural-shapes/flower.js lines:'8-30' %}
+      </div>
+      <figure class="col-1-2">
+        {% p5 shape/procedural-shapes/flower.js class:'fig' %}
+      </figure>
+    </div>
 
-    <p>The two shapes below are created by using just one of the circular functions: The first one uses <code>sin()</code> and the second one uses <code>cos()</code>. Notice how both functions produce the same waveform with different starting points.</p>
+    <p>The two shapes below are created using just one of the circular functions: The first one uses <code>sin()</code> and the second one uses <code>cos()</code>. Notice how we multiply <code>i</code> with a larger value to calculate the <code>x</code> of each vertex, but use a very small value to calculate the angle passed to <code>sin()</code> and <code>cos()</code>.</p>
 
-WAVES
+    <div class="grid">
+      <div class="col-1-2">
+        <figure>
+          {% p5 shape/procedural-shapes/wave-sin.js class:'fig' %}
+        </figure>
+        {% codesplit shape/procedural-shapes/wave-sin.js lines:'8-18' %}
+      </div>
+      <div class="col-1-2">
+        <figure>
+          {% p5 shape/procedural-shapes/wave-cos.js class:'fig' %}
+        </figure>
+        {% codesplit shape/procedural-shapes/wave-cos.js lines:'8-18' %}
+      </div>
+    </div>
 
     <p>This wobbly shape is created by adding a Sine curve on top of the radius for every vertex. Also notice how we use a different radius for <code>x</code> and <code>y</code> to create an ellipse that is wider than tall.</p>
 
@@ -171,17 +197,24 @@ PIE CHART
 
     <p>Sine and Cosine can be used to create a range of different shapes during the design process. In this design by Josef Müller-Brockmann, a series of exponentially growing arcs are rotated around the bottom left of the canvas.</p>
 
-BROCKMANN
-
-
+    <figure class="text-width">
+      <img src="shape/procedural-shapes/brockmann.jpg" />
+      <figcaption>Beethoven poster by Josef Müller-Brockmann <a href="#fairuse">©</a></figcaption>
+    </figure>
 
     <p>The project Generative Play is a card game by Adria Navarro that uses procedural drawing to create an infinite amount of generative characters. The body of the characters are created using <code>sin()</code> and <code>cos()</code>.</p>
 
-ADRIA
+    <figure>
+      <img src="shape/procedural-shapes/generativeplay.jpg" />
+      <figcaption>Generative Play by Adria Navarro <a href="#fairuse">©</a></figcaption>
+    </figure>
 
     <p>Sediment Mars is a series of generative poster designs by Sarah Hallacher and Alessandra Villaamil. The <code>sin()</code> and <code>cos()</code> functions are used to generate an elliptical shape, which is then distorted by adding random values to it.</p>
 
-MARS
+    <figure>
+      <img src="shape/procedural-shapes/sedimentmars.jpg" />
+      <figcaption>Sediment Mars by by Sarah Hallacher and Alessandra Villaamil <a href="#fairuse">©</a></figcaption>
+    </figure>
 
     <p>This chapter introduced an approach to design that is inherently different than a traditional design process. Rather than individually placing each shape on the canvas, we wrote algorithms to do this for us. Using loops to procedurally draw shapes is a powerful concept, as it allows designers to do more with less code, thus alleviating us from the pains of manually constructing every design object by hand. This is also the hardest thing about procedural design, as designers need to devote more time up front distilling the system into code, and they can’t easily manipulate individual shapes like in a traditional design tool. The American computer scientist Donald Knuth calls this a transition from design to meta-design:</p>
 
@@ -195,5 +228,7 @@ MARS
   </section>
 
   {% include exercise.html text="Try to use the techniques in this chapter to generate procedural shapes of different kinds. How can you use <code>vertex()</code> to make sharp shapes? How can you use <code>bezierVertex()</code> to make round shapes?" %}
+
+  {% include fairuse.html %}
 
 </section>
