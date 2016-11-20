@@ -31,11 +31,11 @@ for(var i = 0; i < figs.length; i++) {
   window.ReactDOM.render(window.React.createElement(P5Figure, { code: code, link: path, klass: klass, caption:caption, parent:el }), el)
 }
 
-// Highlight all code tags
+// Highlight all pre tags
 var Prism = require('prismjs');
 var pres = document.getElementsByTagName('pre');
 for(var i = 0; i < pres.length; i++) {
-  pres[i].firstChild.innerHTML = Prism.highlight(pres[i].firstChild.innerHTML, Prism.languages.javascript)
+  pres[i].firstChild.innerHTML = Prism.highlight(pres[i].firstChild.textContent, Prism.languages.javascript)
 }
 
 // Dispatch an event to say that libs are loaded. This makes it
