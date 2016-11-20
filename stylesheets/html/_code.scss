@@ -21,3 +21,53 @@ code {
 pre code {
   padding: 0;
 }
+
+// Codesplit
+// -------------------------------------------------
+
+.codesplit.columns {
+
+  .comment p {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  .code pre {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: $tabletBreak) {
+
+  .codesplit.columns {
+
+    padding: 0.5em 1em;
+
+    .pair {
+
+      border-radius: 4px;
+
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .comment {
+        p {
+          padding-right: 1em;
+        }
+        width: 40%;
+        float: right;
+      }
+
+      .code {
+        width: 60%;
+        float: left;
+      }
+
+    }
+
+  }
+}

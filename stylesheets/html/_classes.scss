@@ -1,6 +1,10 @@
 // Spacing
 // -------------------------------------------
 
+.margin-bottom {
+  margin-bottom: $spacing;
+}
+
 .no-margin {
   margin: 0;
 }
@@ -10,7 +14,7 @@
 }
 
 .half-margin-bottom {
-  margin-bottom: 0.8em;
+  margin-bottom: $spacing / 2;
 }
 
 // Typography
@@ -27,16 +31,16 @@
 
 .text-width {
   max-width: $textWidth;
-  padding-left: $hspacing;
-  padding-right: $hspacing;
+  padding-left: $spacing;
+  padding-right: $spacing;
   margin-left: auto;
   margin-right: auto;
 }
 
 .media-width {
   max-width: $mediaWidth;
-  padding-left: $hspacing;
-  padding-right: $hspacing;
+  padding-left: $spacing;
+  padding-right: $spacing;
   margin-left: auto;
   margin-right: auto;
 }

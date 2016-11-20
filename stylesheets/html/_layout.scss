@@ -84,17 +84,17 @@ nav {
 
   .grid {
 
-    margin-left: (-$hspacing/2);
-    margin-right: (-$hspacing/2);
+    margin-left: (-$spacing/2);
+    margin-right: (-$spacing/2);
 
     &.media-width {
-      max-width: $mediaWidth + $hspacing;
+      max-width: $mediaWidth + $spacing;
       margin-left: auto;
       margin-right: auto;
     }
 
     &.text-width {
-      max-width: $textWidth + $hspacing;
+      max-width: $textWidth + $spacing;
       margin-left: auto;
       margin-right: auto;
     }
@@ -108,8 +108,8 @@ nav {
 
   [class*='col-'] {
     float: left;
-    padding-left: $hspacing/2;
-    padding-right: $hspacing/2;
+    padding-left: $spacing/2;
+    padding-right: $spacing/2;
   }
 
   .col-1-2 {
@@ -138,23 +138,4 @@ nav {
     margin-bottom: 0;
   }
 
-}
-
-// Commentator
-// -------------------------------------------------
-
-@media (min-width: $tabletBreak) {
-  .commentator {
-    display: flex;
-    flex-wrap: wrap;
-    > .codesplit, figure {
-      flex: 0 0 50%;
-      &:nth-child(1) {
-        padding-right: 1em;
-      }
-      &:nth-child(2) {
-        padding-left: 1em;
-      }
-    }
-  }
 }

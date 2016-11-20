@@ -97,11 +97,13 @@ dek: Our first steps into the world of graphic design involves looking at the re
 
     <p>The third and fourth number passed to the <code>rect()</code> function define the width and height of the shape. Like the position, it can be beneficial to calculate the size of the rectangle dynamically based on the size of the canvas. Building on the example from above, the following code shows a truly dynamic design, where the static numbers used for size and spacing have been replaced by calculations. Now, both the position and size of the rectangle scales with the canvas automatically.</p>
 
-    <figure class="text-width">
+    <figure class="text-width half-margin-bottom">
       {% p5 shape/figure-and-ground/use-variables.js class:'fig' %}
     </figure>
 
-    <pre class="text-width"><code>rect(width - (height/3) - (width/20), height - (height/3) - (width/20), height/3, height/3);</code></pre>
+    <div class="text-width">
+      <pre><code>rect(width - (height/3) - (width/20), height - (height/3) - (width/20), height/3, height/3);</code></pre>
+    </div>
 
     <p>However, there is one big problem with the code above: It has become very hard to read. If you need to change the position of the rectangle, it will take you a while to mentally parse what's going on. To solve this problem, it is often helpful to use variables at the top of your code to store these numbers. This makes the code more readable, which makes it easier for you (and other programmers) to change it later on. The following code produces the same design, but all numbers are now saved into variables with names that clearly communicate their purpose.</p>
 
@@ -155,16 +157,16 @@ rotate(radians(90));</code></pre>
 
     <p>As an example, let’s suppose we want to add rotation to our rectangle example from above. Here, we have added a single <code>rotate()</code> function before drawing our rectangle. Notice how the canvas (represented by the dark yellow box) is rotating around its own beginning, not the rectangle.</p>
 
-    <div class="commentator">
-      {% codesplit shape/figure-and-ground/rotate.js lines:'7-11,15' %}
-      <figure>{% p5 shape/figure-and-ground/rotate.js class:'fig' %}</figure>
+    <div class="grid">
+      <div class="col-1-2">{% codesplit shape/figure-and-ground/rotate.js lines:'7-11,15' %}</div>
+      <div class="col-1-2"><figure>{% p5 shape/figure-and-ground/rotate.js class:'fig' %}</figure></div>
     </div>
 
     <p>If we want the rotation to happen around the top left corner of our rectangle, we have to do something that might feel a bit unintuitive. First, we have to move the canvas to the position of our rectangle by using the translate() function. After calling the <code>rotate()</code> function, we then draw our rectangle at the top left corner of the translated canvas. As you can see, the rotation now happen around the rectangle.</p>
 
-    <div class="commentator">
-      {% codesplit shape/figure-and-ground/translate-rotate.js lines:'7-12,16' %}
-      <figure>{% p5 shape/figure-and-ground/translate-rotate.js class:'fig' %}</figure>
+    <div class="grid">
+      <div class="col-1-2">{% codesplit shape/figure-and-ground/translate-rotate.js lines:'7-12,16' %}</div>
+      <div class="col-1-2"><figure>{% p5 shape/figure-and-ground/translate-rotate.js class:'fig' %}</figure></div>
     </div>
 
     <p>As we dive into more layout techniques, we will further investigate how to use <code>translate()</code> and <code>rotate()</code> to make more sophisticated designs.</p>

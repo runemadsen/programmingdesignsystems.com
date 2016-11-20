@@ -137,27 +137,19 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </figure>
     </div>
 
-    <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. In the example below, we change the radius between each iteration of the loop to create a star shape.</p>
+    <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. Let's run through a few examples that demonstrate how to use <code>sin()</code> and <code>cos()</code> to draw other types of shapes. We'll start with the following squiggly circle where the code looks almost identical to the examples above. The only difference is that we randomize the radius for each vertex, making it look like the circle was drawn by hand.</p>
 
-    <div class="grid">
-      <div class="col-1-2">
-        {% codesplit shape/procedural-shapes/star.js lines:'8-23' %}
-      </div>
-      <figure class="col-1-2">
-        {% p5 shape/procedural-shapes/star.js class:'fig' %}
-      </figure>
-    </div>
+    <figure class="text-width">
+      {% p5 shape/procedural-shapes/squiggly.js class:'fig' %}
+    </figure>
+    {% codesplit shape/procedural-shapes/squiggly.js lines:'8-17' %}
 
-    <p>We can also draw many closely spaced vertices and randomize the radius for each of them, drawing a squiggly circle that appears to be drawn by hand.</p>
+    <p>STAR</p>
 
-    <div class="grid">
-      <div class="col-1-2">
-        {% codesplit shape/procedural-shapes/squiggly.js lines:'8-17' %}
-      </div>
-      <figure class="col-1-2">
-        {% p5 shape/procedural-shapes/squiggly.js class:'fig' %}
-      </figure>
-    </div>
+    <figure class="text-width margin-bottom">
+      {% p5 shape/procedural-shapes/star.js class:'fig' %}
+    </figure>
+    {% codesplit shape/procedural-shapes/star.js class:'columns' lines:'8-28' %}
 
     <p>Here’s a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. When using Bézier curves, you need to remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
 
@@ -169,6 +161,10 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
         {% p5 shape/procedural-shapes/flower.js class:'fig' %}
       </figure>
     </div>
+
+    <p>This wobbly shape is created by adding a Sine curve on top of the radius for every vertex. Also notice how we use a different radius for <code>x</code> and <code>y</code> to create an ellipse that is wider than tall.</p>
+
+WOBBLY
 
     <p>The two shapes below are created using just one of the circular functions: The first one uses <code>sin()</code> and the second one uses <code>cos()</code>. Notice how we multiply <code>i</code> with a larger value to calculate the <code>x</code> of each vertex, but use a very small value to calculate the angle passed to <code>sin()</code> and <code>cos()</code>.</p>
 
@@ -186,14 +182,6 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
         {% codesplit shape/procedural-shapes/wave-cos.js lines:'8-18' %}
       </div>
     </div>
-
-    <p>This wobbly shape is created by adding a Sine curve on top of the radius for every vertex. Also notice how we use a different radius for <code>x</code> and <code>y</code> to create an ellipse that is wider than tall.</p>
-
-WOBBLY
-
-    <p>Even pie charts with text rotated according to the angle.</p>
-
-PIE CHART
 
     <p>Sine and Cosine can be used to create a range of different shapes during the design process. In this design by Josef Müller-Brockmann, a series of exponentially growing arcs are rotated around the bottom left of the canvas.</p>
 

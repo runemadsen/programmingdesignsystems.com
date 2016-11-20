@@ -36,11 +36,17 @@
         color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %};
         background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %};
       }
-      .token.keyword { color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %}; }
-      .token.variable, .token.function { color: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %}; }
-      .token.property { color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %}; }
-      .token.string, .token.number { color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %}; }
-      .comment { color: #b4b4b4 }
+      code .token.keyword { color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %}; }
+      code .token.variable, code .token.function { color: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %}; }
+      code .token.property { color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %}; }
+      code .token.string, code .token.number { color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %}; }
+      code .comment { color: #b4b4b4 }
+
+      @media (min-width: 900px) {
+        .codesplit.columns { background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %}; }
+        .codesplit.columns .pair:not(.no-comment) .code code, .codesplit.columns .pair:not(.no-comment) .code pre { background: none }
+        .codesplit.columns .pair:not(.no-comment) { background: {% if part.colors.color8 %}{{part.colors.color8}}{% else %}gray{% endif %}; }
+      }
     </style>
   </head>
   <nav>
