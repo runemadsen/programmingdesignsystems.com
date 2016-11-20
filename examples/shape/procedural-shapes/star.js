@@ -1,6 +1,6 @@
 function setup()
 {
-  createCanvas(600, 300);
+  createCanvas(600, 400);
   background(255, 255, 220);
   noStroke();
   fill(30);
@@ -18,7 +18,7 @@ function setup()
     var y = sin(radians(i * 36)) * radius;
     vertex(x, y);
 
-    // Before the loop repeats, alternate between a radius of 100 and 50. {!5}
+    // Change the radius for the next vertex {!5}
     if(radius == 100) {
       radius = 50;
     } else {

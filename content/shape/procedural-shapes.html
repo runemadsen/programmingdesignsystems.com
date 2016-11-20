@@ -137,51 +137,43 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </figure>
     </div>
 
-    <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. Let's run through a few examples that demonstrate how to use <code>sin()</code> and <code>cos()</code> to draw other types of shapes. We'll start with the following squiggly circle where the code looks almost identical to the examples above. The only difference is that we randomize the radius for each vertex, making it look like the circle was drawn by hand.</p>
+    <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. Let's run through a few examples that all use the same <code>sin()</code> and <code>cos()</code> formula to draw different types of shapes. We'll start with the following squiggly circle where we randomize the radius for each vertex, making it look like the circle was drawn by hand.</p>
 
-    <figure class="text-width">
+    <figure class="text-width margin-bottom">
       {% p5 shape/procedural-shapes/squiggly.js class:'fig' %}
     </figure>
-    {% codesplit shape/procedural-shapes/squiggly.js lines:'8-17' %}
+    {% codesplit shape/procedural-shapes/squiggly.js class:'columns' lines:'8-18' %}
 
-    <p>STAR</p>
+    <p>The star below is created by alternating between a low and a high radius for each vertex. It's easy to tweak the style of the star by using different numbers or more vertices, or using <code>rotate()</code> to change the orientation of the star.</p>
 
     <figure class="text-width margin-bottom">
       {% p5 shape/procedural-shapes/star.js class:'fig' %}
     </figure>
     {% codesplit shape/procedural-shapes/star.js class:'columns' lines:'8-28' %}
 
-    <p>Here’s a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. When using Bézier curves, you need to remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
+    <p>Here’s a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. By using a larger radius for the control points (the inverse of the star example above), the curves go outwards. When using Bézier curves, you need to remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
 
-    <div class="grid">
-      <div class="col-1-2">
-        {% codesplit shape/procedural-shapes/flower.js lines:'8-30' %}
-      </div>
-      <figure class="col-1-2">
-        {% p5 shape/procedural-shapes/flower.js class:'fig' %}
-      </figure>
-    </div>
+    <figure class="text-width margin-bottom">
+      {% p5 shape/procedural-shapes/flower.js class:'fig' %}
+    </figure>
+    {% codesplit shape/procedural-shapes/flower.js lines:'10-36' class:'columns' %}
 
-    <p>This wobbly shape is created by adding a Sine curve on top of the radius for every vertex. Also notice how we use a different radius for <code>x</code> and <code>y</code> to create an ellipse that is wider than tall.</p>
+    <p>You will often find yourself needing to use just one of the circular functions. This is helpful when you want to change only a single variable with a waveform. The two shapes below are created just like that: The first one uses <code>sin()</code> (as demonstrated in the code below) and the second one uses <code>cos()</code>.</p>
 
-WOBBLY
-
-    <p>The two shapes below are created using just one of the circular functions: The first one uses <code>sin()</code> and the second one uses <code>cos()</code>. Notice how we multiply <code>i</code> with a larger value to calculate the <code>x</code> of each vertex, but use a very small value to calculate the angle passed to <code>sin()</code> and <code>cos()</code>.</p>
-
-    <div class="grid">
+    <div class="grid margin-bottom">
       <div class="col-1-2">
         <figure>
           {% p5 shape/procedural-shapes/wave-sin.js class:'fig' %}
         </figure>
-        {% codesplit shape/procedural-shapes/wave-sin.js lines:'8-18' %}
       </div>
       <div class="col-1-2">
         <figure>
           {% p5 shape/procedural-shapes/wave-cos.js class:'fig' %}
         </figure>
-        {% codesplit shape/procedural-shapes/wave-cos.js lines:'8-18' %}
       </div>
     </div>
+
+    {% codesplit shape/procedural-shapes/wave-cos.js lines:'8-19' class:'columns' %}
 
     <p>Sine and Cosine can be used to create a range of different shapes during the design process. In this design by Josef Müller-Brockmann, a series of exponentially growing arcs are rotated around the bottom left of the canvas.</p>
 
@@ -190,7 +182,7 @@ WOBBLY
       <figcaption>Beethoven poster by Josef Müller-Brockmann <a href="#fairuse">©</a></figcaption>
     </figure>
 
-    <p>The project Generative Play is a card game by Adria Navarro that uses procedural drawing to create an infinite amount of generative characters. The body of the characters are created using <code>sin()</code> and <code>cos()</code>.</p>
+    <p>The project Generative Play is a card game by Adria Navarro that uses procedural drawing to create an infinite amount of generative characters. The character bodies are created using <code>sin()</code> and <code>cos()</code>.</p>
 
     <figure>
       <img src="shape/procedural-shapes/generativeplay.jpg" />
@@ -215,7 +207,7 @@ WOBBLY
 
   </section>
 
-  {% include exercise.html text="Try to use the techniques in this chapter to generate procedural shapes of different kinds. How can you use <code>vertex()</code> to make sharp shapes? How can you use <code>bezierVertex()</code> to make round shapes?" %}
+  {% include exercise.html text="Try to draw all the basic shapes using the techniques presented in this chapter. Then continue to generate other types of shapes. Can you use <code>random()</code> to manipulate the shape outline? Can you use Bézier curves instead of simple vertices?" %}
 
   {% include fairuse.html %}
 

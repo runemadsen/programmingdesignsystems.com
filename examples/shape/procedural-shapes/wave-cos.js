@@ -7,12 +7,13 @@ function setup()
 
   strokeWeight(20);
   strokeCap(SQUARE);
-
   translate((width/2) - 200, height/2);
   beginShape();
   for(var i = 0; i < 200; i++) {
+    // 2 pixel spacing on the x-axis. {!1}
     var x = i * 2;
-    var y = cos(i * 0.03) * 100;
+    // 200 pixel high waveform on the y-axis. {!1}
+    var y = cos(i * radians(2)) * 100;
     vertex(x, y);
   }
   endShape();
