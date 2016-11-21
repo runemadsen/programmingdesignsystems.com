@@ -30,7 +30,7 @@ div[data-type="exercise"] {
 
 .navigation {
   @extend .media-width;
-  margin: 1em auto 4em auto;
+  margin: 1em auto 3em auto;
 
   .col {
     margin-bottom: 1em;
@@ -67,6 +67,7 @@ div[data-type="footnotes"] {
 }
 
 div[data-type="copyright-page"] {
+  margin-bottom: 2em;
   hr {
     width: 100px;
   }
