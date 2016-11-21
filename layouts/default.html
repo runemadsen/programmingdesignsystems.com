@@ -42,6 +42,13 @@
       code .token.string, code .token.number { color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %}; }
       code .comment { color: #b4b4b4 }
 
+      @media (max-width: 900px) {
+        .codesplit.columns .comment p:before { content: "// "; }
+        .codesplit.columns .comment {
+          color: #b4b4b4;
+          background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %};
+        }
+      }
       @media (min-width: 900px) {
         .codesplit.columns { background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %}; }
         .codesplit.columns .pair:not(.no-comment) .code code, .codesplit.columns .pair:not(.no-comment) .code pre { background: none }
