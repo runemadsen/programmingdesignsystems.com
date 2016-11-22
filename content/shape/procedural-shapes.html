@@ -96,7 +96,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </figure>
     </div>
 
-    <p>We can use this same technique to draw custom shapes. Instead of drawing individual shapes in the loop, we simply use the for loop to procedurally add vertices between the <code>beginShape()</code> and <code>endShape()</code> function calls. In the example below, we use this technique to place ten vertices randomly around the center of the canvas.</p>
+    <p>We can use this same technique to draw custom shapes. Instead of drawing individual shapes in the loop, we simply use the for loop to procedurally add vertices between the <code>beginShape()</code> and <code>endShape()</code> function calls. In the example below, we use this technique to draw ten random vertices in the center of the canvas.</p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -115,7 +115,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <h1>Putting it together</h1>
 
-    <p>Starting from our random shape code above, let’s try to replace the random vertices with vertices placed sequentially along the outline of an ellipse. We do this by using the same two lines that we memorized earlier, but instead of passing the same angle to <code>sin()</code> and <code>cos()</code>, we calculate a different angle on every iteration by multiplying <code>i</code> with the angle we want between the vertices. The result is a shape with ten vertices evenly spread around the center of the canvas.</p>
+    <p>Starting from our random shape code above, let’s replace the random vertices with vertices placed sequentially along the outline of an ellipse. We do this by using the same two lines that we memorized earlier, but instead of passing the same angle to <code>sin()</code> and <code>cos()</code>, we calculate a different angle on every iteration by multiplying <code>i</code> with the angle we want between the vertices. The result is a shape with ten vertices evenly spread around the center of the canvas.</p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -137,7 +137,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </figure>
     </div>
 
-    <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. Let's run through a few examples that all use the same <code>sin()</code> and <code>cos()</code> formula to draw different types of shapes. We'll start with the following squiggly circle where we randomize the radius for each vertex, making it look like the circle was drawn by hand.</p>
+    <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. Let's run through a few examples that all use the same <code>sin()</code> and <code>cos()</code> formula to draw different types of shapes. We'll start with the squiggly circle below that has a random radius for each vertex, making it look like it was drawn by hand.</p>
 
     <figure class="text-width margin-bottom">
       {% p5 shape/procedural-shapes/squiggly.js class:'fig' %}
@@ -151,14 +151,14 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
     </figure>
     {% codesplit shape/procedural-shapes/star.js class:'columns' lines:'8-28' %}
 
-    <p>Here’s a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. By using a larger radius for the control points (the inverse of the star example above), the curves go outwards. When using Bézier curves, you need to remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
+    <p>Here’s a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. By using a larger radius for the control points (the inverse of the star example above), the curves go outwards. When using Bézier curves, remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
 
     <figure class="text-width margin-bottom">
       {% p5 shape/procedural-shapes/flower.js class:'fig' %}
     </figure>
     {% codesplit shape/procedural-shapes/flower.js lines:'10-36' class:'columns' %}
 
-    <p>You will often find yourself needing to use just one of the circular functions. This is helpful when you want to change only a single variable with a waveform. The two shapes below are created just like that: The first one uses <code>sin()</code> (as demonstrated in the code below) and the second one uses <code>cos()</code>.</p>
+    <p>You will often find yourself needing to use just one of the circular functions. The two shapes below are created just like that: The first one uses <code>sin()</code> and the second one uses <code>cos()</code> (as demonstrated in the code below).</p>
 
     <div class="grid margin-bottom">
       <div class="col-1-2">
@@ -203,7 +203,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <cite>Donald Knuth (1986), The Metafont Book</cite>
     </blockquote>
 
-    <p>This approach is an essential part of this book. When designers learn to not only think systematically about the design process, but also to implement those systems in software, they can build things that weren’t possible before.</p>
+    <p>This is also the main thesis of this book. When designers learn to not only think systematically about the design process, but also to implement those systems in software, they can build things that weren’t possible before.</p>
 
   </section>
 
