@@ -9,41 +9,46 @@
 nav {
 
   text-align: center;
+  border-bottom: 1px solid #cccccc;
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.15);
+  text-align: center;
   padding: 1em;
   font-size: 1em;
+  font-weight: 500;
 
-  .wrapper {
-    position: relative;
-  }
-
-  svg {
-    vertical-align: bottom;
+  .wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 
   #logo {
     font-size: 1.2em;
-    font-weight: 500;
-    margin-left: 0.3em;
-    display: inline-block;
+    margin-bottom: 0.5em;
+  }
+
+  a {
+    display: block;
     text-decoration: none;
   }
 
-  #newsletter {
-    display: block;
-    margin-top: 1em;
-  }
 }
 
 @media (min-width: $mobileBreak) {
 
   nav {
-    padding: 1.5em;
     text-align: left;
+
+    a {
+      display: inline;
+    }
+
+    #logo {
+      font-size: 1em;
+    }
+
     #newsletter {
-      margin-top: 0;
-      position: absolute;
-      right: 0;
-      top: -5px;
+      float: right;
     }
   }
 

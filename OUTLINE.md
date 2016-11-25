@@ -31,8 +31,9 @@ Shape
 Color
 -------------
 
-- Introduction (and history?)
+- A rant on the color picker (intro to the subject)
 - Color models
+- Generative Color schemes
 
 Layout
 -------------
@@ -135,6 +136,5 @@ EXTRAS
 ------
 
 - http://www.no-mans-sky.com generativt landskab. Farve temperamanter.
-- http://adrianavarro.net/projects/generative-play/
 - http://titouanm.com/mucartographer/
 - https://github.com/a1studmuffin/SpaceshipGenerator/
