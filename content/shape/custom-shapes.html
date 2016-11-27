@@ -35,15 +35,15 @@ dek: I need a description of this.
     <p>The following examples are all created with simple vertices, but use strokes and fills to achieve very different designs.</p>
 
     <div class="grid">
-      <figure class="col-1-3">
+      <div class="col-1-3">
         {% p5 shape/custom-shapes/vertex-arrow.js link:'true' %}
-      </figure>
-      <figure class="col-1-3">
+      </div>
+      <div class="col-1-3">
         {% p5 shape/custom-shapes/vertex-mountain.js link:'true' %}
-      </figure>
-      <figure class="col-1-3">
+      </div>
+      <div class="col-1-3">
         {% p5 shape/custom-shapes/vertex-house.js link:'true' %}
-      </figure>
+      </div>
     </div>
 
   </section>
@@ -57,14 +57,12 @@ dek: I need a description of this.
     <p>The Bézier curve algorithm was popularized by Pierre Bézier in the 1960’s as a solution to a common problem in computational geometry: Drawing curved lines that can scale to any size. The Bézier curve algorithm solves this problem in a very elegant way by introducing the idea of control points: Invisible gravity points that attract the line to bend it into a curve. A Bézier curve with a single control point is called a quadratic Bézier, while a Bézier curve with two control points is called a cubic Bézier. If you have ever used the Pen tool in Adobe Illustrator, you are already familiar with this concept.</p>
 
     <div class="grid">
-      <figure class="col-1-2">
-        {% p5 shape/custom-shapes/quad-animation.js %}
-        <figcaption>This animation shows how a quadratic Bézier curve is calculated.</figcaption>
-      </figure>
-      <figure class="col-1-2">
-        {% p5 shape/custom-shapes/cubic-animation.js %}
-        <figcaption>This animation shows how a cubic Bézier curve is calculated.</figcaption>
-      </figure>
+      <div class="col-1-2">
+        {% p5 shape/custom-shapes/quad-animation.js caption:'This animation shows how a quadratic Bézier curve is calculated.' %}
+      </div>
+      <div class="col-1-2">
+        {% p5 shape/custom-shapes/cubic-animation.js caption:'This animation shows how a cubic Bézier curve is calculated.' %}
+      </div>
     </div>
 
     <p>You can draw a quadratic bezier curve with the <code>quadraticBezier()</code> function, passing the coordinates for the single control point and the vertex itself. Likewise, you can draw a cubic Bézier curve with the <code>bezierVertex()</code> function, passing coordinates for the two control points and the vertex itself. The only difference between the two functions is the addition of an extra control point in the <code>bezierVertex()</code> function, which allows you to draw more sophisticated curves. This is illustrated below where both types of curves are used to draw a custom shape. Try dragging the vertices and control points to see the resulting code.</p>
@@ -74,15 +72,15 @@ dek: I need a description of this.
     <p>It takes a bit of practice to master the Bézier functions, and knowing how many Béziers you need to draw a specific shape can be hard in the beginning. It doesn’t help that control points are invisible, so it can be helpful to spend some time playing around with the example above before diving into the code. Below are three examples that all use the Bézier functions to create custom shapes.</p>
 
     <div class="grid">
-      <figure class="col-1-3">
+      <div class="col-1-3">
         {% p5 shape/custom-shapes/quad-circle.js link:'true' %}
-      </figure>
-      <figure class="col-1-3">
+      </div>
+      <div class="col-1-3">
         {% p5 shape/custom-shapes/cubic-key.js link:'true' %}
-      </figure>
-      <figure class="col-1-3">
+      </div>
+      <div class="col-1-3">
         {% p5 shape/custom-shapes/cubic-letter.js link:'true' %}
-      </figure>
+      </div>
     </div>
 
   </section>
@@ -94,9 +92,9 @@ dek: I need a description of this.
     <p>While we can draw most shapes with <code>vertex()</code>, <code>quadraticVertex()</code>, and <code>bezierVertex()</code>, these functions won't allow us to create shapes with holes. In P5.js, a hole is called a contour, and you can draw shapes with contours using the <code>beginContour()</code> and <code>endContour()</code> functions. In essence, the <code>beginContour()</code> function instructs P5 that you a starting a new shape that be subtracted from your main shape. Like <code>beginShape()</code>, you use the vertex functions to draw your contour, and use <code>endContour()</code> to end the contour.</p>
 
     <div class="grid media-width">
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/custom-shapes/contour.js link:'true' %}
-      </figure>
+      </div>
       <div class="col-1-2">
         <pre><code>beginShape();
   // draw rectangle here
@@ -116,12 +114,12 @@ endShape();</code></pre>
     <p>You can practice designing custom shapes by continuing the ‘design a word’ exercise from the previous chapters. My assignment to students sound something like this: Make a design with two shapes in black and white that represents the words ‘wet’ and ‘sharp’. There are several reasons why this is a challenging assignment. First of all, the student has to consider how the outline of a shape can help communicate either of those words. Most designs end up using curved vertices to represent wet and simple vertices to represent sharp, but some designs cleverly achieve the goal by doing the opposite. Also, the fact that these shapes exist in the same canvas encourages the student to consider how the shapes can interact with each other to achieve a more dramatic effect. Pointing a knife-like shape directly at a smooth shape will create a certain tension which would not exist if the shape pointed in the other direction.</p>
 
     <div class="grid media-width">
-      <figure class="col-2-3">
+      <div class="col-2-3">
         {% p5 shape/custom-shapes/wetsharp-luna.js link:'true' caption:'By Luna Chen.' %}
-      </figure>
-      <figure class="col-1-3">
+      </div>
+      <div class="col-1-3">
         {% p5 shape/custom-shapes/wetsharp-sean.js link:'true' caption:'By Sean McIntyre.' %}
-      </figure>
+      </div>
     </div>
 
   </section>

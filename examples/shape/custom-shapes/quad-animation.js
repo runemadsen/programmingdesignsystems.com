@@ -8,7 +8,6 @@ var dotSize;
 function setup()
 {
   createCanvas(600, 450);
-  smooth();
   frameRate(36);
 
   var w = width * 0.65;
