@@ -50,9 +50,9 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <div class="col-1-2">
         {% codesplit shape/procedural-shapes/circles.js lines:'6-13' %}
       </div>
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/procedural-shapes/circles.js %}
-      </figure>
+      </div>
     </div>
 
     <p>If you consider all the basic shapes – as well as many complex shapes – they are characterized by having non-overlapping outlines that move around a center point. Some shapes, like the triangle, have just a few vertices, while others – like the ellipse – have many vertices. The <code>sin()</code> and <code>cos()</code> functions simply give a way to procedurally draw these types of shapes.</p>
@@ -69,9 +69,9 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <div class="col-1-2">
         {% codesplit shape/procedural-shapes/for.js lines:'7-9' %}
       </div>
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/procedural-shapes/for.js %}
-      </figure>
+      </div>
     </div>
 
     <p>Unfortunately, all these rectangles have identical positions and sizes because we’re passing the same static numbers to the <code>rect()</code> function over and over again. This is where <code>i</code> comes into play: Because it changes between each iteration of the loop, it can be used to create variance between each rectangle. The example below uses <code>i</code> to position the ten rectangles one pixel apart on the x-axis.</p>
@@ -80,9 +80,9 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <div class="col-1-2">
         {% codesplit shape/procedural-shapes/for-i.js lines:'7-9' %}
       </div>
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/procedural-shapes/for-i.js %}
-      </figure>
+      </div>
     </div>
 
     <p>Although it might not be immediately clear, this is an important technique when drawing procedural designs. Because <code>i</code> increments by one between each iteration, it can be used as a scalar to distribute shapes across the canvas. For example, if we want to position the rectangles next to each other, we can simply multiply <code>i</code> with the width of the rectangles.</p>
@@ -91,9 +91,9 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <div class="col-1-2">
         {% codesplit shape/procedural-shapes/for-i-multiply.js lines:'7-9' %}
       </div>
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/procedural-shapes/for-i-multiply.js %}
-      </figure>
+      </div>
     </div>
 
     <p>We can use this same technique to draw custom shapes. Instead of drawing individual shapes in the loop, we simply use the for loop to procedurally add vertices between the <code>beginShape()</code> and <code>endShape()</code> function calls. In the example below, we use this technique to draw ten random vertices in the center of the canvas.</p>
@@ -102,9 +102,9 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <div class="col-1-2">
         {% codesplit shape/procedural-shapes/for-random.js lines:'8-15' %}
       </div>
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/procedural-shapes/for-random.js %}
-      </figure>
+      </div>
     </div>
 
     <p>The result is certainly a procedural shape, but the use of <code>random()</code> doesn’t give us a lot of control over the placement of the vertices: The shape is just a bunch of lines randomly crossing each other. The final step is to put our two techniques together and generate shapes with <code>sin()</code> and <code>cos()</code> inside of a <code>for</code> loop.</p>
@@ -121,9 +121,9 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <div class="col-1-2">
         {% codesplit shape/procedural-shapes/for-sincos.js lines:'8-15' %}
       </div>
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/procedural-shapes/for-sincos.js %}
-      </figure>
+      </div>
     </div>
 
     <p>Simply by changing the number of iterations and the spacing between the vertices, you can draw all of the basic shapes. The code below adds a few variables on top of the sketch to automatically calculate the spacing based on the number of vertices. Simply change the numVertices variable and another shape will appear.</p>
@@ -132,44 +132,34 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <div class="col-1-2">
         {% codesplit shape/procedural-shapes/for-sincos2.js lines:'8-17' %}
       </div>
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/procedural-shapes/for-sincos2.js %}
-      </figure>
+      </div>
     </div>
 
     <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. Let's run through a few examples that all use the same <code>sin()</code> and <code>cos()</code> formula to draw different types of shapes. We'll start with the squiggly circle below that has a random radius for each vertex, making it look like it was drawn by hand.</p>
 
-    <figure class="text-width margin-bottom">
-      {% p5 shape/procedural-shapes/squiggly.js %}
-    </figure>
+    {% p5 shape/procedural-shapes/squiggly.js class:'text-width margin-bottom' %}
     {% codesplit shape/procedural-shapes/squiggly.js class:'columns' lines:'8-18' %}
 
     <p>The star below is created by alternating between a low and a high radius for each vertex. It's easy to tweak the style of the star by using different numbers or more vertices, or using <code>rotate()</code> to change the orientation of the star.</p>
 
-    <figure class="text-width margin-bottom">
-      {% p5 shape/procedural-shapes/star.js %}
-    </figure>
+    {% p5 shape/procedural-shapes/star.js class:'text-width margin-bottom' %}
     {% codesplit shape/procedural-shapes/star.js class:'columns' lines:'8-28' %}
 
     <p>Here’s a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. By using a larger radius for the control points (the inverse of the star example above), the curves go outwards. When using Bézier curves, remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
 
-    <figure class="text-width margin-bottom">
-      {% p5 shape/procedural-shapes/flower.js %}
-    </figure>
+    {% p5 shape/procedural-shapes/flower.js class:'text-width margin-bottom' %}
     {% codesplit shape/procedural-shapes/flower.js lines:'10-36' class:'columns' %}
 
     <p>You will often find yourself needing to use just one of the circular functions. The two shapes below are created just like that: The first one uses <code>sin()</code> and the second one uses <code>cos()</code> (as demonstrated in the code below).</p>
 
     <div class="grid margin-bottom">
       <div class="col-1-2">
-        <figure>
-          {% p5 shape/procedural-shapes/wave-sin.js %}
-        </figure>
+        {% p5 shape/procedural-shapes/wave-sin.js %}
       </div>
       <div class="col-1-2">
-        <figure>
-          {% p5 shape/procedural-shapes/wave-cos.js %}
-        </figure>
+        {% p5 shape/procedural-shapes/wave-cos.js %}
       </div>
     </div>
 
