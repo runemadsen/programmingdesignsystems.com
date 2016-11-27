@@ -57,20 +57,23 @@
     </style>
   </head>
   <body>
-    <nav>
+    <nav class="menu">
       <div class='wrapper'>
         <a id="logo" href="/" >Programming Design Systems</a>
         <a id="newsletter" href="http://eepurl.com/b_kRKD">Subscribe to Newsletter</a>
       </div>
     </nav>
-    <div class="container">
-      <article class="post">
-        {{ content }}
+    <main>
+      <aside>
+        {{ toc }}
+      </aside>
+      <article>
+        <div class="maxContent">
+          {{ content }}
+        </div>
+        {% include navigation.html %}
       </article>
-      {% include newsletter.html %}
-      {% include navigation.html %}
-      {% include fairuse.html %}
-    </div>
+    </main>
     <script src="{{ webpack.main }}"></script>
   </body>
 

@@ -1,16 +1,11 @@
-.container {
-  margin: 0 auto;
-  max-width: 1100px;
-}
-
-// Navigation
+// Menu
 // -------------------------------------------------
 
-nav {
+.menu {
 
   text-align: center;
-  border-bottom: 1px solid #cccccc;
-  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.15);
+  border-bottom: 1px solid #dadada;
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.1);
   text-align: center;
   padding: 1em;
   font-size: 1em;
@@ -36,7 +31,7 @@ nav {
 
 @media (min-width: $mobileBreak) {
 
-  nav {
+  .menu {
     text-align: left;
 
     a {
@@ -54,28 +49,89 @@ nav {
 
 }
 
-// Sidebar and main view
+// Main collapse Sidebar / Article Layout
 // -------------------------------------------------
 
-.aside-main {
-  aside {
-    display: none;
+main {
+  display: flex;
+}
+
+aside {
+  flex: 0 0 300px;
+}
+
+article {
+  flex: 1 1 auto;
+  .maxContent {
+    margin: 0 auto;
+    max-width: 1100px;
   }
 }
 
-@media (min-width: $mobileBreak) {
+// Page Navigation
+// -------------------------------------------------
 
-  .aside-main {
+.navigation {
 
-    display: flex;
+  border-top: 1px solid #dadada;
+  box-shadow: 0px -3px 4px 0px rgba(0,0,0,0.1);
 
-    main {
-      flex: 1 1 auto;
+  margin-top: 3em;
+  padding: 2em;
+
+  .newsletter {
+    display: none;
+    text-align: center;
+    a {
+      display: inline-block;
+    }
+  }
+
+  .prev-page, .next-page {
+    text-align: center;
+    margin-bottom: 1em;
+    a {
+      display: block;
+      text-decoration: none;
+    }
+    a:nth-child(1) {
+      @extend .font-large;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+    }
+    a:nth-child(2) {
+      color: $fontGray;
+    }
+  }
+
+  div[data-type="copyright-page"] {
+    margin-top: 4em;
+    max-width: 450px;
+    hr {
+      width: 100px;
+    }
+    p {
+      @extend .font-xsmall;
+      color: $fontGray;
+    }
+  }
+
+}
+
+@media (min-width: $tabletBreak) {
+
+  .navigation {
+
+    .newsletter {
+      display: block;
     }
 
-    aside {
-      display: block;
-      flex: 0 0 180px;
+    .prev-page {
+      text-align: left;
+    }
+
+    .next-page {
+      text-align: right;
     }
 
   }
@@ -143,4 +199,70 @@ nav {
     margin-bottom: 0;
   }
 
+}
+
+// Table of Contents
+// -------------------------------------------------
+
+.toc {
+  height: 100%;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.9);
+  border-right: 1px solid #dadada;
+
+  h2 {
+    margin-top: 0.3em;
+    font-size: 1.5em;
+    margin-bottom: 0.8em;
+  }
+
+  h3 {
+    margin-bottom: 0.8em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin-bottom: 0.6em;
+    }
+    ul {
+      margin-left: 1em;
+    }
+  }
+}
+
+// EXTRA
+// -------------------------------------------------
+
+div[data-type="exercise"] {
+
+  margin-top: 2em;
+
+  header {
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    h2 {
+      display: inline-block;
+      background-color: white;
+      @extend .allcaps;
+    }
+  }
+}
+
+div[data-type="footnotes"] {
+  hr {
+    width: 100px;
+  }
+  ol {
+    @extend .font-xsmall;
+    color: $fontGray;
+    padding-left: 1em;
+    li {
+      margin-bottom: 0.6em;
+    }
+  }
 }

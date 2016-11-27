@@ -3,12 +3,12 @@
   {% if item.href %}
     <a data-toc="{{ item.type }}" href="{{ item.href }}">{{ item.label }}</a>
   {% else %}
-    <span data-toc="{{ item.type }}">{{ item.label }}</span>
+    <h3 data-toc="{{ item.type }}">{{ item.label }}</h3>
   {% endif %}
-  {% if item.children.length > 0 %}
-  <ol>
+  {% if item.children.length > 0 and item.type != "chapter" %}
+  <ul>
     {% include toc_item.html children=item.children %}
-  </ol>
+  </ul>
   {% endif %}
 </li>
 {% endfor %}

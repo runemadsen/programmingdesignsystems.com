@@ -12,7 +12,7 @@ module.exports = React.createClass({
     var regex = /createCanvas\((\d+),\s*(\d+)\)/;
     var hasCanvas = this.props.code.match(regex);
     if(!hasCanvas) console.warn('Example appears to not have a createCanvas function.');
-
+    
     return {
       regex: regex,
       code: this.props.code,

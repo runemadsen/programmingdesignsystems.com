@@ -1,17 +1,28 @@
-<div class="navigation grid">
+<div class="navigation">
 
-  <div class="col-1-2">
-  {% if navigation.prev %}
-    <a href="{{ navigation.prev.href }}">Previous</a>
-    <a href="{{ navigation.prev.href }}">{{navigation.prev.label}}</a>
-  {% endif %}
+  <div class="pagination grid">
+
+    <div class="col-1-3 prev-page">
+    {% if navigation.prev %}
+      <a href="{{ navigation.prev.href }}">Previous Chapter</a>
+      <a href="{{ navigation.prev.href }}">{{navigation.prev.label}}</a>
+    {% endif %}
+    </div>
+    <div class="col-1-3 newsletter">
+      <a href="http://eepurl.com/b_kRKD" class="btn large invert color1 border1">Subscribe to Newsletter</a>
+    </div>
+    <div class="col-1-3 next-page">
+    {% if navigation.next %}
+      <a href="{{ navigation.next.href }}">Next Chapter</a>
+      <a href="{{ navigation.next.href }}">{{navigation.next.label}}</a>
+    {% endif %}
+    </div>
+
   </div>
 
-  <div class="col-1-2">
-  {% if navigation.next %}
-    <a href="{{ navigation.next.href }}">Next</a>
-    <a href="{{ navigation.next.href }}">{{navigation.next.label}}</a>
-  {% endif %}
+  <div data-type="copyright-page" id="fairuse">
+    <hr />
+    <p>Images with the Copyright symbol (©) are copyrighted and do not fall under the Creative Commons license of this book. Although unlicensed, these works are believed to qualify as fair use: The purpose of use is non-profit educational material, the works are used for informational purposes only, and the works are widely published in books and on websites.</p>
   </div>
 
 </div>
