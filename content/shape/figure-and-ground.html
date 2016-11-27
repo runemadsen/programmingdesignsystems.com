@@ -22,14 +22,8 @@ dek: Our first steps into the world of graphic design involves looking at the re
     <p>Most written languages have a natural reading direction. In a majority of the Western world, characters are arranged in horizontal lines, and we read from left to right, top to bottom. This tells us that the position of a shape can be used to guide the eyes of a user through a design. Graphic novels use the positioning of captions to guide the reader through the storyline, and most newspapers float quotations to visually separate them from the body text.</p>
 
     <div class="grid">
-      <figure class="col-1-2">
-        {% p5 shape/figure-and-ground/left.js class:'fig' %}
-        <figcaption>First, because of reading direction.</figcaption>
-      </figure>
-      <figure class="col-1-2">
-        {% p5 shape/figure-and-ground/right.js class:'fig' %}
-        <figcaption>Last, because of reading direction.</figcaption>
-      </figure>
+      {% p5 shape/figure-and-ground/left.js class:'col-1-2' caption:'First, because of reading direction.' %}
+      {% p5 shape/figure-and-ground/right.js class:'col-1-2' caption:'Last, because of reading direction.' %}
     </div>
 
     <p>In these posters for Swiss Auto Club, Joseph Müller-Brockmann uses position (and size) to prioritize certain shapes. In the first poster, the vehicle in motion is prioritized over the running child. This heightens tension and makes it apparent that the vehicle is on a collision course with the child. In the second poster, the hand-signaling cyclist is the first shape on the page, which achieves exactly the opposite effect.</p>
@@ -46,17 +40,12 @@ dek: Our first steps into the world of graphic design involves looking at the re
 
     <p>We use the <code>rect()</code> function to draw a rectangle with P5, and the first two numbers passed to this function determine the position of the shape within the canvas. If these numbers are both zero, the shape will appear in the top left corner, and higher values will draw it further to the right (<code>x</code>) and bottom (<code>y</code>) of the canvas. This makes it easy to position shapes in code, and many graphic programming languages work this way.</p>
 
-    <figure class="text-width half-margin-bottom">
-      {% p5 shape/figure-and-ground/rects.js class:'fig' %}
-    </figure>
-
+    {% p5 shape/figure-and-ground/rects.js class:'text-width half-margin-bottom' %}
     {% codesplit shape/figure-and-ground/rects.js lines:'7-8' class:'text-width' %}
 
     <p>Instead of randomly typing numbers until a shape is in the right position, it can be beneficial to use simple math to calculate the position of the shape based on the size of the canvas. This will define the relationship between the canvas and shape explicitly in your code, and make it easier to scale the design. As an example, take the following image.</p>
 
-    <figure class="text-width">
-      {% p5 shape/figure-and-ground/use-variables.js class:'fig' %}
-    </figure>
+    {% p5 shape/figure-and-ground/use-variables.js class:'text-width' %}
 
     <p>This design could be achieved by using numbers slightly smaller than the canvas for the <code>x</code> and <code>y</code> position of the rectangle. However, was I to change the width of the canvas, the rectangle would no longer show up in the right place. I would need to change the <code>x</code> position of the rectangle to reflect the new canvas size.</p>
 
@@ -73,14 +62,8 @@ dek: Our first steps into the world of graphic design involves looking at the re
     <p>By increasing the size of important shapes and decreasing the size of less significant shapes, you can bring clarity to a design. This is a pattern we encounter daily in everything from traffic signs to headlines in an article.</p>
 
     <div class="grid">
-      <figure class="col-1-2">
-        {% p5 shape/figure-and-ground/dominant.js class:'fig' %}
-        <figcaption>This square is dominant because it takes up most of the canvas.</figcaption>
-      </figure>
-      <figure class="col-1-2">
-        {% p5 shape/figure-and-ground/non-dominant.js class:'fig' %}
-        <figcaption>This square is less dominant because of the large empty space around it.</figcaption>
-      </figure>
+      {% p5 shape/figure-and-ground/dominant.js class:'col-1-2' caption:'This square is dominant because it takes up most of the canvas.' %}
+      {% p5 shape/figure-and-ground/non-dominant.js class:'col-1-2' caption:'This square is less dominant because of the large empty space around it.' %}
     </div>
 
     <p>The Think Small advertising campaign from 1959 is a great example of how size can be used to emphasize supporting text copy. In this series of magazine ads, an image of the Volkswagen Beetle is printed in different sizes within an otherwise empty canvas.</p>
@@ -97,10 +80,7 @@ dek: Our first steps into the world of graphic design involves looking at the re
 
     <p>The third and fourth number passed to the <code>rect()</code> function define the width and height of the shape. Like the position, it can be beneficial to calculate the size of the rectangle dynamically based on the size of the canvas. Building on the example from above, the following code shows a truly dynamic design, where the static numbers used for size and spacing have been replaced by calculations. Now, both the position and size of the rectangle scales with the canvas automatically.</p>
 
-    <figure class="text-width half-margin-bottom">
-      {% p5 shape/figure-and-ground/use-variables.js class:'fig' %}
-    </figure>
-
+    {% p5 shape/figure-and-ground/use-variables.js class:'text-width half-margin-bottom' %}
     <div class="text-width">
       <pre><code>rect(width - (height/3) - (width/20), height - (height/3) - (width/20), height/3, height/3);</code></pre>
     </div>
@@ -120,18 +100,9 @@ dek: Our first steps into the world of graphic design involves looking at the re
     <p>When you rotate a shape, the white space around it changes, and this can be used to make a shape appear active or in motion.</p>
 
     <div class="grid">
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/rotation1.js class:'fig' %}
-        <figcaption>A rectangle with no rotation appears static because of the symmetric whitespace.</figcaption>
-      </figure>
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/rotation2.js class:'fig' %}
-        <figcaption>A rotation of 45&deg; creates more complex – but still symmetric – whitespace.</figcaption>
-      </figure>
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/rotation3.js class:'fig' %}
-        <figcaption>A rotation of 27&deg; breaks the symmetry, and the rectangle appears in motion.</figcaption>
-      </figure>
+        {% p5 shape/figure-and-ground/rotation1.js class:'col-1-3' caption:'A rectangle with no rotation appears static because of the symmetric whitespace.' %}
+        {% p5 shape/figure-and-ground/rotation2.js class:'col-1-3' caption:'A rotation of 45&deg; creates more complex – but still symmetric – whitespace.' %}
+        {% p5 shape/figure-and-ground/rotation3.js class:'col-1-3' caption:'A rotation of 27&deg; breaks the symmetry, and the rectangle appears in motion.' %}
     </div>
 
     <p>Rotated shapes can be found in many design products: Books written for children often use rotated shapes to create fun and playful designs. Popular magazines use rotated grid systems to make the content look less dry, while publications for a narrow audience might enforce horizontal and vertical lines to imply quality of the content within.</p>
@@ -159,14 +130,14 @@ rotate(radians(90));</code></pre>
 
     <div class="grid">
       <div class="col-1-2">{% codesplit shape/figure-and-ground/rotate.js lines:'7-11,15' %}</div>
-      <div class="col-1-2"><figure>{% p5 shape/figure-and-ground/rotate.js class:'fig' %}</figure></div>
+      <div class="col-1-2">{% p5 shape/figure-and-ground/rotate.js %}</div>
     </div>
 
     <p>If we want the rotation to happen around the top left corner of our rectangle, we have to do something that might feel a bit unintuitive. First, we have to move the canvas to the position of our rectangle by using the translate() function. After calling the <code>rotate()</code> function, we then draw our rectangle at the top left corner of the translated canvas. As you can see, the rotation now happen around the rectangle.</p>
 
     <div class="grid">
       <div class="col-1-2">{% codesplit shape/figure-and-ground/translate-rotate.js lines:'7-12,16' %}</div>
-      <div class="col-1-2"><figure>{% p5 shape/figure-and-ground/translate-rotate.js class:'fig' %}</figure></div>
+      <div class="col-1-2">{% p5 shape/figure-and-ground/translate-rotate.js %}</div>
     </div>
 
     <p>As we dive into more layout techniques, we will further investigate how to use <code>translate()</code> and <code>rotate()</code> to make more sophisticated designs.</p>
@@ -182,35 +153,17 @@ rotate(radians(90));</code></pre>
     <p>The following example demonstrates the exercise for the word <em>steep</em>. How would you make a design for this word using just a rectangle and the three variables? Look for connections between the word and your variables, and you might notice that steepness and rotation are related: You can make the rectangle appear like a steep hill by rotating it. By changing the size, you can make that hill longer, continuing outside the canvas. By changing the position of the rectangle, you can create asymmetric whitespace, making sure that the user notices the rectangle. The following sketches demonstrate these steps in code.</p>
 
     <div class="grid">
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/steep1.js class:'fig' %}
-        <figcaption>1. First we rotate the rectangle until it looks steep.</figcaption>
-      </figure>
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/steep2.js class:'fig' %}
-        <figcaption>2. Then we change the size to make it go beyond the canvas.</figcaption>
-      </figure>
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/steep3.js class:'fig' %}
-        <figcaption>3. Then we draw attention to the rectangle by moving it away from the center.</figcaption>
-      </figure>
+      {% p5 shape/figure-and-ground/steep1.js class:'col-1-3' caption:'1. First we rotate the rectangle until it looks steep.' %}
+      {% p5 shape/figure-and-ground/steep2.js class:'col-1-3' caption:'2. Then we change the size to make it go beyond the canvas.' %}
+      {% p5 shape/figure-and-ground/steep3.js class:'col-1-3' caption:'3. Then we draw attention to the rectangle by moving it away from the center.' %}
     </div>
 
     <p>The following examples show a few more designs to be used for inspiration. Keep in mind that not all adjectives will be this straight-forward, so you might find yourself longing for more shapes. Don’t worry, that’s the subject of the next chapter.</p>
 
     <div class="grid">
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/flat.js class:'fig' link:'true' %}
-        <figcaption>Flat</figcaption>
-      </figure>
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/big.js class:'fig' link:'true' %}
-        <figcaption>Big</figcaption>
-      </figure>
-      <figure class="col-1-3">
-        {% p5 shape/figure-and-ground/shy.js class:'fig' link:'true'  %}
-        <figcaption>Shy</figcaption>
-      </figure>
+      {% p5 shape/figure-and-ground/flat.js class:'col-1-3' link:'true' caption:'Flat' %}
+      {% p5 shape/figure-and-ground/big.js class:'col-1-3' link:'true' caption:'Big' %}
+      {% p5 shape/figure-and-ground/shy.js class:'col-1-3' link:'true' caption:'Shy' %}
     </div>
 
     <p>This chapter demonstrates an approach that will be a continuing theme throughout this book: We will take topics from graphic design theory, understand how these ideas can be implemented in code, and practice these concepts through exercises. Although this was just the first step into the world of graphic design, the relationship between a figure and its ground is important. It is common to find problems in existing designs that can be traced back to this relationship, whether it's a user interface that fails to emphasize an important button, or a graph with ambiguity around its underlying dataset. Remember not to rush to make things pretty, and make these concepts a crucial part of your design process.</p>

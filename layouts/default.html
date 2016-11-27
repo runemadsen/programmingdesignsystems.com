@@ -6,7 +6,6 @@
     <title>{{ config.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ stylesheets }}
-    {% include ga.html %}
     <style media="screen">
       .color1 { color: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
       .color2 { color: {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %} !important; }
@@ -55,6 +54,7 @@
         .codesplit.columns .pair:not(.no-comment) { background: {% if part.colors.color8 %}{{part.colors.color8}}{% else %}gray{% endif %}; }
       }
     </style>
+    {% include ga.html %}
   </head>
   <body>
     <nav class="menu">

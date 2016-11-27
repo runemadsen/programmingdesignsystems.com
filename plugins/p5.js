@@ -5,19 +5,59 @@ var fs = require('fs');
 var path = require('path');
 var tinyliquid = require('tinyliquid');
 
+// This is stupid, but manually turn a global P5 sketch into
+// a instance mode sketch. Only works because I know what code
+// I'm writing.
+var replacements = [
+  ['function setup(', 'p.setup = function('],
+  ['function draw(', 'p.draw = function('],
+  'background(',
+  'beginShape(',
+  'bezierVertex(',
+  'CENTER',
+  'cos(',
+  'createCanvas(',
+  'endShape(',
+  'fill(',
+  'frameRate(',
+  'height',
+  'noFill(',
+  'noStroke(',
+  'pop(',
+  'push(',
+  'radians(',
+  'rect(',
+  'rectMode(',
+  'rotate(',
+  'sin(',
+  'stroke(',
+  'strokeCap(',
+  'strokeWeight(',
+  'text(',
+  'textFont(',
+  'textSize',
+  'textStyle(',
+  'translate(',
+  'vertex(',
+  'width',
+  'quadraticVertex(',
+  'noLoop('
+]
+
 var Plugin = function(registry) {
   this.cache = {};
-  registry.before('load', 'p5img:tag', _.bind(this.liquidTag, this));
+  registry.before('load', 'p5:tag', _.bind(this.liquidTag, this));
 };
 
 Plugin.prototype = {
 
   liquidTag: function(config, extras, cb) {
 
+    var count = 0;
     var that = this;
 
-    // function that gets called for every p5img tag
-    function p5img(context, tag, input) {
+    // function that gets called for every p5 tag
+    function p5tag(context, tag, input) {
 
       // Get name of example file to load
       var example = input.split(' ')[0];
@@ -25,7 +65,7 @@ Plugin.prototype = {
 
       // Get the attributes
       var attrs = {};
-      var pattern = new RegExp(/(\S+):[\"\']([a-zA-Z0-9\s\-\.]+)[\"\']/g);
+      var pattern = new RegExp('([a-zA-Z]+)\:[\"\']([^\"\']+)[\"\']', 'g');
       var match = null;
       while (match = pattern.exec(input)) { attrs[match[1]] = match[2]; }
 
@@ -34,17 +74,40 @@ Plugin.prototype = {
       if(!that.cache[examplePath]) {
         that.cache[examplePath] = fs.readFileSync(examplePath).toString();
       }
-      var extraAttrs = '';
-      if(attrs.link)    extraAttrs += ' data-path="'+examplePath+'"';
-      if(attrs.caption) extraAttrs += ' data-caption="'+attrs.caption+'"';
+
+      var code = that.cache[examplePath];
+      for(var i = 0; i < replacements.length; i++) {
+
+        // if replacement is string, just add p
+        if(typeof replacements[i] == 'string') {
+          code = code.replace(new RegExp(replacements[i].replace('(', '\\('), 'g'), 'p.' + replacements[i])
+        }
+        // if replacement is array with before/after
+        else {
+          code = code.replace(new RegExp(replacements[i][0].replace('(', '\\('), 'g'), replacements[i][1])
+        }
+
+      }
+
+      var idAttr = 'example' + count;
+      var script = 'window.p5Examples = window.p5Examples || [];\n'
+        + 'window.p5Examples.push(["'+idAttr+'", function(p) {' + code + '}])';
 
       // Render baby
-      var output = '<script type="text/p5" class="p5' + (attrs["class"] ? ' '+attrs["class"] : '') +'" '+extraAttrs+'>'+that.cache[examplePath]+'</script>';
+      var output = '<figure class="'+(attrs.class||'')+'"><div id="'+idAttr+'"></div><script type="text/javascript">'+script+'</script>';
+      if(attrs.link || attrs.caption) {
+        output += '<figcaption>'
+        if(attrs.caption) output += attrs.caption;
+        if(attrs.link) output += ' <a target="_blank" href="https://github.com/runemadsen/programmingdesignsystems.com/tree/master/'+attrs.link+'">See Code</a>'
+        output += '</figcaption>'
+      }
+      output += '</figure>'
       context.astStack.push(tinyliquid.parse(output));
 
+      count++;
     }
 
-    _.set(config, 'liquid.customTags.p5', p5img);
+    _.set(config, 'liquid.customTags.p5', p5tag);
 
     cb(null, config, extras);
   }

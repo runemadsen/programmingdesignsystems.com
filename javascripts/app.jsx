@@ -5,6 +5,7 @@ utils.setupCustomEvents();
 // Manual Rendering
 // -----------------------------------------------------
 
+var p5 = window.p5 = require('p5');
 var React = window.React = require('react');
 var ReactDOM = window.ReactDOM = require('react-dom');
 window.pds = {
@@ -15,20 +16,14 @@ window.pds = {
 // Automatic Rendering
 // -----------------------------------------------------
 
-// Find all <script> tags with .p5.fig
-// Create a div next to it
-// Create React components in that div with the code from <script>
-var P5Figure = require('./components/p5Figure');
-var figs = document.getElementsByClassName('p5 fig');
-for(var i = 0; i < figs.length; i++) {
-  var el = document.createElement('div');
-  figs[i].parentNode.insertBefore(el, figs[i].nextSibling);
-  var code = figs[i].innerHTML;
-  var path = figs[i].getAttribute('data-path');
-  var caption = figs[i].getAttribute('data-caption')
-  if(path) path = 'https://github.com/runemadsen/programmingdesignsystems.com/tree/master/' + path;
-  var klass = figs[i].className.replace('p5', '').replace('fig', '').trim();
-  window.ReactDOM.render(window.React.createElement(P5Figure, { code: code, link: path, klass: klass, caption:caption, parent:el }), el)
+// Run all examples
+for(var i = 0; i < p5Examples.length; i++) {
+  // Run example in sync mode
+  var node = document.getElementById(p5Examples[i][0]);
+  var example = new p5(p5Examples[i][1], node, true);
+  // Make it resizable
+  example.canvas.style.width = "100%";
+  example.canvas.style.height = "auto";
 }
 
 // Highlight all pre tags
