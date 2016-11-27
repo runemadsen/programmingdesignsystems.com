@@ -17,13 +17,15 @@ window.pds = {
 // -----------------------------------------------------
 
 // Run all examples
-for(var i = 0; i < p5Examples.length; i++) {
-  // Run example in sync mode
-  var node = document.getElementById(p5Examples[i][0]);
-  var example = new p5(p5Examples[i][1], node, true);
-  // Make it resizable
-  example.canvas.style.width = "100%";
-  example.canvas.style.height = "auto";
+if(window.p5Examples) {
+  for(var i = 0; i < p5Examples.length; i++) {
+    // Run example in sync mode
+    var node = document.getElementById(p5Examples[i][0]);
+    var example = new p5(p5Examples[i][1], node, true);
+    // Make it resizable
+    example.canvas.style.width = "100%";
+    example.canvas.style.height = "auto";
+  }
 }
 
 // Highlight all pre tags

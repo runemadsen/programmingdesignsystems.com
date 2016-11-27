@@ -48,14 +48,14 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
     <p>In geometry, a rectangle consists of four points connected to form a closed shape with internal angles of 90 degrees. However, the <code>rect()</code> function in P5 allows us to draw a rectangle simply by stating the position of the top left corner (which we will call the origin point <span class="color1">●</span>) as well as the size of the rectangle. As demonstrated below, the <code>rectMode()</code> function can be used to change the origin point of the rectangle to the center of the shape. This can be helpful in certain situations, e.g. if you want to draw a rectangle in the center of the canvas without needing to subtract half the size of the rectangle from its position.</p>
 
     <div class="grid">
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/basic-shapes/rectmode-default.js %}
         {% codesplit shape/basic-shapes/rectmode-default.js lines:'6-7' %}
-      </figure>
-      <figure class="col-1-2">
+      </div>
+      <div class="col-1-2">
         {% p5 shape/basic-shapes/rectmode-center.js %}
         {% codesplit shape/basic-shapes/rectmode-center.js lines:'6-8' %}
-      </figure>
+      </div>
     </div>
 
   </section>
@@ -80,14 +80,14 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
     <p>In geometry, an ellipse is a closed shape that you can draw by hammering two nails in the ground, connecting them by a string, and stretching a pen through the string to draw a circular shape. Although the outline of an ellipse looks smooth to the human eye, computers actually draw ellipses as a series of short, straight, connected lines. Unlike <code>rect()</code>, the <code>ellipse()</code> function will draw an ellipse with an origin point in the center of the shape. As demonstrated below, the <code>ellipseMode()</code> function can be used to change the origin point to the top left corner. Given the nature of the ellipse, this means that the origin point is located outside the outline of the shape.</p>
 
     <div class="grid">
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/basic-shapes/ellipsemode-default.js %}
         {% codesplit shape/basic-shapes/ellipsemode-default.js lines:'6-7' %}
-      </figure>
-      <figure class="col-1-2">
+      </div>
+      <div class="col-1-2">
         {% p5 shape/basic-shapes/ellipsemode-corner.js %}
         {% codesplit shape/basic-shapes/ellipsemode-corner.js lines:'6-8' %}
-      </figure>
+      </div>
     </div>
 
   </section>
@@ -106,14 +106,14 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
     <p>In geometry, a triangle is a closed shape consisting of three points. The sum of the internal angles of the triangle will always be 180 degrees (or PI radians). The triangle has played a central role in many mathematical breakthroughs, including Euclidian geometry, trigonometry, as well as 3D computer graphics. Unlike the <code>rect()</code> and <code>ellipse()</code> functions that both expect a single position for the shape’s origin point, the <code>triangle()</code> function needs the coordinates of all three corners of the triangle. This also means that there is no such thing as a <code>triangleMode()</code> function. You will need to perform your own calculations to draw a triangle around a specific origin point, which is demonstrated in the examples below.</p>
 
     <div class="grid">
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/basic-shapes/triangleorigin-top.js %}
         {% codesplit shape/basic-shapes/triangleorigin-top.js lines:'6-8' %}
-      </figure>
-      <figure class="col-1-2">
+      </div>
+      <div class="col-1-2">
         {% p5 shape/basic-shapes/triangleorigin-center.js %}
         {% codesplit shape/basic-shapes/triangleorigin-center.js lines:'6-8' %}
-      </figure>
+      </div>
     </div>
 
   </section>
@@ -127,12 +127,12 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
     <p>The most important aspect of this exercise is obviously to create a design that a majority of users will recognize as an ice cream cone. Whether or not a design accomplishes this is a rather objective task. Of the two designs below, it is clear that the first design manages to solve the assignment while the latter does not. It’s also easy to analyze why: Although the shapes are almost identical between the two designs, the latter does not establish the proper visual relationships.</p>
 
     <div class="grid media-width">
-      <figure class="col-1-2">
+      <div class="col-1-2">
         {% p5 shape/basic-shapes/cone-good.js class:'white-img' %}
-      </figure>
-      <figure class="col-1-2">
+      </div>
+      <div class="col-1-2">
         {% p5 shape/basic-shapes/cone-bad.js class:'white-img' %}
-      </figure>
+      </div>
     </div>
 
     <p>A second (and more subjective) aspect relates to the style of the design. To a certain degree, different styles fit different scenarios. If you’re asked to create an icon for a website, an abstract style might be prefered, as simple designs work better in small sizes. On the other hand, if you’re making an illustration for a children’s book, something more bold and playful might be a better fit. Style can be used to serve a specific function, or it can be used purely for aesthetic qualities (which can also be a function, after all). Finally, the style of a design is where the subjective preferences of the designer is apparent.</p>
@@ -140,28 +140,26 @@ dek: We'll expand our toolset by taking a look at the three basic shapes and how
     <p>In this exercise, I often encourage my students to practice designing in different styles, as it further develops their visual language. An important ingredient in the creation of style is the use of the <code>fill(),</code> <code>stroke()</code> and <code>strokeWeight()</code> functions. As demonstrated below, these function can drastically alter the style of a design.</p>
 
     <div class="grid media-width">
-      <figure class="col-1-2">
-        {% p5 shape/basic-shapes/cone-abstract.js class:'white-img' %}
-        <figcaption>Equally proportioned shape with the same stroke results in an abstract design.</figcaption>
-      </figure>
-      <figure class="col-1-2">
-        {% p5 shape/basic-shapes/cone-playful.js class:'white-img' %}
-        <figcaption>Thicker strokes and fills makes for a more playful design.</figcaption>
-      </figure>
+      <div class="col-1-2">
+        {% p5 shape/basic-shapes/cone-abstract.js class:'white-img' caption:'Equally proportioned shape with the same stroke results in an abstract design.' %}
+      </div>
+      <div class="col-1-2">
+        {% p5 shape/basic-shapes/cone-playful.js class:'white-img' caption:'Thicker strokes and fills makes for a more playful design.' %}
+      </div>
     </div>
 
     <p>This exercise also encourages students to think systematically when implementing their designs in code. The three basic shape functions can only appear once in the code, so students need to use loops to draw more intricate designs. The following three examples are all by former students of mine, and they are displayed here as successful examples of all the things mentioned above: They all objectively solve the assignment of constructing an ice cream cone out of basic shapes. They all achieve widely different styles by using a clever combination of the basic shape functions and the following relationships: position, size, rotation, fill, line and stroke weight. Finally, they all use repetition (to which we’ll dedicate an entire part of this book) to draw more than three shapes on the canvas.</p>
 
     <div class="grid">
-      <figure class="col-1-3">
+      <div class="col-1-3">
         {% p5 shape/basic-shapes/cone-luisa.js link:'true' caption:'Design by Luisa Pereira.' %}
-      </figure>
-      <figure class="col-1-3">
+      </div>
+      <div class="col-1-3">
         {% p5 shape/basic-shapes/cone-shir.js link:'true' caption:'Design by Shir David.' %}
-      </figure>
-      <figure class="col-1-3">
+      </div>
+      <div class="col-1-3">
         {% p5 shape/basic-shapes/cone-tan.js link:'true' caption:'Design by Tan Ma.' %}
-      </figure>
+      </div>
     </div>
 
     <p>When you feel comfortable designing with basic shapes, it is time to introduce more complex shapes in your design process. We’ll do this in the next chapter, where we’ll be looking at a few foundational concepts from computational geometry before venturing into procedural shape generation.</p>

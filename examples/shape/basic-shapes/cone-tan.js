@@ -13,8 +13,8 @@ function setup() {
     var ellipseSize = (coneSize * 0.35) + (i * (coneSize*0.05));
     fill(i % 2 == 0 ? 0 : 255);
     for(var j = -1; j <= 1; j += 2) {
-      var x = Math.cos(radians(-90 + (45 * i * j))) * (coneSize * 0.5);
-      var y = Math.sin(radians(-90 + (45 * i * j))) * (coneSize * 0.3);
+      var x = cos(radians(-90 + (45 * i * j))) * (coneSize * 0.5);
+      var y = sin(radians(-90 + (45 * i * j))) * (coneSize * 0.3);
       ellipse(x, y, ellipseSize, ellipseSize);
     }
   }
