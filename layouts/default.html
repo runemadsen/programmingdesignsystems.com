@@ -28,6 +28,7 @@
       .border5 { border-color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %} !important; }
       .border6 { border-color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %} !important; }
       .border7 { border-color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %} !important; }
+      .stroke1 { stroke: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
       section a {
         box-shadow: inset 0 -3px 0 {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %};
       }
@@ -59,12 +60,19 @@
   <body>
     <nav class="menu">
       <div class='wrapper'>
+        <a id="tocToggle" href="#">
+        <svg width="25px" height="16px" viewBox="0 0 25 16" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="2" x2="18" y2="2" class="stroke1" />
+          <line x1="0" y1="8" x2="18" y2="8" class="stroke1" />
+          <line x1="0" y1="14" x2="18" y2="14" class="stroke1" />
+        </svg>
+        </a>
         <a id="logo" href="/" >Programming Design Systems</a>
-        <a id="newsletter" href="http://eepurl.com/b_kRKD">Subscribe to Newsletter</a>
+        <a id="newsletter" target="_blank" href="http://eepurl.com/b_kRKD">Subscribe to Newsletter</a>
       </div>
     </nav>
     <main>
-      <aside>
+      <aside id="tocContainer" style="display:none">
         {{ toc }}
       </aside>
       <article>

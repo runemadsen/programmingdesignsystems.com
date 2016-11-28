@@ -11,6 +11,10 @@
   font-size: 1em;
   font-weight: 500;
 
+  svg {
+    vertical-align:text-bottom;
+  }
+
   .wrapper:after {
     content: "";
     display: table;
@@ -18,11 +22,12 @@
   }
 
   #logo {
+    display: inline-block;
     font-size: 1.2em;
     margin-bottom: 0.5em;
   }
 
-  a {
+  #newsletter {
     display: block;
     text-decoration: none;
   }
@@ -34,15 +39,13 @@
   .menu {
     text-align: left;
 
-    a {
-      display: inline;
-    }
-
     #logo {
+      display: inline;
       font-size: 1em;
     }
 
     #newsletter {
+      display: inline;
       float: right;
     }
   }
@@ -54,6 +57,7 @@
 
 main {
   display: flex;
+  flex-direction: column;
 }
 
 aside {
@@ -65,6 +69,12 @@ article {
   .maxContent {
     margin: 0 auto;
     max-width: 1100px;
+  }
+}
+
+@media (min-width: $mobileBreak) {
+  main {
+    flex-direction: row;
   }
 }
 
