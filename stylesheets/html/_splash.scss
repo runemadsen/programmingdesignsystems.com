@@ -2,19 +2,6 @@
 
   padding: 30px;
 
-  #canvas {
-    position: absolute;
-    z-index: -1000;
-    top: 0;
-    right: 0;
-    bottom: 5px;
-    left: 0;
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
   h1, h2, .byline {
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
   }

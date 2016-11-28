@@ -9,7 +9,6 @@ var p5 = window.p5 = require('p5');
 var React = window.React = require('react');
 var ReactDOM = window.ReactDOM = require('react-dom');
 window.pds = {
-  Splash: require('./other/splash'),
   PathInteractive: require('./components/pathInteractive')
 };
 
@@ -35,35 +34,40 @@ for(var i = 0; i < pres.length; i++) {
   pres[i].firstChild.innerHTML = Prism.highlight(pres[i].firstChild.textContent, Prism.languages.javascript)
 }
 
-// Toggle TOC on click
 var tocToggle = document.getElementById('tocToggle');
 var toc = document.getElementById('tocContainer');
-tocToggle.addEventListener('click', function(e) {
-  e.preventDefault();
-  if(toc.style.display == 'block') {
-    toc.style.display = 'none';
-    ga('send', 'event', 'toc', 'toggle', 'hide');
+if(tocToggle && toc) {
+
+  // Toggle TOC on click
+  tocToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    if(toc.style.display == 'block') {
+      toc.style.display = 'none';
+      ga('send', 'event', 'toc', 'toggle', 'hide');
+    }
+    else {
+      toc.style.display = 'block';
+      ga('send', 'event', 'toc', 'toggle', 'show');
+    }
+  });
+
+  // Highlight active TOC
+  var as = document.querySelectorAll('#tocContainer a[href]');
+  for(var i = 0; i < as.length; i++) {
+    // link is the one where link is just index.html
+    var realHref = as[i].getAttribute('href').split('#')[0];
+    if(realHref == 'index.html') {
+      as[i].setAttribute('class', 'color1');
+    }
   }
-  else {
-    toc.style.display = 'block';
-    ga('send', 'event', 'toc', 'toggle', 'show');
-  }
-});
+}
 
 // Track newsletter clicks
 var newsletter = document.getElementById('newsletter');
-newsletter.addEventListener('click', function() {
-  ga('send', 'event', 'newsletter', 'click');
-});
-
-// Highlight active TOC
-var as = document.querySelectorAll('#tocContainer a[href]');
-for(var i = 0; i < as.length; i++) {
-  // link is the one where link is just index.html
-  var realHref = as[i].getAttribute('href').split('#')[0];
-  if(realHref == 'index.html') {
-    as[i].setAttribute('class', 'color1');
-  }
+if(newsletter) {
+  newsletter.addEventListener('click', function() {
+    ga('send', 'event', 'newsletter', 'click');
+  });
 }
 
 // Dispatch an event to say that libs are loaded. This makes it
