@@ -12,13 +12,8 @@ Introduction
 Shape
 -------------
 
-- Introduction (and history?)
-- Figure and ground
-  - Add introduction that is specifically around figure, ground. Maybe the FEDEX logo arrow problem?
-  - Add running examples to width and height variables in size
-- Basic Shapes
-- Custom Shapes
-- Composing multiple shapes
+- A Short History of Graphic Design
+- Composing multiple shapes (shape relationships)
   - https://quizlet.com/25971522/basic-elements-and-principles-of-the-visual-language-flash-cards/
   - Positive and negative
   - Tension
@@ -27,22 +22,26 @@ Shape
   - Clustering and separation
   - Aligning
   - Overlapping
+- Logo (on dynamic logos, etc)
 
 Color
 -------------
 
-- A rant on the color picker (intro to the subject)
-- Color models
-- Generative Color schemes
+- A Short History of Color Theory
+- Color Models and Color Spaces
+- Generating Color Schemes
+- Color Accessibility
+
 
 Layout
 -------------
 
-- Law of thirds
-- Golden ratio
-- Root 2/3/4/5?
-- Exponential
-- More from Geometry of design
+- Ratios
+  - Law of thirds
+  - Golden ratio
+  - Root 2/3/4/5?
+  - Exponential
+  - More from Geometry of design
 - Grid systems
   - History of grid systems
   - .... different grids
@@ -51,7 +50,6 @@ Repetition
 -------------
 
 - Introduction (and history?)
-  - Using i for spacing, etc...
 - Column and row repetition
   - Using nested for loops (Paul Rand hearts example)
   - Using randomization (Paul Rand I know example)
@@ -74,14 +72,10 @@ Typography (or Text? go through generative text examples?)
 Data
 ----
 
-- Introduction
+- A Short History of Information Design
   One of the biggest demands ... is the ability to parse and display data...
   - Stuff from talks: Minard, data viz, etc
-
-Logo
--------------
-
-- Separate or in shape chapter?
+- Graphs (stuff to use for workshops too)
 
 Motion
 -------------
@@ -101,25 +95,13 @@ Pixels
 3D
 -------------
 
-Things that currently do not fit:
-  - Techniques for drawing multiple shapes with push and pop.
-  - Something about polygons (simple/complex/concave, etc). A definition in geometry.
-  - Machine learning?
-  - Computational geometry
-    - Vectors
-    - point in polygon
-    - matrix calculation
-  - Peter jackson King Kong example
-  - Bruce Mau canada identity
-  - http://www.adweek.com/adfreak/brands-amazing-new-logo-responds-voice-and-looks-different-each-person-170955
-
 Interaction
 -----------
 
 - Introduction, history of user interfaces, etc
 - Mouse
 
-Design Intelligence
+Intelligence
 -------------------
 
 Section about machine learning, etc?
@@ -135,6 +117,16 @@ A section that all other chapters can link to, with examples of work that has be
 EXTRAS
 ------
 
+Things that currently do not fit:
+  - Techniques for drawing multiple shapes with push and pop.
+  - Something about polygons (simple/complex/concave, etc). A definition in geometry.
+  - Computational geometry
+    - Vectors
+    - point in polygon
+    - matrix calculation
+  - Peter jackson King Kong example
+  - Bruce Mau canada identity
+  - http://www.adweek.com/adfreak/brands-amazing-new-logo-responds-voice-and-looks-different-each-person-170955
 - http://www.no-mans-sky.com generativt landskab. Farve temperamanter.
 - http://titouanm.com/mucartographer/
 - https://github.com/a1studmuffin/SpaceshipGenerator/
