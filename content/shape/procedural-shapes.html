@@ -4,10 +4,7 @@ title:  Procedural Shapes
 
 <section data-type="chapter">
 
-  <header>
-    <span class="part-info color1">{{ part.label }}</span>
-    <h1>{{ page.title }}</h1>
-  </header>
+  {% include header.html %}
 
   <p>The code for our custom shape examples has so far been rather tedious. We have manually created shapes by typing line after line of vertex function calls, and this strategy won’t work for more complex shapes. Also, given the title of the book, this approach might seem a bit anti-climatic. Now that we understand the basics of <code>beginShape()</code>, let’s have a first look at how to procedurally draw custom shapes using a for loop, and the <code>sin()</code> and <code>cos()</code> functions.</p>
 

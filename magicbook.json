@@ -19,17 +19,7 @@
         "content/shape/basic-shapes.html",
         "content/shape/custom-shapes.html",
         "content/shape/procedural-shapes.html"
-      ],
-      "colors" : {
-        "color1" : "#E1B000",
-        "color2" : "#FFDAA2",
-        "color3" : "#aa841e",
-        "color4" : "#FFFFE2",
-        "color5" : "#726C54",
-        "color6" : "#acb835",
-        "color7" : "#C17C2D",
-        "color8" : "#ffeac9"
-      }
+      ]
     }
   ],
   "webpack" : "webpack.config.js",

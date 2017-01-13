@@ -6,55 +6,6 @@
     <title>{{ config.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ stylesheets }}
-    <style media="screen">
-      .color1 { color: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
-      .color2 { color: {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %} !important; }
-      .color3 { color: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %} !important; }
-      .color4 { color: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %} !important; }
-      .color5 { color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %} !important; }
-      .color6 { color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %} !important; }
-      .color7 { color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %} !important; }
-      .bg1 { background: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
-      .bg2 { background: {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %} !important; }
-      .bg3 { background: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %} !important; }
-      .bg4 { background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %} !important; }
-      .bg5 { background: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %} !important; }
-      .bg6 { background: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %} !important; }
-      .bg7 { background: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %} !important; }
-      .border1 { border-color: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
-      .border2 { border-color: {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %} !important; }
-      .border3 { border-color: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %} !important; }
-      .border4 { border-color: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %} !important; }
-      .border5 { border-color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %} !important; }
-      .border6 { border-color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %} !important; }
-      .border7 { border-color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %} !important; }
-      .stroke1 { stroke: {% if part.colors.color1 %}{{part.colors.color1}}{% else %}#29b79b{% endif %} !important; }
-      section a {
-        box-shadow: inset 0 -3px 0 {% if part.colors.color2 %}{{part.colors.color2}}{% else %}#86dcca{% endif %};
-      }
-      pre, code {
-        color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %};
-        background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %};
-      }
-      code .token.keyword { color: {% if part.colors.color7 %}{{part.colors.color7}}{% else %}#26517a{% endif %}; }
-      code .token.variable, code .token.function { color: {% if part.colors.color3 %}{{part.colors.color3}}{% else %}#447c72{% endif %}; }
-      code .token.property { color: {% if part.colors.color5 %}{{part.colors.color5}}{% else %}#333333{% endif %}; }
-      code .token.string, code .token.number { color: {% if part.colors.color6 %}{{part.colors.color6}}{% else %}#4879a2{% endif %}; }
-      code .comment { color: #b4b4b4 }
-
-      @media (max-width: 900px) {
-        .codesplit.columns .comment p:before { content: "// "; }
-        .codesplit.columns .comment {
-          color: #b4b4b4;
-          background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %};
-        }
-      }
-      @media (min-width: 900px) {
-        .codesplit.columns { background: {% if part.colors.color4 %}{{part.colors.color4}}{% else %}#edfbf9{% endif %}; }
-        .codesplit.columns .pair:not(.no-comment) .code code, .codesplit.columns .pair:not(.no-comment) .code pre { background: none }
-        .codesplit.columns .pair:not(.no-comment) { background: {% if part.colors.color8 %}{{part.colors.color8}}{% else %}gray{% endif %}; }
-      }
-    </style>
     {% include ga.html %}
   </head>
   <body>

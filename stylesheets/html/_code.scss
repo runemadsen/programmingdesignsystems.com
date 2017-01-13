@@ -1,5 +1,7 @@
 code, pre {
   font-family: $fontCode;
+  color: $color5;
+  background: $color4;
 }
 
 pre {
@@ -11,16 +13,23 @@ pre {
 
 code {
   font-size: 0.9em;
-  color: $fontBlack;
   line-height: 1.2em;
   max-width: 730px;
-  background-color: $colorGrayLight;
   padding: 0.1em 0.3em;
 }
 
 pre code {
   padding: 0;
 }
+
+// Highlight
+// -------------------------------------------------
+
+code .token.keyword { color: $color7 }
+code .token.variable, code .token.function { color: $color3 }
+code .token.property { color: $color5 }
+code .token.string, code .token.number { color: $color6 }
+code .comment { color: #b4b4b4 }
 
 // Codesplit
 // -------------------------------------------------
@@ -38,10 +47,20 @@ pre code {
   }
 }
 
+@media (max-width: $tabletBreak) {
+  .codesplit.columns .comment p:before { content: "// "; }
+  .codesplit.columns .comment {
+    color: #b4b4b4;
+    background: $color4;
+    font-family: $fontCode;
+  }
+}
+
 @media (min-width: $tabletBreak) {
 
   .codesplit.columns {
 
+    background: $color4;
     padding: 0.5em 1em;
 
     .pair {
@@ -67,6 +86,15 @@ pre code {
         float: left;
       }
 
+    }
+
+    .pair:not(.no-comment) .code code,
+    .pair:not(.no-comment) .code pre {
+      background: none;
+    }
+
+    .pair:not(.no-comment) {
+      background: $color8
     }
 
   }
