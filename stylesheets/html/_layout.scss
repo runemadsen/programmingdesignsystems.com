@@ -241,6 +241,10 @@ article {
       margin-left: 1em;
     }
   }
+
+  a[href*="more-to-come"] {
+    color: $colorGray;
+  }
 }
 
 // EXTRA
