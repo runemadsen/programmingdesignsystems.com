@@ -9,7 +9,8 @@ var p5 = window.p5 = require('p5');
 var React = window.React = require('react');
 var ReactDOM = window.ReactDOM = require('react-dom');
 window.pds = {
-  PathInteractive: require('./components/pathInteractive')
+  PathInteractive: require('./components/PathInteractive'),
+  Albers: require('./components/Albers'),
 };
 
 // Automatic Rendering

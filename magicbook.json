@@ -21,6 +21,13 @@
         "content/shape/procedural-shapes.html",
         "content/more-to-come.html"
       ]
+    },
+    {
+      "label" : "Color",
+      "files" : [
+        "content/color/a-short-history-of-color-theory.html",
+        "content/more-to-come.html"
+      ]
     }
   ],
   "webpack" : "webpack.config.js",
