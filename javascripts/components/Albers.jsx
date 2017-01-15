@@ -54,6 +54,7 @@ module.exports = React.createClass({
         <rect style={r1Styles} x="19" y="19" width="12" height="12" fill="#572f2f"/>
         <rect style={r2Styles} x="69" y="19" width="12" height="12" fill="#572f2f"/>
 
+        <rect x="42" y="2.7" width="16" height="2.5" stroke="white" strokeWidth="0.1" fill="none" />
         <text x="50" y="4.5" style={btnStyles} textAnchor="middle" onClick={this.toggleBackground}>
           {btnLabel}
         </text>

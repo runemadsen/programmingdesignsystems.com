@@ -56,13 +56,28 @@
 }
 
 .font-normal {
-  font-size: 1.12em;
+  font-size: 1.14em;
   line-height: 1.6em;
 }
 
 .font-large {
   font-size: 1.3em;
   line-height: 1.5em;
+}
+
+// Images
+// -------------------------------------------
+
+@media (min-width: $mobileBreak) {
+
+  figure.left {
+    max-width: 375px;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+  }
+
 }
 
 // Lists
