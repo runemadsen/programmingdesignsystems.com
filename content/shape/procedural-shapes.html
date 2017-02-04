@@ -6,15 +6,15 @@ title:  Procedural Shapes
 
   {% include header.html %}
 
-  <p>The code for our custom shape examples has so far been rather tedious. We have manually created shapes by typing line after line of vertex function calls, and this strategy won’t work for more complex shapes. Also, given the title of the book, this approach might seem a bit anti-climatic. Now that we understand the basics of <code>beginShape()</code>, let’s have a first look at how to procedurally draw custom shapes using a for loop, and the <code>sin()</code> and <code>cos()</code> functions.</p>
+  <p>The code for our custom shape examples has so far been rather tedious. We have manually created shapes by typing line after line of vertex function calls, and this strategy will not work for more complex shapes. Also, given the title of the book, this approach might seem a bit anti-climatic. Now that we understand the basics of <code>beginShape()</code>, let us have a first look at how to procedurally draw custom shapes using a for loop, and the <code>sin()</code> and <code>cos()</code> functions.</p>
 
   <section data-type="sect1">
 
     <h1>Sine and Cosine</h1>
 
-    <p>Over the years, I’ve seen many students struggle with Sine and Cosine. It’s easy to understand why: These words seem rather scary and abstract, especially if you don’t consider yourself good at math. However, this is both unfortunate and unnecessary. Unfortunate, because these two functions are a fundamental part of most programmatic designs, and a good understanding of them will allow you to solve many visual problems. Unnecessary, because they are not that hard to learn. Even if you don’t understand everything presented in this chapter, you can get started by memorizing two almost identical lines of code.</p>
+    <p>Over the years, I have seen many students struggle with Sine and Cosine. It is easy to understand why: These words seem rather scary and abstract, especially if you do not consider yourself good at math. However, this is both unfortunate and unnecessary. Unfortunate, because these two functions are a fundamental part of most programmatic designs, and a good understanding of them will allow you to solve many visual problems. Unnecessary, because they are not that hard to learn. Even if you do not understand everything presented in this chapter, you can get started by memorizing two almost identical lines of code.</p>
 
-    <p>Simply put, Sine and Cosine allow us to find any position on the outline of an ellipse. They do this by converting an angle into an <code>x</code> position (Cosine) or a <code>y</code> position (Sine) for a circle with a 1 pixel radius. These values can then be multiplied by the radius of your actual circle to scale them up. Although it’s not strictly necessary to understand how these functions work internally, here’s a way to visualize what’s going on: Imagine a right sided triangle connecting the center of the circle to the point on the outline. The Sine function is simply a quick way to get the ratio between the left side (hypotenuse) and the right side (opposite) of that triangle. The Cosine function is likewise the ratio between the hypotenuse and the bottom side (adjacent) of the triangle.</p>
+    <p>Simply put, Sine and Cosine allow us to find any position on the outline of an ellipse. They do this by converting an angle into an <code>x</code> position (Cosine) or a <code>y</code> position (Sine) for a circle with a 1 pixel radius. These values can then be multiplied by the radius of your actual circle to scale them up. Although it is not strictly necessary to understand how these functions work internally, here is a way to visualize what is going on: Imagine a right sided triangle connecting the center of the circle to the point on the outline. The Sine function is simply a quick way to get the ratio between the left side (hypotenuse) and the right side (opposite) of that triangle. The Cosine function is likewise the ratio between the hypotenuse and the bottom side (adjacent) of the triangle.</p>
 
     <figure class="text-width">
       <svg width="100%" viewBox="0 0 600 500" class="bg4">
@@ -39,7 +39,7 @@ title:  Procedural Shapes
 var y = sin(RADIANS) * RADIUS;</code></pre>
 
 
-    <p>To put this into context, here’s an example where we use the same code to draw a small circle 330 degrees along the outline of a bigger circle.</p>
+    <p>To put this into context, here is an example where we use the same code to draw a small circle 330 degrees along the outline of a bigger circle.</p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -58,7 +58,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <h1>The For Loop</h1>
 
-    <p>Although we will dedicate an entire part of this book to repetition, let’s briefly go over the basic functionality of a <code>for</code> loop. A <code>for</code> loop allows us to execute code multiple times in a row by incrementing (or decrementing) a variable – often called <code>i</code> – until an expression is no longer true and the loop stops. In the following example, we initialize a variable with the number <code>0</code>, iterate as long as our variable is lower than <code>10</code>, and increment our variable by one between each iteration. The result is a loop that iterates ten times with our variable incrementing from zero to nine, drawing ten rectangles on the screen.</p>
+    <p>Although we will dedicate an entire part of this book to repetition, let us briefly go over the basic functionality of a <code>for</code> loop. A <code>for</code> loop allows us to execute code multiple times in a row by incrementing (or decrementing) a variable – often called <code>i</code> – until an expression is no longer true and the loop stops. In the following example, we initialize a variable with the number <code>0</code>, iterate as long as our variable is lower than <code>10</code>, and increment our variable by one between each iteration. The result is a loop that iterates ten times with our variable incrementing from zero to nine, drawing ten rectangles on the screen.</p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -69,7 +69,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </div>
     </div>
 
-    <p>Unfortunately, all these rectangles have identical positions and sizes because we’re passing the same static numbers to the <code>rect()</code> function over and over again. This is where <code>i</code> comes into play: Because it changes between each iteration of the loop, it can be used to create variance between each rectangle. The example below uses <code>i</code> to position the ten rectangles one pixel apart on the x-axis.</p>
+    <p>Unfortunately, all these rectangles have identical positions and sizes because we are passing the same static numbers to the <code>rect()</code> function over and over again. This is where <code>i</code> comes into play: Because it changes between each iteration of the loop, it can be used to create variance between each rectangle. The example below uses <code>i</code> to position the ten rectangles one pixel apart on the x-axis.</p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -102,7 +102,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </div>
     </div>
 
-    <p>The result is certainly a procedural shape, but the use of <code>random()</code> doesn’t give us a lot of control over the placement of the vertices: The shape is just a bunch of lines randomly crossing each other. The final step is to put our two techniques together and generate shapes with <code>sin()</code> and <code>cos()</code> inside of a <code>for</code> loop.</p>
+    <p>The result is certainly a procedural shape, but the use of <code>random()</code> does not give us a lot of control over the placement of the vertices: The shape is just a bunch of lines randomly crossing each other. The final step is to put our two techniques together and generate shapes with <code>sin()</code> and <code>cos()</code> inside of a <code>for</code> loop.</p>
 
   </section>
 
@@ -110,7 +110,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <h1>Putting it together</h1>
 
-    <p>Starting from our random shape code above, let’s replace the random vertices with vertices placed sequentially along the outline of an ellipse. We do this by using the same two lines that we memorized earlier, but instead of passing the same angle to <code>sin()</code> and <code>cos()</code>, we calculate a different angle on every iteration by multiplying <code>i</code> with the angle we want between the vertices. The result is a shape with ten vertices evenly spread around the center of the canvas.</p>
+    <p>Starting from our random shape code above, let us replace the random vertices with vertices placed sequentially along the outline of an ellipse. We do this by using the same two lines that we memorized earlier, but instead of passing the same angle to <code>sin()</code> and <code>cos()</code>, we calculate a different angle on every iteration by multiplying <code>i</code> with the angle we want between the vertices. The result is a shape with ten vertices evenly spread around the center of the canvas.</p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -142,7 +142,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
     {% p5 shape/procedural-shapes/star.js class:'text-width margin-bottom' %}
     {% codesplit shape/procedural-shapes/star.js class:'columns' lines:'8-28' %}
 
-    <p>Here’s a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. By using a larger radius for the control points (the inverse of the star example above), the curves go outwards. When using Bézier curves, remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
+    <p>Here is a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. By using a larger radius for the control points (the inverse of the star example above), the curves go outwards. When using Bézier curves, remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
 
     {% p5 shape/procedural-shapes/flower.js class:'text-width margin-bottom' %}
     {% codesplit shape/procedural-shapes/flower.js lines:'10-36' class:'columns' %}
@@ -181,14 +181,14 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       <figcaption>Generative Play by Adria Navarro <a href="#fairuse">©</a></figcaption>
     </figure>
 
-    <p>This chapter introduced an approach to design that is inherently different than a traditional design process. Rather than individually placing each shape on the canvas, we wrote algorithms to do this for us. Using loops to procedurally draw shapes is a powerful concept, as it allows designers to do more with less code, thus alleviating us from the pains of manually constructing every design object by hand. This is also the hardest thing about procedural design, as designers need to devote more time up front distilling the system into code, and they can’t easily manipulate individual shapes like in a traditional design tool. The American computer scientist Donald Knuth calls this a transition from design to meta-design:</p>
+    <p>This chapter introduced an approach to design that is inherently different than a traditional design process. Rather than individually placing each shape on the canvas, we wrote algorithms to do this for us. Using loops to procedurally draw shapes is a powerful concept, as it allows designers to do more with less code, thus alleviating us from the pains of manually constructing every design object by hand. This is also the hardest thing about procedural design, as designers need to devote more time up front distilling the system into code, and they cannot easily manipulate individual shapes like in a traditional design tool. The American computer scientist Donald Knuth calls this a transition from design to meta-design:</p>
 
     <blockquote class="text-width">
-      <p>&ldquo;Meta-design is much more difficult than design; it’s easier to draw something than to explain how to draw it. […] However, once we have successfully explained how to draw something in a sufficiently general manner, the same explanation will work for related shapes, in different circumstances; so the time spent in formulating a precise explanation turns out to be worth it.&rdquo;</p>
+      <p>&ldquo;Meta-design is much more difficult than design; it is easier to draw something than to explain how to draw it. […] However, once we have successfully explained how to draw something in a sufficiently general manner, the same explanation will work for related shapes, in different circumstances; so the time spent in formulating a precise explanation turns out to be worth it.&rdquo;</p>
       <cite>Donald Knuth (1986), The Metafont Book</cite>
     </blockquote>
 
-    <p>This is also the main thesis of this book. When designers learn to not only think systematically about the design process, but also to implement those systems in software, they can build things that weren’t possible before.</p>
+    <p>This is also the main thesis of this book. When designers learn to not only think systematically about the design process, but also to implement those systems in software, they can build things that were not possible before.</p>
 
   </section>
 

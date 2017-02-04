@@ -1,3 +1,7 @@
+echo "Building site"
+
+NODE_ENV=production magicbook build
+
 echo "\n\n-> Uploading to S3"
 
 # Sync everything that is not HTML to cache for a year

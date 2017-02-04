@@ -6,7 +6,7 @@ title:  Custom shapes
 
   {% include header.html %}
 
-  <p>Although it’s a good exercise to design only with <a href="{{ navigation.prev.href }}">simple shapes</a>, complex shapes offer more possibilities. In a manual design process, complex shapes often take a long time to draw, as every detail of a design will need to be created by hand. Although efforts have been made to automate such tasks, some designs are still tedious to create in current digital design tools like Adobe Illustrator or Sketch. This is particularly true for designs that require the use of repetition or randomization, like a pattern of Sine curves with changing amplitudes. In code, we have the ability to procedurally generate very complex shapes in an instant, and the code required can be quite simple. On the other hand, shapes drawn randomly with a pen can be hard to recreate in code, especially if there is no underlying rule to explain the outline of the shape.</p>
+  <p>Although it is a good exercise to design only with <a href="{{ navigation.prev.href }}">simple shapes</a>, complex shapes offer more possibilities. In a manual design process, complex shapes often take a long time to draw, as every detail of a design will need to be created by hand. Although efforts have been made to automate such tasks, some designs are still tedious to create in current digital design tools like Adobe Illustrator or Sketch. This is particularly true for designs that require the use of repetition or randomization, like a pattern of Sine curves with changing amplitudes. In code, we have the ability to procedurally generate very complex shapes in an instant, and the code required can be quite simple. On the other hand, shapes drawn randomly with a pen can be hard to recreate in code, especially if there is no underlying rule to explain the outline of the shape.</p>
 
   <p>In the following chapters, I will introduce a range of techniques to procedurally draw custom shapes. However, we must first understand the basic concepts of drawing shapes in code, which means looking at the <code>beginShape()</code> function, as well as the many vertex functions that can be used to define the outline of a shape.</p>
 
@@ -16,7 +16,7 @@ title:  Custom shapes
 
     <p>Most graphics programming languages allow you to draw custom shapes like a Connect the Dots drawing: You define a series of points – which we will refer to as vertices – that are connected via lines to form the outline of a shape.</p>
 
-    <p>Each vertex in a shape determines how it is connected to the vertex before it. If it’s a simple vertex, it will be connected with a straight line. If it’s a curved vertex, it will be connected with a curved line. The shape can optionally become a closed shape by connecting the last vertex to the first vertex. P5.js follows this same concept. Use the <code>beginShape()</code> function to start a new custom shape, define the vertices of the shape with the desired vertex functions, and finally connect the lines in the shape by calling the <code>endShape()</code> function with an optional argument to close the shape. In the following, we will examine these vertex functions.</p>
+    <p>Each vertex in a shape determines how it is connected to the vertex before it. If it is a simple vertex, it will be connected with a straight line. If it is a curved vertex, it will be connected with a curved line. The shape can optionally become a closed shape by connecting the last vertex to the first vertex. P5.js follows this same concept. Use the <code>beginShape()</code> function to start a new custom shape, define the vertices of the shape with the desired vertex functions, and finally connect the lines in the shape by calling the <code>endShape()</code> function with an optional argument to close the shape. In the following, we will examine these vertex functions.</p>
 
   </section>
 
@@ -48,7 +48,7 @@ title:  Custom shapes
 
     <h1>Bézier curves</h1>
 
-    <p>To create a vertex that is connected to the vertex before it with a curved line, we use the <code>quadraticVertex()</code> and  <code>bezierVertex()</code> functions. These are a bit more complex than the <code>vertex()</code> function, because they need several <code>x</code> and <code>y</code> coordinates to control the curve of the line. To understand how this works, let’s have a brief look at the concept of Bézier curves.</p>
+    <p>To create a vertex that is connected to the vertex before it with a curved line, we use the <code>quadraticVertex()</code> and  <code>bezierVertex()</code> functions. These are a bit more complex than the <code>vertex()</code> function, because they need several <code>x</code> and <code>y</code> coordinates to control the curve of the line. To understand how this works, let us have a brief look at the concept of Bézier curves.</p>
 
     <p>The Bézier curve algorithm was popularized by Pierre Bézier in the 1960’s as a solution to a common problem in computational geometry: Drawing curved lines that can scale to any size. The Bézier curve algorithm solves this problem in a very elegant way by introducing the idea of control points: Invisible gravity points that attract the line to bend it into a curve. A Bézier curve with a single control point is called a quadratic Bézier, while a Bézier curve with two control points is called a cubic Bézier. If you have ever used the Pen tool in Adobe Illustrator, you are already familiar with this concept.</p>
 
@@ -65,7 +65,7 @@ title:  Custom shapes
 
     <div id="curve-interactive"></div>
 
-    <p>It takes a bit of practice to master the Bézier functions, and knowing how many Béziers you need to draw a specific shape can be hard in the beginning. It doesn’t help that control points are invisible, so it can be helpful to spend some time playing around with the example above before diving into the code. Below are three examples that all use the Bézier functions to create custom shapes.</p>
+    <p>It takes a bit of practice to master the Bézier functions, and knowing how many Béziers you need to draw a specific shape can be hard in the beginning. It does not help that control points are invisible, so it can be helpful to spend some time playing around with the example above before diving into the code. Below are three examples that all use the Bézier functions to create custom shapes.</p>
 
     <div class="grid">
       <div class="col-1-3">
