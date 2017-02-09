@@ -6,6 +6,7 @@
     <title>{{ config.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ stylesheets }}
+    {% if page.extrajs %}<script src="{{page.extrajs}}" type="text/javascript"></script>{% endif %}
     {% include ga.html %}
   </head>
   <body>
@@ -33,7 +34,7 @@
         {% include navigation.html %}
       </article>
     </main>
-    <script src="{{ webpack.main }}"></script>
+    <script src="{{ webpack.main }}" type="text/javascript"></script>
   </body>
 
 </html>

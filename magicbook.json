@@ -26,6 +26,7 @@
       "label" : "Color",
       "files" : [
         "content/color/a-short-history-of-color-theory.html",
+        "content/color/color-models-and-color-spaces.html",
         "content/more-to-come.html"
       ]
     }
