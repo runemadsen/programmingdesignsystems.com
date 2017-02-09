@@ -9,19 +9,25 @@ module.exports = function(parentId) {
     blueChanged: true
   }
 
+  function label(col) {
+    var percentage = Math.round((color[col] / 255) * 100);
+    return percentage + '% ' + col;
+  }
+
   // Add skeleton
   var parent = document.getElementById(parentId);
-  parent.innerHTML = '<div class="grid"><div class="col-2-5"><label>Red</label><input type="range" name="red" min="0" max="255" value="'+color.red+'" /><label>Green</label><input type="range" name="green" min="0" max="255" value="'+color.green+'" /><label>Blue</label><input type="range" name="blue" min="0" max="255" value="'+color.blue+'" /></div><div class="col-3-5"><canvas id="rgbCanvas" width="'+w+'" height="'+h+'" style="width: 100%; height:auto;"></canvas></div>';
+  parent.innerHTML = '<div class="grid"><div class="col-2-5"><label>'+label('red')+'</label><input type="range" name="red" min="0" max="255" value="'+color.red+'" /><label>'+label('green')+'</label><input type="range" name="green" min="0" max="255" value="'+color.green+'" /><label>'+label('blue')+'</label><input type="range" name="blue" min="0" max="255" value="'+color.blue+'" /></div><div class="col-3-5"><canvas id="rgbCanvas" width="'+w+'" height="'+h+'" style="width: 100%; height:auto;"></canvas></div>';
 
   // Setup vars
   var cube = { resolution: 40 };
   var scene = new THREE.Scene();
   var group = new THREE.Object3D();
   var sphere = new THREE.SphereGeometry(10, 32, 32);
+  var ring = new THREE.RingGeometry(10, 18, 32);
   var canvas = document.getElementById('rgbCanvas');
   var renderer = new THREE.WebGLRenderer({ antialias: true, canvas:canvas });
   var camera = new THREE.PerspectiveCamera(50, w/h, 0.1, 1000);
-  var model, wireframe, modelMesh, wireframeMesh, sphereMesh;
+  var model, wireframe, modelMesh, wireframeMesh, sphereMesh, ringMesh;
 
   function updateScene() {
 
@@ -29,6 +35,9 @@ module.exports = function(parentId) {
     sphereMesh.position.x = color.red - 127.5;
     sphereMesh.position.y = color.green - 127.5;
     sphereMesh.position.z = color.blue - 127.5;
+    ringMesh.position.x = color.red - 127.5;
+    ringMesh.position.y = color.green - 127.5;
+    ringMesh.position.z = color.blue - 126.5;
 
     if(color.blueChanged) {
 
@@ -86,6 +95,9 @@ module.exports = function(parentId) {
 
   sphereMesh = new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({color: 0xffff00}));
   group.add(sphereMesh)
+
+  ringMesh = new THREE.Mesh(ring, new THREE.MeshBasicMaterial({color: 0x333333}));
+  group.add(ringMesh)
   scene.add(group)
 
   var ranges = parent.querySelectorAll("input[type=range]");
@@ -93,6 +105,7 @@ module.exports = function(parentId) {
     ranges[i].addEventListener('input', function(e) {
       var dimension = e.target.name;
       var value = parseInt(e.target.value);
+      e.target.previousSibling.innerHTML = label(dimension);
       color[dimension] = value;
       if(dimension == 'blue') {
         color.blueChanged = true;
