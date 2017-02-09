@@ -11,7 +11,8 @@ var ReactDOM = window.ReactDOM = require('react-dom');
 window.pds = {
   PathInteractive: require('./components/PathInteractive'),
   Albers: require('./components/Albers'),
-  RgbCube: require('./functions/RgbCube')
+  RgbCube: require('./functions/RgbCube'),
+  HsvlCylinder: require('./functions/HsvlCylinder')
 };
 
 // Automatic Rendering

@@ -1,7 +1,8 @@
 module.exports = function(parentId) {
 
+  var rotate = true;
   var w = 700;
-  var h = 700;
+  var h = 550;
   var color = {
     red: 127.5,
     green: 127.5,
@@ -16,7 +17,7 @@ module.exports = function(parentId) {
 
   // Add skeleton
   var parent = document.getElementById(parentId);
-  parent.innerHTML = '<div class="grid"><div class="col-2-5"><label>'+label('red')+'</label><input type="range" name="red" min="0" max="255" value="'+color.red+'" /><label>'+label('green')+'</label><input type="range" name="green" min="0" max="255" value="'+color.green+'" /><label>'+label('blue')+'</label><input type="range" name="blue" min="0" max="255" value="'+color.blue+'" /></div><div class="col-3-5"><canvas id="rgbCanvas" width="'+w+'" height="'+h+'" style="width: 100%; height:auto;"></canvas></div>';
+  parent.innerHTML = '<div class="grid"><div class="col-2-5"><label>'+label('red')+'</label><input type="range" name="red" min="0" max="255" value="'+color.red+'" /><label>'+label('green')+'</label><input type="range" name="green" min="0" max="255" value="'+color.green+'" /><label>'+label('blue')+'</label><input type="range" name="blue" min="0" max="255" value="'+color.blue+'" /></div><div class="col-3-5"><canvas width="'+w+'" height="'+h+'" style="width: 100%; height:auto;"></canvas></div>';
 
   // Setup vars
   var cube = { resolution: 40 };
@@ -24,7 +25,7 @@ module.exports = function(parentId) {
   var group = new THREE.Object3D();
   var sphere = new THREE.SphereGeometry(10, 32, 32);
   var ring = new THREE.RingGeometry(10, 18, 32);
-  var canvas = document.getElementById('rgbCanvas');
+  var canvas = parent.querySelector('canvas');
   var renderer = new THREE.WebGLRenderer({ antialias: true, canvas:canvas });
   var camera = new THREE.PerspectiveCamera(50, w/h, 0.1, 1000);
   var model, wireframe, modelMesh, wireframeMesh, sphereMesh, ringMesh;
@@ -79,7 +80,6 @@ module.exports = function(parentId) {
   }
 
   function render() {
-    requestAnimationFrame(render);
     updateScene()
     renderer.render(scene, camera);
   }
@@ -88,10 +88,10 @@ module.exports = function(parentId) {
   group.rotation.x = 0.5;
   group.rotation.y = -0.5;
 
-  scene.background = new THREE.Color(0xffffdc);
+  scene.background = new THREE.Color(0x222222);
   camera.position.x = -20;
-  camera.position.z = 500;
-  camera.position.y = -35;
+  camera.position.z = 550;
+  camera.position.y = -20;
 
   sphereMesh = new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({color: 0xffff00}));
   group.add(sphereMesh)
@@ -110,8 +110,21 @@ module.exports = function(parentId) {
       if(dimension == 'blue') {
         color.blueChanged = true;
       }
+      requestAnimationFrame(render);
     })
   }
+
+  canvas.addEventListener('mousemove', function(e) {
+    if(rotate) {
+      group.rotation.z = -(e.pageX / 70);
+      group.rotation.x = e.pageY / 70;
+      requestAnimationFrame(render);
+    }
+  });
+
+  canvas.addEventListener('click', function(e) {
+    rotate = !rotate;
+  });
 
   updateScene();
   render();
