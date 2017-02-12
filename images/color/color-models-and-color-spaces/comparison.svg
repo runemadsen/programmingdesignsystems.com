@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="559px" height="247px" viewBox="0 0 559 247" enable-background="new 0 0 559 247" xml:space="preserve">
+<rect x="124" y="65" fill="#FF0000" width="84.8" height="84.8"/>
+<rect x="208.8" y="65" fill="#FF7F00" width="84.8" height="84.8"/>
+<rect x="293.6" y="65" fill="#FFFF00" width="84.8" height="84.8"/>
+<rect x="378.4" y="65" fill="#83FF00" width="84.8" height="84.8"/>
+<rect x="463.2" y="65" fill="#00FF00" width="84.8" height="84.8"/>
+<rect x="124" y="148.8" fill="#FF0000" width="84.8" height="84.8"/>
+<rect x="208.8" y="148.8" fill="#FF7F00" width="84.8" height="84.8"/>
+<rect x="293.6" y="148.8" fill="#FFFF00" width="84.8" height="84.8"/>
+<rect x="378.4" y="148.8" fill="#00FF00" width="84.8" height="84.8"/>
+<rect x="463.2" y="148.8" fill="#00FF00" width="84.8" height="84.8"/>
+<text transform="matrix(1 0 0 1 128 25.5)"><tspan x="0" y="0" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">100% red</tspan><tspan x="0" y="12" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">0% green</tspan><tspan x="0" y="24" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">0% blue </tspan></text>
+<text transform="matrix(1 0 0 1 211 25.5)"><tspan x="0" y="0" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">100% red</tspan><tspan x="0" y="12" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">50% green</tspan><tspan x="0" y="24" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">0% blue </tspan></text>
+<text transform="matrix(1 0 0 1 297 25.5)"><tspan x="0" y="0" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">100% red</tspan><tspan x="0" y="12" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">100% green</tspan><tspan x="0" y="24" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">0% blue </tspan></text>
+<text transform="matrix(1 0 0 1 381 25.5)"><tspan x="0" y="0" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">50% red</tspan><tspan x="0" y="12" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">100% green</tspan><tspan x="0" y="24" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">0% blue </tspan></text>
+<text transform="matrix(1 0 0 1 467 25.5)"><tspan x="0" y="0" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">0% red</tspan><tspan x="0" y="12" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">100% green</tspan><tspan x="0" y="24" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">0% blue </tspan></text>
+<text transform="matrix(1 0 0 1 52.5 107.3999)" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">sRGB</text>
+<text transform="matrix(1 0 0 1 52.5 187.1992)"><tspan x="0" y="0" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">Adobe RGB</tspan><tspan x="0" y="12" fill="#222222" font-family="'AtlasGrotesk'" font-size="10">(1998)</tspan></text>
+</svg>

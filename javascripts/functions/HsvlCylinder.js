@@ -1,6 +1,6 @@
 module.exports = function(parentId, hsl) {
 
-  var rotate = true;
+  var rotate = false;
   var w = 700;
   var h = 550;
   var color = {
@@ -83,7 +83,7 @@ module.exports = function(parentId, hsl) {
 
   // Add skeleton
   var parent = document.getElementById(parentId);
-  parent.innerHTML = '<div class="grid"><div class="col-2-5"><label>'+label('hue')+'</label><input type="range" name="hue" min="0" max="360" value="'+color.hue+'" /><label>'+label('saturation')+'</label><input type="range" name="saturation" min="0" max="100" value="'+color.saturation+'" /><label>'+label('brightness')+'</label><input type="range" name="brightness" min="0" max="100" value="'+color.brightness+'" /></div><div class="col-3-5"><canvas width="'+w+'" height="'+h+'" style="width: 100%; height:auto;"></canvas></div>';
+  parent.innerHTML = '<div class="grid"><div class="col-2-5"><figcaption>Drag the sliders to see the resulting color.<br />Click and drag the color model to rotate.</figcaption><label>'+label('hue')+'</label><input type="range" name="hue" min="0" max="360" value="'+color.hue+'" /><label>'+label('saturation')+'</label><input type="range" name="saturation" min="0" max="100" value="'+color.saturation+'" /><label>'+label('brightness')+'</label><input type="range" name="brightness" min="0" max="100" value="'+color.brightness+'" /></div><div class="col-3-5"><canvas width="'+w+'" height="'+h+'" style="width: 100%; height:auto;"></canvas></div>';
 
   // Setup vars
   var scene = new THREE.Scene();
@@ -226,8 +226,12 @@ module.exports = function(parentId, hsl) {
     }
   });
 
-  canvas.addEventListener('click', function(e) {
-    rotate = !rotate;
+  canvas.addEventListener('mousedown', function(e) {
+    rotate = true;
+  });
+
+  canvas.addEventListener('mouseup', function(e) {
+    rotate = false;
   });
 
   updateScene();

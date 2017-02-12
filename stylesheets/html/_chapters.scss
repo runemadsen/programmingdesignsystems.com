@@ -18,8 +18,16 @@ section[data-type="chapter"] {
   // Paragraphs and headings directly inside chapter
   // or sect should have text width.
   &, section[data-type^="sect"] {
-    > p, > h1, > h2 {
+    > p, > h1, > h2, > ul {
       @extend .text-width;
+    }
+    > ul {
+      @extend .font-normal;
+      padding-left: 2em;
+      line-height: 1.6em;
+      li {
+        margin-bottom: 0.5em;
+      }
     }
   }
 

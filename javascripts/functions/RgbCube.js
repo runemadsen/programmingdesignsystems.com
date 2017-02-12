@@ -1,6 +1,6 @@
 module.exports = function(parentId) {
 
-  var rotate = true;
+  var rotate = false;
   var w = 700;
   var h = 550;
   var color = {
@@ -17,7 +17,7 @@ module.exports = function(parentId) {
 
   // Add skeleton
   var parent = document.getElementById(parentId);
-  parent.innerHTML = '<div class="grid"><div class="col-2-5"><label>'+label('red')+'</label><input type="range" name="red" min="0" max="255" value="'+color.red+'" /><label>'+label('green')+'</label><input type="range" name="green" min="0" max="255" value="'+color.green+'" /><label>'+label('blue')+'</label><input type="range" name="blue" min="0" max="255" value="'+color.blue+'" /></div><div class="col-3-5"><canvas width="'+w+'" height="'+h+'" style="width: 100%; height:auto;"></canvas></div>';
+  parent.innerHTML = '<div class="grid"><div class="col-2-5"><figcaption>Drag the sliders to see the resulting color.<br />Click and drag the color model to rotate.</figcaption><label>'+label('red')+'</label><input type="range" name="red" min="0" max="255" value="'+color.red+'" /><label>'+label('green')+'</label><input type="range" name="green" min="0" max="255" value="'+color.green+'" /><label>'+label('blue')+'</label><input type="range" name="blue" min="0" max="255" value="'+color.blue+'" /></div><div class="col-3-5"><canvas width="'+w+'" height="'+h+'" style="width: 100%; height:auto;"></canvas></div>';
 
   // Setup vars
   var cube = { resolution: 40 };
@@ -122,8 +122,12 @@ module.exports = function(parentId) {
     }
   });
 
-  canvas.addEventListener('click', function(e) {
-    rotate = !rotate;
+  canvas.addEventListener('mousedown', function(e) {
+    rotate = true;
+  });
+
+  canvas.addEventListener('mouseup', function(e) {
+    rotate = false;
   });
 
   updateScene();

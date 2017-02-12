@@ -3,7 +3,10 @@
 
 .colormodel {
   .col-2-5 {
-    padding: 2em;
+    padding: 0 2em 2em 2em;
+  }
+  figcaption {
+    margin-bottom: 1.5em;
   }
   label {
     display: block;
