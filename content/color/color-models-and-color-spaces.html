@@ -106,7 +106,7 @@ extrajs: "https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"
 
     <figure class="media-width">
       <img src="color/color-models-and-color-spaces/klee.jpg" />
-      <figcaption>The left-hand side of this Paul Klee painting was correctly converted from Adobe RGB (1998) to sRGB, while the right-hand side wrongly did not use color conversion. <a href="#fairuse">©</a></figcaption>
+      <figcaption>The left-hand side of this Paul Klee painting was correctly converted from Adobe RGB (1998) to sRGB, while the right-hand side wrongly reinterpreted the colors into sRGB without conversion. <a href="#fairuse">©</a></figcaption>
     </figure>
 
     <p>If a digital image uses a color profile with a wide color gamut, it is almost guaranteed to lose colors on most screens because most screens can only show colors within the sRGB gamut. However, many newer screens support wider color gamuts. The Apple iMac retina screen uses a RGB color space called DCI-P3 with a color gamut that spans about the same range as Adobe RGB (1998), but it includes more red-yellow colors and excludes some green-blue colors. To highlight the complexity of color management, some browsers running on retina computers may oversaturate the colors of sRGB images without color profiles, while other browsers will correctly convert the sRGB pixel values into DCI-P3. Although this book will not dive further into the complicated aspects of color management, there are plenty of <a href="https://abookapart.com/products/making-sense-of-color-management">good resources</a> out there for the interested reader.</p>
@@ -152,8 +152,6 @@ extrajs: "https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"
   <p>In the following chapters, we will examine a range of different techniques for combining colors programmatically in P5.js. Many of these examples will use the HSV color model, as it is an intuitive way to navigate the color spectrum.</p>
 
 </section>
-
-{{footnotes}}
 
 <script type="text/javascript">
   window.addEventListener("libsLoaded", function(event) {
