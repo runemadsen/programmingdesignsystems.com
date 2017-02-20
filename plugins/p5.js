@@ -116,7 +116,7 @@ Plugin.prototype = {
       if(attrs.link || attrs.caption) {
         output += '<figcaption>'
         if(attrs.caption) output += attrs.caption;
-        if(attrs.link) output += ' <a target="_blank" href="https://github.com/runemadsen/programmingdesignsystems.com/tree/master/'+attrs.link+'">See Code</a>'
+        if(attrs.link) output += ' <a target="_blank" href="https://github.com/runemadsen/programmingdesignsystems.com/tree/master/'+examplePath+'">See Code</a>'
         output += '</figcaption>'
       }
       output += '</figure>'
