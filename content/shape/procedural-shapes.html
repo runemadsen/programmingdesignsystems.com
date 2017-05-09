@@ -14,7 +14,7 @@ title:  Procedural Shapes
 
     <p>Over the years, I have seen many students struggle with Sine and Cosine. It is easy to understand why: These words seem rather scary and abstract, especially if you do not consider yourself good at math. However, this is both unfortunate and unnecessary. Unfortunate, because these two functions are a fundamental part of most programmatic designs, and a good understanding of them will allow you to solve many visual problems. Unnecessary, because they are not that hard to learn. Even if you do not understand everything presented in this chapter, you can get started by memorizing two almost identical lines of code.</p>
 
-    <p>Simply put, Sine and Cosine allow us to find any position on the outline of an ellipse. They do this by converting an angle into an <code>x</code> position (Cosine) or a <code>y</code> position (Sine) for a circle with a 1 pixel radius. These values can then be multiplied by the radius of your actual circle to scale them up. Although it is not strictly necessary to understand how these functions work internally, here is a way to visualize what is going on: Imagine a right sided triangle connecting the center of the circle to the point on the outline. The Sine function is simply a quick way to get the ratio between the left side (hypotenuse) and the right side (opposite) of that triangle. The Cosine function is likewise the ratio between the hypotenuse and the bottom side (adjacent) of the triangle.</p>
+    <p>Sine and Cosine allow us to find any position on the outline of an ellipse. They do this by converting an angle into an <code>x</code> position (Cosine) or a <code>y</code> position (Sine) for a circle with a 1 pixel radius. These values can then be multiplied by the radius of your actual circle to scale them up. Although it is not strictly necessary to understand how these functions work internally, here is a way to visualize what is going on: Imagine a right sided triangle connecting the center of the circle to the point on the outline. The Sine function is a quick way to get the ratio between the left side (hypotenuse) and the right side (opposite) of that triangle. The Cosine function is likewise the ratio between the hypotenuse and the bottom side (adjacent) of the triangle.</p>
 
     <figure class="text-width">
       <svg width="100%" viewBox="0 0 600 500" class="bg4">
@@ -50,7 +50,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </div>
     </div>
 
-    <p>If you consider all the basic shapes – as well as many complex shapes – they are characterized by having non-overlapping outlines that move around a center point. Some shapes, like the triangle, have just a few vertices, while others – like the ellipse – have many vertices. The <code>sin()</code> and <code>cos()</code> functions simply give a way to procedurally draw these types of shapes.</p>
+    <p>If you consider all the basic shapes – as well as many complex shapes – they are characterized by having non-overlapping outlines that move around a center point. Some shapes, like the triangle, have just a few vertices, while others – like the ellipse – have many vertices. The <code>sin()</code> and <code>cos()</code> functions give a way to procedurally draw these types of shapes.</p>
 
   </section>
 
@@ -80,7 +80,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </div>
     </div>
 
-    <p>Although it might not be immediately clear, this is an important technique when drawing procedural designs. Because <code>i</code> increments by one between each iteration, it can be used as a scalar to distribute shapes across the canvas. For example, if we want to position the rectangles next to each other, we can simply multiply <code>i</code> with the width of the rectangles.</p>
+    <p>Although it might not be immediately clear, this is an important technique when drawing procedural designs. Because <code>i</code> increments by one between each iteration, it can be used as a scalar to distribute shapes across the canvas. For example, if we want to position the rectangles next to each other, we can multiply <code>i</code> with the width of the rectangles.</p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -91,7 +91,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </div>
     </div>
 
-    <p>We can use this same technique to draw custom shapes. Instead of drawing individual shapes in the loop, we simply use the for loop to procedurally add vertices between the <code>beginShape()</code> and <code>endShape()</code> function calls. In the example below, we use this technique to draw ten random vertices in the center of the canvas.</p>
+    <p>We can use this same technique to draw custom shapes. Instead of drawing individual shapes in the loop, we use the for loop to procedurally add vertices between the <code>beginShape()</code> and <code>endShape()</code> function calls. In the example below, we use this technique to draw ten random vertices in the center of the canvas.</p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -121,7 +121,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
       </div>
     </div>
 
-    <p>Simply by changing the number of iterations and the spacing between the vertices, you can draw all of the basic shapes. The code below adds a few variables on top of the sketch to automatically calculate the spacing based on the number of vertices. Simply change the numVertices variable and another shape will appear.</p>
+    <p>By changing the number of iterations and the spacing between the vertices, you can draw all of the basic shapes. The code below adds a few variables on top of the sketch to automatically calculate the spacing based on the number of vertices. Change the numVertices variable and another shape will appear.</p>
 
     <div class="grid">
       <div class="col-1-2">
