@@ -42,6 +42,7 @@ var replacements = [
   'random(',
   'rect(',
   'rectMode(',
+  'RGB',
   'rotate(',
   'ROUND',
   'sin(',

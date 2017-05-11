@@ -123,28 +123,28 @@ extrajs: "https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"
 
     <div class="grid">
       <div class="col-1-2">{% codesplit color/color-models-and-color-spaces/rgb.js lines:'6-14' %}</div>
-      <div class="col-1-2">{% p5 color/color-models-and-color-spaces/rgb.js class:'media-width' %}</div>
+      <div class="col-1-2">{% p5 color/color-models-and-color-spaces/rgb.js %}</div>
     </div>
 
     <p>P5.js also allows you to use an alternative hexadecimal syntax known from web design for specifying colors in the RGB color model. Instead of using three numbers, the hex syntax uses a hashtag followed by a six-character string to represent the primary color values. Each primary color has two characters in this string, using the numbers 0-9 to represent zero to nine and the letters A-F to represent ten to fifteen. With 16 variations per character, each primary color can therefore specify a value between 0 and 255 in just two characters.</p>
 
     <div class="grid">
       <div class="col-1-2">{% codesplit color/color-models-and-color-spaces/rgbhex.js lines:'6-14' %}</div>
-      <div class="col-1-2">{% p5 color/color-models-and-color-spaces/rgbhex.js class:'media-width' %}</div>
+      <div class="col-1-2">{% p5 color/color-models-and-color-spaces/rgbhex.js %}</div>
     </div>
 
     <p>The <code>colorMode()</code> function in P5.js can be used to switch to another color model, which means that the <code>fill()</code> and <code>stroke()</code> functions will expect color ranges according to the new color model’s dimensions. The default numerical ranges for HSV (called HSB in P5.js) and HSL are 0-360 for hue (indicating an angle), and 0-100 for saturation and brightness/lightness (indicating a percentage). The following code example uses both the HSV and HSL color models to draw the three ellipses.</p>
 
     <div class="grid">
       <div class="col-1-2">{% codesplit color/color-models-and-color-spaces/hsbhsl.js lines:'6-16' %}</div>
-      <div class="col-1-2">{% p5 color/color-models-and-color-spaces/hsbhsl.js class:'media-width' %}</div>
+      <div class="col-1-2">{% p5 color/color-models-and-color-spaces/hsbhsl.js %}</div>
     </div>
 
     <p>It is also possible to change the default numerical ranges for each color model. This can be done by passing in three additional numbers when calling the <code>colorMode()</code> function, as demonstrated below where all three dimensions of the HSV color model are set to 0-1 ranges.</p>
 
     <div class="grid">
       <div class="col-1-2">{% codesplit color/color-models-and-color-spaces/hsbnormalized.js lines:'6-15' %}</div>
-      <div class="col-1-2">{% p5 color/color-models-and-color-spaces/hsbnormalized.js class:'media-width' %}</div>
+      <div class="col-1-2">{% p5 color/color-models-and-color-spaces/hsbnormalized.js %}</div>
     </div>
 
   </section>
