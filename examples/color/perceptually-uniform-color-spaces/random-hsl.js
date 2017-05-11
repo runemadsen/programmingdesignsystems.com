@@ -3,6 +3,9 @@ function setup()
   createCanvas(800, 500);
   background(30);
 
+  fill(0);
+  rect(0, 0, width, height);
+
   colorMode(HSL);
 	noStroke();
 
