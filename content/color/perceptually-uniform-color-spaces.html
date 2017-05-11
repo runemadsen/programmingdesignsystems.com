@@ -1,0 +1,95 @@
+---
+title:  Perceptually uniform color spaces
+---
+
+<section data-type="chapter">
+
+  {% include header.html %}
+
+  <blockquote class="text-width">
+    <p>&ldquo;In visual perception a color is almost never seen as it really is - as it physically is. This fact makes color the most relative medium in art.&rdquo;</p>
+    <cite>Josef Albers (1963), Interaction of Color</cite>
+  </blockquote>
+
+  <p>If you rounded up a group of graphic designers and asked them to define the concept of perceptually uniform color spaces, there is a good chance that none of them would know what to say. On the surface, perceptual uniformity is somewhat easy to explain: These color spaces are human-friendly alternatives to color spaces such as sRGB, and they are incredibly helpful for designers working in code. Despite of this, it can feel daunting to use them in programmatic designs. Perceptually uniform color spaces have roots in scientific color theory, and this community does little to make them accessible to a larger audience. In this chapter, we will look at the concept of perceptually uniform color spaces, and answer some common questions related to them: What are they? Why do we need them? How can we use them in code?</p>
+
+  <section data-type="sect1">
+
+    <h1>What is wrong with sRGB?</h1>
+
+    <p>Let us pretend that you want to design a poster with ten squares changing in color from green to blue in equal steps. “Easy”, you might say, and whip up some code that assigns an equal change in hue between each rectangle. Convinced that the result will be a nice looking gradient, you are surprised to see the following output after running the code.</p>
+
+    {% p5 color/perceptually-uniform-color-spaces/rectangles-hsb.js class:'media-width' %}
+
+    <p>You might notice something odd about this colored strip of rectangles. Although the color changes from green to blue, it appears to change a lot more towards the end of the strip. The green colors look almost identical, while the blue colors are more diverse. It also has a lot of variation in the lightness of the colors, with the cyan colors in the middle looking a lot brighter than the blue colors. This happens because the sRGB color space (and any color model built on it like HSV and HSL) is irregular, which means that even though the rectangles have evenly spaced hue values, the corresponding effect is not linear to the human eye.</p>
+
+    <figure class="left">
+      <img src="color/perceptually-uniform-color-spaces/chromaticity-diagram.jpg" />
+      <figcaption>The CIE chromaticity diagram showing wavelength of major colors in the color spectrum.</figcaption>
+    </figure>
+
+    <p>To explain why, we need to look at the chromaticity diagram we briefly discussed in the last chapter. This diagram is the result of extensive scientific experiments in the 1930’s, and it plots the visible color spectrum onto a scale based on the human vision. The first thing you might notice is that the diagram has a lot of green in it. The blue numbers displayed on the edge of the color spectrum show the wavelength of the corresponding color, and you will notice that the colors from around 520nm to 560nm all look green. But if you take another 40nm range, e.g. 460nm to 500nm, it includes a much broader set of colors between blue, cyan, and green. This explains why a majority of the rectangles in our design above are green, and why we see a sudden shift towards blue at the end of the scale: moving linearly through the hues will look disproportionate to the eye. This tells us that if we want to operate with color as it relates to the human vision, we need a color space built on these human measurements, and that is what perceptually uniform color spaces are.</p>
+
+    <p>The following rectangles have an even distribution in hues, but this time the colors were created with a perceptually uniform color space. Notice how the colors remain constant in their lightness, and that the hues are evenly distributed to make a linear color gradient.</p>
+
+    {% p5 color/perceptually-uniform-color-spaces/rectangles-hsluv.js class:'media-width' %}
+
+    <p>Why do we need perceptually uniform color spaces? Working with color in code is different than working with color in traditional design tools. Traditional tools encourage designers to think in manual workflows, and the color picker is the primary way of choosing color combinations. In this scenario, the designers are automatically using their eyes to check whether a color is right or wrong. In this case, the RGB values are a result of whatever color the designer chose, not a factor in deciding the color combinations. Code is different, because programming languages encourage designers to think about colors as numbers. When faced with the task of creating color combinations in code, the programmer must think about how colors relate to each other in terms of the scales of the chosen color model (hue, saturation, brightness, lightness, etc). This skill is hard to learn if the numbers do not correspond with what you see. Perceptually uniform color spaces allow us to align numbers in our code with the visual effect perceived in our viewers.</p>
+
+    <p>In some cases, perceptually uniformity is essential. A simple example like wanting to choose a random color to be readable against a dark background can be hard in irregular color spaces, because even colors with 100% brightness vary greatly (blue and yellow both have 100% brightness in HSV, but blue is much darker than yellow). One would need to do all sorts of calculation based on the chosen hue to make the random colors equally bright. The colors below have the same lightness, but because the code uses standard HSL, the colors vary greatly in contrast to the background.</p>
+
+    {% p5 color/perceptually-uniform-color-spaces/random-hsl.js class:'media-width' caption:'These random HSL colors all have 50% brightness but vary greatly in how bright they look.' %}
+
+    <p>If designers are not aware of this, it can even lead to misleading designs. A good example is the use of continuous color scales in data visualization. For certain map types, designers use a gradient to color geographic areas to reflect the value of a data point, and the user can compare colors between regions to get a sense of the data. If the designer created the color scale in a regular color space, the perceived colors will be different from the data points reflected in the color values. To have the design reflect the actual data, a perceptually uniform color space is required.</p>
+
+    [ map example: black and white, wrong values. Oversaturated blacks ]
+
+  </section>
+
+  <section data-type="sect1">
+
+    <h1>A better solution</h1>
+
+    <p>The International Commission on Illumination (CIE) created the before mentioned chromaticity diagram in the 1930’s to solve this problem. This diagram is actually a 2D view of a color space called CIEXYZ, which in the 1970’s was replaced with the slightly improved CIELUV and CIELAB color spaces. It’s hard to describe how these color spaces work without going into the underlying math, but they generally allow you to specify color, not in light mixes, but in dimensions that relate more to human vision, and they do sophisticated color transformations to ensure that these dimensions reflect how the human vision works. For example, the CIELUV color space has two dimensions – U and V – that represent color scales from red to green and yellow to blue. To create a color in the CIELUV color space, one has to define the lightness of the color (L), whether it is reddish or greenish (U), and whether it is yellowish or bluish (V). Similarly, humans compute signals from our retina cones via the opponent process model, which makes it impossible to see reddish-green or yellowish-blue colors.</p>
+
+    <p>Even though these color spaces are based on human perception, they are not intuitive when working in code. Like a RGB color space, it can be hard to guess which LUV numbers are required to create e.g. a dark purple or bright cyan. Thankfully, perceptually uniform color spaces can also remap their dimensions in different color models, so designers can work with more intuitive dimensions, while keeping the perceptual uniformity.</p>
+
+    <p>One of the more recent attempts at making these color spaces more intuitive is the HSLuv project (LINK), which allows you to use the CIELUV color space inside the HSL color model. Referred to as a human-friendly HSL, the original code was written in the Haxe programming language, but the project is now implemented in most popular programming languages, including JavaScript.</p>
+
+    <p>Before diving into the code-specifics, it is important to understand how HSLuv differs from HSL. HSLuv allows you to define a color based on three dimensions – hue, saturation, and lightness – but contrary to a HSL color model based on sRGB, colors that share the same value for a dimension are guaranteed to also look similar: Two colors with an identical lightness value will look equally bright, and two colors with the same saturation will have the same perceived color purity. Like HSL, the saturation and lightness dimension is represented as a percentage between 0-100, but in HSLuv those scales are perceived as linear: A gray color with a lightness of 50 is guaranteed to be mid-gray. None of this can be said of HSL.</p>
+
+    [ NON-CODE EXAMPLE SHOWING TWO COLORS WITH SAME DIMENSIONS IN HSL AND HSLuv ]
+
+    <p>Even though it is not a built-in colorMode, HSLuv works great with P5.js. To use the library in your JavaScript code, you first need to download the latest JavaScript release (https://github.com/hsluv/hsluv/releases), and then you can include the hsluv.min.js file in your P5.js HTML file. This makes the HSLuv color conversion functions accessible in your P5.js sketch.</p>
+
+    [ HTML include example ]
+
+    <p>Every implementation of HSLuv includes four functions that can be used to convert between HSLuv and RGB. Because P5.js does not understand HSLuv color values, we will need to use one of these functions – hsluvToRgb() – to convert them into RGB values, and then use these RGB values in the fill() and stroke() functions. The hsluvToRgb() function expects an array with three values – the desired hue, saturation, and lightness of the HSLuv color – and returns another array with RGB values in the range of 0 to 1. Because P5.js expects RGB values between 0 and 255, we need to multiply the array values by 255 to get them into the correct range before we use them in P5.js. This boils down to two lines of code, which is illustrated in the example below.</p>
+
+    // convert to rgb
+    var rgb = hsluv.hsluvToRgb([0, 50, 50]);
+    // 0-1 to 0-255 for each value
+    fill( rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
+
+    <p>Granted, using HSLuv is a bit more work. Every time you have to create a color for a fill() or stroke() function call, you need an extra line of code handling the HSLuv to RGB conversion. This is why it is often easier to create your own small helper function, so you don not need to type extra lines over and over again.</p>
+
+    function fillHsluv(h, s, l) {}
+    function strokeHsluv(h, s, l) {}
+
+    <p>You can now use fillHsluv() and strokeHsluv() instead of fill() and stroke(). It is essentially a way to make your own colorMode in P5.js without using the colorMode function. This is demonstrated below.</p>
+
+    A SMALL CODE WITH TWO SHAPES AND HSLUV COLORS
+
+    <p>Now that we have the ability to use a perceptually uniform color space in P5.js, we can replicate the rectangle gradient design experiment from the beginning. The following example uses the exact same color values to draw these rectangles in two color modes.</p>
+
+	   CODE
+
+     <p>We can also use our new functions to choose random colors that are readable against a black background. The example below uses a random hue while keeping the saturation and lightness constant, ensuring the same legibility for all the colors.</p>
+
+	   GRID OF RECTANGLES OR CIRCLES
+
+  </section>
+
+  <p>Even though P5.js does not understand the concept of perceptually uniform color spaces, this chapter has demonstrated how to use the HSLuv JavaScript library to convert from a perceptually uniform color space into the sRGB color space that P5.js uses. In the coming chapters, we will base most of the color theory on the HSLuv color space, and we will be using these fillHsluv() and strokeHsluv() functions to generate different types of color schemes in P5.js.</p>
+
+</section>

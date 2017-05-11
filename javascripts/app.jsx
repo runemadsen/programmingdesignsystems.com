@@ -6,6 +6,7 @@ utils.setupCustomEvents();
 // -----------------------------------------------------
 
 var p5 = window.p5 = require('p5');
+var hsluv = window.hsluv = require('hsluv');
 var React = window.React = require('react');
 var ReactDOM = window.ReactDOM = require('react-dom');
 window.pds = {
