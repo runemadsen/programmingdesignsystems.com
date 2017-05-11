@@ -60,17 +60,20 @@ title:  Perceptually uniform color spaces
 
     <p>Before diving into the code-specifics, it is important to understand how HSLuv differs from HSL. HSLuv allows you to define a color based on three dimensions – hue, saturation, and lightness – but contrary to a HSL color model based on sRGB, colors that share the same value for a dimension are guaranteed to look similar. Two colors with an identical lightness value will look equally bright, and two colors with the same saturation will have the same perceived color purity. Like HSL, the saturation and lightness dimension is represented as a percentage between <code>0</code> and <code>100</code>, but in HSLuv those percentages reflect the perceived color mixing. A gray color with a lightness of <code>50</code> is guaranteed to be mid-gray.</p>
 
-    <p>Even though it is not a built-in color mode, HSLuv works great with P5.js. To use the library, you first need to download the <a href="https://github.com/hsluv/hsluv/releases">latest HSLuv release</a>, and then include the <code>hsluv.min.js</code> file in your P5.js HTML file. This makes the HSLuv color conversion functions accessible in your sketch.</p>
+    <p>Even though it is not a built-in color mode, HSLuv works great with P5.js. To use the library, you first need to download the <a href="https://github.com/hsluv/hsluv/releases">latest HSLuv release</a>, and then include the library file in your HTML file. This makes the HSLuv color conversion functions accessible in your sketch.</p>
 
-    <p>Every implementation of HSLuv includes four functions that can be used to convert between HSLuv and RGB. Because P5.js does not understand HSLuv color values, we will need to use one of these functions – <code>hsluvToRgb()</code> – to convert them into RGB values, and then use these RGB values in the <code>fill()</code> and <code>stroke()</code> functions. The <code>hsluvToRgb()</code> function expects an array with three values – the desired hue, saturation, and lightness of the HSLuv color – and returns another array with RGB values in the range of <code>0</code> to <code>1</code>. Because P5.js expects RGB values between <code>0</code> and <code>255</code>, we need to multiply the array values by 255 to get them into the correct range before we use them in P5.js. This boils down to two lines of code, which is illustrated in the example below.</p>
+    <pre class="media-width"><code>&lt;script src=&quot;p5.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;hsluv.min.js&quot;  type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>
 
-    <pre class="text-width"><code>// First convert our HSLuv values to a RGB array
+    <p>Every implementation of HSLuv includes four functions that can be used to convert between HSLuv and RGB. We can use one of these functions – <code>hsluvToRgb()</code> – to convert the HSLuv color values into RGB values that the <code>fill()</code> and <code>stroke()</code> functions can understand. The <code>hsluvToRgb()</code> function expects an array with three values – the desired hue, saturation, and lightness of the color – and returns another array with RGB values in the range of <code>0</code> to <code>1</code>. Because P5.js expects RGB values between <code>0</code> and <code>255</code>, we need to multiply the array values to scale them up. This boils down to two lines of code, which is illustrated in the example below.</p>
+
+    <pre class="text-width"><code>// First convert the HSLuv values to a RGB array
 var rgb = hsluv.hsluvToRgb([0, 50, 50]);
 
 // Then use the RGB values in a scale of 0-255
-fill( rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);</code></pre>
+fill(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);</code></pre>
 
-    <p>Granted, using HSLuv is a bit more work. Every time you have to create a color for a <code>fill()</code> or <code>stroke()</code> function call, you need an extra line of code handling the HSLuv to RGB conversion. It is often helpful to create your own small functions, so you don not need to type these extra lines over and over again.</p>
+    <p>This means that every time you have to create a perceptually uniform color for the <code>fill()</code> or <code>stroke()</code> function, you need an extra line of code to handle the HSLuv to RGB conversion. This can be prevented by creating small helper functions that wrap these two lines of code.</p>
 
     {% codesplit color/perceptually-uniform-color-spaces/color-functions.js lines:'1-9' class:'text-width' %}
 
@@ -81,14 +84,14 @@ fill( rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);</code></pre>
       <div class="col-1-2">{% p5 color/perceptually-uniform-color-spaces/color-functions.js %}</div>
     </div>
 
-    <p>Now that we have the ability to use a perceptually uniform color space in P5.js, we can replicate the rectangle gradient design experiment from the beginning. The following example uses the exact same color values to draw these rectangles in two color modes.</p>
+    <p>Now that we have the ability to use a perceptually uniform color space in P5.js, we can replicate the rectangle gradient experiment from the beginning of the chapter. The following example uses the same color values to draw a strip of rectangles using both HSL and HSLuv. Notice how the colors in the latter example look equally bright.</p>
 
     <div class="grid">
       <div class="col-1-2">{% codesplit color/perceptually-uniform-color-spaces/gradient.js lines:'12-26' %}</div>
       <div class="col-1-2">{% p5 color/perceptually-uniform-color-spaces/gradient.js %}</div>
     </div>
 
-    <p>We can also use our new functions to choose random colors that are readable against a specific background color. The example below shows a line of text in different random colors with a constants lightness using both the <code>fill()</code> and <code>fillHsluv()</code> functions. Notice how the latter example that uses the perceptually uniform color space appear much more readable.</p>
+    <p>We can also use these new functions to choose random colors that are readable against a specific background color. The example below shows a line of text in random colors using both HSL and HSLuv. Notice how the first example sometimes use  very bright yellows even though the lightness is constant. The latter example that uses the perceptually uniform color space does not have this problem.</p>
 
     <div class="grid">
       <div class="col-2-3">{% codesplit color/perceptually-uniform-color-spaces/random-colors.js lines:'12-27' %}</div>
@@ -97,6 +100,6 @@ fill( rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);</code></pre>
 
   </section>
 
-  <p>Even though P5.js does not understand the concept of perceptually uniform color spaces, this chapter has demonstrated how to use the HSLuv JavaScript library to convert from a perceptually uniform color space into the sRGB color space that P5.js uses. In the coming chapters, we will base most of the color theory on the HSLuv color space, and we will be using these <code>fillHsluv()</code> and <code>strokeHsluv()</code> functions to generate different types of color schemes in P5.js.</p>
+  <p>Even though P5.js does not understand the concept of perceptually uniform color spaces, this chapter has demonstrated how to use the HSLuv JavaScript library to convert from a perceptually uniform color space into the sRGB color space that P5.js uses. In the coming chapters, we will use this technique to procedurally generate color schemes and use them to create dynamic designs in P5.js</p>
 
 </section>
