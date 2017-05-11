@@ -5,28 +5,25 @@ function fillHsluv(h, s, l) {
 
 function setup()
 {
-  createCanvas(600, 850);
-  background(30);
+  createCanvas(600, 770);
+  background(255, 255, 220);
 	noStroke();
 
-  var size = 30;
+  var fontSize = 30;
+  textSize(fontSize);
 
+  translate(50, 50 + fontSize);
   colorMode(HSL);
-  translate(90, 110);
-  for(var i = 0; i < 8; i++) {
-    for(var j = 0; j < 5; j++) {
-      fill(random(360), 100, 50);
-      ellipse(i * size * 2, j * size * 2, size, size);
-    }
+  for(var i = 0; i < 10; i++) {
+    fill(random(360), 100, 50);
+    text("Can you read this line of text?", 0, i * fontSize);
   }
 
   colorMode(RGB);
-  translate(0, 380);
-  for(var i = 0; i < 8; i++) {
-    for(var j = 0; j < 5; j++) {
-      fillHsluv(random(360), 100, 50);
-      ellipse(i * size * 2, j * size * 2, size, size);
-    }
+  translate(0, 340);
+  for(var i = 0; i < 10; i++) {
+    fillHsluv(random(360), 100, 50);
+    text("Can you read this line of text?", 0, i * fontSize);
   }
 
   noLoop();

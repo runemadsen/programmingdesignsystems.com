@@ -80,14 +80,17 @@ title:  Perceptually uniform color spaces
 
     <p>Now that we have the ability to use a perceptually uniform color space in P5.js, we can replicate the rectangle gradient design experiment from the beginning. The following example uses the exact same color values to draw these rectangles in two color modes.</p>
 
-	   CODE
+    <div class="grid">
+      <div class="col-1-2">{% codesplit color/perceptually-uniform-color-spaces/gradient.js lines:'12-26' %}</div>
+      <div class="col-1-2">{% p5 color/perceptually-uniform-color-spaces/gradient.js %}</div>
+    </div>
 
-     <p>We can also use our new functions to choose random colors that are readable against a black background. The example below creates a number of random colors with both the <code>fill()</code> and <code>fillHsluv()</code> functions. Notice how the examples using the perceptually uniform color space appear much more uniform.</p>
+    <p>We can also use our new functions to choose random colors that are readable against a specific background color. The example below shows a line of text in different random colors with a constants lightness using both the <code>fill()</code> and <code>fillHsluv()</code> functions. Notice how the latter example that uses the perceptually uniform color space appear much more readable.</p>
 
-     <div class="grid">
-       <div class="col-2-3">{% codesplit color/perceptually-uniform-color-spaces/random-colors.js lines:'12-30' %}</div>
-       <div class="col-1-3">{% p5 color/perceptually-uniform-color-spaces/random-colors.js %}</div>
-     </div>
+    <div class="grid">
+      <div class="col-2-3">{% codesplit color/perceptually-uniform-color-spaces/random-colors.js lines:'12-27' %}</div>
+      <div class="col-1-3">{% p5 color/perceptually-uniform-color-spaces/random-colors.js %}</div>
+    </div>
 
   </section>
 
