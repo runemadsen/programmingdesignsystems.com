@@ -1,20 +1,16 @@
 {
-  "title" : "Programming Design Systems",
-  "author" : "Rune Madsen",
-  "twitter" : "https://twitter.com/runemadsen",
-  "permalink" : ":parts/:title/index.html",
-  "addPlugins" : [
-    "magicbook-codesplit",
-    "magicbook-webpack",
-    "./plugins/p5"
-  ],
-  "files" : [
+  "title": "Programming Design Systems",
+  "author": "Rune Madsen",
+  "twitter": "https://twitter.com/runemadsen",
+  "permalink": ":parts/:title/index.html",
+  "addPlugins": ["magicbook-codesplit", "magicbook-webpack", "./plugins/p5"],
+  "files": [
     "content/index.html",
     "content/introduction.html",
     "content/what-is-a-design-system.html",
     {
-      "label" : "Shape",
-      "files" : [
+      "label": "Shape",
+      "files": [
         "content/shape/figure-and-ground.html",
         "content/shape/basic-shapes.html",
         "content/shape/custom-shapes.html",
@@ -22,31 +18,30 @@
       ]
     },
     {
-      "label" : "Color",
-      "files" : [
+      "label": "Color",
+      "files": [
         "content/color/a-short-history-of-color-theory.html",
         "content/color/color-models-and-color-spaces.html",
-        "content/color/perceptually-uniform-color-spaces.html"
+        "content/color/perceptually-uniform-color-spaces.html",
+        "content/color/color-schemes.html"
       ]
     },
     "content/more-to-come.html"
   ],
-  "webpack" : "webpack.config.js",
-  "stylesheets" : {
-    "bundle" : true,
-    "compress" : true,
-    "digest" : true,
-    "files" : [
-      "stylesheets/html.scss"
-    ]
+  "webpack": "webpack.config.js",
+  "stylesheets": {
+    "bundle": true,
+    "compress": true,
+    "digest": true,
+    "files": ["stylesheets/html.scss"]
   },
-  "builds" : [
+  "builds": [
     {
-      "format" : "html"
+      "format": "html"
     }
   ],
-  "codesplit" : {
-    "includes" : "examples"
+  "codesplit": {
+    "includes": "examples"
   },
-  "layout" : "layouts/default.html"
+  "layout": "layouts/default.html"
 }
