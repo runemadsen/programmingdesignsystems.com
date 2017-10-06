@@ -56,7 +56,7 @@
 }
 
 .font-normal {
-  font-size: 1.14em;
+  font-size: 1.12em;
   line-height: 1.6em;
 }
 
@@ -69,7 +69,6 @@
 // -------------------------------------------
 
 @media (min-width: $mobileBreak) {
-
   figure.left {
     max-width: 375px;
     float: left;
@@ -85,7 +84,6 @@
     margin-bottom: 30px;
     margin-right: 50px;
   }
-
 }
 
 // Lists
@@ -103,11 +101,12 @@
   background-color: $colorGrayLight;
 }
 
-.white-img canvas, .white-img img {
+.white-img canvas,
+.white-img img {
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
   border: 1px solid #ededed;
   border-right-color: #d4d3d3;
-  border-bottom-color: #d4d3d3
+  border-bottom-color: #d4d3d3;
 }
 
 // Buttons
