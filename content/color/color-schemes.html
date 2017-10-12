@@ -19,61 +19,85 @@ title:  Color schemes
   <p>Even though this systematic approach might seem like a perfect fit for this book, I believe this method to be highly problematic. One problem is that color schemes within a single category do not have any coherent visual effect. Triadic and tetradic color schemes can look remarkably similar, even identical, if the spacing between hues is tweaked slightly. Also, the visual effect of a pure triadic color scheme in the sRGB color space is very different from the same color scheme in CIELUV. Worst of all, this approach also tends to ignore the saturation and lightness dimensions, which are left for designers to figure out for themselves. The three color schemes below all share the exact same hue values, but produce wildly different outcomes by changing their saturation and lightness values. A color theory that ignores two-thirds of the color dimensions will not help designers make better decisions.</p>
 
   <div class="grid">
-    {% p5 color/color-schemes/triadic-colors-1.js class:'col-1-3' %}
-    {% p5 color/color-schemes/triadic-colors-2.js class:'col-1-3' %}
-    {% p5 color/color-schemes/triadic-colors-3.js class:'col-1-3' %}
+    {% p5 color/color-schemes/scheme-triadic-1.js class:'col-1-3' %}
+    {% p5 color/color-schemes/scheme-triadic-2.js class:'col-1-3' %}
+    {% p5 color/color-schemes/scheme-triadic-3.js class:'col-1-3' %}
   </div>
+  <div class="caption">These three triadic colors schemes have exactly the same hue values, and look identical when plotted on the color circle. The term 'triadic' does not help to describe their distinct visual effects.</div>
 
   <p>Instead, this chapter will present a color theory built around the three dimensions of the HSL color model. By focusing on the hue, saturation, and lightness of colors – and how these dimensions interact – designers can learn how changes in code are reflected visually, and compose interesting color combinations from this knowledge. In the following, we will go through these dimensions in reverse order, using the <a data-type='xref' href="#hsluv">HSLuv library</a> to ensure that changes in our code reflect actual perceptual changes in color.</p>
 
-Lightness
+  <section data-type="sect1">
 
-The lightness of a color determines how much black is mixed into the color. A color with 0 lightness is black, while a color with 100 lightness is white. Pure colors lie in the middle of this scale with a value of 50 (LINK). The contrast of light and dark is a significant one, and even though we can create contrasts between colors by manipulating any of the HSL dimensions, the term ‘contrast’ most times refers to changes in lightness. The examples below demonstrate the effect of both a low-contrast and a high-contrast color scheme. The first example appears soft and light, which is a result of the high lightness values with small differences in lightness between each color. The second example appears bolder and has a significant positive/negative effect caused by the large differences in lightness for neighbouring colors.
+    <h1>Lightness</h1>
 
-[ Patch: Soft ]
-[ Patch: Hard, black BG ]
+    <p>The lightness of a color determines how much black is mixed into the color (See <a href="#hsl-description" data-type="xref">Color Models and Color Spaces</a> chapter). The contrast of light and dark is a significant one, and even though we can create contrasts between colors by manipulating any of the HSL dimensions, the term ‘contrast’ most times refers to changes in lightness. The examples below demonstrate the effect of both a low-contrast and a high-contrast color scheme. The first example appears soft and light, which is a result of the high lightness values with small differences in lightness between each color. The second example appears bolder and has a significant positive/negative effect caused by the large differences in lightness for neighbouring colors.</p>
 
-Muriel Cooper was a highly influential graphic designer who did important work in early digital design and user interface design. As co-founder of the MIT Media Lab and Design Director of MIT Press, she oversaw production of more than 500 books, and she is widely known for her black and white designs  Below are two of her more famous designs that rely solely on the lightness dimension.
+    <div class="grid">
+      <div class="col-1-2">
+        {% p5 color/color-schemes/scheme-lightness-1.js %}
+        {% codesplit color/color-schemes/scheme-lightness-1.js lines:'9-14' %}
+      </div>
+      <div class="col-1-2">
+        {% p5 color/color-schemes/scheme-lightness-2.js %}
+        {% codesplit color/color-schemes/scheme-lightness-2.js lines:'9-14' %}
+      </div>
+    </div>
 
-[ Muriel Cooper ]
+    <p>Muriel Cooper was a highly influential graphic designer who did important work in early digital design and user interface design. As co-founder of the MIT Media Lab and Design Director of MIT Press, she oversaw production of more than 500 books, and she is widely known for her black and white designs  Below are two of her more famous designs that rely solely on the lightness dimension.</p>
 
-Choosing a proper contrast is especially important when working with text, as readability is determined by the contrast between text and background. The World Wide Web Consortium recommends in their Web Content Accessibility Guidelines that body text should have a contrast ratio of at least 4.5:1, and they provide the following formula to calculate this contrast ratio.
+    <div class="grid">
+      <figure class="col-1-2">
+        <img src="color/color-schemes/mit-press.jpg" />
+        <figcaption>The logo for MIT Press <a href="#fairuse">©</a>.</figcaption>
+      </figure>
+      <figure class="col-1-2">
+        <img src="color/color-schemes/bauhaus-book.jpg" />
+        <figcaption>Cover design for a book on the Bauhaus published by MIT Press <a href="#fairuse">©</a>.</figcaption>
+      </figure>
+    </div>
 
-contrast ratio
-(L1 + 0.05) / (L2 + 0.05), where
-L1 is the relative luminance of the lighter of the colors, and
-L2 is the relative luminance of the darker of the colors.
+    <p>Choosing a proper contrast is especially important when working with text, as readability is determined by the contrast between text and background. The World Wide Web Consortium recommends in their <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">Web Content Accessibility Guidelines</a> that body text should have a contrast ratio of at least <code>4.5:1</code> (or lower than <code>0.222</code> as a fraction), and they provide the following formula to calculate this contrast ratio for two lightness values.</p>
 
-This formula requires all lightness values to be provided in relative luminance, which refers to the Y dimension in the CIEXYZ color space. To calculate the W3C contrast ratio for a HSLuv color, we therefore first need to convert the lightness value into the CIEXYZ color space, and then use the formula above to calculate the contrast ratio. This is demonstrated in the code example below, where we check the W3C contrast ratio for two HSLuv colors.
+    <pre class="text-width"><code>var contrastRatio = (l1 + 0.05) / (l2 + 0.05);</code></pre>
 
-function contrastRatio(l1, l2) {
-   // lightness to relative luminance
-   if (l <= 8) {
-    return 1.0 * l / 903.2962962;
-   } else {
-     return 1.0 * Math.pow((l + 16) / 116, 3);
-   }
-   // use contrast ration formula!!
-}
+    <p>This formula requires the two lightness values to be provided in relative luminance, which refers to the Y dimension in the CIEXYZ color space. To calculate the W3C contrast ratio for a HSLuv color, we therefore first need to convert the lightness value into the CIEXYZ color space, and then use the formula above to calculate the contrast ratio. This is demonstrated in the code example below, where we check the W3C contrast ratio for two HSLuv colors.</p>
 
-contrastRatio(50, 60) //=> BAD RESULT
-contrastRatio(50, 60) //=> GOOD RESULT
+    {% codesplit color/color-schemes/contrast-ratio.js class:'media-width' %}
 
-Lightness plays an important role in any color scheme, both when it comes to accessibility and aesthetics. Like the previous exercises in this book, it is recommended that aspiring designers practice designing only in black and white to learn how to establish proper contrast in their designs. ‘What does it look like in black and white’ is a good question to ask if a design seems cluttered, as it can reveal a lack of contrast between shapes in the design.
+    <p>Lightness plays an important role in any color scheme, both when it comes to accessibility and aesthetics. Like the previous exercises in this book, it is recommended that aspiring designers practice designing only in black and white to learn how to establish proper contrast in their designs. <em>‘What does it look like in black and white’</em> is a good question to ask if a design seems cluttered, as it can reveal a lack of contrast between shapes in the design.</p>
 
-Saturation
+  </section>
 
-The saturation of a color controls the purity of the color from grayscale (0) to full color (100) (LINK). You can use this dimension to create color combinations that range from the very muted to the extremely bright. The two examples below use the same lightness and hue values, and differ only in their saturation values.
+  <section data-type="sect1">
 
-[ block examples ]
+    <h1>Saturation</h1>
 
-In user interface design, saturation is often used to distinguish passive and active interface components. Apple’s iOS operating system utilizes a desaturated color scheme for general interface elements, but fully saturated colors for key actions such as enabled toggle buttons (saturated blue) and app notifications (saturated red). This makes it possible for users to quickly interpret the state of the interface and notice when a new app event happened, like an LED lighting up on an old switchboard.
+    <p>The saturation of a color controls the purity of the color from grayscale to full color (See <a href="#hsl-description" data-type="xref">Color Models and Color Spaces</a> chapter). You can use this dimension to create color combinations that range from the very muted to the extremely bright. The two examples below use the same lightness and hue values, and differ only in their saturation values.</p>
 
-[ UI examples with muted + fully saturated for callout ]
+    <div class="grid">
+      <div class="col-1-2">
+        {% p5 color/color-schemes/scheme-saturation-1.js %}
+        {% codesplit color/color-schemes/scheme-saturation-1.js lines:'9-14' %}
+      </div>
+      <div class="col-1-2">
+        {% p5 color/color-schemes/scheme-saturation-2.js %}
+        {% codesplit color/color-schemes/scheme-saturation-2.js lines:'9-14' %}
+      </div>
+    </div>
 
-A good analogy to consider when working with saturations of color is the way many countries have distinct ways of painting houses in their cities.The saturations of these paints can vary greatly, and although these colors do not have any inherent meaning, they do say something about the time, place, and people. Imagine a small village in Japan with its muted, desaturated colors, and compare this to a place like Mexico City, where houses are painted in very pure, saturated colors. These colors reflect the culture around them, and you should consider your content in the same way: Does it demand lively colors or a subdued, modernist scheme? The saturation of your colors is the key to this.
+    <p>In user interface design, saturation is often used to distinguish passive and active interface components. Apple’s iOS operating system utilizes a desaturated color scheme for general interface elements, but fully saturated colors for key actions such as enabled toggle buttons (saturated blue) and app notifications (saturated red). This makes it possible for users to quickly interpret the state of the interface and notice when a new app event happened, like an LED lighting up on an old switchboard.</p>
+
+    <figure class="media-width">
+      <img src="color/color-schemes/ios.jpg" />
+      <figcaption>The control center in iOS 11 uses a monoschrome color scheme but fully saturated colors for active buttons. <a href="#fairuse">©</a>.</figcaption>
+    </figure>
+
+    <p>A good analogy to consider when working with saturations of color is the way many countries have distinct ways of painting houses in their cities.The saturations of these paints can vary greatly, and although these colors do not have any inherent meaning, they do say something about the time, place, and people. Imagine a small village in Japan with its muted, desaturated colors, and compare this to a place like Mexico City, where houses are painted in very pure, saturated colors. These colors reflect the culture around them, and you should consider your content in the same way: Does it demand lively colors or a subdued, modernist scheme? The saturation of your colors is the key to this.</p>
 
 [ Mexico city houses ] [ Japanese houses ]
+
+  </section>
 
 Hue
 
