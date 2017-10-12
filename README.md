@@ -13,6 +13,8 @@ Here's a running list of people who submitted edits.
 - Morten Skjoldborg Madsen
 - Patrick Hebron
 - Jonathan Howard
+- Grey Vaisius
+- Enrico Baculinao
 
 # Build
 
