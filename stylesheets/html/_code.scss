@@ -30,10 +30,11 @@ figure + .codesplit {
 // Highlight
 // -------------------------------------------------
 
-code .token.keyword { color: $color7 }
-code .token.variable, code .token.function { color: $color3 }
-code .token.property { color: $color5 }
-code .token.string, code .token.number { color: $color6 }
+code .token.keyword { color: #da3a3a }
+code .token.variable { color: #de4646 }
+code .token.function { color: #07b194 }
+code .token.string { color: #ff8600 }
+code .token.number { color: #ff8600 }
 code .comment { color: #b4b4b4 }
 
 // Codesplit
@@ -80,6 +81,7 @@ code .comment { color: #b4b4b4 }
 
       .comment {
         p {
+          color: #43af9d;
           padding-right: 1em;
         }
         width: 40%;
@@ -99,7 +101,7 @@ code .comment { color: #b4b4b4 }
     }
 
     .pair:not(.no-comment) {
-      background: #e2e2e2;
+      background: #e1ecea;
     }
 
   }

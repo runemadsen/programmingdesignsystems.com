@@ -97,6 +97,8 @@ article {
     display: none;
     text-align: center;
     a {
+      border-color: $colorGreen;
+      color: $colorGreen;
       display: inline-block;
     }
   }
