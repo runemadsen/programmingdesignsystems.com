@@ -6,7 +6,7 @@ function setup() {
   rectMode(CENTER);
   var size = width * 0.3;
   rect(width/2, height/2, size, size);
-  fill("#E1B000");
+  fill(40, 180, 155);
   ellipse(width/2, height/2, size*0.1, size*0.1);
   noLoop();
 }

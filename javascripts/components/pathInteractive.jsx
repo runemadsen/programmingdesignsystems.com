@@ -61,21 +61,21 @@ module.exports = React.createClass({
 
     var draggerStyles = {
       fillOpacity: 0.1,
-      fill: '#E1B000',
-      stroke: '#E1B000',
+      fill: '#07B190',
+      stroke: '#07B190',
       strokeWidth: 2,
       cursor: 'move',
       pointerEvents: 'all'
     }
 
     var lineStyles = {
-      stroke: '#E1B000',
+      stroke: '#07B190',
       strokeWidth: 1.5
     }
 
     var helperStyles = {
       fontSize: 13,
-      fill: '#E1B000',
+      fill: '#07B190',
       stroke: 'none'
     }
 
