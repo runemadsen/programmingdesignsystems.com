@@ -56,7 +56,7 @@ module.exports = React.createClass({
     var that = this;
 
     var svgStyles = {
-      backgroundColor: '#ffffdc'
+      backgroundColor: '#f1f1f1'
     }
 
     var draggerStyles = {

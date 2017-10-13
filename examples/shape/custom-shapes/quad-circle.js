@@ -1,7 +1,7 @@
 function setup()
 {
   createCanvas(600, 500);
-  background(255, 255, 220);
+  background(240);
 
   var r = width * 0.25;
 

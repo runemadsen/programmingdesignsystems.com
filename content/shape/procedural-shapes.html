@@ -17,7 +17,7 @@ title:  Procedural Shapes
     <p>Sine and Cosine allow us to find any position on the outline of an ellipse. They do this by converting an angle into an <code>x</code> position (Cosine) or a <code>y</code> position (Sine) for a circle with a 1 pixel radius. These values can then be multiplied by the radius of your actual circle to scale them up. Although it is not strictly necessary to understand how these functions work internally, here is a way to visualize what is going on: Imagine a right sided triangle connecting the center of the circle to the point on the outline. The Sine function is a quick way to get the ratio between the left side (hypotenuse) and the right side (opposite) of that triangle. The Cosine function is likewise the ratio between the hypotenuse and the bottom side (adjacent) of the triangle.</p>
 
     <figure class="text-width">
-      <svg width="100%" viewBox="0 0 600 500" class="bg4">
+      <svg width="100%" viewBox="0 0 600 500" style="background-color: #f1f1f1">
         <circle cx="300" cy="250" r="200" stroke="#333333" fill="none" stroke-dasharray="5, 5" stroke-weight="1" />
         <circle cx="473" cy="150" r="12" fill="#333333" stroke="none" />
         <circle cx="300" cy="250" r="5" fill="#333333" stroke="none" />
@@ -43,7 +43,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <div class="grid">
       <div class="col-1-2">
-        {% codesplit shape/procedural-shapes/circles.js lines:'6-13' %}
+        {% codesplit shape/procedural-shapes/circles.js lines:'6-15' %}
       </div>
       <div class="col-1-2">
         {% p5 shape/procedural-shapes/circles.js %}
@@ -62,7 +62,7 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <div class="grid">
       <div class="col-1-2">
-        {% codesplit shape/procedural-shapes/for.js lines:'7-9' %}
+        {% codesplit shape/procedural-shapes/for.js lines:'8-10' %}
       </div>
       <div class="col-1-2">
         {% p5 shape/procedural-shapes/for.js %}
@@ -73,18 +73,18 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <div class="grid">
       <div class="col-1-2">
-        {% codesplit shape/procedural-shapes/for-i.js lines:'7-9' %}
+        {% codesplit shape/procedural-shapes/for-i.js lines:'8-10' %}
       </div>
       <div class="col-1-2">
         {% p5 shape/procedural-shapes/for-i.js %}
       </div>
     </div>
 
-    <p>Although it might not be immediately clear, this is an important technique when drawing procedural designs. Because <code>i</code> increments by one between each iteration, it can be used as a scalar to distribute shapes across the canvas. For example, if we want to position the rectangles next to each other, we can multiply <code>i</code> with the width of the rectangles.</p>
+    <p>Although it might not be immediately clear, this is an important technique when drawing procedural designs. Because <code>i</code> increments by one between each iteration, it can be used as a scalar to distribute shapes across the canvas. For example, if we want to position the rectangles next to each other, we can multiply <code>i</code> with a number greater than the width of the rectangles.</p>
 
     <div class="grid">
       <div class="col-1-2">
-        {% codesplit shape/procedural-shapes/for-i-multiply.js lines:'7-9' %}
+        {% codesplit shape/procedural-shapes/for-i-multiply.js lines:'8-10' %}
       </div>
       <div class="col-1-2">
         {% p5 shape/procedural-shapes/for-i-multiply.js %}
@@ -134,22 +134,22 @@ var y = sin(RADIANS) * RADIUS;</code></pre>
 
     <p>‘Great, we have reinvented the basic shape functions’ you might say. Actually, this technique allows us to draw much more sophisticated shapes. Let's run through a few examples that all use the same <code>sin()</code> and <code>cos()</code> formula to draw different types of shapes. We'll start with the squiggly circle below that has a random radius for each vertex, making it look like it was drawn by hand.</p>
 
-    {% p5 shape/procedural-shapes/squiggly.js class:'text-width margin-bottom' %}
+    {% p5 shape/procedural-shapes/squiggly.js class:'text-width' %}
     {% codesplit shape/procedural-shapes/squiggly.js class:'columns' lines:'8-18' %}
 
     <p>The star below is created by alternating between a low and a high radius for each vertex. It's easy to tweak the style of the star by using different numbers or more vertices, or using <code>rotate()</code> to change the orientation of the star.</p>
 
-    {% p5 shape/procedural-shapes/star.js class:'text-width margin-bottom' %}
+    {% p5 shape/procedural-shapes/star.js class:'text-width' %}
     {% codesplit shape/procedural-shapes/star.js class:'columns' lines:'8-28' %}
 
     <p>Here is a flower created with <code>quadraticVertex()</code> where all vertices and control points are positioned using <code>sin()</code> and <code>cos()</code>. By using a larger radius for the control points (the inverse of the star example above), the curves go outwards. When using Bézier curves, remember to start the shape with a <code>vertex()</code> function call. We do this by checking the value of <code>i</code> within the loop.</p>
 
-    {% p5 shape/procedural-shapes/flower.js class:'text-width margin-bottom' %}
+    {% p5 shape/procedural-shapes/flower.js class:'text-width' %}
     {% codesplit shape/procedural-shapes/flower.js lines:'10-36' class:'columns' %}
 
     <p>You will often find yourself needing to use just one of the circular functions. The two shapes below are created just like that: The first one uses <code>sin()</code> and the second one uses <code>cos()</code> (as demonstrated in the code below).</p>
 
-    <div class="grid margin-bottom">
+    <div class="grid">
       <div class="col-1-2">
         {% p5 shape/procedural-shapes/wave-sin.js %}
       </div>

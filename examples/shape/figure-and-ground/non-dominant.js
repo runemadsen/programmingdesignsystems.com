@@ -1,7 +1,7 @@
 function setup() {
 
   createCanvas(600, 450);
-  background(255, 255, 220);;
+  background(240);
 
   var rectSize = height * 0.1;
 

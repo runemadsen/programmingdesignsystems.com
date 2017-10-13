@@ -1,7 +1,7 @@
 function setup() {
 
   createCanvas(600, 500);
-  background(255, 255, 220);
+  background(240);
 
   var w = width * 0.35;
   var h = width * 0.5;

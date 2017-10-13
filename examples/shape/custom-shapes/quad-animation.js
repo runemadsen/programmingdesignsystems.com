@@ -25,7 +25,7 @@ function setup()
 
 function draw()
 {
-  background(255, 255, 220);
+  background(240);
 
   var percent = frameCount % 100 / 100;
 

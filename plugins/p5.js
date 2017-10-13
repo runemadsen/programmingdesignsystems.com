@@ -112,13 +112,22 @@ Plugin.prototype = {
       var script = 'window.p5Examples = window.p5Examples || [];\n'
         + 'window.p5Examples.push(["'+idAttr+'", function(p) {' + code + '}])';
 
-      // Render baby
-      var output = '<figure class="'+(attrs.class||'')+'"><div id="'+idAttr+'"></div><script type="text/javascript">'+script+'</script>';
+      var caption = false;
       if(attrs.link || attrs.caption) {
-        output += '<figcaption>'
-        if(attrs.caption) output += attrs.caption;
-        if(attrs.link) output += ' <a target="_blank" href="https://github.com/runemadsen/programmingdesignsystems.com/tree/master/'+examplePath+'">See Code</a>'
-        output += '</figcaption>'
+        caption = '<figcaption>';
+        if(attrs.caption) caption += attrs.caption;
+        if(attrs.link)    caption += ' <a target="_blank" href="https://github.com/runemadsen/programmingdesignsystems.com/tree/master/'+examplePath+'">See Code</a>'
+        caption += '</figcaption>'
+      }
+
+      // Render baby
+      var output = '<figure class="'+(attrs.class||'')+'">';
+      if(caption && attrs.captionPosition == 'top') {
+        output += caption;
+      }
+      output += '<div id="'+idAttr+'"></div><script type="text/javascript">'+script+'</script>';
+      if(caption && attrs.captionPosition !== 'top') {
+        output += caption;
       }
       output += '</figure>'
       context.astStack.push(tinyliquid.parse(output));

@@ -32,7 +32,15 @@ section[data-type="chapter"] {
   }
 
   a {
-    box-shadow: inset 0 -3px 0 $color2;
+    box-shadow: inset 0 -2px 0 #757575;
+  }
+
+  figure figcaption:first-child {
+    margin-bottom: 0.6em;
+  }
+
+  figure figcaption:last-child {
+    margin-top: 0.6em;
   }
 
   figcaption a {

@@ -57,7 +57,6 @@ figure {
 figure figcaption {
   @extend .font-small;
   color: $fontGrayLight;
-  margin-top: 0.8em;
   a {
     color: $fontGrayLight;
   }
@@ -66,6 +65,11 @@ figure figcaption {
 figure img {
   width: 100%;
   height: auto;
+}
+
+figure + .caption,
+.grid + .caption {
+  margin-top: $spacing / 2;
 }
 
 span[data-type='footnote'] {

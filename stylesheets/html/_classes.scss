@@ -1,6 +1,10 @@
 // Spacing
 // -------------------------------------------
 
+.half-margin-top {
+  margin-top: $spacing / 2;
+}
+
 .margin-bottom {
   margin-bottom: $spacing;
 }

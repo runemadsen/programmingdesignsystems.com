@@ -11,7 +11,7 @@ function strokeHsluv(h, s, l) {
 function setup()
 {
   createCanvas(600, 400);
-  background(255, 255, 220);
+  background(240);
 
   noStroke();
   fillHsluv(0, 100, 50);

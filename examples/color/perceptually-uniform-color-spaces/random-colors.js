@@ -6,7 +6,7 @@ function fillHsluv(h, s, l) {
 function setup()
 {
   createCanvas(600, 770);
-  background(255, 255, 220);
+  background(240);
 	noStroke();
 
   var fontSize = 30;

@@ -16,7 +16,7 @@ title:  Color schemes
     {% p5 color/color-schemes/tetradic.js class:'col-1-2' caption:'A tetradic color scheme with four evenly spaced hues.' %}
   </div>
 
-  <p>Even though this systematic approach might seem like a perfect fit for this book, I believe this method to be highly problematic. One problem is that color schemes within a single category do not have any coherent visual effect. Triadic and tetradic color schemes can look remarkably similar, even identical, if the spacing between hues is tweaked slightly. Also, the visual effect of a pure triadic color scheme in the sRGB color space is very different from the same color scheme in CIELUV. Worst of all, this approach also tends to ignore the saturation and lightness dimensions, which are left for designers to figure out for themselves. The three color schemes below all share the exact same hue values, but produce wildly different outcomes by changing their saturation and lightness values. A color theory that ignores two-thirds of the color dimensions will not help designers make better decisions.</p>
+  <p>Even though this systematic approach might seem like a perfect fit for this book, I believe this method to be highly problematic. One problem is that color schemes within a single category do not have any coherent visual effect. Triadic and tetradic color schemes can look remarkably similar, even identical, if the spacing between hues is tweaked slightly. Also, the visual effect of a pure triadic color scheme in the sRGB color space is very different from the same color scheme in CIELUV. Worst of all, this approach tends to ignore the saturation and lightness dimensions, which are left for designers to figure out for themselves. The three color schemes below all share the exact same hue values, but produce wildly different outcomes by changing their saturation and lightness values. A color theory that ignores two-thirds of the color dimensions will not help designers make better decisions.</p>
 
   <div class="grid">
     {% p5 color/color-schemes/scheme-triadic-1.js class:'col-1-3' %}
@@ -31,15 +31,15 @@ title:  Color schemes
 
     <h1>Lightness</h1>
 
-    <p>The lightness of a color determines how much black is mixed into the color (See <a href="#hsl-description" data-type="xref">Color Models and Color Spaces</a> chapter). The contrast of light and dark is a significant one, and even though we can create contrasts between colors by manipulating any of the HSL dimensions, the term ‘contrast’ most times refers to changes in lightness. The examples below demonstrate the effect of both a low-contrast and a high-contrast color scheme. The first example appears soft and light, which is a result of the high lightness values with small differences in lightness between each color. The second example appears bolder and has a significant positive/negative effect caused by the large differences in lightness for neighbouring colors.</p>
+    <p>The lightness of a color determines how much black is mixed into the color (See <a href="#hsl-description" data-type="xref">Color Models and Color Spaces</a>). The contrast of light and dark is a significant one, and even though we can create contrasts between colors by manipulating any of the HSL dimensions, the term ‘contrast’ most times refers to changes in lightness. The examples below demonstrate the effect of both a low-contrast and a high-contrast color scheme. The first example appears soft and light, which is a result of the high lightness values with small differences in lightness between each color. The second example appears bolder and has a significant positive/negative effect caused by the large differences in lightness for neighbouring colors.</p>
 
     <div class="grid">
       <div class="col-1-2">
-        {% p5 color/color-schemes/scheme-lightness-1.js %}
+        {% p5 color/color-schemes/scheme-lightness-1.js caption:'A color scheme with low contrast' captionPosition:'top' %}
         {% codesplit color/color-schemes/scheme-lightness-1.js lines:'9-14' %}
       </div>
       <div class="col-1-2">
-        {% p5 color/color-schemes/scheme-lightness-2.js %}
+        {% p5 color/color-schemes/scheme-lightness-2.js caption:'A color scheme with high contrast' captionPosition:'top' %}
         {% codesplit color/color-schemes/scheme-lightness-2.js lines:'9-14' %}
       </div>
     </div>
@@ -73,15 +73,15 @@ title:  Color schemes
 
     <h1>Saturation</h1>
 
-    <p>The saturation of a color controls the purity of the color from grayscale to full color (See <a href="#hsl-description" data-type="xref">Color Models and Color Spaces</a> chapter). You can use this dimension to create color combinations that range from the very muted to the extremely bright. The two examples below use the same lightness and hue values, and differ only in their saturation values.</p>
+    <p>The saturation of a color controls the purity of the color from grayscale to full color (See <a href="#hsl-description" data-type="xref">Color Models and Color Spaces</a>). You can use this dimension to create color combinations that range from the very muted to the extremely bright. The two examples below use the same lightness and hue values, and differ only in their saturation values.</p>
 
     <div class="grid">
       <div class="col-1-2">
-        {% p5 color/color-schemes/scheme-saturation-1.js %}
+        {% p5 color/color-schemes/scheme-saturation-1.js caption:'A desaturated color scheme' captionPosition:'top' %}
         {% codesplit color/color-schemes/scheme-saturation-1.js lines:'9-14' %}
       </div>
       <div class="col-1-2">
-        {% p5 color/color-schemes/scheme-saturation-2.js %}
+        {% p5 color/color-schemes/scheme-saturation-2.js caption:'A saturated color scheme' captionPosition:'top' %}
         {% codesplit color/color-schemes/scheme-saturation-2.js lines:'9-14' %}
       </div>
     </div>

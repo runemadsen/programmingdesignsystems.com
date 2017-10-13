@@ -1,7 +1,7 @@
 code, pre {
   font-family: $fontCode;
-  color: $color5;
-  background: $color4;
+  color: #313131;
+  background: #f1f1f1;
 }
 
 pre {
@@ -20,6 +20,11 @@ code {
 
 pre code {
   padding: 0;
+}
+
+.grid + .codesplit,
+figure + .codesplit {
+  margin-top: $spacing / 2;
 }
 
 // Highlight
@@ -51,7 +56,7 @@ code .comment { color: #b4b4b4 }
   .codesplit.columns .comment p:before { content: "// "; }
   .codesplit.columns .comment {
     color: #b4b4b4;
-    background: $color4;
+    background: #f1f1f1;
     font-family: $fontCode;
   }
 }
@@ -60,7 +65,7 @@ code .comment { color: #b4b4b4 }
 
   .codesplit.columns {
 
-    background: $color4;
+    background: #f1f1f1;
     padding: 0.5em 1em;
 
     .pair {
@@ -94,7 +99,7 @@ code .comment { color: #b4b4b4 }
     }
 
     .pair:not(.no-comment) {
-      background: $color8
+      background: #e2e2e2;
     }
 
   }
