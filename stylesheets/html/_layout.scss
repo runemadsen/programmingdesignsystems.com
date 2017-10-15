@@ -157,6 +157,10 @@ article {
 // Grid
 // -------------------------------------------------
 
+.grid + .grid {
+  margin-top: $spacing / 2;
+}
+
 @media (min-width: $tabletBreak) {
 
   .grid {

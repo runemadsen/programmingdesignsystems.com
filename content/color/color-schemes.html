@@ -23,7 +23,7 @@ title:  Color schemes
     {% p5 color/color-schemes/scheme-triadic-2.js class:'col-1-3' %}
     {% p5 color/color-schemes/scheme-triadic-3.js class:'col-1-3' %}
   </div>
-  <div class="caption">These three triadic colors schemes have exactly the same hue values, and look identical when plotted on the color circle. The term 'triadic' does not help to describe their distinct visual effects.</div>
+  <div class="caption">These three triadic colors schemes have the same hue values, and look identical when plotted on the color circle. The term 'triadic' does not help to describe their distinct visual effects.</div>
 
   <p>Instead, this chapter will present a color theory built around the three dimensions of the HSL color model. By focusing on the hue, saturation, and lightness of colors – and how these dimensions interact – designers can learn how changes in code are reflected visually, and compose interesting color combinations from this knowledge. In the following, we will go through these dimensions in reverse order, using the <a data-type='xref' href="#hsluv">HSLuv library</a> to ensure that changes in our code reflect actual perceptual changes in color.</p>
 
@@ -95,35 +95,80 @@ title:  Color schemes
 
     <p>A good analogy to consider when working with saturations of color is the way many countries have distinct ways of painting houses in their cities.The saturations of these paints can vary greatly, and although these colors do not have any inherent meaning, they do say something about the time, place, and people. Imagine a small village in Japan with its muted, desaturated colors, and compare this to a place like Mexico City, where houses are painted in very pure, saturated colors. These colors reflect the culture around them, and you should consider your content in the same way: Does it demand lively colors or a subdued, modernist scheme? The saturation of your colors is the key to this.</p>
 
-[ Mexico city houses ] [ Japanese houses ]
+    <div class="grid">
+      <figure class="col-1-2">
+        <img src="color/color-schemes/japanese-town.jpg" />
+        <figcaption>A Japanese town in desaturated colors. Image by <a href="https://ja.wikipedia.org/wiki/%E5%88%A9%E7%94%A8%E8%80%85:663highland">663h</a>.
+        </figcaption>
+      </figure>
+      <figure class="col-1-2">
+        <img src="color/color-schemes/mexican-town.jpg" />
+        <figcaption>Houses in Mexico painted in saturated colors.</figcaption>
+      </figure>
+    </div>
 
   </section>
 
-Hue
+  <section data-type="sect1">
 
-The hue dimension determines which actual color to show as represented by color names such as red, green, and blue. The HSL hue dimension goes from 0 to 360,  representing degrees on a circular color spectrum (LINK). As mentioned in a previous chapter, there is no coherent theory about which hue combinations produce harmonic results. Although many have tried, it is impossible to make a generalized theory about such a thing (O'Connor, Zena (2010) Color Harmony Revisited, p. 267-273. Color Research and Application. Volume 35, Issue 4). However, it can be beneficial to draw some conclusions from how hue combinations exist in the real world.
+    <h1>Hue</h1>
 
-In nature, we often see small hue differences in the red-green parts of the color spectrum. In the spring, trees and plants will take on an almost monochrome bright green color scheme, but as the season turns to fall, these colors will spread slightly into a multitude of analogous colors of green, yellow, and red. You will often find such hue combinations in design products looking to evoke feelings of tranquility or peace, such as yoga studios, organic food products, and wedding invitations. A different type of analogous color scheme can be found in photos from outer space, where brighter colors in the blue/green parts of the spectrum create an almost alien effect. These colors are often used in technology or software products that want to appear streamlined and deliberately manufactured. It is not a coincidence that Apple and Microsoft stores look like the inside of a spaceship: They are designed to make customers feel like they entered a state-of-the-art science lab, because it makes them accept the higher price point. These are two types of color schemes with colors close to each other on the spectrum, but with very different visual effects.
+    <p>The hue dimension determines which actual color to show as represented by color names such as red, green, and blue (See <a href="#hsl-description" data-type="xref">Color Models and Color Spaces</a>). As mentioned in a previous chapter, there is no coherent theory about which hue combinations produce harmonic results. Although many have tried, it is impossible to make a generalized theory about such a thing. <span data-type="footnote">O'Connor, Zena (2010) <em>Color Harmony Revisited</em>, p. 267-273. Color Research and Application. Volume 35, Issue 4</span> However, it can be beneficial to draw some conclusions from how hue combinations exist in the real world.</p>
 
-[ Nature photo ]
-[ Nature Scheme + code ]
+    <p>In nature, we often see small hue differences in the red-green parts of the color spectrum. In the spring, trees and plants will take on an almost monochrome bright green color scheme, but as the season turns to fall, these colors will spread slightly into a multitude of analogous colors of green, yellow, and red. You will often find such hue combinations in design products looking to evoke feelings of tranquility or peace, such as yoga studios, organic food products, and wedding invitations. A different type of analogous color scheme can be found in photos from outer space, where brighter colors in the blue/green parts of the spectrum create an almost alien effect. These colors are often used in technology or software products that want to appear streamlined and deliberately manufactured. It is not a coincidence that Apple and Microsoft stores look like the inside of a spaceship: They are designed to make customers feel like they entered a state-of-the-art science lab, because it makes them accept the higher price point. These are two types of color schemes with colors close to each other on the spectrum, but with very different visual effects.</p>
 
-[ Space photo ]
-[ Space scheme + code ]
+    <div class="grid">
+      <figure class="col-1-2">
+        <figcaption>Analogous colors in nature.</figcaption>
+        <img src="color/color-schemes/nature-colors.jpg" />
+      </figure>
+      <figure class="col-1-2">
+        <figcaption>Analogous colors in space.</figcaption>
+        <img src="color/color-schemes/space-colors.jpg" />
+      </figure>
+    </div>
 
-A more profound effect happens when the distance between hues is increased. However, this statement can be deceiving. Although colors close to each other have a nice, analogous effect, colors on opposite sides of the color circle do not necessarily have the most pronounced hue contrast. The visual effect of two hues cannot be interpreted alone, as much is determined by the actual hues chosen, how they are used in a design, as well as their saturation and lightness values.
+    <div class="grid">
+      <div class="col-1-2">
+        {% p5 color/color-schemes/scheme-analogous-1.js %}
+        {% codesplit color/color-schemes/scheme-analogous-1.js lines:'9-14' %}
+      </div>
+      <div class="col-1-2">
+        {% p5 color/color-schemes/scheme-analogous-2.js %}
+        {% codesplit color/color-schemes/scheme-analogous-2.js lines:'9-14' %}
+      </div>
+    </div>
+
+    <p>A more profound effect happens when the distance between hues is increased. However, this statement can be deceiving. Although colors close to each other have a nice, analogous effect, colors on opposite sides of the color circle do not necessarily have the most pronounced hue contrast. The visual effect of two hues cannot be interpreted alone, as much is determined by the actual hues chosen, how they are used in a design, as well as their saturation and lightness values.</p>
 
 WRITE SOMETHING ABOUT THE EXAMPLE BELOW WHEN IT IS DONE.
 
 [ Four designs with: low, medium, large, extra large hue spacing. Caption says the spacing and talks about how it feels ]
 
-We cannot discuss the hue dimension without mentioning the various types of color blindness that makes it hard for many to distinguish certain hues. The most prevalent color blindness is red-green, which makes it hard to distinguish red and green hues from each other. If the green retina cone is severely damaged, some people can only see the color blue. A more infrequent type of color blindness is blue-yellow, where blue, yellow, and green is indistinguishable. Also, in the rarest of cases, some people have complete monochrome vision. Up to 8% of men and 0.5% of women worldwide suffer from color blindness (Gegenfurtner, Karl. R.; Sharpe, Lindsay. T. (2001) Color Vision: From Genes to Perception, p. 3-11. Cambridge University Press). This means that a color scheme, especially one needed for instructional use, should not rely solely on hues to create color contrasts. Lightness should always be considered, as the ability to distinguish colors by contrast is shared by almost anyone who are not vision-impaired.
+    <p>We cannot discuss the hue dimension without mentioning the various types of color blindness that makes it hard for many to distinguish certain hues. The most prevalent color blindness is red-green, which makes it hard to distinguish red and green hues from each other. If the green retina cone is severely damaged, some people can only see the color blue. A more infrequent type of color blindness is blue-yellow, where blue, yellow, and green is indistinguishable. Also, in the rarest of cases, some people have complete monochrome vision. Up to 8% of men and 0.5% of women worldwide suffer from color blindness <span data-type="footnote">Gegenfurtner, Karl. R.; Sharpe, Lindsay. T. (2001) <em>Color Vision: From Genes to Perception</em>, p. 3-11. Cambridge University Press</span>. This means that a color scheme, especially one needed for instructional use, should not rely solely on hues to create color contrasts. Lightness should always be considered, as the ability to distinguish colors by contrast is shared by almost anyone who are not vision-impaired.</p>
 
-[ red-green design ] [ same design in color blind mode ]
+    <div class="grid text-center">
+      <figure class="col-1-3">
+        <img src="color/color-schemes/vision-normal.jpg" />
+        <figcaption>Normal color vision.</figcaption>
+      </figure>
+      <figure class="col-1-3">
+        <img src="color/color-schemes/vision-weak.jpg" />
+        <figcaption>Mild red-green blindness.</figcaption>
+      </figure>
+      <figure class="col-1-3">
+        <img src="color/color-schemes/vision-severe.jpg" />
+        <figcaption>Severe red-green blindness.</figcaption>
+      </figure>
+    </div>
 
-Color scheme examples
+  </section>
 
-These three dimensions of color can inspire a lifetime of experiments with color combination. While some color schemes consist of colors that only vary in one of these dimensions (such as monochrome designs), most color schemes combine changes in hue, saturation, and lightness to achieve a palette of colors. This is demonstrated in the two examples below that combine techniques from above to create two very different color schemes.
+  <section data-type="sect1">
+
+    <h1>Color scheme examples</h1>
+
+    <p>These three dimensions of color can inspire a lifetime of experiments with color combination. While some color schemes consist of colors that only vary in one of these dimensions (such as monochrome designs), most color schemes combine changes in hue, saturation, and lightness to achieve a palette of colors. This is demonstrated in the two examples below that combine techniques from above to create two very different color schemes.</p>
 
 [ EXAMPLE 1 ]
 [ WITH CODE ]
@@ -133,16 +178,32 @@ Caption
 [ WITH CODE ]
 Caption
 
-The Brooklyn-based chocolate producer Mast Brothers is famous for their colorful packaging designs where colored patterns are used to denote the flavor profile of the chocolate. These patterns provide a great case study of how the three dimensions of color can be manipulated to create different expressions.
+    <p>The Brooklyn-based chocolate producer Mast Brothers is famous for their colorful packaging designs where colored patterns are used to denote the flavor profile of the chocolate. These patterns provide a great case study of how the three dimensions of color can be manipulated to create different expressions.</p>
 
+    <div class="grid media-width">
+      <figure class="col-1-3">
+        <img src="color/color-schemes/mast-smoke.jpg" />
+        <figcaption>Smoke <a href="#fairuse">©</a>.</figcaption>
+      </figure>
+      <figure class="col-1-3">
+        <img src="color/color-schemes/mast-mint.jpg" />
+        <figcaption>Mint <a href="#fairuse">©</a>.</figcaption>
+      </figure>
+      <figure class="col-1-3">
+        <img src="color/color-schemes/mast-brooklyn.jpg" />
+        <figcaption>Brooklyn Blend <a href="#fairuse">©</a>.</figcaption>
+      </figure>
+    </div>
 
-   Smoke                                   Mint                                       Brooklyn Blend
+    <p>The first pattern is for a dark chocolate made with smoked beans, and the designer has chosen a high-contrast, monochrome color scheme with wavelike shapes to imply smoke floating in the air. Notice how these colors do not seem ‘natural’ per se, but are chosen to convey the taste of the product. The second pattern is for a dark chocolate with mint leaves and features a gradient of colors changing in hue and lightness from dark green to bright yellow with a constant saturation in the 50’s. The gradient provides for an interesting way of visualizing the two distinct flavors that despite their different characteristics blend well together. The final pattern features a four-color scheme on top of a lighter background where saturated colors with a high hue distance are used to color paint-like shapes. A playful and creative design for the borough of Brooklyn.</p>
 
-The first pattern is for a dark chocolate made with smoked beans, and the designer has chosen a high-contrast, monochrome color scheme with wavelike shapes to imply smoke floating in the air. Notice how these colors do not seem ‘natural’ per se, but are chosen to convey the taste of the product. The second pattern is for a dark chocolate with mint leaves and features a gradient of colors changing in hue and lightness from dark green to bright yellow with a constant saturation in the 50’s. The gradient provides for an interesting way of visualizing the two distinct flavors that despite their different characteristics blend well together. The final pattern features a four-color scheme on top of a lighter background where saturated colors with a high hue distance are used to color paint-like shapes. A playful and creative design for the borough of Brooklyn.
+  </section>
 
-Procedural color schemes
+  <section data-type="sect1">
 
-So far we have manually hard-coded color values to create color schemes. To really take advantage of the fact that we are using code to generate these designs, we should investigate how to procedurally generate these colors. That is, use a loop to create a lot of colors in just a few lines of code. This means looking at the color() function and how to dynamically create color objects with a for loop.
+   <h1>Procedural color schemes</h1>
+
+   <p>So far we have manually hard-coded color values to create color schemes. To really take advantage of the fact that we are using code to generate these designs, we should investigate how to procedurally generate these colors. That is, use a loop to create a lot of colors in just a few lines of code. This means looking at the <code>color()</code> function and how to dynamically create color objects with a for loop.</p>
 
 The color() function in P5.js can be used to create a reusable color object, that can be used in the fill() and stroke() functions again and again. This means that, rather than having the same color values scattered throughout the code, we can assign a single color object to a variable on top of our code, and refer to this variable whenever the color needs to be used. Consider the following code where the same red color is used multiple times.
 
@@ -199,7 +260,7 @@ LERP() //=>
 LERP() //=>
 LERP() //=>
 
-As a digital color consists of three numerical values, we can use this function three times to calculate any color between two colors. It is important to note that P5.js has a colorLerp() function that performs this calculation in just one line of code. However, it only works with built-in color modes and therefore not the HSLuv library. The example below finds the color exactly midway between a dark XX and a lighter XXXX.
+As a digital color consists of three numerical values, we can use this function three times to calculate any color between two colors. It is important to note that P5.js has a colorLerp() function that performs this calculation in just one line of code. However, it only works with built-in color modes and therefore not the HSLuv library. The example below finds the color midway between a dark XX and a lighter XXXX.
 
 	CODE
 
@@ -213,6 +274,8 @@ Exercise
 Design a simple book cover for one of your favorite books. The design should use basic or custom shapes, but no typography. Once you have a design that conveys something in the storyline, consider which type of color scheme is needed to support your design. Keep in mind that a science fiction thriller might need very different colors than a romance novel. Then, color the shapes in your design using the techniques presented in this chapter. Rather than hard-coding the colors, try to make a design where the color scheme is different every time the sketch runs. The exercise is to make a dynamic color scheme where each iteration still fits storyline.
 
 STUDENT EXAMPLE!
+
+  </section>
 
 
 
