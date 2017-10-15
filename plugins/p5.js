@@ -17,6 +17,7 @@ var replacements = [
   'bezierVertex(',
   'CENTER',
   'CLOSE',
+  'color(',
   'colorMode(',
   'createVector(',
   'CORNER',
@@ -37,7 +38,7 @@ var replacements = [
   'noFill(',
   'noStroke(',
   'pop(',
-  'push(',
+  'push()',
   'radians(',
   'random(',
   'rect(',
@@ -99,11 +100,25 @@ Plugin.prototype = {
 
         // if replacement is string, just add p
         if(typeof replacements[i] == 'string') {
-          code = code.replace(new RegExp(replacements[i].replace('(', '\\('), 'g'), 'p.' + replacements[i])
+          var escaped = replacements[i]
+            .replace('(', '\\(')
+            .replace(')', '\\)');
+          code = code.replace(new RegExp(escaped, 'g'), 'p.' + replacements[i])
         }
+        // If replacement is regexp. NOT USED YET
+        // else if(replacements[i] instanceof RegExp) {
+        //   code = code.replace(replacements[i], function(match, p1) {
+        //     console.log('found', match, p1)
+        //     return 'HELLO'
+        //   });
+        // }
         // if replacement is array with before/after
-        else {
+        else if(Array.isArray(replacements[i])) {
           code = code.replace(new RegExp(replacements[i][0].replace('(', '\\('), 'g'), replacements[i][1])
+        }
+        // if replacement is regexp
+        else {
+          console.error('WRONG REPLACEMENT')
         }
 
       }

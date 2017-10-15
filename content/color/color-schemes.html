@@ -201,84 +201,110 @@ Caption
 
   <section data-type="sect1">
 
-   <h1>Procedural color schemes</h1>
+    <h1>Procedural color schemes</h1>
 
-   <p>So far we have manually hard-coded color values to create color schemes. To really take advantage of the fact that we are using code to generate these designs, we should investigate how to procedurally generate these colors. That is, use a loop to create a lot of colors in just a few lines of code. This means looking at the <code>color()</code> function and how to dynamically create color objects with a for loop.</p>
+    <p>So far we have manually hard-coded color values to create color schemes. To really take advantage of the fact that we are using code to generate these designs, we should investigate how to procedurally generate these colors. That is, use a loop to create a lot of colors in just a few lines of code. This means looking at the <code>color()</code> function and how to dynamically create color objects with a for loop.</p>
 
-The color() function in P5.js can be used to create a reusable color object, that can be used in the fill() and stroke() functions again and again. This means that, rather than having the same color values scattered throughout the code, we can assign a single color object to a variable on top of our code, and refer to this variable whenever the color needs to be used. Consider the following code where the same red color is used multiple times.
+    <p>The <code>color()</code> function in P5.js can be used to create a reusable color object, that can be used in the <code>fill()</code> and <code>stroke()</code> functions again and again. This means that, rather than having the same color values scattered throughout the code, we can assign a single color object to a variable on top of our code, and refer to this variable whenever the color needs to be used. Consider the following code where the same red color is used multiple times.</p>
 
-	CODE
+    <div class="grid">
+       {% codesplit color/color-schemes/reds-no-object.js lines:'6-15' class:'col-3-5 columns' %}
+       {% p5 color/color-schemes/reds-no-object.js class:'col-2-5' %}
+    </div>
 
-This example can be rewritten using the color() function, so the color values only appear once in the code.
+    <p>This example can be rewritten using the <code>color()</code> function, so the color values only appear once in the code.</p>
 
-	CODE WITH COLOR OBJECT
+    <div class="grid">
+       {% codesplit color/color-schemes/reds-with-object.js lines:'6-16' class:'col-3-5 columns' %}
+       {% p5 color/color-schemes/reds-with-object.js class:'col-2-5' %}
+    </div>
 
-To use the color() function with HSLuv values, we need to create a small function that performs the HSLuv to RGB conversion before creating the color object. Besides the use of the color() function, this function is identical to the fillHSluv() and strokeHsluv() functions from the last chapter (LINK).
+    <p>To use the <code>color()</code> function with HSLuv values, we need to create a small function that performs the HSLuv to RGB conversion before creating the color object. Besides the use of the <code>color()</code> function, this function is identical to the <code>fillHSluv()</code> and <code>strokeHsluv()</code> functions from the <a href="#hsluv" data-type="xref">last chapter</a>. Remember that you must have included the HSLuv JavaScript file for this to work.</p>
 
-	Function colorHsluv() {}
-	// USE IT
+    <pre class="media-width"><code>function colorHsluv(h, s, l) {
+  var rgb = hsluv.hsluvToRgb([h, s, l]);
+  return color(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
+}
 
-Now, what if we want to use multiple colors in a design? It would make sense to just add more variables to the code above. Although that is perfectly fine for just a few colors, it does not make sense for a large number of colors. In this scenario, it is more sensible to use a single array that allows for colors to be added and removed without introducing new variables. The code below stores three colors in a single array and uses them to draw a color scheme.
+var red = colorHsluv(225, 35, 35);
+fill(red);</code></pre>
 
-	Var colors = []
-	USE THEM WITH THE SAME 3-BOX DESIGN AS BEFORE
-Finally, we can replace the hard-coded lines of color code with a loop that dynamically puts just as many objects into the array as we want. We do this by starting out with an empty array, and adding a new color object to the array on every loop iteration. The result is a 3-color scheme with completely random colors.
+  <p>Now, what if we want to use multiple colors in a design? It would make sense to just add more variables to the code above. Although that is perfectly fine for just a few colors, it does not make sense for a large number of colors. In this scenario, it is more sensible to use a single array that allows for colors to be added and removed without introducing new variables. The code below stores three colors in a single array and uses them to draw a color scheme.</p>
 
-	RANDOM COLS CODE
+  <div class="grid">
+     {% codesplit color/color-schemes/colors-in-array.js lines:'10-21' class:'col-1-2' %}
+     {% p5 color/color-schemes/colors-in-array.js class:'col-1-2' %}
+  </div>
 
-With all these concepts in place, we are ready to procedurally generate color schemes. One strategy – which is probably also the simplest – is to stick with the random() function and create different types of color schemes by changing the min and max values used with random(). This will sometimes result in duplicate colors (because we cannot guarantee that the random() function will not return the same number twice), but it is a nice, quick way to move away from hard-coded color schemes.
+  <p>Finally, we can use a loop to dynamically create colors objects. We do this by using an empty array, pushing a new color object to the array on every loop iteration. This examples uses the <code>random()</code> function to ensure that the colors are different between each run of the loop.</p>
 
-[ MONOCHROME COLOR SCHEME WITH RANDOM ]
-[ COLORFUL COLOR SCHEME WITH RANDOM ]
-Captions
+  <div class="grid">
+     {% codesplit color/color-schemes/procedural-random.js lines:'10-31' class:'col-3-5 columns' %}
+     {% p5 color/color-schemes/procedural-random.js class:'col-2-5' %}
+  </div>
 
-A more powerful strategy is to use the loop’s incrementing i variable to create the values passed to the color() function. This technique is identical to what was demonstrated in the procedural shapes chapter (LINK), but this time we use it for color values and not x and y positions. The example below demonstrates how to use i to create colors with X distance in lightness while keeping the saturation and hue constant.
+  <p>With all these concepts in place, we are ready to procedurally generate color schemes. One strategy – which is probably also the simplest – is to stick with the <code>random()</code> function and create different types of color schemes by changing the min and max values used with <code>random()</code>.</p>
 
-[ COLOR SCHEME WITH MONOCHROME ]
+  <div class="grid">
+    <div class="col-1-2">
+      {% p5 color/color-schemes/procedural-random-monochrome.js caption:'Random lightness.' captionPosition:'top' %}
+      {% codesplit color/color-schemes/procedural-random-monochrome.js lines:'10-22' %}
+    </div>
+    <div class="col-1-2">
+      {% p5 color/color-schemes/procedural-random-analogous.js caption:'Random hue.' captionPosition:'top' %}
+      {% codesplit color/color-schemes/procedural-random-analogous.js lines:'10-22' %}
+    </div>
+  </div>
 
-Here, the same technique is used in all dimensions.
+  <p>However, there is a good chance the <code>random()</code> function will choose numbers close to each other, resulting in very similar colors. A more powerful strategy is to use the loop’s incrementing i variable to create the values passed to the color() function. This technique is identical to what was demonstrated in the <a href="#for-loop" data-type="xref">Procedural Shapes</a> chapter, but this time we use it for color values and not <code>x</code> and <code>y</code> positions. The example below uses <code>i</code> to create a monochrome color scheme with lightness values of <code>20</code>, <code>50</code>, and <code>80</code>, while keeping the hue and saturation constant.</p>
 
-[ COLOR SCHEME WITH ALL DIMENSIONS ]
+  <div class="grid">
+     {% codesplit color/color-schemes/procedural-monochrome.js lines:'10-21' class:'col-1-2' %}
+     {% p5 color/color-schemes/procedural-monochrome.js class:'col-1-2' %}
+  </div>
 
-This technique is not only an excellent way to quickly test different color schemes while ideating. It can also be used to create precise color guides for branding systems or other types of design manuals. Google’s Material Design document has a range of color swatches that designers at Google (and elsewhere) can use to standardize colors across products while also ensuring that their color schemes have proper contrast. Programming languages are excellent tools for making these types of swatches, especially if you are using a perceptually uniform color library like HSLuv.
+  <p>Here, the same technique is used in all dimensions. Notice how the hue values are incrementing (<code>START + (i * SCALAR)</code>) in every iteration while saturation and lightness values are decrementing (<code>START - (i * SCALAR)</code>). The final result is a color scheme where the background is light and saturated but the front colors are darker and less saturated.</p>
+
+  <div class="grid">
+     {% codesplit color/color-schemes/procedural-dimensions.js lines:'10-26' class:'col-1-2' %}
+     {% p5 color/color-schemes/procedural-dimensions.js class:'col-1-2' %}
+  </div>
+
+  <p>This technique is not only an excellent way to quickly test different color schemes while ideating. It can also be used to create precise color guides for branding systems or other types of design manuals. Google’s Material Design document has a range of color swatches that designers at Google (and elsewhere) can use to standardize colors across products while also ensuring that their color schemes have proper contrast. Programming languages are excellent tools for making these types of swatches, especially if you are using a perceptually uniform color library like HSLuv.</p>
 
 MD SWATCH       P5 SWATCH WITH CODE LINK
 This color swatch, etc….
 
-This code can become even more flexible by adding a few variables to store the base hue and spacing between the colors. Rather than hardcoding these two variables, we can introduce the random() function to create a dynamic color scheme that looks different every time the code runs. The random() function is also used to create a bit of variation in saturation and lightness. These six colors schemes are all created with the same code shown below.
+  <p>This code can become even more flexible by adding a few variables to store the base hue and spacing between the colors. Rather than hardcoding these two variables, we can introduce the <code>random()</code> function to create a dynamic color scheme that looks different every time the code runs. The <code>random()</code> function is also used to create a bit of variation in saturation and lightness. These six colors schemes are all created with the same code shown below.</p>
 
 	CODE AND SIX OUTPUTS
 	// INLINE COMMENTS
 
-We are of course not bound to create all colors within the loop. The color scheme below has two colors created in the loop while a third accent color with an opposite hue is added after the loop has run. The possibilities are endless once the basic concepts are learned.
+  <p>We are not bound to create all colors within the loop. The color scheme below has two colors created in the loop while a third accent color with an opposite hue is added after the loop has run. The possibilities are endless once the basic concepts are learned.</p>
 
 	ACCENT CODE WITH 4 OUTPUTS
 
-We cannot end this chapter without discussing another useful technique for procedural color generation – the lerp() function – which can be used to calculate transitions from one color to another. The lerp() function has nothing to do with color, as it can be used to calculate any number between two numbers. The function expects – besides the two range numbers – an interpolation amount that is used to calculate the resulting number. An interpolation amount of 0 will return the first number, 0.5 will return the number midway between the two numbers, and 1 will return the second number.
+  <p>We cannot end this chapter without discussing another useful technique for procedural color generation – the <code>lerp()</code> function – which can be used to calculate transitions from one color to another. The lerp() function has nothing to do with color, as it can be used to calculate any number between two numbers. The function expects – besides the two range numbers – an interpolation amount that is used to calculate the resulting number. An interpolation amount of <code>0</code> will return the first number, <code>0.5</code> will return the number midway between the two numbers, and <code>1</code> will return the second number.</p>
 
 LERP() //=>
 LERP() //=>
 LERP() //=>
 
-As a digital color consists of three numerical values, we can use this function three times to calculate any color between two colors. It is important to note that P5.js has a colorLerp() function that performs this calculation in just one line of code. However, it only works with built-in color modes and therefore not the HSLuv library. The example below finds the color midway between a dark XX and a lighter XXXX.
+  <p>As a digital color consists of three numerical values, we can use this function three times to calculate any color between two colors. It is important to note that P5.js has a <code>colorLerp()</code> function that performs this calculation in just one line of code. However, it only works with built-in color modes and therefore not the HSLuv library. The example below finds the color midway between a dark XX and a lighter XXXX.</p>
 
 	CODE
 
-This technique is even more helpful when used in combination with a loop, where the interpolation amount can be calculated by dividing ‘i’ by its largest possible value. This is no different than calculating a ratio between two numbers by division (e.g. 2 / 10 is 0.2), but because this calculation is performed over and over with an incrementing ‘i’ value, it will produce interpolation amounts all the way from 0 to 1 with the number of steps determined by how many times the loop runs. This is demonstrated below where the technique is used to create a copy of the Mint chocolate gradient shown earlier in this chapter.
+  <p>This technique is even more helpful when used in combination with a loop, where the interpolation amount can be calculated by dividing <code>i</code> by its largest possible value. This is no different than calculating a ratio between two numbers by division (e.g. <code>2 / 10</code> is <code>0.2</code>), but because this calculation is performed over and over with an incrementing <code>i</code> value, it will produce interpolation amounts all the way from <code>0</code> to <code>1</code> with the number of steps determined by how many times the loop runs. This is demonstrated below where the technique is used to create a copy of the Mint chocolate gradient shown earlier in this chapter.</p>
 
 	MINT GRADIENT
 
-This chapter introduced techniques to help designers explore the color spectrum through the hue, saturation, and lightness dimensions of the HSL color model. Using these techniques, designers can move away from the 2D color solid known from the color picker, and approach color combination by focusing on the relationship between colors in a 3D space. Whether these techniques are used to quickly test different color combinations, or built directly into digital design products, they are another important tool for a designer wanting to treat design as a systematic art.
-
-Exercise
-Design a simple book cover for one of your favorite books. The design should use basic or custom shapes, but no typography. Once you have a design that conveys something in the storyline, consider which type of color scheme is needed to support your design. Keep in mind that a science fiction thriller might need very different colors than a romance novel. Then, color the shapes in your design using the techniques presented in this chapter. Rather than hard-coding the colors, try to make a design where the color scheme is different every time the sketch runs. The exercise is to make a dynamic color scheme where each iteration still fits storyline.
+  <p>This chapter introduced techniques to help designers explore the color spectrum through the hue, saturation, and lightness dimensions of the HSL color model. Using these techniques, designers can move away from the 2D color solid known from the color picker, and approach color combination by focusing on the relationship between colors in a 3D space. Whether these techniques are used to quickly test different color combinations, or built directly into digital design products, they are another important tool for a designer wanting to treat design as a systematic art.</p>
 
 STUDENT EXAMPLE!
 
   </section>
 
-
-
+  {% include exercise.html text="Design a simple book cover for one of your favorite books. The design should use basic or custom shapes, but no typography. Once you have a design that conveys something in the storyline, consider which type of color scheme is needed to support your design. Keep in mind that a science fiction thriller might need very different colors than a romance novel. Then, color the shapes in your design using the techniques presented in this chapter. Rather than hard-coding the colors, try to make a design where the color scheme is different every time the sketch runs. The exerchallengecise is to make a dynamic color scheme where each iteration still fits storyline." %}
 
 </section>
 
