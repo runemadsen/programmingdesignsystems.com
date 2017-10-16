@@ -56,7 +56,7 @@ title:  Perceptually uniform color spaces
 
     <h1 id="hsluv">HSLuv</h1>
 
-    <p>The <a href="hsluv.org">HSLuv project</a> is one of the more recent attempts at making these color spaces more intuitive. It allows you to use the CIELUV color space in the same dimensions as the HSL color model. Referred to as a human-friendly HSL, the original code was written in the Haxe programming language, but the project is now implemented in most of the popular programming languages, including JavaScript.</p>
+    <p>The <a href="http://www.hsluv.org/">HSLuv project</a> is one of the more recent attempts at making these color spaces more intuitive. It allows you to use the CIELUV color space in the same dimensions as the HSL color model. Referred to as a human-friendly HSL, the original code was written in the Haxe programming language, but the project is now implemented in most of the popular programming languages, including JavaScript.</p>
 
     <p>Before diving into the code-specifics, it is important to understand how HSLuv differs from HSL. HSLuv allows you to define a color based on three dimensions – hue, saturation, and lightness – but contrary to a HSL color model based on sRGB, colors that share the same value for a dimension are guaranteed to look similar. Two colors with an identical lightness value will look equally bright, and two colors with the same saturation will have the same perceived color purity. Like HSL, the saturation and lightness dimension is represented as a percentage between <code>0</code> and <code>100</code>, but in HSLuv those percentages reflect the perceived color mixing. A gray color with a lightness of <code>50</code> is guaranteed to be mid-gray.</p>
 
