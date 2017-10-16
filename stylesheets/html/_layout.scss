@@ -191,6 +191,7 @@ article {
     float: left;
     padding-left: $spacing/2;
     padding-right: $spacing/2;
+    margin-top: 0 !important; // So figure + .codesplit don't get margin if columns
   }
 
   .col-1-2 {
@@ -215,6 +216,14 @@ article {
 
   .col-3-5 {
     width: 60%;
+  }
+
+  .col-2-7 {
+    width: 28.57%;
+  }
+
+  .col-3-7 {
+    width: 42.85%;
   }
 
   // reset margins inside of grid so we don't get double space

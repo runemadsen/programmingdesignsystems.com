@@ -10,9 +10,7 @@ function setup() {
   // Start with empty array {!1}
   var colors = [];
 
-  // Loop three times {!1}
   for(var i = 0; i < 3; i++) {
-
     // Push new color with random hue, saturation, and lightness into array every time {!7}
     colors.push(
       colorHsluv(

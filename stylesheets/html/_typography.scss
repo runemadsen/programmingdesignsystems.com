@@ -60,6 +60,9 @@ figure figcaption {
   a {
     color: $fontGrayLight;
   }
+  code {
+    color: #757575;
+  }
 }
 
 figure img {
@@ -68,7 +71,9 @@ figure img {
 }
 
 figure + .caption,
-.grid + .caption {
+.caption + figure,
+.grid + .caption,
+.caption + .grid {
   margin-top: $spacing / 2;
 }
 

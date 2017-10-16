@@ -34,6 +34,7 @@ var replacements = [
   'HSB',
   'HSL',
   'ITALIC',
+  /\s(lerp\()/g,
   'line(',
   'noFill(',
   'noStroke(',
@@ -106,12 +107,11 @@ Plugin.prototype = {
           code = code.replace(new RegExp(escaped, 'g'), 'p.' + replacements[i])
         }
         // If replacement is regexp. NOT USED YET
-        // else if(replacements[i] instanceof RegExp) {
-        //   code = code.replace(replacements[i], function(match, p1) {
-        //     console.log('found', match, p1)
-        //     return 'HELLO'
-        //   });
-        // }
+        else if(replacements[i] instanceof RegExp) {
+          code = code.replace(replacements[i], function(match, p1) {
+            return 'p.' + p1;
+          });
+        }
         // if replacement is array with before/after
         else if(Array.isArray(replacements[i])) {
           code = code.replace(new RegExp(replacements[i][0].replace('(', '\\('), 'g'), replacements[i][1])
