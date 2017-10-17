@@ -15,6 +15,7 @@ Here's a running list of people who submitted edits.
 - Jonathan Howard
 - Grey Vaisius
 - Enrico Baculinao
+- Tom MacWright
 
 # Build
 
