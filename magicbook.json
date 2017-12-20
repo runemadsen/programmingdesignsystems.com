@@ -26,6 +26,12 @@
         "content/color/color-schemes.html"
       ]
     },
+    {
+      "label": "Layout",
+      "files": [
+        "content/layout/a-short-history-of-geometric-composition.html"
+      ]
+    },
     "content/more-to-come.html"
   ],
   "webpack": "webpack.config.js",
