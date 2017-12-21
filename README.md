@@ -17,6 +17,14 @@ Here's a running list of people who submitted edits.
 - Enrico Baculinao
 - Tom MacWright
 
+# Writing
+
+- References to book sources as footnotes
+- References to online sources as links (replaced with footnotes for print)
+- Italicize the titles of magazines, books, newspapers, academic journals, films, television shows, long poems, plays, operas, musical albums, works of art, websites.
+- Do not italicize person or company names.
+
+
 # Build
 
 To build for development:

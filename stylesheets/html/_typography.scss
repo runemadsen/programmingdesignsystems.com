@@ -27,6 +27,10 @@ blockquote {
   cite {
     color: $fontGray;
     font-style: normal;
+    span[data-type="footnote"] a {
+      box-shadow: none;
+      color: $fontGray;
+    }
   }
 }
 
