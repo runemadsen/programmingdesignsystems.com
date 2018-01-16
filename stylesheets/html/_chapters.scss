@@ -36,6 +36,10 @@ section[data-type="chapter"] {
     box-shadow: inset 0 -2px 0 #757575;
   }
 
+  span[data-type="footnote"] a {
+    box-shadow: none;
+  }
+
   figure figcaption:first-child {
     margin-bottom: 0.6em;
   }

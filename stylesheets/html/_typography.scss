@@ -28,7 +28,6 @@ blockquote {
     color: $fontGray;
     font-style: normal;
     span[data-type="footnote"] a {
-      box-shadow: none;
       color: $fontGray;
     }
   }
@@ -36,7 +35,7 @@ blockquote {
 
 h1 {
   font-size: 2.4em;
-  line-height: 0.95em;
+  line-height: 1.1em;
   letter-spacing: -0.02em;
   margin-bottom: 0.1em;
   font-weight: 500;
