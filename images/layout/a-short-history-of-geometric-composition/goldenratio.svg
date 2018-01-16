@@ -26,9 +26,9 @@
     <circle cx="75" cy="83.5" r="4" style="fill: #fff;stroke: #1c1a1a;stroke-miterlimit: 10"/>
     <circle cx="470" cy="83.5" r="4" style="fill: #fff;stroke: #1c1a1a;stroke-miterlimit: 10"/>
     <circle cx="320" cy="83.5" r="4" style="fill: #fff;stroke: #1c1a1a;stroke-miterlimit: 10"/>
-    <text transform="translate(168.67 109.67)" style="font-size: 12px;fill: #262626;font-family: Helvetica, Helvetica">Long line</text>
-    <text transform="translate(375.67 109.67)" style="font-size: 12px;fill: #262626;font-family: Helvetica, Helvetica">Short line</text>
-    <text transform="translate(136.67 40.67)" style="font-size: 14px;fill: #29b79b;font-family: Helvetica, Helvetica">This is the golden ratio</text>
+    <text transform="translate(168.67 109.67)" style="font-size: 12px;fill: #262626;font-family: AtlasGrotesk, Helvetica">Long line</text>
+    <text transform="translate(375.67 109.67)" style="font-size: 12px;fill: #262626;font-family: AtlasGrotesk, Helvetica">Short line</text>
+    <text transform="translate(136.67 40.67)" style="font-size: 14px;fill: #29b79b;font-family: AtlasGrotesk, Helvetica">This is the golden ratio</text>
     <g>
       <path d="M319,65c0-15.48-14.76-28-33-28" style="fill: none;stroke: #29b79b;stroke-miterlimit: 10"/>
       <polygon points="315 64.5 322.5 64.5 318.89 71.17 315 64.5" style="fill: #29b79b"/>
