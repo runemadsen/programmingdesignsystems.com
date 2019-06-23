@@ -9,7 +9,7 @@ function setup() {
   var margin = width / 20;
   var x = width - margin - size;
   var y = height - margin - size;
-  rect(x, y, size, size);
+  rect(x, y, size, margin);
 
   noLoop();
 }
