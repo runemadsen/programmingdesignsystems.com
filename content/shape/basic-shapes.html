@@ -1,14 +1,25 @@
 ---
-title:  Basic shapes
+title: Basic shapes
 ---
 
 <section data-type="chapter">
-
   {% include header.html %}
 
-  <p>As long as we have had the ability to draw, humans have used shapes for visual communication. Although shapes are not words, and therefore have no objective semantic meaning, we have a natural understanding of how to translate the characteristics of shapes into meaning: Cave paintings created more than 30,000 years ago can be appreciated today without a need for translation.</p>
+  <p>
+    As long as we have had the ability to draw, humans have used shapes for
+    visual communication. Although shapes are not words, and therefore have no
+    objective semantic meaning, we have a natural understanding of how to
+    translate the characteristics of shapes into meaning: Cave paintings created
+    more than 30,000 years ago can be appreciated today without a need for
+    translation.
+  </p>
 
-  <p>In this chapter, we will look at the three basic shapes: the rectangle, the ellipse, and the triangle. First, we will analyze the characteristics of each shape, and then demonstrate how to use these basic shapes in the design process.</p>
+  <p>
+    In this chapter, we will look at the three basic shapes: the rectangle, the
+    ellipse, and the triangle. First, we will analyze the characteristics of
+    each shape, and then demonstrate how to use these basic shapes in the design
+    process.
+  </p>
 
   <div class="grid">
     {% p5 shape/basic-shapes/rectangle.js class:'col-1-3' %}
@@ -17,25 +28,53 @@ title:  Basic shapes
   </div>
 
   <section data-type="sect1">
-
     <h1>Rectangle</h1>
 
-    <p>The rectangle is a symmetric, solid shape with parallel lines. As it does not exist much in nature, it has become the symbol for civilization itself. We build cities in rectangular grids, houses with bricks, and our interiors are rectangles too: doors, shelves, and windows.</p>
+    <p>
+      The rectangle is a symmetric, solid shape with parallel lines. As it does
+      not exist much in nature, it has become the symbol for civilization
+      itself. We build cities in rectangular grids, houses with bricks, and our
+      interiors are rectangles too: doors, shelves, and windows.
+    </p>
 
-    <p>The rectangle has been used throughout the history of the arts to set up constraints for the artist. We use rectangular canvasses, and grid systems to further divide this canvas into smaller modules. In this digital age, we use rectangular screens and operate with a square as the smallest visual denomination: the pixel.</p>
+    <p>
+      The rectangle has been used throughout the history of the arts to set up
+      constraints for the artist. We use rectangular canvasses, and grid systems
+      to further divide this canvas into smaller modules. In this digital age,
+      we use rectangular screens and operate with a square as the smallest
+      visual denomination: the pixel.
+    </p>
 
     <div class="grid media-width">
       <figure class="col-1-2">
         <img src="shape/basic-shapes/microsoft.jpg" />
-        <figcaption>The squares in the Microsoft logo become a symbol for a window, a flag, and a pixelated screen. <a href="#fairuse">©</a></figcaption>
+        <figcaption>
+          The squares in the Microsoft logo become a symbol for a window, a
+          flag, and a pixelated screen. <a href="#fairuse">©</a>
+        </figcaption>
       </figure>
       <figure class="col-1-2">
         <img src="shape/basic-shapes/nullsleep.jpg" />
-        <figcaption>The logo for the 8-bit musician Nullsleep has a rectangle on top of a pixelated font as a reference to both anti-authoritarianism and early computer art. <a href="#fairuse">©</a></figcaption>
+        <figcaption>
+          The logo for the 8-bit musician Nullsleep has a rectangle on top of a
+          pixelated font as a reference to both anti-authoritarianism and early
+          computer art. <a href="#fairuse">©</a>
+        </figcaption>
       </figure>
     </div>
 
-    <p>In geometry, a rectangle consists of four points connected to form a closed shape with internal angles of 90 degrees. However, the <code>rect()</code> function in P5 allows us to draw a rectangle by stating the position of the top left corner (which we will call the origin point <span class="color-green">●</span>) as well as the size of the rectangle. As demonstrated below, the <code>rectMode()</code> function can be used to change the origin point of the rectangle to the center of the shape. This can be helpful in certain situations, e.g. if you want to draw a rectangle in the center of the canvas without needing to subtract half the size of the rectangle from its position.</p>
+    <p>
+      In geometry, a rectangle consists of four points connected to form a
+      closed shape with internal angles of 90 degrees. However, the
+      <code>rect()</code> function in P5 allows us to draw a rectangle by
+      stating the position of the top left corner (which we will call the origin
+      point <span class="color-green">●</span>) as well as the size of the
+      rectangle. As demonstrated below, the <code>rectMode()</code> function can
+      be used to change the origin point of the rectangle to the center of the
+      shape. This can be helpful in certain situations, e.g. if you want to draw
+      a rectangle in the center of the canvas without needing to subtract half
+      the size of the rectangle from its position.
+    </p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -47,27 +86,49 @@ title:  Basic shapes
         {% codesplit shape/basic-shapes/rectmode-center.js lines:'6-8' %}
       </div>
     </div>
-
   </section>
 
   <section data-type="sect1">
-
     <h1>Ellipse</h1>
 
-    <p>The ellipse is a smooth shape found many places in nature, in the shape of planets, raindrops, and the eyes of most animals. With no apparent sense of direction, there is something neutral about the ellipse, and humans tend to gather in ellipses to achieve unity: We dance in circles, and design the seating of most parliaments in elliptical arrangements.</p>
+    <p>
+      The ellipse is a smooth shape found many places in nature, in the shape of
+      planets, raindrops, and the eyes of most animals. With no apparent sense
+      of direction, there is something neutral about the ellipse, and humans
+      tend to gather in ellipses to achieve unity: We dance in circles, and
+      design the seating of most parliaments in elliptical arrangements.
+    </p>
 
     <div class="grid media-width">
       <figure class="col-2-3">
         <img src="shape/basic-shapes/olympics.jpg" />
-        <figcaption>The symbol for the Olympic Games by Pierre de Coubertin consists of five connected ellipses with colors taken from the flags of the participating countries from the 1912 games. <a href="#fairuse">©</a></figcaption>
+        <figcaption>
+          The symbol for the Olympic Games by Pierre de Coubertin consists of
+          five connected ellipses with colors taken from the flags of the
+          participating countries from the 1912 games. <a href="#fairuse">©</a>
+        </figcaption>
       </figure>
       <figure class="col-1-3">
         <img src="shape/basic-shapes/abc.jpg" />
-        <figcaption>The ABC logo by Paul Rand features a simple ellipse with an elliptical typeface. <a href="#fairuse">©</a></figcaption>
+        <figcaption>
+          The ABC logo by Paul Rand features a simple ellipse with an elliptical
+          typeface. <a href="#fairuse">©</a>
+        </figcaption>
       </figure>
     </div>
 
-    <p>In geometry, an ellipse is a closed shape that you can draw by hammering two nails in the ground, connecting them by a string, and stretching a pen through the string to draw a circular shape. Although the outline of an ellipse looks smooth to the human eye, computers actually draw ellipses as a series of short, straight, connected lines. Unlike <code>rect()</code>, the <code>ellipse()</code> function will draw an ellipse with an origin point in the center of the shape. As demonstrated below, the <code>ellipseMode()</code> function can be used to change the origin point to the top left corner. Given the nature of the ellipse, this means that the origin point is located outside the outline of the shape.</p>
+    <p>
+      In geometry, an ellipse is a closed shape that you can draw by hammering
+      two nails in the ground, connecting them by a string, and stretching a pen
+      through the string to draw a circular shape. Although the outline of an
+      ellipse looks smooth to the human eye, computers actually draw ellipses as
+      a series of short, straight, connected lines. Unlike <code>rect()</code>,
+      the <code>ellipse()</code> function will draw an ellipse with an origin
+      point in the center of the shape. As demonstrated below, the
+      <code>ellipseMode()</code> function can be used to change the origin point
+      to the top left corner. Given the nature of the ellipse, this means that
+      the origin point is located outside the outline of the shape.
+    </p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -79,21 +140,44 @@ title:  Basic shapes
         {% codesplit shape/basic-shapes/ellipsemode-corner.js lines:'6-8' %}
       </div>
     </div>
-
   </section>
 
   <section data-type="sect1">
-
     <h1>Triangle</h1>
 
-    <p>The triangle is an asymmetric shape, unique among the basic shapes for its directionality. It is commonly known as the symbol for both masculinity (▲) and femininity (▼), and it is widely used in graphic design for its aesthetic qualities. One of our most significant cultural artifacts, the Great Pyramids of Giza, are also famous depictions of the triangle, pointing towards the assumed rotational center of the sky to which the Egyptians ascribed godly qualities.</p>
+    <p>
+      The triangle is an asymmetric shape, unique among the basic shapes for its
+      directionality. It is commonly known as the symbol for both masculinity
+      (▲) and femininity (▼), and it is widely used in graphic design for its
+      aesthetic qualities. One of our most significant cultural artifacts, the
+      Great Pyramids of Giza, are also famous depictions of the triangle,
+      pointing towards the assumed rotational center of the sky to which the
+      Egyptians ascribed godly qualities.
+    </p>
 
     <figure class="text-width">
       <img src="shape/basic-shapes/delta.jpg" class="white-img" />
-      <figcaption>The Delta logo is a triangle consisting of four smaller triangles. The logo refers to the greek triangle letter by the same name, and the directionality of the triangle is used to imply speed and flight. <a href="#fairuse">©</a></figcaption>
+      <figcaption>
+        The Delta logo is a triangle consisting of four smaller triangles. The
+        logo refers to the greek triangle letter by the same name, and the
+        directionality of the triangle is used to imply speed and flight.
+        <a href="#fairuse">©</a>
+      </figcaption>
     </figure>
 
-    <p>In geometry, a triangle is a closed shape consisting of three points. The sum of the internal angles of the triangle will always be 180 degrees (or PI radians). The triangle has played a central role in many mathematical breakthroughs, including Euclidian geometry, trigonometry, as well as 3D computer graphics. Unlike the <code>rect()</code> and <code>ellipse()</code> functions that both expect a single position for the shape’s origin point, the <code>triangle()</code> function needs the coordinates of all three corners of the triangle. This also means that there is no such thing as a <code>triangleMode()</code> function. You will need to perform your own calculations to draw a triangle around a specific origin point, which is demonstrated in the examples below.</p>
+    <p>
+      In geometry, a triangle is a closed shape consisting of three points. The
+      sum of the internal angles of the triangle will always be 180 degrees (or
+      PI radians). The triangle has played a central role in many mathematical
+      breakthroughs, including Euclidian geometry, trigonometry, as well as 3D
+      computer graphics. Unlike the <code>rect()</code> and
+      <code>ellipse()</code> functions that both expect a single position for
+      the shape’s origin point, the <code>triangle()</code> function needs the
+      coordinates of all three corners of the triangle. This also means that
+      there is no such thing as a <code>triangleMode()</code> function. You will
+      need to perform your own calculations to draw a triangle around a specific
+      origin point, which is demonstrated in the examples below.
+    </p>
 
     <div class="grid">
       <div class="col-1-2">
@@ -105,16 +189,28 @@ title:  Basic shapes
         {% codesplit shape/basic-shapes/triangleorigin-center.js lines:'6-8' %}
       </div>
     </div>
-
   </section>
 
   <section data-type="sect1">
-
     <h1>An ice cream cone</h1>
 
-    <p>I give my students the following (somewhat silly) exercise: Design an ice cream cone in black and white with only a single occurrence of each of the basic shape functions in the code. These tight constraints force the students to focus on the characteristics of the shapes, and how they can position, size, and rotate these shapes to achieve an effective design.</p>
+    <p>
+      I give my students the following (somewhat silly) exercise: Design an ice
+      cream cone in black and white with only a single occurrence of each of the
+      basic shape functions in the code. These tight constraints force the
+      students to focus on the characteristics of the shapes, and how they can
+      position, size, and rotate these shapes to achieve an effective design.
+    </p>
 
-    <p>The most important aspect of this exercise is obviously to create a design that a majority of users will recognize as an ice cream cone. Whether or not a design accomplishes this is a rather objective task. Of the two designs below, it is clear that the first design manages to solve the assignment while the latter does not. It is also easy to analyze why: Although the shapes are almost identical between the two designs, the latter does not establish the proper visual relationships.</p>
+    <p>
+      The most important aspect of this exercise is obviously to create a design
+      that a majority of users will recognize as an ice cream cone. Whether or
+      not a design accomplishes this is a rather objective task. Of the two
+      designs below, it is clear that the first design manages to solve the
+      assignment while the latter does not. It is also easy to analyze why:
+      Although the shapes are almost identical between the two designs, the
+      latter does not establish the proper visual relationships.
+    </p>
 
     <div class="grid media-width">
       <div class="col-1-2">
@@ -125,9 +221,26 @@ title:  Basic shapes
       </div>
     </div>
 
-    <p>A second (and more subjective) aspect relates to the style of the design. To a certain degree, different styles fit different scenarios. If you are asked to create an icon for a website, an abstract style might be prefered, as simple designs work better in small sizes. On the other hand, if you are making an illustration for a children’s book, something more bold and playful might be a better fit. Style can be used to serve a specific function, or it can be used purely for aesthetic qualities (which can also be a function, after all). Finally, the style of a design is where the subjective preferences of the designer is apparent.</p>
+    <p>
+      A second (and more subjective) aspect relates to the style of the design.
+      To a certain degree, different styles fit different scenarios. If you are
+      asked to create an icon for a website, an abstract style might be
+      prefered, as simple designs work better in small sizes. On the other hand,
+      if you are making an illustration for a children’s book, something more
+      bold and playful might be a better fit. Style can be used to serve a
+      specific function, or it can be used purely for aesthetic qualities (which
+      can also be a function, after all). Finally, the style of a design is
+      where the subjective preferences of the designer is apparent.
+    </p>
 
-    <p>In this exercise, I often encourage my students to practice designing in different styles, as it further develops their visual language. An important ingredient in the creation of style is the use of the <code>fill(),</code> <code>stroke()</code> and <code>strokeWeight()</code> functions. As demonstrated below, these function can drastically alter the style of a design.</p>
+    <p>
+      In this exercise, I often encourage my students to practice designing in
+      different styles, as it further develops their visual language. An
+      important ingredient in the creation of style is the use of the
+      <code>fill(),</code> <code>stroke()</code> and
+      <code>strokeWeight()</code> functions. As demonstrated below, these
+      function can drastically alter the style of a design.
+    </p>
 
     <div class="grid media-width">
       <div class="col-1-2">
@@ -138,7 +251,20 @@ title:  Basic shapes
       </div>
     </div>
 
-    <p>This exercise also encourages students to think systematically when implementing their designs in code. The three basic shape functions can only appear once in the code, so students need to use loops to draw more intricate designs. The following three examples are all by former students of mine, and they are displayed here as successful examples of all the things mentioned above: They all objectively solve the assignment of constructing an ice cream cone out of basic shapes. They all achieve widely different styles by using a clever combination of the basic shape functions and the following relationships: position, size, rotation, fill, line and stroke weight. Finally, they all use repetition (to which we will dedicate an entire part of this book) to draw more than three shapes on the canvas.</p>
+    <p>
+      This exercise also encourages students to think systematically when
+      implementing their designs in code. The three basic shape functions can
+      only appear once in the code, so students need to use loops to draw more
+      intricate designs. The following three examples are all by former students
+      of mine, and they are displayed here as successful examples of all the
+      things mentioned above: They all objectively solve the assignment of
+      constructing an ice cream cone out of basic shapes. They all achieve
+      widely different styles by using a clever combination of the basic shape
+      functions and the following relationships: position, size, rotation, fill,
+      line and stroke weight. Finally, they all use repetition (to which we will
+      dedicate an entire part of this book) to draw more than three shapes on
+      the canvas.
+    </p>
 
     <div class="grid">
       <div class="col-1-3">
@@ -152,10 +278,13 @@ title:  Basic shapes
       </div>
     </div>
 
-    <p>When you feel comfortable designing with basic shapes, it is time to introduce more complex shapes in your design process. We will do this in the next chapter by looking at a few foundational concepts from computational geometry before venturing into procedural shape generation.</p>
-
+    <p>
+      When you feel comfortable designing with basic shapes, it is time to
+      introduce more complex shapes in your design process. We will do this in
+      the next chapter by looking at a few foundational concepts from
+      computational geometry before venturing into procedural shape generation.
+    </p>
   </section>
 
   {% include exercise.html text="Design an ice cream cone in black and white with only a single occurrence of each of the basic shape functions in the code." %}
-
 </section>

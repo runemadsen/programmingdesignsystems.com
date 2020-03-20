@@ -5,9 +5,10 @@
     "babel-preset-react": "^6.16.0",
     "cheerio": "^0.20.0",
     "hsluv": "0.0.1",
+    "http-server": "^0.12.1",
     "lodash": "^4.6.1",
-    "magicbook": "^0.1.14",
-    "magicbook-codesplit": "^0.1.4",
+    "magicbook": "^0.1.18",
+    "magicbook-codesplit": "^0.1.6",
     "magicbook-webpack": "0.0.3",
     "p5": "^0.5.9",
     "prismjs": "^1.5.1",
@@ -15,5 +16,9 @@
     "react-dom": "^15.3.2",
     "through2": "^2.0.1",
     "tinyliquid": "^0.2.31"
+  },
+  "scripts": {
+    "build": "magicbook build --watch",
+    "serve": "http-server build/build1 -p 5000"
   }
 }

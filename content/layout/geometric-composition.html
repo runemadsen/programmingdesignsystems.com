@@ -1,0 +1,528 @@
+---
+title: Geometric composition
+---
+
+<section data-type="chapter">
+  {% include header.html %}
+
+  <blockquote class="text-width">
+    <p>
+      &ldquo;By making visual categories explicit, by extracting underlying
+      principles, and by showing structural relations at work, [the aim is] not
+      to replace spontaneous intuition but to sharpen it, to shore it up, and to
+      make its elements communicable.&rdquo;
+    </p>
+    <cite
+      >Rudolf Arnheim<span data-type="footnote"
+        >Arnheim, Rudolf (1974) <em>Art and Visual Perception</em>, p. 8.
+        University of California Press</span
+      ></cite
+    >
+  </blockquote>
+
+  <p>
+    In the late 1800’s, psychologists in Germany performed a range of studies
+    that would later form the foundation of Gestalt psychology. This new branch
+    of psychology stated that, because humans live in a complex world, we seek
+    to derive fast, simplified conclusions about what we see. The first thing
+    most people see when presented with the drawing below is not X circles, but
+    rather the groups these circles form based on their distance to each other
+    and other visual similarity. Observing how humans naturally try to turn a
+    complex world into simple, actionable insights, the German psychologist Kurt
+    Koffka would famously state that “the whole is something else than the sum
+    of its parts” (REF).
+  </p>
+
+  <p>
+    [ Picture of circles: black and white, groups, and a circle of circles ]
+  </p>
+
+  <p>
+    Because this branch of psychology is devoted to the mechanisms of perception
+    and it emerged in Germany at the same time of the Bauhaus school, the
+    Gestalt principles have long been used by artists and designers to
+    anticipate the effects of their work. Although this is not a chapter on
+    psychology, Gestalt theory teaches us an important lesson about graphic
+    design: Users of your design will naturally draw conclusions based on the
+    entirety of your design, and if you do not formalize your visual elements
+    into a coherent layout, you are not in control of how your design is
+    perceived. In other words, your entire design is a shape in itself, and that
+    shape has to be designed too.
+  </p>
+
+  <p>[ a non-conform layout and a conform layout ]</p>
+
+  <p>
+    Those who are just beginning their design career might think that the
+    ability to create clean and organized layouts is something that
+    automatically comes with experience. Although practice does make perfect, it
+    is remarkably hard to consistently arrange shapes on a page without a basic
+    system to guide the decisions. Luckily, there is a technique that even the
+    most gifted designers use to organize their layouts, achieve a balance
+    between the shapes used, and spark new ideas whenever creativity falls
+    short.
+  </p>
+
+  <p>
+    This chapter focuses on an important layout technique in graphic design
+    often referred to as geometric composition: Dividing the canvas into smaller
+    parts and using these divisions to arrange the visual elements. This
+    technique can be used to create endless beautiful and expressive designs,
+    and it happens to be a great technique for those of us using code in the
+    design process.
+  </p>
+
+  <section data-type="sect1">
+    <h1>Canvas Division</h1>
+
+    <p>
+      To demonstrate the purest form of geometric composition, let us imagine we
+      are asked to design a poster for an upcoming photographic exhibition, and
+      that the client wants this poster to have exactly three important photos
+      from the exhibition. In our first attempt at designing such a poster, we
+      will position and scale the images to each take up one third of the
+      canvas. Although this might not be the most thrilling layout, this
+      guarantees that each image has an equal amount of space and that the lines
+      created between each image are evenly distributed from top to bottom. This
+      is demonstrated in the code below where, for simplicity’s sake, we are
+      using rectangles instead of images to not have to worry about image
+      cropping. Every code example in this chapter allows you to toggle the
+      visibility of the otherwise invisible geometry that is used to create the
+      layout.
+    </p>
+
+    <p>[ Simple thirds - DIVISION TOGGLE! ]</p>
+
+    <p>
+      Many designers use this Rule of Thirds in situations where centering a
+      shape is considered too dull or static. Some will even argue that placing
+      important shapes around the thirds of the canvas will increase the
+      dynamism and aesthetics of the design. Putting the validity of that
+      discussion aside, we have already achieved something that would be hard to
+      do without a layout system: Positioning and scaling three images evenly
+      across a canvas. However, the result appears somewhat dense because there
+      is no white space between the images. To make up for this, we can
+      introduce margins (a term used to describe empty space around content)
+      between our images to make the design less heavy. The attentive reader
+      will notice that the math required for calculating the height of each
+      module is now a bit more complex. First, we will need to decide on the
+      size of our margin, which we base on the canvas height in order to make
+      our layout responsive in case we ever resize the canvas.
+    </p>
+
+    <pre class="text-width"><code>const margin = height / 10;</code></pre>
+
+    <p>
+      We then calculate the combined height of all three images, which is the
+      canvas height without our margins. Note that since we are only adding the
+      margin between the images, we have two margins and three images.
+    </p>
+
+    <pre
+      class="text-width"
+    ><code>const imagesHeight = height - 2 * margin;</code></pre>
+
+    <p>
+      It is then a simple task to calculate the height of an individual image.
+    </p>
+
+    <pre
+      class="text-width"
+    ><code>const imageHeight = imagesHeight / 3;</code></pre>
+
+    <p>
+      The full code example below uses these variables to place each image at
+      the correct spot. You can change the value of the `margin` variable to
+      increase or decrease the amount of white space, or even set it to a random
+      number to make the margin different every time the code runs.
+    </p>
+
+    <p>[ Margins between each image ]</p>
+
+    <p>
+      We can continue our quest to add more white space by introducing margins
+      around the edges of the canvas as well. Like a framed painting, this will
+      remove the denseness of the layout even more and call attention to each
+      image as a separate piece of content. It will also allow us to add
+      captions underneath each photo if necessary. We use the same code from
+      above to calculate the height of each image, adding two extra margins for
+      the top and bottom. We also use the same approach to calculate the width
+      of each image by subtracting the margins from the canvas width.
+    </p>
+
+    <p>[ Margins between each image and around canvas ]</p>
+
+    <pre class="text-width"><code>
+const imagesHeight = height - 4 * margin;
+const imageHeight = imagesHeight / 3;
+const imageWidth = width - 2 * margin;
+</code></pre>
+
+    <p>
+      The designs from our poster exercise might look simple, but they show why
+      geometric composition is such a good strategy when designing in code: it
+      might take a little longer to write the code compared to a traditional
+      design tool, but the result is a pixel-perfect, balanced design that makes
+      it easy to test variations by tweaking a single variable.
+    </p>
+  </section>
+
+  <section data-type="sect1">
+    <h1>Procedural Division</h1>
+
+    <p>
+      So far, we have manually calculated the position for every image in our
+      code based on the `margin`, `imageWidth`, and `imageHeight` variables.
+      This might not be a problem when working with three images, but it quickly
+      gets repetitive if we have a lot of content. As described in Procedural
+      Shapes (LINK), a for-loop can be used to run the same piece of code
+      multiple times after each other, and since all of our images follow the
+      same layout rule, we should be able to come up with a single piece of code
+      to draw all three images. This layout rule can loosely be translated to
+      something like this:
+    </p>
+
+    <p>For each image:</p>
+    <ol>
+      <li>
+        Move down the value of `margin` to add the initial white space at the
+        top of the canvas.
+      </li>
+      <li>
+        Move down the value of `margin + imageHeight` as many times as the
+        number of prior images to find the position of the image.
+      </li>
+    </ol>
+
+    <p>Translating this from words to code would look something like this:</p>
+
+    <pre
+      class="text-width"
+    ><code>const imageY = margin + (imageNum * (margin + imageHeight));</code></pre>
+
+    <p>
+      Note how this single line of code can be used to find the `y` position for
+      each image by changing the value of `imageNum` from 0 (first image) to 2
+      (last image). Luckily, we can write a for-loop where the `i` variable
+      increments from 0 to 2 in steps of one, just like we need:
+    </p>
+
+    <pre class="text-width"><code>
+for(let i = 0; i < 3, i++) {
+  const imageY = margin + (i * (margin + imageHeight));
+}
+</code></pre>
+
+    <p>
+      We can take these ideas and procedurally draw our poster with much fewer
+      lines of code:
+    </p>
+
+    <p>[ Loop code without translate() ]</p>
+
+    <p>
+      When writing code, there are always multiple ways of achieving the same
+      outcome. Since some designers will find our calculations a bit hard to
+      read, let us try to rewrite the same example using the translate()
+      function. As described in Figure and Ground (LINK), the translate()
+      function can be used to move the entire canvas itself. If you draw a
+      rectangle with rect(0, 0, 50, 50), you will normally see a square in the
+      top left corner of the canvas. However, if you add translate(100, 150)
+      before drawing the rectangle, the square will now appear in x 100 and y
+      150 because the canvas was moved. You might think of this like what
+      happens when you click and drag on Google Maps. All shapes stay in the
+      same positions within the canvas, but the canvas itself is being moved
+      around. One powerful (and challenging) aspect of translations is that they
+      are cumulative, which means that they are added on top of previous
+      translations. This is best demonstrated with a quick example. Notice how
+      the second translation is added on top of the previous one, making the
+      rectangles show up in two different places despite both using x 0 and y 0.
+    </p>
+
+    <p>[Two translations for two rectangles]</p>
+
+    <p>
+      This means that we can use the translate() function inside of a for-loop
+      to move the canvas every time the loop runs. In our poster example, we
+      will use this technique after drawing each image to move the canvas down
+      to the position of the next image. We are adding a few more lines of code,
+      but the calculations are shorter.
+    </p>
+
+    <p>[ Loop code to make images with comment explanation ]</p>
+
+    <p>
+      Some designers prefer the use of translate() because it reads like our
+      layout rule from above, while others will favor seeing the layout
+      calculation in a single line of code. It is often possible to achieve the
+      same thing in many different ways when working with code, and both of
+      these techniques are perfectly valid. You should use whichever makes the
+      most sense to you.
+    </p>
+  </section>
+
+  <section data-type="sect1">
+    <h1>The Grid System</h1>
+
+    <p>
+      Although we so far have only divided our canvas into thirds, the same
+      method can be used with fewer or more divisions. If the poster example
+      required us to use four photos, we would not need to make a lot of changes
+      to the code to make that happen. However, when we increase the number of
+      divisions, the space for each image becomes narrower, and at some point
+      this will be unsuitable for our content. To make up for this, we can
+      introduce another division – this time on the vertical axis – to add more
+      flexibility to our geometric composition. This is the beginning of what in
+      graphic design is referred to as a grid system.
+    </p>
+
+    <p>[ Graphic that shows the grid system ]</p>
+
+    <p>
+      We can demonstrate this idea by changing the poster example. Up until now,
+      we have placed a photo in each division of the screen: We divide the
+      height of the canvas into three and use this number as the height for each
+      photo (not taking the margin into account). However, if we also divide the
+      width of the canvas into two, we now have a grid of six places to put
+      content, and with three photos, we no longer have a one-to-one mapping
+      between the number of photos and the number of spaces to put them.
+    </p>
+
+    <p>[BEFORE: 3 modules ] [AFTER: 6 modules]</p>
+
+    <p>
+      Graphic designers often refer to these spaces as modules, and now that we
+      have more modules than photos, we can explore how to use the grid in a
+      more creative way. First and foremost, we need to find the width and
+      height of each module. You might notice how the code is identical to the
+      code we used to find the image height in the examples from before.
+    </p>
+
+    <pre class="text-width"><code>
+Const margin = ….
+Const moduleHeight = ….
+Const moduleWidth = ….
+</code></pre>
+
+    <p>
+      Even if we use these numbers to simply put each photo into a single
+      module, the fact that there are six modules makes for a lot more
+      flexibility in the layout variants. These are just three of many posters
+      that can be created.
+    </p>
+
+    <p>[THREE POSTERS PUTTING IMG INTO 3 MODULES]</p>
+
+    <p>
+      It is also possible to experiment with ways of spanning a single piece of
+      content across multiple modules. In the example below, a single photo
+      covers the uppermost four modules while the remaining photos use the last
+      two modules at the bottom of the canvas. This introduces the ability to
+      highlight certain types of content over others.
+    </p>
+
+    <p>[ one taking up two thirds, two images in the last third ]</p>
+
+    <p>
+      This is just one of many designs that can be created from this six-module
+      grid system. The core idea is that these modules become building blocks
+      for the final layout, and there is really no right or wrong way to go
+      about it. These three posters show what some of this experimentation could
+      look like.
+    </p>
+  </section>
+
+  <section data-type="sect1">
+    <h1>Composition Strategies</h1>
+
+    <blockquote class="text-width">
+      <p>
+        &ldquo;The idea of the grid is that it gives you a system of order and
+        still gives you plenty of variety. [...] But the grid never changes. It
+        is always the interior that changes, and that is what makes the thing
+        come alive.&rdquo;
+      </p>
+      <cite
+        >Paul Rand<span data-type="footnote"
+          >Kroeger, Michael (2008) <em>Conversations With Students</em>, p. 27.
+          Princeton Architectural Press</span
+        ></cite
+      >
+    </blockquote>
+
+    <p>
+      Our imaginary poster with three images was a worthwhile project for
+      demonstrating the basics of geometric composition. However, it is a
+      somewhat simplified scenario compared to the type of content that a
+      designer normally encounters. In order to explore this concept further,
+      let us spend the rest of this chapter investigating other ways of using
+      these same ideas in code, and by looking at designers who take different
+      approaches to geometric composition. These designers utilize the grid in
+      different ways: There are formalist designers who strictly follow the
+      lines of the grid, more idea-driven designers who play within the grid,
+      and designers who rarely use geometric helpers. Our first steps into the
+      world of geometric composition is therefore constructed as – rather than a
+      set of do’s and don’ts – a journey from a strict to more lenient way of
+      using geometric composition. Hopefully these different approaches can
+      inspire the reader to do more experiments on their own. Just like above,
+      we will use content placeholders to simplify the code examples: A heading
+      [---], a paragraph [----], and a picture [----].
+    </p>
+
+    <p>
+      A strict approach to geometric composition means that most of the content
+      in your design should align with the lines created by your grid. In order
+      to achieve this, paragraph text can be sized to the module and justified
+      to create sharp edges on both the left and right side of the text block,
+      and images can be scaled and cropped to take up the entire space of their
+      module(s). The result is often a clean and balanced layout that, despite
+      this rather formalist approach to composition, leaves much room for
+      individual expression based on the modules and the content used. This is
+      demonstrated below with a module structure that is very similar to our
+      previous examples.
+    </p>
+
+    PIC
+
+    <p>
+      For designers who have a hard time creating compelling layouts from a
+      blank canvas, this stricter approach to composition can serve as a
+      concrete starting point for further exploration. The examples below show a
+      number of variations of the same idea.
+    </p>
+
+    PIC
+
+    <p>
+      A real-world example of this can be found in the visual identity for the
+      Whitney Museum designed by Dutch design studio Experimental Jetset. The
+      identity system is based on a strict grid system where the vertical and
+      horizontal lines of the content is broken up by a stretchable and skewed
+      “W” that also functions as a logotype for the museum. The strictness of
+      the grid system combined with the ever-changing dynamic logo makes for a
+      good visual language for a white-wall museum that constantly renews itself
+      through original exhibition work.
+    </p>
+
+    PIC
+
+    <p>[Whitney mobile app?]</p>
+
+    <p>
+      If this is an example of a strict interpretation of geometric composition,
+      then what does it mean to design with a more lenient interpretation of the
+      grid? The key is to find ways of breaking the box-like aesthetic of the
+      grid, and there are many ways of doing this. The first focus will be to
+      break the uniformity of the white space, and we will do this by allowing
+      multiple pieces of content to use the same module. The overlapping content
+      makes for a less formal composition while still adhering to the rules of
+      the grid.
+    </p>
+
+    PIC
+
+    <p>
+      The three designs below all use the same approach to create three
+      different designs with overlapping content.
+    </p>
+
+    PIC
+
+    <p>
+      A real-world example of this approach can be found in the visual identity
+      for CCC, an art cinema and cultural center in Santiago de Chile, created
+      by Martin Bravo and Simon XXX (REF: Authors company). The visual language
+      is based on a simple design system with three basic building blocks – a
+      logo with three iconic C’s, a grid system based on the rule of thirds, and
+      a playful color palette – which can be combined to produce an endless
+      number of assets for the institution. Notice how the rules of the grid
+      stay the same even though the format of the canvas changes. For an
+      institution where most of the marketing material is created by a rotating
+      team of volunteers, this simple but flexible composition technique helps
+      streamline their public communications, and the colored blocks produced by
+      the geometric composition makes for an extremely recognizable identity.
+    </p>
+
+    PIC
+
+    <p>
+      Another way to deviate from the strictness of the grid is to focus on how
+      our content is placed within the modules. So far, the strategy has been to
+      fill the entire space of one or more modules with our content. We can open
+      up more possibilities by making our content smaller than the modules and
+      align the content to just one or two sides. As you can see in the
+      following example, this makes for a less organized layout where few of the
+      shapes align, but without the chaos of a free-for-all layout.
+    </p>
+
+    PIC
+
+    <p>
+      The designs below all use the same approach to create three different
+      layouts.
+    </p>
+
+    PIC
+
+    <p>REAL WORLD EXAMPLE!???</p>
+
+    <p>[Real world of this]</p>
+
+    <p>
+      There are many ways of playing with the alignment of content within the
+      modules. The American graphic designer Jacqueline Casey, who is best known
+      for her work as Director of MIT’s Office of Publications, plays with
+      horizontal misalignment in this poster from 1962. Dividing the canvas into
+      many thin modules, the type is offset from the center using the modules as
+      a baseline for the typography. Combined with a black and white color
+      scheme, the result is a rigid yet playful design that invites the reader
+      to examine the text more closely.
+    </p>
+
+    <p>
+      Finally, we can completely move away from the idea of a uniform grid by
+      using just some of the ideas above to create a freer layout system. This
+      might include using a margin around the canvas and scaling content based
+      on the canvas size, but then allowing content the freedom to be placed
+      anywhere on the canvas. The following examples demonstrate this idea, and
+      they vary only in whether or not they allow the content to overlap.
+    </p>
+
+    <p>[TWO EXAMPLES OF OVERLAPPING CONTENT]</p>
+
+    <p>
+      This poster by the american graphic design Paul Rand FIGURE OUT THE RULE.
+    </p>
+
+    <p>Even crazier, two divisions on top of each other!</p>
+
+    <p>[ Guang Yu - Tokyo TDC Selected Artworks in Beijing ]</p>
+
+    <p>
+      This chapter introduced a set of geometric composition techniques that can
+      be used to construct graphic layouts by dividing the canvas into smaller
+      spaces that are in turn used to guide the content. These ideas can help
+      the designer create a plan for the entire composition before focusing on
+      individual pieces of content. In some way, geometrical composition is a
+      way to think about the general before the specific, and this can be a
+      blessing or a curse depending on how these ideas are used. As always,
+      rules should not be followed blindly. Graphic design is above all a human
+      endeavour, and geometric composition techniques should be used to explore
+      layouts and generate new ideas, not as a prison for templating content
+      into a visual monoculture.
+    </p>
+
+    <p>
+      The next chapter of this book is devoted to the concept of grid systems,
+      which has already been introduced in this chapter. Devoting a full chapter
+      to grid systems will give us an opportunity to focus on key details
+      related to the use of grid systems in code, including how to write
+      reusable code that can be shared across projects. Until then, it is
+      recommended that you follow the following exercise.
+    </p>
+
+    <p>[ EXERCISE ]</p>
+  </section>
+
+  {{footnotes}}
+</section>

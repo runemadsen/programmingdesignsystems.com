@@ -1,5 +1,0 @@
-- Remove iframes from p5fig and pass code into function that binds p instance mode to this
-- feedback button that goes to github issues
-- Image resize
-- All functions should link to P5 reference
-- Plugin to create links to function documentation in P5 and JS.

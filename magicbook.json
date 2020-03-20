@@ -29,10 +29,12 @@
     {
       "label": "Layout",
       "files": [
-        "content/layout/a-short-history-of-geometric-composition.html"
+        "content/layout/a-short-history-of-geometric-composition.html",
+        "content/layout/geometric-composition.html"
       ]
     },
-    "content/more-to-come.html"
+    "content/more-to-come.html",
+    "content/newsletter.html"
   ],
   "webpack": "webpack.config.js",
   "stylesheets": {

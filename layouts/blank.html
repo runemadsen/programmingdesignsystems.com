@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>{{ config.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ stylesheets }}
-    {% include ga.html %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{ stylesheets }} {% include ga.html %}
   </head>
   <body>
     {{ content }}
     <script src="{{ webpack.main }}"></script>
   </body>
-
 </html>
