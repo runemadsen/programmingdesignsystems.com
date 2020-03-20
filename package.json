@@ -7,7 +7,7 @@
     "hsluv": "0.0.1",
     "http-server": "^0.12.1",
     "lodash": "^4.6.1",
-    "magicbook": "^0.1.18",
+    "magicbook": "^0.1.19",
     "magicbook-codesplit": "^0.1.6",
     "magicbook-webpack": "0.0.3",
     "p5": "^0.5.9",
@@ -18,7 +18,7 @@
     "tinyliquid": "^0.2.31"
   },
   "scripts": {
-    "build": "magicbook build --watch",
+    "dev": "magicbook build --watch",
     "serve": "http-server build/build1 -p 5000"
   }
 }
