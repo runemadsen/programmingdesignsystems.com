@@ -72,7 +72,7 @@ title: Geometric composition
     <h1>Canvas Division</h1>
 
     <p>
-      To demonstrate the purest form of geometric composition, let us imagine we
+      To demonstrate what geometric composition looks like in practice, let us imagine we
       are asked to design a poster for an upcoming photographic exhibition, and
       that the client wants this poster to have exactly three important photos
       from the exhibition. In our first attempt at designing such a poster, we
@@ -81,13 +81,14 @@ title: Geometric composition
       guarantees that each image has an equal amount of space and that the lines
       created between each image are evenly distributed from top to bottom. This
       is demonstrated in the code below where, for simplicity’s sake, we are
-      using rectangles instead of images to not have to worry about image
-      cropping. Every code example in this chapter allows you to toggle the
-      visibility of the otherwise invisible geometry that is used to create the
-      layout.
+      using three rectangles with different grayscale fills instead of images in order to not
+      worry about image cropping.
     </p>
 
-    <p>[ Simple thirds - DIVISION TOGGLE! ]</p>
+    <div class="grid">
+       {% codesplit layout/geometric-composition/thirds.js lines:'5-16' class:'col-2-3' %}
+       {% p5 layout/geometric-composition/thirds.js class:'col-1-3' %}
+    </div>
 
     <p>
       Many designers use this Rule of Thirds in situations where centering a
@@ -106,7 +107,7 @@ title: Geometric composition
       our layout responsive in case we ever resize the canvas.
     </p>
 
-    <pre class="text-width"><code>const margin = height / 10;</code></pre>
+    {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'5' class:'text-width' %}
 
     <p>
       We then calculate the combined height of all three images, which is the
@@ -114,26 +115,25 @@ title: Geometric composition
       margin between the images, we have two margins and three images.
     </p>
 
-    <pre
-      class="text-width"
-    ><code>const imagesHeight = height - 2 * margin;</code></pre>
+    {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'7' class:'text-width' %}
 
     <p>
       It is then a simple task to calculate the height of an individual image.
     </p>
 
-    <pre
-      class="text-width"
-    ><code>const imageHeight = imagesHeight / 3;</code></pre>
+    {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'8' class:'text-width' %}
 
     <p>
       The full code example below uses these variables to place each image at
-      the correct spot. You can change the value of the `margin` variable to
+      the correct spot. You can change the value of the <code>margin</code> variable to
       increase or decrease the amount of white space, or even set it to a random
       number to make the margin different every time the code runs.
     </p>
 
-    <p>[ Margins between each image ]</p>
+    <div class="grid">
+       {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'5-16' class:'col-2-3' %}
+       {% p5 layout/geometric-composition/thirds-margin-between.js class:'col-1-3' %}
+    </div>
 
     <p>
       We can continue our quest to add more white space by introducing margins
@@ -168,7 +168,7 @@ const imageWidth = width - 2 * margin;
 
     <p>
       So far, we have manually calculated the position for every image in our
-      code based on the `margin`, `imageWidth`, and `imageHeight` variables.
+      code based on the <code>margin</code>, <code>imageWidth</code>, and <code>imageHeight</code> variables.
       This might not be a problem when working with three images, but it quickly
       gets repetitive if we have a lot of content. As described in Procedural
       Shapes (LINK), a for-loop can be used to run the same piece of code
@@ -181,7 +181,7 @@ const imageWidth = width - 2 * margin;
     <p>For each image:</p>
     <ol>
       <li>
-        Move down the value of `margin` to add the initial white space at the
+        Move down the value of <code>margin</code> to add the initial white space at the
         top of the canvas.
       </li>
       <li>
