@@ -5,9 +5,9 @@ function setup()
   noStroke();
   fill(30);
 
-  translate(100, 100);
-  rect(0, 0, 150, 150);
+  translate(175, 100);
+  rect(0, 0, 150, 130);
 
-  translate(150, 150);
-  rect(0, 0, 150, 150);
+  translate(0, 175);
+  rect(0, 0, 150, 130);
 }

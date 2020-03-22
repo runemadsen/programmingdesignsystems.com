@@ -151,26 +151,10 @@ title: Geometric composition
        {% p5 layout/geometric-composition/thirds-margin-around.js class:'col-1-3' %}
     </div>
 
-    <p>You might notice how the calculations for the <code>x</code> and <code>y</code> values for each
-      image are becoming longer and longer. This is because each image has to use our variables
-      to calculate the position based on how many images came before it.
-      When writing code, there are always multiple ways of achieving the same
-      outcome, and since some designers will find these calculations a bit hard to
-      read, let us rewrite the same example using the <code>translate()</code>
-      function. As described in earlier chapters, the <code>translate()</code>
-      function can be used to move the entire canvas itself. If you draw a
-      rectangle with <code>rect(0, 0, 50, 50)</code>, you will normally see a square in the
-      top left corner of the canvas because its <code>x</code> and <code>y</code> values are <code>0</code>.
-      However, if you add <code>translate(100, 150)</code>
-      to your code before drawing the rectangle, the square will now appear in <code>x=100</code>
-      and <code>y=150</code> because of the translation. You might think of this like what
-      happens when you click and drag on Google Maps: All shapes stay in the
-      same positions within the canvas, but the canvas itself is being moved
-      around. One powerful (and challenging) aspect of translations is that they
-      are cumulative, which means that they are added on top of previous
-      translations. This is best demonstrated with a quick example. Notice how
-      the second translation is added on top of the previous one, making the
-      rectangles show up in two different places despite both using <code>x=0</code> and <code>y=0</code>.
+    <p>You might notice how the calculations are becoming longer and longer. When writing code, there are always multiple ways of achieving the same outcome, and since some designers will find these calculations a bit hard to read, let us rewrite the same example using the <code>translate()</code> function. As described in earlier chapters, <code>translate()</code> can be used to move the entire canvas itself. If you draw a rectangle with <code>rect(0, 0, 50, 50)</code>, you will normally see a square in the top left corner of the canvas. However, if you add <code>translate(100, 100)</code> to your code before drawing the rectangle, the square will now appear <code>100</code> pixels down and to the rigth because of the translation. You might think of this like what happens when you click and drag on Google Maps: All shapes stay in the same positions within the canvas, but the canvas itself is being moved around.</p>
+
+    <p>One powerful (and challenging) aspect of translations is that they are cumulative, which means that they are added on top of previous translations. This is best demonstrated with a quick example. Notice how the second translation is added on top of the previous one, making the rectangles show up below each other despite them
+    having the same <code>x</code> and <code>y</code> values.
     </p>
 
     <div class="grid media-width">
@@ -225,27 +209,25 @@ title: Geometric composition
 
     <pre
       class="text-width"
-    ><code>const imageY = margin + (imageNum * (margin + imageHeight));</code></pre>
+    ><code>var imgY = margin + (imageNum * (margin + imageHeight));</code></pre>
 
     <p>
       Note how this single line of code can be used to find the <code>y</code> position for
-      each image by changing the value of <code>imageNum</code> from 0 (first image) to 2
+      each image by changing the value of <code>imageNum</code> from <code>0</code> (first image) to <code>2</code>
       (last image). Luckily, we can write a for-loop where the <code>i</code> variable
-      increments from 0 to 2 in steps of one, just like we need:
+      increments from <code>0</code> to <code>2</code> in steps of one, just like we need:
     </p>
 
-    <pre class="text-width"><code>
-for(let i = 0; i < 3, i++) {
-  const imageY = margin + (i * (margin + imageHeight));
-}
-</code></pre>
+    {% codesplit layout/geometric-composition/thirds-margin-around-loop.js lines:'14,15,17' class:'media-width' %}
 
     <p>
-      We can take these ideas and procedurally draw our poster with much fewer
-      lines of code:
+      We can take these ideas and procedurally draw our poster in the exact same layout but using a for-loop.
     </p>
 
-    <p>[ Loop code without <code>translate()</code> ]</p>
+    <div class="grid">
+       {% codesplit layout/geometric-composition/thirds-margin-around-loop.js lines:'5-17' class:'col-2-3' %}
+       {% p5 layout/geometric-composition/thirds-margin-around-loop.js class:'col-1-3' %}
+    </div>
 
     <p>
       Just as above, We can also rewrite this code to rely on the <code>translate()</code> function.
@@ -253,11 +235,10 @@ for(let i = 0; i < 3, i++) {
       and since the first image needs to call <code>translate(margin, margin)</code> to position itself
       by the outer margin, each of the following images need to call <code>translate(0, imgHeight + margin)</code>
       to move the canvas in the correct amount. So solve this problem, we do the first translation before the
-      for-loop, and the subsequent translations after drawing each image. This results in a layout that looks
-      exactly like our code without the use of translations.
+      for-loop, and the subsequent translations after drawing each image. Same output, but slightly more readable for some.
     </p>
 
-    <p>[ Loop code to make images with comment explanation ]</p>
+    {% codesplit layout/geometric-composition/thirds-margin-around-loop-translate.js lines:'5-22' class:'columns' %}
 
     <p>
       Some designers prefer the use of <code>translate()</code> because it reads like our
