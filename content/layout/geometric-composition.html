@@ -200,7 +200,7 @@ title: Geometric composition
         top of the canvas.
       </li>
       <li>
-        Move down the value of <code>margin + imageHeight</code> as many times as the
+        Move down the value of <code>imageHeight + margin</code> as many times as the
         number of prior images to find the position of the image.
       </li>
     </ol>
@@ -209,7 +209,7 @@ title: Geometric composition
 
     <pre
       class="text-width"
-    ><code>var imgY = margin + (imageNum * (margin + imageHeight));</code></pre>
+    ><code>var imgY = margin + imageNum * (imageHeight + margin);</code></pre>
 
     <p>
       Note how this single line of code can be used to find the <code>y</code> position for
@@ -230,7 +230,7 @@ title: Geometric composition
     </div>
 
     <p>
-      Just as above, We can also rewrite this code to rely on the <code>translate()</code> function.
+      Just as above, we can also rewrite this code to rely on the <code>translate()</code> function.
       The only difference is that we need to use <code>translate()</code> inside of the for-loop,
       and since the first image needs to call <code>translate(margin, margin)</code> to position itself
       by the outer margin, each of the following images need to call <code>translate(0, imgHeight + margin)</code>
@@ -304,7 +304,10 @@ title: Geometric composition
       highlight certain types of content over others.
     </p>
 
-    <p>[ one taking up two thirds, two images in the last third ]</p>
+    <div class="grid">
+       {% codesplit layout/geometric-composition/grid-highlighted.js lines:'5-19' class:'col-2-3' %}
+       {% p5 layout/geometric-composition/grid-highlighted.js class:'col-1-3' %}
+    </div>
 
     <p>
       This is just one of many designs that can be created from this six-module
