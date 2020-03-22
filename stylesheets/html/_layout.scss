@@ -253,14 +253,14 @@ article {
     margin-bottom: 0.8em;
   }
 
-  ul {
+  ul, ol {
     list-style: none;
     margin: 0;
     padding: 0;
     li {
       margin-bottom: 0.6em;
     }
-    ul {
+    ul, ol {
       margin-left: 1em;
     }
   }

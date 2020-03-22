@@ -216,7 +216,7 @@ title: Geometric composition
         top of the canvas.
       </li>
       <li>
-        Move down the value of `margin + imageHeight` as many times as the
+        Move down the value of <code>margin + imageHeight</code> as many times as the
         number of prior images to find the position of the image.
       </li>
     </ol>
@@ -228,9 +228,9 @@ title: Geometric composition
     ><code>const imageY = margin + (imageNum * (margin + imageHeight));</code></pre>
 
     <p>
-      Note how this single line of code can be used to find the `y` position for
-      each image by changing the value of `imageNum` from 0 (first image) to 2
-      (last image). Luckily, we can write a for-loop where the `i` variable
+      Note how this single line of code can be used to find the <code>y</code> position for
+      each image by changing the value of <code>imageNum</code> from 0 (first image) to 2
+      (last image). Luckily, we can write a for-loop where the <code>i</code> variable
       increments from 0 to 2 in steps of one, just like we need:
     </p>
 
@@ -284,7 +284,10 @@ for(let i = 0; i < 3, i++) {
       graphic design is referred to as a grid system.
     </p>
 
-    <p>[ Graphic that shows the grid system ]</p>
+    <div class="grid media-width">
+       {% p5 layout/geometric-composition/grid-thirds.js class:'col-1-2' caption:'Before' %}
+       {% p5 layout/geometric-composition/grid-sixths.js class:'col-1-2' caption:'After' %}
+    </div>
 
     <p>
       We can demonstrate this idea by changing the poster example. Up until now,
@@ -319,7 +322,17 @@ Const moduleWidth = ….
       that can be created.
     </p>
 
-    <p>[THREE POSTERS PUTTING IMG INTO 3 MODULES]</p>
+    <div class="grid">
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/grid-sixths-poster-2.js caption:'Layout with room for text to flow left-right-left next to each image.' link:'true' %}
+      </div>
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/grid-sixths-poster.js caption:'Poster with room for text in the middle of the canvas.' link:'true' %}
+      </div>
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/grid-sixths-poster-3.js caption:'Poster with room for text in the left-hand side of the canvas.' link:'true' %}
+      </div>
+    </div>
 
     <p>
       It is also possible to experiment with ways of spanning a single piece of
