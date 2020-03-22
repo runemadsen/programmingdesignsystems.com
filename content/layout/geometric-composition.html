@@ -261,7 +261,7 @@ title: Geometric composition
       divisions, the space for each image becomes narrower, and at some point
       this will be unsuitable for our content. To make up for this, we can
       introduce another division – this time on the vertical axis – to add more
-      flexibility to our geometric composition. This is the beginning of what in
+      flexibility to the layout. This is the beginning of what in
       graphic design is referred to as a grid system.
     </p>
 
@@ -271,36 +271,17 @@ title: Geometric composition
     </div>
 
     <p>
-      We can demonstrate this idea by changing the poster example. Up until now,
-      we have placed a photo in each division of the screen: We divide the
-      height of the canvas into three and use this number as the height for each
-      photo (not taking the margin into account). However, if we also divide the
-      width of the canvas into two, we now have a grid of six places to put
-      content, and with three photos, we no longer have a one-to-one mapping
-      between the number of photos and the number of spaces to put them.
+      A few important comments are needed before we continue. First, we might as well begin to use the correct terms now that we are using a proper grid system. Graphic designers often refer to the spaces within a grid system as <em>modules</em>, so this is the term we will be using from now on. Also, with all this talk about modules, one might easily be a bit confused: What are these modules and where are they in the code? It might be helpful to think of these modules just like the concept of guides in design tools such as Photoshop or Illustrator: Horizontal and vertical lines (that are not part of the actual design) that intersect to create rectangles. These modules are in our case a result of our margin and the horizontal and vertical divisions.
     </p>
 
-    <p>[BEFORE: 3 modules ] [AFTER: 6 modules]</p>
-
     <p>
-      Graphic designers often refer to these spaces as modules, and now that we
-      have more modules than photos, we can explore how to use the grid in a
-      more creative way. First and foremost, we need to find the width and
-      height of each module. You might notice how the code is identical to the
-      code we used to find the image height in the examples from before.
+      With six modules, there is no longer a one-to-one mapping between the number of photos in our poster and the number of modules in the grid system. This makes it possible to explore how to utilize the grid in a more creative way. In order to do this, we need to first do a bit of calculations to find the width and height of each module. This is essentially the same code as we used for <code>imgHeight</code>, but used to calculate both the <code>moduleHeight</code> and <code>moduleWidth</code> values.
     </p>
 
-    <pre class="text-width"><code>
-Const margin = ….
-Const moduleHeight = ….
-Const moduleWidth = ….
-</code></pre>
+    {% codesplit layout/geometric-composition/grid-sixths-poster.js lines:'5-9' class:'media-width' %}
 
     <p>
-      Even if we use these numbers to simply put each photo into a single
-      module, the fact that there are six modules makes for a lot more
-      flexibility in the layout variants. These are just three of many posters
-      that can be created.
+      We will begin by drawing each photo inside a module, leaving the three remaining modules blank. Despite this somewhat simple layout rule, this leaves us with a bit of flexibility and some decisions to be made. Each of the designs below create whitespace in different ways, which in turn can inspire where to place possible text content.
     </p>
 
     <div class="grid">
