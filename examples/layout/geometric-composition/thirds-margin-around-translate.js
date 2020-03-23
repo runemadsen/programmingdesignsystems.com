@@ -9,18 +9,20 @@ function setup()
 
   background(240);
   noStroke();
-  fill(30);
 
   // Move down to the position of the first image and draw it
   translate(margin, margin);
+  fill(10, 175, 145);
   rect(0, 0, imgWidth, imgHeight);
 
   // Move down to the second image position and draw it
   translate(0, margin + imgHeight);
+  fill(40, 90, 80);
   rect(0, 0, imgWidth, imgHeight);
 
   // Move down to the last image position and draw it
   translate(0, margin + imgHeight);
+  fill(30, 50, 50);
   rect(0, 0, imgWidth, imgHeight);
 
   noLoop();

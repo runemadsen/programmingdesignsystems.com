@@ -9,12 +9,17 @@ function setup()
   var moduleWidth = allWidth / 2;
 
   background(240);
-  fill(30);
+  noStroke();
 
   translate(margin + moduleWidth + margin, margin);
 
+  fill(10, 175, 145);
   rect(0, 0, moduleWidth, moduleHeight);
+
+  fill(40, 90, 80);
   rect(0, margin + moduleHeight, moduleWidth, moduleHeight);
+
+  fill(30, 50, 50);
   rect(0, 2 * (margin + moduleHeight), moduleWidth, moduleHeight);
 
   noLoop();

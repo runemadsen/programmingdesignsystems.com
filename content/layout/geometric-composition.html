@@ -131,7 +131,7 @@ title: Geometric composition
     </p>
 
     <div class="grid">
-       {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'5-16' class:'col-2-3' %}
+       {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'5-20' class:'col-2-3' %}
        {% p5 layout/geometric-composition/thirds-margin-between.js class:'col-1-3' %}
     </div>
 
@@ -147,7 +147,7 @@ title: Geometric composition
     </p>
 
     <div class="grid">
-       {% codesplit layout/geometric-composition/thirds-margin-around.js lines:'5-16' class:'col-2-3' %}
+       {% codesplit layout/geometric-composition/thirds-margin-around.js lines:'5-21' class:'col-2-3' %}
        {% p5 layout/geometric-composition/thirds-margin-around.js class:'col-1-3' %}
     </div>
 
@@ -167,7 +167,7 @@ title: Geometric composition
       before drawing each image to move the canvas down to the correct position. Note how we are adding a few more lines of code, but the calculations are almost entirely gone since we are relying on <code>translate()</code>.
     </p>
 
-    {% codesplit layout/geometric-composition/thirds-margin-around-translate.js lines:'5-24' class:'columns media-width' %}
+    {% codesplit layout/geometric-composition/thirds-margin-around-translate.js lines:'5-26' class:'columns media-width' %}
 
     <p>
       The designs from our poster exercise might look simple, but they show why
@@ -218,14 +218,14 @@ title: Geometric composition
       increments from <code>0</code> to <code>2</code> in steps of one, just like we need:
     </p>
 
-    {% codesplit layout/geometric-composition/thirds-margin-around-loop.js lines:'14,15,17' class:'media-width' %}
+    {% codesplit layout/geometric-composition/thirds-margin-around-loop.js lines:'18,20,22' class:'media-width' %}
 
     <p>
-      We can take these ideas and procedurally draw our poster in the exact same layout but using a for-loop.
+      We can take these ideas and procedurally draw our poster in the exact same layout but using a for-loop. As explained in the <a href="#procedural-color-schemes" data-type="xref">Color Schemes</a> chapter, we will use an array of color objects to draw different fills for the "images" with the same code.
     </p>
 
     <div class="grid">
-       {% codesplit layout/geometric-composition/thirds-margin-around-loop.js lines:'5-17' class:'col-2-3' %}
+       {% codesplit layout/geometric-composition/thirds-margin-around-loop.js lines:'5-22' class:'col-2-3' %}
        {% p5 layout/geometric-composition/thirds-margin-around-loop.js class:'col-1-3' %}
     </div>
 
@@ -238,7 +238,7 @@ title: Geometric composition
       for-loop, and the subsequent translations after drawing each image. Same output, but slightly more readable for some.
     </p>
 
-    {% codesplit layout/geometric-composition/thirds-margin-around-loop-translate.js lines:'5-22' class:'columns' %}
+    {% codesplit layout/geometric-composition/thirds-margin-around-loop-translate.js lines:'5-27' class:'columns' %}
 
     <p>
       Some designers prefer the use of <code>translate()</code> because it reads like our
@@ -305,7 +305,7 @@ title: Geometric composition
     </p>
 
     <div class="grid">
-       {% codesplit layout/geometric-composition/grid-highlighted.js lines:'5-19' class:'col-2-3' %}
+       {% codesplit layout/geometric-composition/grid-highlighted.js lines:'5-23' class:'col-2-3' %}
        {% p5 layout/geometric-composition/grid-highlighted.js class:'col-1-3' %}
     </div>
 
@@ -352,7 +352,8 @@ title: Geometric composition
       using geometric composition. Hopefully these different approaches can
       inspire the reader to do more experiments on their own. Just like above,
       we will use content placeholders to simplify the code examples: A heading
-      [---], a paragraph [----], and a picture [----].
+      [---], a paragraph [----], and a picture [----]. NOTE 4 DIVISIONS ON VERTICAL.
+      NOTE: USING TRANSLATE AND NOT TRANSLATE IN DIFFERENT WAYS!
     </p>
 
     <p>
@@ -368,16 +369,10 @@ title: Geometric composition
       previous examples.
     </p>
 
-    PIC
-
-    <p>
-      For designers who have a hard time creating compelling layouts from a
-      blank canvas, this stricter approach to composition can serve as a
-      concrete starting point for further exploration. The examples below show a
-      number of variations of the same idea.
-    </p>
-
-    PIC
+    <div class="grid">
+       {% codesplit layout/geometric-composition/composition-strict-1.js lines:'5-21' class:'col-2-3' %}
+       {% p5 layout/geometric-composition/composition-strict-1.js class:'col-1-3' %}
+    </div>
 
     <p>
       A real-world example of this can be found in the visual identity for the
@@ -393,6 +388,25 @@ title: Geometric composition
     PIC
 
     <p>[Whitney mobile app?]</p>
+
+    <p>
+      For designers who have a hard time creating compelling layouts from a
+      blank canvas, this stricter approach to composition can serve as a
+      concrete starting point for further exploration. The examples below show a
+      number of variations of the same idea.
+    </p>
+
+    <div class="grid">
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-strict-2.js link:'true' %}
+      </div>
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-strict-3.js link:'true' %}
+      </div>
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-strict-4.js link:'true' %}
+      </div>
+    </div>
 
     <p>
       If this is an example of a strict interpretation of geometric composition,

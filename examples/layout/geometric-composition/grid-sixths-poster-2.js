@@ -9,10 +9,15 @@ function setup()
   var moduleWidth = allWidth / 2;
 
   background(240);
-  fill(30);
+  noStroke();
 
+  fill(10, 175, 145);
   rect(margin + moduleWidth + margin, margin, moduleWidth, moduleHeight);
+
+  fill(40, 90, 80);
   rect(margin, margin + moduleHeight + margin, moduleWidth, moduleHeight);
+
+  fill(30, 50, 50);
   rect(margin + moduleWidth + margin, height - margin - moduleHeight, moduleWidth, moduleHeight);
 
   noLoop();
