@@ -12,15 +12,15 @@ function setup()
   noStroke();
 
   translate(margin, margin);
-  fill(10, 175, 145);
+  fill(30, 50, 50);
   rect(0, 0, 2 * moduleWidth + margin, moduleHeight / 4);
 
   translate(0, moduleHeight + margin);
-  fill(40, 90, 80);
+  fill(120, 155, 155);
   rect(0, 0, moduleWidth, moduleHeight);
 
   translate(moduleWidth + margin, moduleHeight + margin);
-  fill(30, 50, 50);
+  fill(75, 185, 165);
   rect(0, 0, moduleWidth, 2 * moduleHeight + margin);
 
   noLoop();

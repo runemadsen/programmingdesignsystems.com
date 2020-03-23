@@ -11,13 +11,13 @@ function setup()
   background(240);
   noStroke();
 
-  fill(10, 175, 145);
+  fill(30, 50, 50);
   rect(margin, margin, moduleWidth, moduleHeight / 4);
 
-  fill(40, 90, 80);
+  fill(120, 155, 155);
   rect(margin + moduleWidth + margin, margin + moduleHeight + margin, moduleWidth, moduleHeight);
 
-  fill(30, 50, 50);
+  fill(75, 185, 165);
   rect(margin, margin + 2 * (moduleHeight + margin), 2 * moduleWidth + margin, 2 * moduleHeight + margin);
 
   noLoop();
