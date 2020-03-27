@@ -13,7 +13,7 @@ function setup()
 
   translate(margin, margin);
   fill(30, 50, 50);
-  rect(0, 0, 2 * moduleWidth + margin, moduleHeight / 4);
+  rect(0, 0, 2 * moduleWidth + margin, moduleHeight / 2);
 
   translate(0, moduleHeight + margin);
   fill(120, 155, 155);
