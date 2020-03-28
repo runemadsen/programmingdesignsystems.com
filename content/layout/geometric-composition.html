@@ -70,17 +70,7 @@ title: Geometric composition
     <h1>Canvas Division</h1>
 
     <p>
-      To demonstrate what geometric composition looks like in practice, let us imagine we
-      are asked to design a poster for an upcoming photographic exhibition, and
-      that the client wants this poster to have exactly three important photos
-      from the exhibition. In our first attempt at designing such a poster, we
-      will position and scale the images to each take up one third of the
-      canvas. Although this might not be the most thrilling layout, this
-      guarantees that each image has an equal amount of space and that the lines
-      created between each image are evenly distributed from top to bottom. This
-      is demonstrated in the code below where, for simplicity’s sake, we are
-      using three rectangles with different grayscale fills instead of images in order to not
-      worry about image cropping.
+      To demonstrate what geometric composition looks like in practice, let us imagine we are asked to design a poster for an upcoming photographic exhibition, and that the client wants this poster to have exactly three important photos from the exhibition. In our first attempt at designing such a poster, we will position and scale the images to each take up one third of the canvas. Although this might not be the most thrilling layout, this guarantees that each image has an equal amount of space and that the lines created between each image are evenly distributed from top to bottom. This is demonstrated in the code below where, for simplicity’s sake, we are using three rectangles with different color fills (<span class="square" style="background-color: rgb(30, 50, 50)"></span><span class="square" style="background-color: rgb(120, 155, 155)"></span><span class="square" style="background-color: rgb(75, 185, 165)"></span>) instead of images in order to not worry about image cropping.
     </p>
 
     <div class="grid">
@@ -350,7 +340,7 @@ title: Geometric composition
       using geometric composition. Hopefully these different approaches can
       inspire the reader to do more experiments on their own. Just like above,
       we will use content placeholders to simplify the code examples: A heading
-      [---], a paragraph [----], and a picture [----]. NOTE 4 DIVISIONS ON VERTICAL.
+      (<span class="square" style="background-color: rgb(30, 50, 50)"></span>), a paragraph (<span class="square" style="background-color: rgb(120, 155, 155)"></span>), and a picture (<span class="square" style="background-color: rgb(75, 185, 165)"></span>). NOTE 4 DIVISIONS ON VERTICAL.
       NOTE: USING TRANSLATE AND NOT TRANSLATE IN DIFFERENT WAYS!
     </p>
 
@@ -464,13 +454,13 @@ title: Geometric composition
 
     <div class="grid">
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-overlap-2.js overlay:'layout/geometric-composition/composition-overlap-2-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Something.' %}
+        {% p5 layout/geometric-composition/composition-overlap-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Multi-layered layout with a large heading.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-overlap-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Something.' %}
+        {% p5 layout/geometric-composition/composition-overlap-2.js overlay:'layout/geometric-composition/composition-overlap-2-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'This denser layout with text overlay is perfect for a photo book or other designs that require emphasis on the photo.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-overlap-4.js overlay:'layout/geometric-composition/composition-overlap-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'No Margin!!!.' %}
+        {% p5 layout/geometric-composition/composition-overlap-4.js overlay:'layout/geometric-composition/composition-overlap-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'The overlapping content combined with zero margins makes for a very dynamic layout.' %}
       </div>
     </div>
 
@@ -501,28 +491,20 @@ title: Geometric composition
 
     <div class="grid">
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-loose-2.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'COMBINES OVERLAP AND LOOSER ADHERENCE.' %}
+        {% p5 layout/geometric-composition/composition-loose-2.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'This layout loosely uses the grid to position overlapping elements. This helps break the uniformity of the evenly sized modules.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-loose-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Something.' %}
+        {% p5 layout/geometric-composition/composition-loose-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Here we create a more scrapboard-like layout with multiple smaller images that flow vertically along the modules.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-overlap-4.js overlay:'layout/geometric-composition/composition-overlap-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'No Margin!!!.' %}
+        {% p5 layout/geometric-composition/composition-loose-4.js overlay:'layout/geometric-composition/composition-loose-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'A simple grid is used to position content within the two modules and inside the large margin.' %}
       </div>
     </div>
 
     <p>
-      This chapter introduced a set of geometric composition techniques that can
-      be used to construct graphic layouts by dividing the canvas into smaller
-      modules that are in turn used to place the content. These ideas can help
-      the designer create a plan for the entire composition before focusing on
-      individual pieces of content. In some way, geometrical composition is a
-      way to think about the general before the specific, and this can be a
-      blessing or a curse depending on how these ideas are used. As always,
-      rules should not be followed blindly. Graphic design is above all a human
-      endeavour, and geometric composition techniques should be used to explore
-      layouts and generate new ideas, not as a prison for templating content
-      into a visual monoculture.
+      This chapter introduced a set of geometric composition techniques that can be used to construct graphic layouts by dividing the canvas into smaller modules that are in turn used to place the content. These ideas can help the designer create a plan for the entire composition before focusing on individual pieces of content. In some way, geometrical composition is a way to think about the general before the specific, and this can be a blessing or a curse depending on how these ideas are used. As always, rules should not be followed blindly. Graphic design is above all a human endeavour, and geometric composition techniques should be used to explore layouts and generate new ideas, not as a prison for templating content into a visual monoculture.
+      REMEMBER THAT IN DIFFERENT MEDIA, DIFFERENT TECHNIQUES. USE CSS FOR WEBSITES, ETC. THIS IS THE BASE KNOWLEDGE.
+      WHICH LAYOUT DO YOU PICK? IT DEPENDS ON THE CONTENT. NO EASY ANSWERS. ASK YOURSELF: WHAT DOES THIS CONTENT DICTATE?
     </p>
 
     <p>
@@ -533,4 +515,5 @@ title: Geometric composition
   </section>
 
   {{footnotes}}
+  
 </section>

@@ -9,14 +9,13 @@ function setup()
   noStroke();
 
   fill(75, 185, 165);
-  rect(0, moduleHeight, 2 * moduleWidth, 2 * moduleHeight);
+  rect(0, 0, 2 * moduleWidth, 3 * moduleHeight);
 
   fill(120, 155, 155);
-  rect(moduleWidth, 2 * moduleHeight, 2 * moduleWidth, moduleHeight);
-
+  rect(moduleWidth, 2 * moduleHeight, 2 * moduleWidth, 2 * moduleHeight);
 
   fill(30, 50, 50);
-  rect(0, 3 * moduleHeight, 3 * moduleWidth, moduleHeight / 2);
+  rect(moduleWidth, moduleHeight, 2 * moduleWidth, moduleHeight / 4);
 
   noLoop();
 }

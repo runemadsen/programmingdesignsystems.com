@@ -14,13 +14,13 @@ function setup()
   translate(margin, margin);
 
   fill(75, 185, 165);
-  rect(moduleWidth + margin, 0, 2 * moduleWidth + margin, 3 * moduleHeight + 2 * margin);
+  rect(moduleWidth + margin, moduleHeight + margin, 2 * moduleWidth + margin, 2 * moduleHeight + margin);
 
   fill(30, 50, 50);
   rect(0, 0, 3 * moduleWidth + 2 * margin, moduleHeight / 2);
 
   fill(120, 155, 155);
-  rect(0, moduleHeight + margin, 2 * moduleWidth + margin, 3 * moduleHeight + 2 * margin);
+  rect(0, 2 * (moduleHeight + margin), 2 * moduleWidth + margin, 2 * moduleHeight + margin);
 
   noLoop();
 }

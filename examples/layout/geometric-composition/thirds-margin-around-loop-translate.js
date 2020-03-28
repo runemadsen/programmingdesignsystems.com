@@ -7,8 +7,8 @@ function setup()
   var allHeight = height - 4 * margin;
   var imgHeight = allHeight / 3;
   var colors = [
-    color(10, 175, 145),
-    color(40, 90, 80),
+    color(75, 185, 165),
+    color(120, 155, 155),
     color(30, 50, 50)
   ];
 

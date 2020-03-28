@@ -10,10 +10,10 @@ function setup()
   background(240);
   noStroke();
 
-  fill(10, 175, 145);
+  fill(75, 185, 165);
   rect(0, 0, imgWidth, imgHeight);
 
-  fill(40, 90, 80);
+  fill(120, 155, 155);
   rect(0, imgHeight + margin, imgWidth, imgHeight);
   
   fill(30, 50, 50);
