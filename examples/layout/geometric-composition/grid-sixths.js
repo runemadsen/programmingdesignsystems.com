@@ -10,7 +10,7 @@ function setup()
 
   background(240);
   noFill();
-  stroke('#29b79b');
+  stroke(255, 0, 0);
 
   translate(margin, margin);
   rect(0, 0, imgWidth, imgHeight);

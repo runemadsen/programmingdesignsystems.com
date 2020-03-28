@@ -130,28 +130,31 @@ Plugin.prototype = {
         "}])";
 
       var caption = false;
-      if (attrs.link || attrs.caption) {
+      if (attrs.link || attrs.caption || attrs.overlay) {
         caption = "<figcaption>";
         if (attrs.caption) caption += attrs.caption;
-        if (attrs.link)
+        if(attrs.overlay) {
+          caption += '<a href="#" class="overlayToggle">'+(attrs.overlayCaption || 'Toggle Overlay') +'</a>';
+        }
+        if (attrs.link) {
           caption +=
             ' <a target="_blank" href="https://github.com/runemadsen/programmingdesignsystems.com/tree/master/' +
             examplePath +
             '">See Code</a>';
+        }
         caption += "</figcaption>";
       }
 
       // Render baby
-      var output = '<figure class="' + (attrs.class || "") + '">';
+      var output = '<figure id="' + idAttr + '" class="' + (attrs.class || "") + '">';
       if (caption && attrs.captionPosition == "top") {
         output += caption;
       }
-      output +=
-        '<div id="' +
-        idAttr +
-        '"></div><script type="text/javascript">' +
-        script +
-        "</script>";
+      output += '<div class="p5container">';
+      if(attrs.overlay) {
+        output += '<img class="overlay" src="'+attrs.overlay+'" style="display: none;" />';
+      }
+      output += '</div><script type="text/javascript">' + script + "</script>";
       if (caption && attrs.captionPosition !== "top") {
         output += caption;
       }

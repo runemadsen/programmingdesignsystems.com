@@ -61,7 +61,11 @@ figure figcaption {
   @extend .font-small;
   color: $fontGrayLight;
   a {
-    color: $fontGrayLight;
+    display: inline-block;
+    background-color: #f0f0f0;;
+    padding: 0px 6px;
+    color: #565656;
+    border: none;
   }
   code {
     color: #757575;

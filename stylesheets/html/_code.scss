@@ -27,6 +27,15 @@ figure + .codesplit {
   margin-top: $spacing / 2;
 }
 
+.p5container {
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+  }
+}
+
 // Highlight
 // -------------------------------------------------
 

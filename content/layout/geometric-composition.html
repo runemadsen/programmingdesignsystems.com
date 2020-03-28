@@ -369,7 +369,7 @@ title: Geometric composition
 
     <div class="grid">
        {% codesplit layout/geometric-composition/composition-strict-1.js lines:'5-21' class:'col-2-3' %}
-       {% p5 layout/geometric-composition/composition-strict-1.js class:'col-1-3' %}
+       {% p5 layout/geometric-composition/composition-strict-1.js overlay:'layout/geometric-composition/composition-strict-grid.svg' overlayCaption:'Toggle Grid' class:'col-1-3' %}
     </div>
 
     <p>
@@ -403,13 +403,13 @@ title: Geometric composition
 
     <div class="grid">
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-strict-2.js link:'true' caption:'This layout uses only two of the four vertical divisions which makes for an ordered and balanced design with lots of whitespace.' %}
+        {% p5 layout/geometric-composition/composition-strict-2.js overlay:'layout/geometric-composition/composition-strict-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'This layout uses only two of the four vertical divisions which makes for an ordered and balanced design with lots of whitespace.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-strict-3.js link:'true' caption:'A very large image with text content acting as mere annotations.' %}
+        {% p5 layout/geometric-composition/composition-strict-3.js overlay:'layout/geometric-composition/composition-strict-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'A very large image with text content acting as mere annotations.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-strict-4.js link:'true' caption:'The larger heading takes precedence over the smaller paragraph and image in a layout with heavy whitespace.' %}
+        {% p5 layout/geometric-composition/composition-strict-4.js overlay:'layout/geometric-composition/composition-strict-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'The larger heading takes precedence over the smaller paragraph and image in a layout with heavy whitespace.' %}
       </div>
     </div>
 
@@ -421,15 +421,18 @@ title: Geometric composition
       break the uniformity of the white space, and we will do this by allowing
       multiple pieces of content to use the same module. The overlapping content
       makes for a less formal composition while still adhering to the rules of
-      the grid.
+      the grid. FOUR x THREE DIVISIONS! ALSO PLACE THE HEADING AT THE BOTTOM OF THE MODULE!
     </p>
 
-    PIC
+    <div class="grid">
+       {% codesplit layout/geometric-composition/composition-overlap-1.js lines:'5-24' class:'col-2-3' %}
+       {% p5 layout/geometric-composition/composition-overlap-1.js class:'col-1-3' overlay:'layout/geometric-composition/composition-overlap-1-grid.svg' overlayCaption:'Toggle Grid' %}
+    </div>
 
     <p>
       A real-world example of this approach can be found in the visual identity
       for CCC, an art cinema and cultural center in Santiago de Chile, created
-      by Martin Bravo and Simon XXX (REF: Authors company). The visual language
+      by Martn Bravo and Simon XXX (REF: Authors company). The visual language
       is based on a simple design system with three basic building blocks – a
       logo with three iconic C’s, a grid system based on the rule of thirds, and
       a playful color palette – which can be combined to produce an endless
@@ -438,71 +441,80 @@ title: Geometric composition
       institution where most of the marketing material is created by a rotating
       team of volunteers, this simple but flexible composition technique helps
       streamline their public communications, and the colored blocks produced by
-      the geometric composition makes for an extremely recognizable identity.
+      the geometric composition makes for an extremely recognizable identity. NOTE: USES MARGINS!
     </p>
 
-    PIC
+    <div class="grid">
+      <figure class="col-1-3">
+        <img src="layout/geometric-composition/ccc-4.png" />
+        <figcaption>This poster for CCC has an overlapping geometric layout similar to the code example above. <a href="#fairuse">©</a></figcaption>
+      </figure>
+      <figure class="col-1-3">
+        <img src="layout/geometric-composition/ccc-1.png" />
+      </figure>
+      <figure class="col-1-3">
+        <img src="layout/geometric-composition/ccc-3.png" />
+      </figure>
+    </div>
 
     <p>
       The three designs below all use the same approach to create three
       different designs with overlapping content.
     </p>
 
-    PIC
+    <div class="grid">
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-overlap-2.js overlay:'layout/geometric-composition/composition-overlap-2-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Something.' %}
+      </div>
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-overlap-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Something.' %}
+      </div>
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-overlap-4.js overlay:'layout/geometric-composition/composition-overlap-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'No Margin!!!.' %}
+      </div>
+    </div>
 
     <p>
-      Another way to deviate from the strictness of the grid is to focus on how
-      our content is placed within the modules. So far, the strategy has been to
-      fill the entire space of one or more modules with our content. We can open
-      up more possibilities by making our content smaller than the modules and
-      align the content to just one or two sides. As you can see in the
-      following example, this makes for a less organized layout where few of the
-      shapes align, but without the chaos of a free-for-all layout.
+      Another way to deviate from the strictness of the grid is to change the way our content is placed within the modules. Except for a few outliers, our strategy so far has been to size our content to the full width or height of the module and align it at the top of the modules. We can open up more possibilities by making our content smaller than the modules and align the content to just one or two sides. As you can see in the following example, this makes for a less organized layout where few of the shapes align, but without the chaos of a free-for-all layout.
+      NOTE HOW THE CODE IS MUCH LOOSER AT WHERE THE CONTENT GOES: IN MIDDLE OF THE MARGIN; ETC.
     </p>
 
-    PIC
+    <div class="grid">
+       {% codesplit layout/geometric-composition/composition-loose-1.js lines:'5-22' class:'col-2-3' %}
+       {% p5 layout/geometric-composition/composition-loose-1.js class:'col-1-3' overlay:'layout/geometric-composition/composition-loose-1-grid.svg' overlayCaption:'Toggle Grid' %}
+    </div>
 
-    <p>REAL WORLD EXAMPLE WITH PAUL RAND POSTER!</p>
+    <p>The following two examples demonstrate different ways of playing within the grid. The first poster by the American graphic design Paul Rand has a layout similar to the code example above. It is arguable whether Rand used a grid system at all to create this design, but the consistent margins and alignment of some shapes might be an indication that the approach was similar to ours. The second example is by the American graphic designer Jacqueline Casey, who is best known for her work as Director of MIT’s Office of Publications. Here, she plays with horizontal misalignment by dividing the canvas into many thin modules and offsetting the type from the center using the modules as a baseline for the typography. Combined with a black and white color scheme, the result is a rigid yet playful design that invites the reader to examine the text more closely.</p>
 
-    <p>[Real world of this]</p>
+    <div class="grid media-width">
+      <figure class="col-1-2">
+        <img src="layout/geometric-composition/paul-rand-ibm-golden-circle.jpg" />
+        <figcaption>IBM Golden Circle poster by Paul Rand. <a href="#fairuse">©</a></figcaption>
+      </figure>
+      <figure class="col-1-2">
+        <img src="layout/geometric-composition/jacqueline-casey-mediums-of-language.jpg" />
+        <figcaption>Mediums of Language by Jacqueline Casey<a href="#fairuse">©</a></figcaption>
+      </figure>
+    </div>
 
-    <p>
-      The designs below all use the same approach to create three different
-      layouts.
-    </p>
+    <p>MORE EXAMPLES</p>
 
-    PIC
-
-    <p>
-      There are many ways of playing with the alignment of content within the
-      modules. The American graphic designer Jacqueline Casey, who is best known
-      for her work as Director of MIT’s Office of Publications, plays with
-      horizontal misalignment in this poster from 1962. Dividing the canvas into
-      many thin modules, the type is offset from the center using the modules as
-      a baseline for the typography. Combined with a black and white color
-      scheme, the result is a rigid yet playful design that invites the reader
-      to examine the text more closely.
-    </p>
-
-    <p>
-      Finally, we can completely move away from the idea of a uniform grid by
-      using just some of the ideas above to create a freer layout system. This
-      might include using a margin around the canvas and scaling content based
-      on the canvas size, but then allowing content the freedom to be placed
-      anywhere on the canvas. The following examples demonstrate this idea, and
-      they vary only in whether or not they allow the content to overlap.
-    </p>
-
-    <p>[TWO EXAMPLES OF OVERLAPPING CONTENT]</p>
-
-    <p>Even crazier, two divisions on top of each other!</p>
-
-    <p>[ Guang Yu - Tokyo TDC Selected Artworks in Beijing ]</p>
+    <div class="grid">
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-loose-2.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'COMBINES OVERLAP AND LOOSER ADHERENCE.' %}
+      </div>
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-loose-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Something.' %}
+      </div>
+      <div class="col-1-3">
+        {% p5 layout/geometric-composition/composition-overlap-4.js overlay:'layout/geometric-composition/composition-overlap-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'No Margin!!!.' %}
+      </div>
+    </div>
 
     <p>
       This chapter introduced a set of geometric composition techniques that can
       be used to construct graphic layouts by dividing the canvas into smaller
-      spaces that are in turn used to guide the content. These ideas can help
+      modules that are in turn used to place the content. These ideas can help
       the designer create a plan for the entire composition before focusing on
       individual pieces of content. In some way, geometrical composition is a
       way to think about the general before the specific, and this can be a
@@ -514,17 +526,10 @@ title: Geometric composition
     </p>
 
     <p>
-      The next chapter of this book is devoted to the concept of grid systems,
-      which has already been introduced in this chapter. Devoting a full chapter
-      to grid systems will give us an opportunity to focus on key details
-      related to the use of grid systems in code, including how to write
-      reusable code that can be shared across projects. Until then, it is
-      recommended that you follow the following exercise.
+      The next chapter of this book is devoted to the concept of grid systems, which has already been introduced in this chapter. Devoting a full chapter to grid systems will give us an opportunity to focus on key details related to the use of grid systems in code, including how to write reusable code that can be shared across projects, using more sophisticated grid systems, and even using multiple grid systems on top of each other. Until then, it is recommended that you follow the following exercise.
     </p>
 
-    <p>[ EXERCISE. MOST OF THE EXAMPLES IN THE BEGINNING OF THE CHAPTER ARE VERTICAL.
-      TRY TO RECREATE ON THE HORIZTONAL AXIS]
-    . THEN, TRY TO USE REAL IMAGES USING THE CROP FUNCTION?????</p>
+    {% include exercise.html text="Pick one of your favorite musical artists and design a banner for this artist using the artist name, a short description, and an image. Think of the banner as something that can be used to promote the artist on the home page of a musical streaming service. Ask yourself whether the style of music calls for a rigid layout or a more loose interpretation of the grid, and try to come up with a layout that makes sense for your content. Make sure to use the code examples in this chapter if you are stuck." %}
   </section>
 
   {{footnotes}}

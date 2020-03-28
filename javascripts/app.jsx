@@ -23,7 +23,7 @@ window.pds = {
 if(window.p5Examples) {
   for(var i = 0; i < p5Examples.length; i++) {
     // Run example in sync mode
-    var node = document.getElementById(p5Examples[i][0]);
+    var node = document.querySelector('#' + p5Examples[i][0] + ' .p5container');
     var example = new p5(p5Examples[i][1], node, true);
     // Make it resizable
     example.canvas.style.width = "100%";
@@ -64,6 +64,21 @@ if(tocToggle && toc) {
       as[i].setAttribute('class', 'color1');
     }
   }
+}
+
+// Toggle all overlays
+const overlayToggles = document.querySelectorAll('.overlayToggle');
+for(let i = 0; i < overlayToggles.length; i++) {
+  overlayToggles[i].addEventListener('click', (e) => {
+    e.preventDefault();
+    const figure = e.target.closest('figure');
+    const overlay = figure.querySelector('.overlay');
+    if (overlay.style.display === "none") {
+      overlay.style.display = "block";
+    } else {
+      overlay.style.display = "none";
+    }
+  })
 }
 
 // Track newsletter clicks
