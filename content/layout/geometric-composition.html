@@ -16,34 +16,17 @@ title: Geometric composition
   </blockquote>
 
   <p>
-    In the late 1800’s, psychologists in Germany performed a range of studies
-    that would later form the foundation of Gestalt psychology. This new branch
-    of psychology stated that, because humans live in a complex world, we seek
-    to derive fast, simplified conclusions about what we see. The first thing
-    most people see when presented with the drawing below is not 51 circles, but
-    rather the groups these circles form based on their distance to each other
-    and other visual similarity: A rectangle and a triangle. Observing how humans naturally try to turn a
-    complex world into simple, actionable insights, the German psychologist Kurt
-    Koffka would famously state that &ldquo;the whole is something else than the sum
-    of its parts&rdquo;
+    In the late 1800’s, psychologists in Germany performed a range of studies that would later form the foundation of Gestalt psychology. This new branch of psychology stated that humans, because we live in a complex world, seek to derive fast, simplified conclusions about what we see. The first thing most people see when presented with the drawing below is not 51 circles, but rather the groups these circles form based on their distance to each other and other visual similarity: A rectangle and a triangle. Observing how humans naturally try to turn a complex world into simple, actionable insights, the German psychologist Kurt Koffka would famously state that <em>&ldquo;the whole is something else than the sum of its parts&rdquo;</em>
     <span data-type="footnote">Heider, G.M. (1977) <em>More about Hull and Koffka</em>, American Psychologist, 32(5), 383</span>.
   </p>
 
   <figure class="media-width">
     <img src="layout/geometric-composition/gestalt.svg" />
+    <figcaption>Humans naturally group complex input into simpler visual categories, such as these circles being perceived as a single rectangle and triangle</figcaption>
   </figure>
 
   <p>
-    Because this branch of psychology is devoted to the mechanisms of perception
-    and it emerged in Germany at the same time of the Bauhaus school, the
-    Gestalt principles have long been used by artists and designers to
-    anticipate the effects of their work. Although this is not a chapter on
-    psychology, Gestalt theory teaches us an important lesson about graphic
-    design: Users of your design will naturally draw conclusions based on the
-    entirety of your design, and if you do not formalize your visual elements
-    into a coherent layout, you are not in control of how your design is
-    perceived. In other words, your entire design is a shape in itself, and that
-    shape has to be designed too.
+    Because this branch of psychology is devoted to the mechanisms of perception, and since it emerged in Germany at the same time of the Bauhaus school, the Gestalt principles have long been used by artists and designers to anticipate the effects of their work. This is not a chapter on psychology, but Gestalt theory teaches us an important lesson about graphic design: Users of your design will naturally draw conclusions based on the entirety of your design, and if you do not formalize the content into a coherent layout, you are not in control of how the design is perceived. In other words, your entire design is a shape in itself, and that shape has to be designed too.
   </p>
 
   <p>
@@ -54,11 +37,7 @@ title: Geometric composition
     system to guide the decisions. Luckily, there is a technique that even the
     most gifted designers use to organize their layouts, achieve a balance
     between the shapes used, and spark new ideas whenever creativity falls
-    short.
-  </p>
-
-  <p>
-    This chapter focuses on an important layout technique in graphic design
+    short. This chapter focuses on an important layout technique in graphic design
     often referred to as geometric composition: Dividing the canvas into smaller
     parts and using these divisions to arrange the visual elements. This
     technique can be used to create endless beautiful and expressive designs,
@@ -70,68 +49,43 @@ title: Geometric composition
     <h1>Canvas Division</h1>
 
     <p>
-      To demonstrate what geometric composition looks like in practice, let us imagine we are asked to design a poster for an upcoming photographic exhibition, and that the client wants this poster to have exactly three important photos from the exhibition. In our first attempt at designing such a poster, we will position and scale the images to each take up one third of the canvas. Although this might not be the most thrilling layout, this guarantees that each image has an equal amount of space and that the lines created between each image are evenly distributed from top to bottom. This is demonstrated in the code below where, for simplicity’s sake, we are using three rectangles with different color fills (<span class="square" style="background-color: rgb(30, 50, 50)"></span><span class="square" style="background-color: rgb(120, 155, 155)"></span><span class="square" style="background-color: rgb(75, 185, 165)"></span>) instead of images in order to not worry about image cropping.
+      To demonstrate what geometric composition looks like in practice, let us imagine we are asked to design a poster for an upcoming photographic exhibition, and that the client wants this poster to hold exactly three important photos from the exhibition. In our first attempt at designing such a poster, we will position and scale the images to each take up one third of the canvas. Although this might not be the most thrilling layout, this guarantees that each image has an equal amount of space and that the horizontal lines created between the bordering images are evenly distributed from top to bottom. This is demonstrated in the code below where we are using three rectangles with different colored fills (<span class="square" style="background-color: rgb(30, 50, 50)"></span><span class="square" style="background-color: rgb(120, 155, 155)"></span><span class="square" style="background-color: rgb(75, 185, 165)"></span>) instead of images in order to not worry about image cropping. Notice how the height of each image is set to be exactly one-third of the canvas height, and how the <code>y</code> positions of the images are based on this value too.
     </p>
 
     <div class="grid">
-       {% codesplit layout/geometric-composition/thirds.js lines:'5-16' class:'col-2-3' %}
+       {% codesplit layout/geometric-composition/thirds.js lines:'5-15' class:'col-2-3' %}
        {% p5 layout/geometric-composition/thirds.js class:'col-1-3' %}
     </div>
 
     <p>
-      Many designers use this Rule of Thirds in situations where centering a
-      shape is considered too dull or static. Some will even argue that placing
-      important shapes around the thirds of the canvas will increase the
-      dynamism and aesthetics of the design. Putting the validity of that
-      discussion aside, we have already achieved something that would be hard to
-      do without a layout system: Positioning and scaling three images evenly
-      across a canvas. However, the result appears somewhat dense because there
-      is no white space between the images. To make up for this, we can
-      introduce margins (a term used to describe empty space around content)
-      between our images to make the design less heavy. The attentive reader
-      will notice that the math required for calculating the height of each
-      module is now a bit more complex. First, we will need to decide on the
-      size of our margin, which we base on the canvas height in order to make
-      our layout responsive in case we ever resize the canvas.
+      Many designers use this Rule of Thirds in situations where centering a shape is considered too dull or static. Some will even argue that placing important shapes around the thirds of the canvas will increase the dynamism and aesthetics of the design. Putting the validity of that discussion aside, we have already achieved something that would be hard to do without a layout system: Positioning and scaling three images evenly across a canvas. However, the result appears somewhat dense because there is no white space between the images. To make up for this, we can introduce margins (a term used to describe empty space around content) between our images to make the design more airy. The attentive reader will notice that the math required for calculating the height of each image is now a bit more complex. First, we find the size of the margin, which we calculate based on the canvas height in order to make our layout responsive in case we ever resize the canvas.
     </p>
 
     {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'5' class:'text-width' %}
 
     <p>
-      We then calculate the combined height of all three images, which is the
-      canvas height without our margins. Note that since we are only adding the
-      margin between the images, we have two margins and three images.
+      We then calculate the combined height of all three images, which is the canvas height without our margins. Note that since we are only adding the margin between the images, there are only two margins for three images.
+    </p>
+
+    {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'6' class:'text-width' %}
+
+    <p>
+      Finally, we divide the <code>allHeight</code> variable by the number of images, which gives us the height of a single image. This value will also be used with the <code>margin</code> variable to calculate the position of each image.
     </p>
 
     {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'7' class:'text-width' %}
 
     <p>
-      It is then a simple task to calculate the height of an individual image.
-    </p>
-
-    {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'8' class:'text-width' %}
-
-    <p>
-      The full code example below uses these variables to place each image at
-      the correct spot. You can change the value of the <code>margin</code> variable to
-      increase or decrease the amount of white space, or even set it to a random
-      number to make the margin different every time the code runs.
+      The full code example below uses these variables to place each image at the correct position. By changing the value of the <code>margin</code> variable, we can easily increase or decrease the amount of white space, or even use the <code>random()</code> function to randomize the margin every time the code runs.
     </p>
 
     <div class="grid">
-       {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'5-20' class:'col-2-3' %}
+       {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'5-19' class:'col-2-3' %}
        {% p5 layout/geometric-composition/thirds-margin-between.js class:'col-1-3' %}
     </div>
 
     <p>
-      We can continue our quest to add more white space by introducing margins
-      around the edges of the canvas as well. Like a framed painting, this will
-      remove the denseness of the layout even more and call attention to each
-      image as a separate piece of content. It will also allow us to add
-      captions underneath each photo if necessary. We use the same code from
-      above to calculate the height of each image, adding two extra margins for
-      the top and bottom. We also use the same approach to calculate the width
-      of each image by subtracting the margins from the canvas width.
+      We can continue our quest to add more white space by introducing margins around the edges of the canvas as well. Like a framed painting, this will remove the denseness of the layout even more, and call attention to each image as a separate piece of content. It will also allow us to add captions underneath each photo if necessary. We use the same code from above to calculate the height of each image, adding two extra margins for the top and bottom. We also use the same type of calculation for a new <code>imgWidth</code> variable to find the width of each image.
     </p>
 
     <div class="grid">
@@ -139,10 +93,10 @@ title: Geometric composition
        {% p5 layout/geometric-composition/thirds-margin-around.js class:'col-1-3' %}
     </div>
 
-    <p>You might notice how the calculations are becoming longer and longer. When writing code, there are always multiple ways of achieving the same outcome, and since some designers will find these calculations a bit hard to read, let us rewrite the same example using the <code>translate()</code> function. As described in earlier chapters, <code>translate()</code> can be used to move the entire canvas itself. If you draw a rectangle with <code>rect(0, 0, 50, 50)</code>, you will normally see a square in the top left corner of the canvas. However, if you add <code>translate(100, 100)</code> to your code before drawing the rectangle, the square will now appear <code>100</code> pixels down and to the rigth because of the translation. You might think of this like what happens when you click and drag on Google Maps: All shapes stay in the same positions within the canvas, but the canvas itself is being moved around.</p>
+    <p>You might notice how the calculations are becoming longer the further down the page we go. This is because each image has to find its <code>y</code> position based on the number of images that came before it. There are always multiple ways of achieving the same outcome when writing code, and since some designers will find long calculations hard to read, let us instead rewrite the same example using the <code>translate()</code> function.
+    </p>
 
-    <p>One powerful (and challenging) aspect of translations is that they are cumulative, which means that they are added on top of previous translations. This is best demonstrated with a quick example. Notice how the second translation is added on top of the previous one, making the rectangles show up below each other despite them
-    having the same <code>x</code> and <code>y</code> values.
+    <p>As described in earlier chapters, the <code>translate()</code> function can be used to move the canvas itself. If you draw a rectangle with <code>rect(0, 0, 50, 50)</code>, a square will normally appear in the top left corner of the canvas. However, if you write <code>translate(100, 100)</code> in the code before drawing the rectangle, the square will now appear <code>100</code> pixels down and <code>100</code> pixels to the right because of the translation. You might think of this like what happens when you click and drag on Google Maps: All shapes stay in the same positions within the canvas, but the canvas itself is being moved around. One powerful (and challenging) aspect of translations is that they are cumulative, which means that they are added on top of previous translations. This is best demonstrated with a quick example. Notice how the second translation is added on top of the previous one, making the rectangles show up below each other despite having the same <code>x</code> and <code>y</code> values.
     </p>
 
     <div class="grid media-width">
@@ -151,18 +105,13 @@ title: Geometric composition
     </div>
 
     <p>
-      This means that, instead of doing long calculations, we can use <code>translate()</code>
-      before drawing each image to move the canvas down to the correct position. Note how we are adding a few more lines of code, but the calculations are almost entirely gone since we are relying on <code>translate()</code>.
+      We can therefore use the <code>translate()</code> function before drawing an image to move the canvas down to the correct position. We no longer need the long calculations for the last images, since the translations are added on top of each other as we go along. Note that there are adding a few more lines of code, but that is the compromise we have to make.
     </p>
 
     {% codesplit layout/geometric-composition/thirds-margin-around-translate.js lines:'5-26' class:'columns media-width' %}
 
     <p>
-      The designs from our poster exercise might look simple, but they show why
-      geometric composition is such a good strategy when designing in code: it
-      might take a little longer to write the code compared to a traditional
-      design tool, but the result is a pixel-perfect, balanced design that makes
-      it easy to test variations by tweaking a single variable.
+      The designs from the poster exercise might look simple, but they offer a first taste of an indisputable fact: Geometric composition is a great strategy when designing in code. It might take a little longer to write the code compared to making the same design in a traditional design tool, but the result is a pixel-perfect, balanced design that makes it easy to test variations by tweaking a single variable.
     </p>
   </section>
 
@@ -170,30 +119,7 @@ title: Geometric composition
     <h1>Procedural Layouts</h1>
 
     <p>
-      So far, we have manually calculated the position for every image in our
-      code based on the <code>margin</code>, <code>imgWidth</code>, and <code>imgHeight</code> variables.
-      This might not be a problem when working with three images, but it quickly
-      gets repetitive if we have a lot of content. As described in Procedural
-      Shapes (LINK), a for-loop can be used to run the same piece of code
-      multiple times after each other, and since all of our images follow the
-      same layout rule, we should be able to come up with a single piece of code
-      to draw all three images. This layout rule can loosely be translated to
-      something like this:
-    </p>
-
-    <p>For each image:</p>
-    <ol>
-      <li>
-        Move down the value of <code>margin</code> to add the initial white space at the
-        top of the canvas.
-      </li>
-      <li>
-        Move down the value of <code>imageHeight + margin</code> as many times as the
-        number of prior images to find the position of the image.
-      </li>
-    </ol>
-
-    <p>Translating this from words to code would look something like this:</p>
+      So far, we have manually calculated the position for each image in our code based on the <code>margin</code>, <code>imgWidth</code>, and <code>imgHeight</code> variables. This might not be a problem when working with three images, but it quickly gets repetitive with a lot of content. As described in the <a href="#for-loop" data-type="xref">Procedural Shapes</a> chapter, a for-loop can be used to run the same piece of code multiple times after each other. Luckily, all images in the poster follow the same layout rule, which can be loosely translated to something like this: For each image, move down the value of <code>margin</code> (for the initial white space at the top of the canvas) and then move down the value of <code>imageHeight + margin</code> as many times as there are prior images. This description can be translated into code to look something like this:</p>
 
     <pre
       class="text-width"
@@ -202,14 +128,14 @@ title: Geometric composition
     <p>
       Note how this single line of code can be used to find the <code>y</code> position for
       each image by changing the value of <code>imageNum</code> from <code>0</code> (first image) to <code>2</code>
-      (last image). Luckily, we can write a for-loop where the <code>i</code> variable
-      increments from <code>0</code> to <code>2</code> in steps of one, just like we need:
+      (last image). We can put this calculation to work inside of a for-loop where the <code>i</code> variable
+      also increments from <code>0</code> to <code>2</code> in steps of one, just like we need.
     </p>
 
     {% codesplit layout/geometric-composition/thirds-margin-around-loop.js lines:'18,20,22' class:'media-width' %}
 
     <p>
-      We can take these ideas and procedurally draw our poster in the exact same layout but using a for-loop. As explained in the <a href="#procedural-color-schemes" data-type="xref">Color Schemes</a> chapter, we will use an array of color objects to draw different fills for the "images" with the same code.
+      The example below uses this technique to draw the same layout with a for-loop. As explained in the <a href="#procedural-color-schemes" data-type="xref">Color Schemes</a> chapter, it uses an array of color objects to draw different fills for the "images" with the same code.
     </p>
 
     <div class="grid">
@@ -515,5 +441,5 @@ title: Geometric composition
   </section>
 
   {{footnotes}}
-  
+
 </section>
