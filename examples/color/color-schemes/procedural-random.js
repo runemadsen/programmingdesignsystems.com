@@ -1,5 +1,5 @@
 function colorHsluv(h, s, l) {
-  var rgb = hsluv.hsluvToRgb([h, s, l]);
+  const rgb = hsluv.hsluvToRgb([h, s, l]);
   return color(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 }
 
@@ -8,9 +8,9 @@ function setup() {
   noStroke();
 
   // Start with empty array {!1}
-  var colors = [];
+  const colors = [];
 
-  for(var i = 0; i < 3; i++) {
+  for(let i = 0; i < 3; i++) {
     // Push new color with random hue, saturation, and lightness into array every time {!7}
     colors.push(
       colorHsluv(

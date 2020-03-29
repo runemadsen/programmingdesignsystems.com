@@ -129,12 +129,12 @@ endShape();</code></pre>
 <script type="text/javascript">
   window.addEventListener("libsLoaded", function(event) {
 
-    var vertexBox = document.getElementById('vertex-interactive');
-    var vertexData = [ { cmd: 'M', x: 80, y: 100 }, { cmd: 'L', x: 400, y: 140 }, { cmd: 'L', x: 130, y: 310 }, { cmd: 'Z' } ];
+    const vertexBox = document.getElementById('vertex-interactive');
+    const vertexData = [ { cmd: 'M', x: 80, y: 100 }, { cmd: 'L', x: 400, y: 140 }, { cmd: 'L', x: 130, y: 310 }, { cmd: 'Z' } ];
     window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, { pathData: vertexData, parent: vertexBox}), vertexBox);
 
-    var curveBox = document.getElementById('curve-interactive');
-    var curveData = [ { cmd: 'M', x: 80, y: 100 }, { cmd: 'Q', x: 400, y: 140, cx:245, cy:30 }, { cmd: 'C', x: 130, y: 310, cx: 430, cy:360, c2x:200, c2y:170 }, { cmd: 'Z' } ];
+    const curveBox = document.getElementById('curve-interactive');
+    const curveData = [ { cmd: 'M', x: 80, y: 100 }, { cmd: 'Q', x: 400, y: 140, cx:245, cy:30 }, { cmd: 'C', x: 130, y: 310, cx: 430, cy:360, c2x:200, c2y:170 }, { cmd: 'Z' } ];
     window.ReactDOM.render(window.React.createElement(window.pds.PathInteractive, { pathData: curveData, parent: curveBox}), curveBox);
 
   });

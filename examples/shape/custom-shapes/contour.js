@@ -3,8 +3,8 @@ function setup()
   createCanvas(600, 500);
   background(240);
 
-  var w = width * 0.7;
-  var h = height * 0.7;
+  const w = width * 0.7;
+  const h = height * 0.7;
 
   translate((width/2) - (w/2), (height/2) - (h/2));
 

@@ -59,7 +59,7 @@ title:  Color schemes
 
     <p>Choosing a proper contrast is especially important when working with text, as readability is determined by the contrast between text and background. The World Wide Web Consortium recommends in their <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">Web Content Accessibility Guidelines</a> that body text should have a contrast ratio of at least <code>4.5:1</code> (or lower than <code>0.222</code> as a fraction), and they provide the following formula to calculate this contrast ratio for two lightness values.</p>
 
-    <pre class="text-width"><code>var contrastRatio = (l1 + 0.05) / (l2 + 0.05);</code></pre>
+    <pre class="text-width"><code>const contrastRatio = (l1 + 0.05) / (l2 + 0.05);</code></pre>
 
     <p>This formula requires the two lightness values to be provided in relative luminance, which refers to the Y dimension in the CIEXYZ color space. To calculate the W3C contrast ratio for a HSLuv color, we therefore first need to convert the lightness value into the CIEXYZ color space, and then use the formula above to calculate the contrast ratio. This is demonstrated in the code example below, where the <code>contrastRatio()</code> function can calculate this contrast ratio based on two HSLuv lightness values.</p>
 
@@ -214,11 +214,11 @@ title:  Color schemes
     <p>To use the <code>color()</code> function with <a href="#hsluv" data-type="xref">HSLuv values</a>, we need to create a small function that performs the HSLuv to RGB conversion before creating the color object. Besides the use of the <code>color()</code> function, this function is identical to the <code>fillHSluv()</code> and <code>strokeHsluv()</code> functions from the <a href="#hsluv" data-type="xref">last chapter</a>. Remember that you must include the HSLuv JavaScript file for this to work.</p>
 
     <pre class="media-width"><code>function colorHsluv(h, s, l) {
-  var rgb = hsluv.hsluvToRgb([h, s, l]);
+  const rgb = hsluv.hsluvToRgb([h, s, l]);
   return color(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 }
 
-var red = colorHsluv(225, 35, 35);
+const red = colorHsluv(225, 35, 35);
 fill(red);</code></pre>
 
   <p>Now, what if we want to use multiple colors in a design? It would make sense to just add more variables to the code above. Although that is perfectly fine for just a few colors, it does not make sense for a large number of colors. In this scenario, it is more sensible to use an array that allows for colors to be added and removed without introducing new variables. The code below stores three colors in an array and uses them to draw a color scheme.</p>

@@ -2,7 +2,7 @@ function setup()
 {
   createCanvas(450, 600);
 
-  var imgHeight = height / 3;
+  const imgHeight = height / 3;
 
   noStroke();
   fill(75, 185, 165);

@@ -1,5 +1,5 @@
 function fillHsluv(h, s, l) {
-  var rgb = hsluv.hsluvToRgb([h, s, l]);
+  const rgb = hsluv.hsluvToRgb([h, s, l]);
   fill(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 }
 

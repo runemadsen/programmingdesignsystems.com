@@ -7,9 +7,9 @@ function setup()
 
   translate(width/2, height/2);
   beginShape();
-  for(var i = 0; i < 10; i++) {
-    var x = random(-100, 100);
-    var y = random(-100, 100);
+  for(let i = 0; i < 10; i++) {
+    const x = random(-100, 100);
+    const y = random(-100, 100);
     vertex(x, y);
   }
   endShape();

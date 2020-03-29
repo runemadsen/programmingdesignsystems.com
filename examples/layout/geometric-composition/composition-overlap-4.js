@@ -2,8 +2,8 @@ function setup()
 {
   createCanvas(450, 600);
 
-  var moduleHeight = height / 4;
-  var moduleWidth = width / 3;
+  const moduleWidth = width / 3;
+  const moduleHeight = height / 4;
 
   background(240);
   noStroke();

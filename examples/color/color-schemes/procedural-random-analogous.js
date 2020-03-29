@@ -1,5 +1,5 @@
 function colorHsluv(h, s, l) {
-  var rgb = hsluv.hsluvToRgb([h, s, l]);
+  const rgb = hsluv.hsluvToRgb([h, s, l]);
   return color(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 }
 
@@ -7,8 +7,8 @@ function setup() {
   createCanvas(600, 460);
   noStroke();
 
-  var colors = [];
-  for(var i = 0; i < 3; i++) {
+  const colors = [];
+  for(let i = 0; i < 3; i++) {
     colors.push(
       colorHsluv(random(360), 90, 50)
     )

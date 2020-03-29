@@ -2,11 +2,11 @@ function setup()
 {
   createCanvas(450, 600);
 
-  var margin = height / 20;
-  var imgWidth = width - 2 * margin;
-  var allHeight = height - 4 * margin;
-  var imgHeight = allHeight / 3;
-  var colors = [
+  const margin = height / 20;
+  const imgWidth = width - 2 * margin;
+  const allHeight = height - 4 * margin;
+  const imgHeight = allHeight / 3;
+  const colors = [
     color(75, 185, 165),
     color(120, 155, 155),
     color(30, 50, 50)
@@ -15,9 +15,9 @@ function setup()
   background(240);
   noStroke();
 
-  for(var i = 0; i < 3; i++) {
+  for(let i = 0; i < 3; i++) {
     fill(colors[i]);
-    var imgY = margin + i * (imgHeight + margin);
+    const imgY = margin + i * (imgHeight + margin);
     rect(margin, imgY, imgWidth, imgHeight);
   }
 

@@ -4,9 +4,9 @@ function setup() {
   noStroke();
   fill(40);
 
-  var size = width * 0.1;
-  var x = width - size;
-  var y = height - size;
+  const size = width * 0.1;
+  const x = width - size;
+  const y = height - size;
   rect(x, y, size, size);
 
   noLoop();

@@ -33,8 +33,7 @@
         "content/layout/geometric-composition.html"
       ]
     },
-    "content/more-to-come.html",
-    "content/newsletter.html"
+    "content/more-to-come.html"
   ],
   "webpack": "webpack.config.js",
   "stylesheets": {

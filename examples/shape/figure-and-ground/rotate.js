@@ -4,10 +4,10 @@ function setup() {
   background(240);
   noStroke();
 
-  var size = height / 3;
-  var margin = width / 20;
-  var x = width - margin - size;
-  var y = height - margin - size;
+  const size = height / 3;
+  const margin = width / 20;
+  const x = width - margin - size;
+  const y = height - margin - size;
   rotate(radians(10));
   fill(200);
   rect(0, 0, width, height);

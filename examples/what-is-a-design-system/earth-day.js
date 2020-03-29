@@ -8,22 +8,22 @@ function draw() {
   frameRate(0.5);
   background(255);
 
-  var numCols = Math.round(random(3, 6));
-  var numRows = Math.round(random(5, 8));
-  var pageMargin = Math.round(random(width * 0.001, width * 0.02));
-  var spacingX = (width - (2*pageMargin)) / numCols;
-  var spacingY = (height - (2*pageMargin)) / numRows;
-  var shapeSize = random(spacingX * 0.4, spacingX * 0.7);
-  var textIndex = Math.round(random(numCols * numRows));
-  var redHeartIndex = Math.round(random(numCols * numRows));
+  const numCols = Math.round(random(3, 6));
+  const numRows = Math.round(random(5, 8));
+  const pageMargin = Math.round(random(width * 0.001, width * 0.02));
+  const spacingX = (width - (2*pageMargin)) / numCols;
+  const spacingY = (height - (2*pageMargin)) / numRows;
+  const shapeSize = random(spacingX * 0.4, spacingX * 0.7);
+  const textIndex = Math.round(random(numCols * numRows));
+  const redHeartIndex = Math.round(random(numCols * numRows));
 
   translate(pageMargin + (spacingX/2), pageMargin + (spacingY/2));
 
-  var count = 0;
+  let count = 0;
 
-  for(var x = 0; x < numCols; x++)
+  for(let x = 0; x < numCols; x++)
   {
-    for(var y = 0; y < numRows; y++)
+    for(let y = 0; y < numRows; y++)
     {
       if(count == textIndex)            drawText(x * spacingX, y * spacingY, shapeSize);
       else if(count == redHeartIndex)   drawHeart(x * spacingX, y * spacingY, shapeSize, "#d03d29");
@@ -38,7 +38,7 @@ function drawHeart(x, y, d, c)
   push();
   translate(x, y);
 
-  var r = d/2;
+  const r = d/2;
 
   noStroke();
   fill(c);

@@ -3,7 +3,7 @@ function setup() {
   background(240);
   noStroke();
   fill(40);
-  var size = width * 0.15;
+  const size = width * 0.15;
   translate(width/2, height/2);
   triangle(0, -size, size, size, -size, size);
   fill(40, 180, 155);

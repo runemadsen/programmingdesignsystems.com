@@ -5,9 +5,9 @@ function setup() {
   stroke(0);
   strokeWeight(width * 0.024);
 
-  var coneX = width / 2;
-  var coneY = height * 0.6;
-  var coneSize = width * 0.18;
+  const coneX = width / 2;
+  const coneY = height * 0.6;
+  const coneSize = width * 0.18;
 
   translate(coneX, coneY);
 
@@ -21,7 +21,7 @@ function setup() {
   strokeJoin(ROUND);
 
   // Ice cream
-  for(var i = 3; i >= 0; i--) {
+  for(let i = 3; i >= 0; i--) {
     ellipse(0, -(coneSize*0.25) - (i * (coneSize * 0.6)), coneSize, coneSize);
   }
 

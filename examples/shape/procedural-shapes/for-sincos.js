@@ -7,9 +7,9 @@ function setup()
 
   translate(width/2, height/2);
   beginShape();
-  for(var i = 0; i < 10; i++) {
-    var x = cos(radians(i * 36)) * 100;
-    var y = sin(radians(i * 36)) * 100;
+  for(let i = 0; i < 10; i++) {
+    const x = cos(radians(i * 36)) * 100;
+    const y = sin(radians(i * 36)) * 100;
     vertex(x, y);
   }
   endShape();

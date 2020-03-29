@@ -1,5 +1,5 @@
 function colorHsluv(h, s, l) {
-  var rgb = hsluv.hsluvToRgb([h, s, l]);
+  const rgb = hsluv.hsluvToRgb([h, s, l]);
   return color(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 }
 
@@ -8,17 +8,17 @@ function setup() {
   noStroke();
 
   // Which color values should we start with? {!3}
-  var startHue = random(0, 360);
-  var startSat = random(40, 100);
-  var startLig = random(0, 60);
+  const startHue = random(0, 360);
+  const startSat = random(40, 100);
+  const startLig = random(0, 60);
 
   // How much should each color change? {!3}
-  var changeHue = random(10, 120);
-  var changeSat = random(15, 40);
-  var changeLig = random(15, 40)
+  const changeHue = random(10, 120);
+  const changeSat = random(15, 40);
+  const changeLig = random(15, 40)
 
-  var colors = [];
-  for(var i = 0; i < 3; i++) {
+  const colors = [];
+  for(let i = 0; i < 3; i++) {
     colors.push(
       colorHsluv(
         // Use these values in the same algorithm as before {!3}

@@ -2,10 +2,10 @@ function setup()
 {
   createCanvas(450, 600);
 
-  var margin = height / 5;
-  var moduleWidth = width - 2 * margin;
-  var allHeight = height - 2 * margin;
-  var moduleHeight = allHeight / 2;
+  const margin = height / 5;
+  const moduleWidth = width - 2 * margin;
+  const allHeight = height - 2 * margin;
+  const moduleHeight = allHeight / 2;
 
   background(240);
   noStroke();

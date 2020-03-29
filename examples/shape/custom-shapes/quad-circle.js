@@ -3,7 +3,7 @@ function setup()
   createCanvas(600, 500);
   background(240);
 
-  var r = width * 0.25;
+  const r = width * 0.25;
 
   noStroke();
   fill(30);

@@ -4,7 +4,7 @@ function setup() {
 	background(240);
 
   // Define the color object once {!1}
-  var red = color(225, 35, 35);
+  const red = color(225, 35, 35);
 
   // Use it here {!1}
   fill(red);

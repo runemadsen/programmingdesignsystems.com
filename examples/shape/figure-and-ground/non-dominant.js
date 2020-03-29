@@ -3,7 +3,7 @@ function setup() {
   createCanvas(600, 450);
   background(240);
 
-  var rectSize = height * 0.1;
+  const rectSize = height * 0.1;
 
   rectMode(CENTER);
   noStroke();

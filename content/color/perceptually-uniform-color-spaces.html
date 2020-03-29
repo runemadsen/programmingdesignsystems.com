@@ -68,7 +68,7 @@ title:  Perceptually uniform color spaces
     <p>Every implementation of HSLuv includes four functions that can be used to convert between HSLuv and RGB. We can use one of these functions – <code>hsluvToRgb()</code> – to convert the HSLuv color values into RGB values that the <code>fill()</code> and <code>stroke()</code> functions can understand. The <code>hsluvToRgb()</code> function expects an array with three values – the desired hue, saturation, and lightness of the color – and returns another array with RGB values in the range of <code>0</code> to <code>1</code>. Because P5.js expects RGB values between <code>0</code> and <code>255</code>, we need to multiply the array values to scale them up. This boils down to two lines of code, which is illustrated in the example below.</p>
 
     <pre class="text-width"><code>// First convert the HSLuv values to a RGB array
-var rgb = hsluv.hsluvToRgb([0, 50, 50]);
+const rgb = hsluv.hsluvToRgb([0, 50, 50]);
 
 // Then use the RGB values in a scale of 0-255
 fill(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);</code></pre>

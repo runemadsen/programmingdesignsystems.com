@@ -67,6 +67,11 @@ figure figcaption {
     color: #565656;
     border: none;
   }
+  a[href="#fairuse"] {
+    background-color: inherit;
+    padding: 0;
+    color: $fontGrayLight;
+  }
   code {
     color: #757575;
   }

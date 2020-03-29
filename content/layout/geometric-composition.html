@@ -38,9 +38,9 @@ title: Geometric composition
     most gifted designers use to organize their layouts, achieve a balance
     between the shapes used, and spark new ideas whenever creativity falls
     short. This chapter focuses on an important layout technique in graphic design
-    often referred to as geometric composition: Dividing the canvas into smaller
+    often referred to as geometric composition, which entails dividing the canvas into smaller
     parts and using these divisions to arrange the visual elements. This
-    technique can be used to create endless beautiful and expressive designs,
+    technique can be used to create endless organized and expressive designs,
     and it happens to be a great technique for those of us using code in the
     design process.
   </p>
@@ -49,7 +49,7 @@ title: Geometric composition
     <h1>Canvas Division</h1>
 
     <p>
-      To demonstrate what geometric composition looks like in practice, let us imagine we are asked to design a poster for an upcoming photographic exhibition, and that the client wants this poster to hold exactly three important photos from the exhibition. In our first attempt at designing such a poster, we will position and scale the images to each take up one third of the canvas. Although this might not be the most thrilling layout, this guarantees that each image has an equal amount of space and that the horizontal lines created between the bordering images are evenly distributed from top to bottom. This is demonstrated in the code below where we are using three rectangles with different colored fills (<span class="square" style="background-color: rgb(30, 50, 50)"></span><span class="square" style="background-color: rgb(120, 155, 155)"></span><span class="square" style="background-color: rgb(75, 185, 165)"></span>) instead of images in order to not worry about image cropping. Notice how the height of each image is set to be exactly one-third of the canvas height, and how the <code>y</code> positions of the images are based on this value too.
+      To demonstrate what geometric composition looks like in practice, let us imagine we are asked to design a poster for an upcoming photographic exhibition, and that the client wants this poster to hold exactly three important photos from the exhibition. In our first attempt at designing such a poster, we will position and scale the images to each take up one third of the canvas. Although this might not be the most thrilling layout, it guarantees that each image has an equal amount of space and that the horizontal lines created between the bordering images are evenly distributed from top to bottom. This is demonstrated in the code below where we are using three rectangles with different colored fills (<span class="square" style="background-color: rgb(30, 50, 50)"></span><span class="square" style="background-color: rgb(120, 155, 155)"></span><span class="square" style="background-color: rgb(75, 185, 165)"></span>) instead of images in order to not worry about image cropping. Notice how the height of each image is set to be exactly one-third of the canvas height, and how the <code>y</code> positions of the images are based on this value too.
     </p>
 
     <div class="grid">
@@ -58,7 +58,7 @@ title: Geometric composition
     </div>
 
     <p>
-      Many designers use this Rule of Thirds in situations where centering a shape is considered too dull or static. Some will even argue that placing important shapes around the thirds of the canvas will increase the dynamism and aesthetics of the design. Putting the validity of that discussion aside, we have already achieved something that would be hard to do without a layout system: Positioning and scaling three images evenly across a canvas. However, the result appears somewhat dense because there is no white space between the images. To make up for this, we can introduce margins (a term used to describe empty space around content) between our images to make the design more airy. The attentive reader will notice that the math required for calculating the height of each image is now a bit more complex. First, we find the size of the margin, which we calculate based on the canvas height in order to make our layout responsive in case we ever resize the canvas.
+      Many designers use this Rule of Thirds in situations where centering a shape is considered too dull or static. Some will even argue that placing important shapes around the thirds of the canvas will increase the dynamism and aesthetics of the design. Putting the validity of that discussion aside, we have already achieved something that would be hard to do without a layout system: Positioning and scaling three images evenly across a canvas. However, the result appears somewhat dense because there is no whitespace between the images. To make up for this, we can introduce margins (a term used to describe empty space around content) between our images to make the design more airy. The attentive reader will notice that the math required for calculating the height of each image is now a bit more complex. First, we have to find the size of the margin, which we calculate based on the canvas height in order to make our layout responsive in case we ever resize the canvas.
     </p>
 
     {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'5' class:'text-width' %}
@@ -76,7 +76,7 @@ title: Geometric composition
     {% codesplit layout/geometric-composition/thirds-margin-between.js lines:'7' class:'text-width' %}
 
     <p>
-      The full code example below uses these variables to place each image at the correct position. By changing the value of the <code>margin</code> variable, we can easily increase or decrease the amount of white space, or even use the <code>random()</code> function to randomize the margin every time the code runs.
+      The full code example below uses these variables to place each image at the correct position. By changing the value of the <code>margin</code> variable, we can easily increase or decrease the amount of whitespace, or even use the <code>random()</code> function to randomize the margin every time the code runs.
     </p>
 
     <div class="grid">
@@ -85,7 +85,7 @@ title: Geometric composition
     </div>
 
     <p>
-      We can continue our quest to add more white space by introducing margins around the edges of the canvas as well. Like a framed painting, this will remove the denseness of the layout even more, and call attention to each image as a separate piece of content. It will also allow us to add captions underneath each photo if necessary. We use the same code from above to calculate the height of each image, adding two extra margins for the top and bottom. We also use the same type of calculation for a new <code>imgWidth</code> variable to find the width of each image.
+      We can continue our quest to add more whitespace by introducing margins around the edges of the canvas as well. Like a framed painting, this will remove the denseness of the layout even more, and call attention to each image as a separate piece of content. It will also allow us to add captions underneath each photo if necessary. We use the same code from above to calculate the height of each image, adding two extra margins for the top and bottom. We also use the same type of calculation for a new <code>imgWidth</code> variable to find the width of each image.
     </p>
 
     <div class="grid">
@@ -105,7 +105,7 @@ title: Geometric composition
     </div>
 
     <p>
-      We can therefore use the <code>translate()</code> function before drawing an image to move the canvas down to the correct position. We no longer need the long calculations for the last images, since the translations are added on top of each other as we go along. Note that there are adding a few more lines of code, but that is the compromise we have to make.
+      We can therefore use the <code>translate()</code> function before drawing an image to move the canvas down to the correct position. We no longer need the long calculations for the last images, since the translations are added on top of each other as we go along. Note that we are adding a few more lines of code, but that is the compromise we have to make.
     </p>
 
     {% codesplit layout/geometric-composition/thirds-margin-around-translate.js lines:'5-26' class:'columns media-width' %}
@@ -119,23 +119,20 @@ title: Geometric composition
     <h1>Procedural Layouts</h1>
 
     <p>
-      So far, we have manually calculated the position for each image in our code based on the <code>margin</code>, <code>imgWidth</code>, and <code>imgHeight</code> variables. This might not be a problem when working with three images, but it quickly gets repetitive with a lot of content. As described in the <a href="#for-loop" data-type="xref">Procedural Shapes</a> chapter, a for-loop can be used to run the same piece of code multiple times after each other. Luckily, all images in the poster follow the same layout rule, which can be loosely translated to something like this: For each image, move down the value of <code>margin</code> (for the initial white space at the top of the canvas) and then move down the value of <code>imageHeight + margin</code> as many times as there are prior images. This description can be translated into code to look something like this:</p>
+      So far, we have manually calculated the position for each image in our code based on the <code>margin</code>, <code>imgWidth</code>, and <code>imgHeight</code> variables. This might not be a problem when working with three images, but it quickly gets repetitive with a lot of content. As described in the <a href="#for-loop" data-type="xref">Procedural Shapes</a> chapter, a for-loop can be used to run the same piece of code multiple times after each other. Since all the images in the poster follow the same layout rule, we can use a for-loop to draw the images procedurally one after the other. The layout rule can be loosely translated to something like this: For each image, move down the value of <code>margin</code> (for the initial whitespace at the top of the canvas) and then move down the value of <code>imageHeight + margin</code> as many times as there are prior images. This description can be translated into code to look something like this:</p>
 
     <pre
       class="text-width"
-    ><code>var imgY = margin + imageNum * (imageHeight + margin);</code></pre>
+    ><code>const imgY = margin + imageNum * (imageHeight + margin);</code></pre>
 
     <p>
-      Note how this single line of code can be used to find the <code>y</code> position for
-      each image by changing the value of <code>imageNum</code> from <code>0</code> (first image) to <code>2</code>
-      (last image). We can put this calculation to work inside of a for-loop where the <code>i</code> variable
-      also increments from <code>0</code> to <code>2</code> in steps of one, just like we need.
+      Note how this single line of code can be used to find the <code>y</code> position for each image by changing the value of <code>imageNum</code> from <code>0</code> (first image) to <code>2</code> (last image). We can put this calculation to work inside of a for-loop where the <code>i</code> variable also increments from <code>0</code> to <code>2</code> in steps of one, just like we need.
     </p>
 
     {% codesplit layout/geometric-composition/thirds-margin-around-loop.js lines:'18,20,22' class:'media-width' %}
 
     <p>
-      The example below uses this technique to draw the same layout with a for-loop. As explained in the <a href="#procedural-color-schemes" data-type="xref">Color Schemes</a> chapter, it uses an array of color objects to draw different fills for the "images" with the same code.
+      The example below uses this technique to draw the same layout with a for-loop. As explained in the <a href="#procedural-color-schemes" data-type="xref">Color Schemes</a> chapter, we also use an array of color objects to draw different fills for the "images" with the same code.
     </p>
 
     <div class="grid">
@@ -144,58 +141,38 @@ title: Geometric composition
     </div>
 
     <p>
-      Just as above, we can also rewrite this code to rely on the <code>translate()</code> function.
-      The only difference is that we need to use <code>translate()</code> inside of the for-loop,
-      and since the first image needs to call <code>translate(margin, margin)</code> to position itself
-      by the outer margin, each of the following images need to call <code>translate(0, imgHeight + margin)</code>
-      to move the canvas in the correct amount. So solve this problem, we do the first translation before the
-      for-loop, and the subsequent translations after drawing each image. Same output, but slightly more readable for some.
+      We can also rewrite this code to use the <code>translate()</code> function inside of the for-loop. However, we need to be smart about where exactly we put it. Since the first image needs to call <code>translate(margin, margin)</code> to position itself by the outer margin, but each of the following images need to call <code>translate(0, imgHeight + margin)</code> to move the canvas in the correct amount, we will do the first translation before the for-loop and the subsequent translations <em>after</em> drawing each image inside of the for-loop. This produces the same design as above, but the cumulative translations are easier to read for some. Keep in mind that both of these techniques are perfectly valid and you should use whichever one makes the most sense to you.
     </p>
 
     {% codesplit layout/geometric-composition/thirds-margin-around-loop-translate.js lines:'5-27' class:'columns' %}
 
-    <p>
-      Some designers prefer the use of <code>translate()</code> because it reads like our
-      layout rule from above, while others will favor seeing the layout
-      calculation in a single line of code. It is often possible to achieve the
-      same thing in many different ways when working with code, and both of
-      these techniques are perfectly valid. You should use whichever makes the
-      most sense to you.
-    </p>
+    <p>These are the key principles concerning geometric composition: To use a division of the canvas – with or without margins – to guide the size and position of the content. Now let us explore how to use these ideas in more detail, and uncover how to use the same techniques to make actual layouts in code.</p>
   </section>
 
   <section data-type="sect1">
     <h1>The Grid System</h1>
 
     <p>
-      Although we so far have only divided our canvas into thirds, the same
-      method can be used with fewer or more divisions. If the poster example
-      required us to use four photos, we would not need to make a lot of changes
-      to the code to make that happen. However, when we increase the number of
-      divisions, the space for each image becomes narrower, and at some point
-      this will be unsuitable for our content. To make up for this, we can
-      introduce another division – this time on the vertical axis – to add more
-      flexibility to the layout. This is the beginning of what in
-      graphic design is referred to as a grid system.
+      Although we have only divided our canvas into thirds, the same method can be used with fewer or more divisions. If the poster example required us to use four photos, we would not need to make a lot of changes to the code to make that happen. However, as we increase the number of divisions, the space for each image becomes narrower, and at some point this will be unsuitable for our content. To make up for this, we can introduce another division – this time by dividing the canvas width – to add more flexibility to the layout system. This is the beginning of what in graphic design is referred to as a grid system.
     </p>
 
     <div class="grid media-width">
-       {% p5 layout/geometric-composition/grid-thirds.js class:'col-1-2' caption:'Before' %}
-       {% p5 layout/geometric-composition/grid-sixths.js class:'col-1-2' caption:'After' %}
+       {% p5 layout/geometric-composition/grid-thirds.js class:'col-1-2' caption:'Before: A single division with margins.' %}
+       {% p5 layout/geometric-composition/grid-sixths.js class:'col-1-2' caption:'After: Two divisions with margins.' %}
     </div>
 
     <p>
-      A few important comments are needed before we continue. First, we might as well begin to use the correct terms now that we are using a proper grid system. Graphic designers often refer to the spaces within a grid system as <em>modules</em>, so this is the term we will be using from now on. Also, with all this talk about modules, one might easily be a bit confused: What are these modules and where are they in the code? It might be helpful to think of these modules just like the concept of guides in design tools such as Photoshop or Illustrator: Horizontal and vertical lines (that are not part of the actual design) that intersect to create rectangles. These modules are in our case a result of our margin and the horizontal and vertical divisions.
+      A few important comments are needed here. First, we might as well begin to use the correct terms now that we are using a proper grid system. Graphic designers often refer to the spaces within a grid system as <em>modules</em>, so this is the term that will be used from now on. Also, with all this talk about modules, one might easily be a bit confused: What are these modules and where are they in the code? The concept of modules is in spirit comparable to the guides that designers use in design tools such as Photoshop or Illustrator. They are horizontal and vertical lines that can help the designer position the content, but they are not a part of the actual design. In the same way, the modules of our grid systems are numbers that we use to position and size the content, but besides storing these numbers in a few variable, the modules are not necessarily visible in the code nor the design.
     </p>
 
     <p>
-      With six modules, there is no longer a one-to-one mapping between the number of photos in our poster and the number of modules in the grid system. This makes it possible to explore how to utilize the grid in a more creative way. In order to do this, we need to first do a bit of calculations to find the width and height of each module. This is essentially the same code as we used for <code>imgHeight</code>, but used to calculate both the <code>moduleHeight</code> and <code>moduleWidth</code> values.
+      With six modules, there is no longer a one-to-one mapping between the number of photos in our poster and the number of modules in the grid system. This makes it possible to explore how to use the grid in a more creative way. In order to do this, we first need to use the <code>imgWidth</code> and <code>imgHeight</code> calculations from earlier in this chapter to find the width and height of the modules. The code is exactly the same, except for renaming the variables to <code>moduleHeight</code> and <code>moduleWidth</code> and introducing a division in the latter.
     </p>
 
     {% codesplit layout/geometric-composition/grid-sixths-poster.js lines:'5-9' class:'media-width' %}
 
     <p>
-      We will begin by drawing each photo inside a module, leaving the three remaining modules blank. Despite this somewhat simple layout rule, this leaves us with a bit of flexibility and some decisions to be made. Each of the designs below create whitespace in different ways, which in turn can inspire where to place possible text content.
+      So how do we draw three pieces of content inside six modules? The first option is to pick three modules to hold the images and leave the three remaining modules blank. This is the first time where we are presented with actual decisions to be made around composition, since we can create a great number of designs using this approach. The examples below demonstrate how to use this six-module grid system to create three designs with different levels of whitespace.
     </p>
 
     <div class="grid">
@@ -203,19 +180,15 @@ title: Geometric composition
         {% p5 layout/geometric-composition/grid-sixths-poster-2.js caption:'Layout with room for text to flow left-right-left next to each image.' link:'true' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/grid-sixths-poster.js caption:'Poster with room for text in the middle of the canvas.' link:'true' %}
+        {% p5 layout/geometric-composition/grid-sixths-poster.js caption:'Layout with room for text in the middle of the canvas.' link:'true' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/grid-sixths-poster-3.js caption:'Poster with room for text in the left-hand side of the canvas.' link:'true' %}
+        {% p5 layout/geometric-composition/grid-sixths-poster-3.js caption:'Layout with room for text in the left-hand side of the canvas.' link:'true' %}
       </div>
     </div>
 
     <p>
-      It is also possible to experiment with ways of spanning a single piece of
-      content across multiple modules. In the example below, a single photo
-      covers the uppermost four modules while the remaining photos use the last
-      two modules at the bottom of the canvas. This introduces the ability to
-      highlight certain types of content over others.
+      The next option is to draw a single piece of content across multiple modules. This introduces the ability to highlight certain pieces of content by changing the relative scale between the photos. This is demonstrated in the example below where a single photo covers the uppermost four modules while the remaining photos use the last two modules at the bottom of the canvas. Note how the <code>translate()</code> function is used to minimize the code needed to calculate the positions of the photos.
     </p>
 
     <div class="grid">
@@ -224,11 +197,7 @@ title: Geometric composition
     </div>
 
     <p>
-      This is just one of many designs that can be created from this six-module
-      grid system. The core idea is that these modules become building blocks
-      for the final layout, and there is really no right or wrong way to go
-      about it. These three posters show what some of this experimentation could
-      look like.
+      This was a brief introduction to the concept of a grid system, and how the modules of a grid system can be used to position content within the canvas. As we continue our journey into the world of geometric composition, keep in mind that the core idea remains unchanged. That is, to use the modules as building blocks for a final composition.
     </p>
   </section>
 
@@ -251,28 +220,13 @@ title: Geometric composition
     </blockquote>
 
     <p>
-      Our imaginary poster with three images was a worthwhile project for
-      demonstrating the basics of geometric composition. However, it is a
-      somewhat simplified scenario compared to the type of content that a
-      designer normally encounters. In order to explore this concept further,
-      let us spend the rest of this chapter investigating other ways of using
-      these same ideas in code, and by looking at designers who take different
-      approaches to geometric composition. These designers utilize the grid in
-      different ways: There are formalist designers who strictly follow the
-      lines of the grid, more idea-driven designers who play within the grid,
-      and designers who rarely use geometric helpers. Our first steps into the
-      world of geometric composition is therefore constructed as – rather than a
-      set of do’s and don’ts – a journey from a strict to more lenient way of
-      using geometric composition. Hopefully these different approaches can
-      inspire the reader to do more experiments on their own. Just like above,
-      we will use content placeholders to simplify the code examples: A heading
-      (<span class="square" style="background-color: rgb(30, 50, 50)"></span>), a paragraph (<span class="square" style="background-color: rgb(120, 155, 155)"></span>), and a picture (<span class="square" style="background-color: rgb(75, 185, 165)"></span>). NOTE 4 DIVISIONS ON VERTICAL.
-      NOTE: USING TRANSLATE AND NOT TRANSLATE IN DIFFERENT WAYS!
+      Our imaginary poster with three images was a worthwhile project for demonstrating the basics of geometric composition, but it is a somewhat simplified scenario compared to the type of content that a designer normally encounters. In order to explore this concept further, let us spend the rest of this chapter investigating other ways of using these same ideas in code, and by looking at designers who take different approaches to geometric composition. These designers utilize the grid in different ways. There are formalist designers who strictly follow the lines of the grid, more idea-driven designers who play within the grid,
+      and designers who rarely use geometric helpers. Our first steps into the world of geometric composition is therefore constructed as – rather than a set of do’s and don’ts – a journey from a strict to a more lenient way of using geometric composition. Even though the examples vary in their number of divisions and use of the <code>translate()</code> function, they are all essentially using the same calculations as before. This time, we will also use content placeholders to simplify the code examples: A heading (<span class="square" style="background-color: rgb(30, 50, 50)"></span>), a paragraph (<span class="square" style="background-color: rgb(120, 155, 155)"></span>), and a picture (<span class="square" style="background-color: rgb(75, 185, 165)"></span>).
     </p>
 
     <p>
       A strict approach to geometric composition means that most of the content
-      in your design should align with the lines created by your grid. In order
+      in your design should align with the lines created by the grid. In order
       to achieve this, paragraph text can be sized to the module and justified
       to create sharp edges on both the left and right side of the text block,
       and images can be scaled and cropped to take up the entire space of their
@@ -289,13 +243,13 @@ title: Geometric composition
     </div>
 
     <p>
-      A real-world example of this can be found in the visual identity for the
+      A real-world example of this composition technique can be found in the visual identity for the
       Whitney Museum designed by Dutch design studio Experimental Jetset. The
       identity system is based on a strict grid system where the vertical and
       horizontal lines of the content is broken up by a stretchable and skewed
-      “W” that also functions as a logotype for the museum. The strictness of
+      <em>&ldquo;W&rdquo;</em> that also functions as a logotype for the museum. The strictness of
       the grid system combined with the ever-changing dynamic logo makes for a
-      good visual language for a white-wall museum that constantly renews itself
+      good visual language for a white-wall museum that seeks to constantly renew itself
       through original exhibition work.
     </p>
 
@@ -306,7 +260,7 @@ title: Geometric composition
       </figure>
       <figure class="col-3-5">
         <img src="layout/geometric-composition/whitney-website.png" />
-        <figcaption>The website of Whitney Museum has a mix of different horizontal divisions, but the strict interpretation of the grid is visible throughout. <a href="#fairuse">©</a></figcaption>
+        <figcaption>The website of Whitney Museum has a mix of different horizontal divisions, but the strict interpretation of the grid is visible throughout the website. <a href="#fairuse">©</a></figcaption>
       </figure>
     </div>
 
@@ -322,7 +276,7 @@ title: Geometric composition
         {% p5 layout/geometric-composition/composition-strict-2.js overlay:'layout/geometric-composition/composition-strict-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'This layout uses only two of the four vertical divisions which makes for an ordered and balanced design with lots of whitespace.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-strict-3.js overlay:'layout/geometric-composition/composition-strict-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'A very large image with text content acting as mere annotations.' %}
+        {% p5 layout/geometric-composition/composition-strict-3.js overlay:'layout/geometric-composition/composition-strict-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'A very large image with text content acting as small annotations.' %}
       </div>
       <div class="col-1-3">
         {% p5 layout/geometric-composition/composition-strict-4.js overlay:'layout/geometric-composition/composition-strict-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'The larger heading takes precedence over the smaller paragraph and image in a layout with heavy whitespace.' %}
@@ -330,14 +284,7 @@ title: Geometric composition
     </div>
 
     <p>
-      If this is an example of a strict interpretation of geometric composition,
-      then what does it mean to design with a more lenient interpretation of the
-      grid? The key is to find ways of breaking the box-like aesthetic of the
-      grid, and there are many ways of doing this. The first focus will be to
-      break the uniformity of the white space, and we will do this by allowing
-      multiple pieces of content to use the same module. The overlapping content
-      makes for a less formal composition while still adhering to the rules of
-      the grid. FOUR x THREE DIVISIONS! ALSO PLACE THE HEADING AT THE BOTTOM OF THE MODULE!
+      If this is an example of a strict interpretation of geometric composition, then what does it mean to design with a more lenient interpretation of the grid? The key is to find ways of removing the box-like aesthetic of the grid, and there are many ways of doing this. Let us first explore how to break the uniformity of the whitespace, and we will do this by allowing multiple pieces of content to use the same module. The overlapping content makes for a less formal composition while still adhering to the rules of the grid. The example below uses three horizontal divisons in order to allow content overlaps in the middle of the canvas. Notice how the heading is placed at the bottom of the bottom-most modules.
     </p>
 
     <div class="grid">
@@ -346,18 +293,7 @@ title: Geometric composition
     </div>
 
     <p>
-      A real-world example of this approach can be found in the visual identity
-      for CCC, an art cinema and cultural center in Santiago de Chile, created
-      by Martn Bravo and Simon XXX (REF: Authors company). The visual language
-      is based on a simple design system with three basic building blocks – a
-      logo with three iconic C’s, a grid system based on the rule of thirds, and
-      a playful color palette – which can be combined to produce an endless
-      number of assets for the institution. Notice how the rules of the grid
-      stay the same even though the format of the canvas changes. For an
-      institution where most of the marketing material is created by a rotating
-      team of volunteers, this simple but flexible composition technique helps
-      streamline their public communications, and the colored blocks produced by
-      the geometric composition makes for an extremely recognizable identity. NOTE: USES MARGINS!
+      A real-world example of this approach can be found in the visual identity for CCC, an art cinema and cultural center in Santiago de Chile. The visual language created by Martín Bravo and Simón Sepúlveda at Design Systems International<span data-type="footnote">Design Systems International was co-founded by the author</span> is based on a simple design system with three basic building blocks: A logo with three iconic C’s, a grid system based on the rule of thirds, and a playful color palette. These elements can be combined to produce an endless number of assets for the institution. For an institution where most of the marketing material is created by a rotating team of volunteers, this simple but flexible layout system helps streamline their public communications, and the colored blocks produced by the geometric composition makes for an extremely recognizable identity. Notice how the text is placed around the margins of the canvas for a more playful expression.
     </p>
 
     <div class="grid">
@@ -371,6 +307,7 @@ title: Geometric composition
       <figure class="col-1-3">
         <img src="layout/geometric-composition/ccc-3.png" />
       </figure>
+
     </div>
 
     <p>
@@ -383,16 +320,15 @@ title: Geometric composition
         {% p5 layout/geometric-composition/composition-overlap-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Multi-layered layout with a large heading.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-overlap-2.js overlay:'layout/geometric-composition/composition-overlap-2-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'This denser layout with text overlay is perfect for a photo book or other designs that require emphasis on the photo.' %}
+        {% p5 layout/geometric-composition/composition-overlap-2.js overlay:'layout/geometric-composition/composition-overlap-2-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'A denser layout with text overlay typical for a photo book.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-overlap-4.js overlay:'layout/geometric-composition/composition-overlap-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'The overlapping content combined with zero margins makes for a very dynamic layout.' %}
+        {% p5 layout/geometric-composition/composition-overlap-4.js overlay:'layout/geometric-composition/composition-overlap-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'A dynamic composition with overlapping content and no margins.' %}
       </div>
     </div>
 
     <p>
-      Another way to deviate from the strictness of the grid is to change the way our content is placed within the modules. Except for a few outliers, our strategy so far has been to size our content to the full width or height of the module and align it at the top of the modules. We can open up more possibilities by making our content smaller than the modules and align the content to just one or two sides. As you can see in the following example, this makes for a less organized layout where few of the shapes align, but without the chaos of a free-for-all layout.
-      NOTE HOW THE CODE IS MUCH LOOSER AT WHERE THE CONTENT GOES: IN MIDDLE OF THE MARGIN; ETC.
+      Another way to deviate from the strictness of the grid is to change the way our content is placed within the modules. Except for a few outliers, the strategy so far has been to scale the content to the full width and height of the module, and align the content at the top of the modules. We can open up more possibilities by scaling the content in different ways, and aligning the content to just one or two sides. This is demonstrated in the example below, where some images overflow the modules by the value of a margin, while other images shrink to align to a corner within their modules. This makes for a less organized layout where few of the shapes align, but without the chaos of a free-for-all layout.
     </p>
 
     <div class="grid">
@@ -409,35 +345,33 @@ title: Geometric composition
       </figure>
       <figure class="col-1-2">
         <img src="layout/geometric-composition/jacqueline-casey-mediums-of-language.jpg" />
-        <figcaption>Mediums of Language by Jacqueline Casey<a href="#fairuse">©</a></figcaption>
+        <figcaption>Mediums of Language by Jacqueline Casey. <a href="#fairuse">©</a></figcaption>
       </figure>
     </div>
 
-    <p>MORE EXAMPLES</p>
+    <p>The three examples below use the same approach to create designs that look less rigid while still adhering to the main lines created by the grid.</p>
 
     <div class="grid">
       <div class="col-1-3">
         {% p5 layout/geometric-composition/composition-loose-2.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'This layout loosely uses the grid to position overlapping elements. This helps break the uniformity of the evenly sized modules.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-loose-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'Here we create a more scrapboard-like layout with multiple smaller images that flow vertically along the modules.' %}
+        {% p5 layout/geometric-composition/composition-loose-3.js overlay:'layout/geometric-composition/composition-overlap-3-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'This scrapboard-like layout has many smaller images that flow vertically along the modules.' %}
       </div>
       <div class="col-1-3">
-        {% p5 layout/geometric-composition/composition-loose-4.js overlay:'layout/geometric-composition/composition-loose-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'A simple grid is used to position content within the two modules and inside the large margin.' %}
+        {% p5 layout/geometric-composition/composition-loose-4.js overlay:'layout/geometric-composition/composition-loose-4-grid.svg' overlayCaption:'Toggle Grid' link:'true' caption:'A simple two-module grid is used to position content with a heading in the page margin.' %}
       </div>
     </div>
 
     <p>
-      This chapter introduced a set of geometric composition techniques that can be used to construct graphic layouts by dividing the canvas into smaller modules that are in turn used to place the content. These ideas can help the designer create a plan for the entire composition before focusing on individual pieces of content. In some way, geometrical composition is a way to think about the general before the specific, and this can be a blessing or a curse depending on how these ideas are used. As always, rules should not be followed blindly. Graphic design is above all a human endeavour, and geometric composition techniques should be used to explore layouts and generate new ideas, not as a prison for templating content into a visual monoculture.
-      REMEMBER THAT IN DIFFERENT MEDIA, DIFFERENT TECHNIQUES. USE CSS FOR WEBSITES, ETC. THIS IS THE BASE KNOWLEDGE.
-      WHICH LAYOUT DO YOU PICK? IT DEPENDS ON THE CONTENT. NO EASY ANSWERS. ASK YOURSELF: WHAT DOES THIS CONTENT DICTATE?
+      This chapter introduced a set of geometric composition techniques that can be used to construct graphic layouts by dividing the canvas into smaller modules that are in turn used to arrange the content. These ideas can help designers create a plan for the entire composition before focusing on individual pieces of content. In some way, geometrical composition is a way to think about the general before the specific, and this can be a blessing or a curse depending on how these ideas are used. As always, rules should not be followed blindly. Graphic design is above all a human endeavour, and geometric composition techniques should be used to explore layouts and generate new ideas suitable for the specific content, not as a prison for templating content into a visual monoculture. It should be mentioned that the techniques presented in this chapter were meant to introduce the concept of geometric composition to designers working in code, but P5.js cannot and should not be used for all purposes. Many designers will need to use grid systems when designing websites, but this will need to be done with CSS. It is my hope that even though the specifics of each programming language will vary, the overall approach to designing with grid systems in code will remain relevant.
     </p>
 
     <p>
-      The next chapter of this book is devoted to the concept of grid systems, which has already been introduced in this chapter. Devoting a full chapter to grid systems will give us an opportunity to focus on key details related to the use of grid systems in code, including how to write reusable code that can be shared across projects, using more sophisticated grid systems, and even using multiple grid systems on top of each other. Until then, it is recommended that you follow the following exercise.
+      The next chapter of this book is also devoted to the concept of grid systems. This will give us an opportunity to focus on key details related to the use of grid systems in code, including how to write reusable code that can be shared across projects, using more sophisticated grid systems, and even using multiple grid systems on top of each other in the same design.
     </p>
 
-    {% include exercise.html text="Pick one of your favorite musical artists and design a banner for this artist using the artist name, a short description, and an image. Think of the banner as something that can be used to promote the artist on the home page of a musical streaming service. Ask yourself whether the style of music calls for a rigid layout or a more loose interpretation of the grid, and try to come up with a layout that makes sense for your content. Make sure to use the code examples in this chapter if you are stuck." %}
+    {% include exercise.html text="Pick one of your favorite musical artists and design a digital banner for this artist using the artist name, a short description, and an image. The banner is needed to promote the artist on the home page of a musical streaming service. Ask yourself whether the style of music calls for a rigid layout or a more loose interpretation of the grid, and try to come up with a layout that makes sense for your content. Make sure to use the code examples in this chapter if you are stuck." %}
   </section>
 
   {{footnotes}}

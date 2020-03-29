@@ -1,19 +1,19 @@
-var vertexAnchor;
-var bezierControlPoint;
-var bezierAnchor;
+let vertexAnchor;
+let bezierControlPoint;
+let bezierAnchor;
 
-var lineSize;
-var dotSize;
+let lineSize;
+let dotSize;
 
 function setup()
 {
   createCanvas(600, 450);
   frameRate(36);
 
-  var w = width * 0.65;
-  var h = height * 0.60;
-  var x = (width/2) - (w/2);
-  var y = (height/2) - (h/2);
+  const w = width * 0.65;
+  const h = height * 0.60;
+  const x = (width/2) - (w/2);
+  const y = (height/2) - (h/2);
 
   lineSize = width * 0.005;
   dotSize = width * 0.015;
@@ -27,7 +27,7 @@ function draw()
 {
   background(240);
 
-  var percent = frameCount % 100 / 100;
+  const percent = frameCount % 100 / 100;
 
   // draw bezier line
   strokeWeight(lineSize);
@@ -39,9 +39,9 @@ function draw()
   endShape();
 
   // draw dots in between
-  var pointBetween1 = drawDotBetween(vertexAnchor, bezierControlPoint, percent, '#E1B000', dotSize);
-  var pointBetween2 = drawDotBetween(bezierControlPoint, bezierAnchor, percent, '#E1B000', dotSize);
-  var pointBetween3 = drawDotBetween(pointBetween1, pointBetween2, percent, '#c64821', dotSize*1.5);
+  const pointBetween1 = drawDotBetween(vertexAnchor, bezierControlPoint, percent, '#E1B000', dotSize);
+  const pointBetween2 = drawDotBetween(bezierControlPoint, bezierAnchor, percent, '#E1B000', dotSize);
+  const pointBetween3 = drawDotBetween(pointBetween1, pointBetween2, percent, '#c64821', dotSize*1.5);
 
   // draw anchor points
   noStroke();
@@ -57,7 +57,7 @@ function draw()
 
 function drawDotBetween(start, stop, percent, col, s)
 {
-  var pointBetween = p5.Vector.lerp(start, stop, percent);
+  const pointBetween = p5.Vector.lerp(start, stop, percent);
 
   // draw line
   stroke('#FFDAA2');

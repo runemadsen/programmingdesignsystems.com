@@ -20,5 +20,12 @@
   "scripts": {
     "dev": "magicbook build --watch",
     "serve": "http-server build/build1 -p 5000"
+  },
+  "static": {
+    "profile": "runemadsen",
+    "region": "us-east-1",
+    "buildDir": "build/build1",
+    "shouldRunBuildCommand": true,
+    "buildCommand": "NODE_ENV=production magicbook build"
   }
 }

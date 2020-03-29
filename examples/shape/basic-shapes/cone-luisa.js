@@ -3,10 +3,10 @@ function setup() {
   background(0);
   noStroke();
 
-  var coneX = width * 0.6;
-  var coneY = height * 0.5;
-  var coneSize = width * 0.2;
-  var coneRotation = 10;
+  const coneX = width * 0.6;
+  const coneY = height * 0.5;
+  const coneSize = width * 0.2;
+  const coneRotation = 10;
 
   rotate(radians(coneRotation));
 
@@ -21,11 +21,11 @@ function setup() {
   push();
   translate(coneX, coneY);
   fill(0);
-  var x = 0;
-  var y = coneSize * 0.28;
-  var w = coneSize * 1.15;
-  var h = coneSize * 1.15;
-  for(var i = 0; i < 3; i++) {
+  let x = 0;
+  let y = coneSize * 0.28;
+  let w = coneSize * 1.15;
+  let h = coneSize * 1.15;
+  for(let i = 0; i < 3; i++) {
     if(i == 1) {
       rotate(radians(-coneRotation));
       x = -(coneSize*0.12);

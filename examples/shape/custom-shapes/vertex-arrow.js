@@ -3,8 +3,8 @@ function setup() {
   createCanvas(600, 500);
   background(240);
 
-  var w = width * 0.35;
-  var h = width * 0.5;
+  const w = width * 0.35;
+  const h = width * 0.5;
 
   noFill();
   stroke(40);

@@ -9,11 +9,11 @@ function setup()
   strokeCap(SQUARE);
   translate((width/2) - 200, height/2);
   beginShape();
-  for(var i = 0; i < 200; i++) {
+  for(let i = 0; i < 200; i++) {
     // 2 pixel spacing on the x-axis. {!1}
-    var x = i * 2;
+    const x = i * 2;
     // 200 pixel high waveform on the y-axis. {!1}
-    var y = cos(i * radians(2)) * 100;
+    const y = cos(i * radians(2)) * 100;
     vertex(x, y);
   }
   endShape();

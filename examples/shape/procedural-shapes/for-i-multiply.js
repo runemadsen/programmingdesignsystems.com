@@ -5,7 +5,7 @@ function setup()
   fill(30);
   noStroke();
 
-  for(var i = 0; i < 10; i++) {
+  for(let i = 0; i < 10; i++) {
     rect(i * 105, 0, 100, 100);
   }
 

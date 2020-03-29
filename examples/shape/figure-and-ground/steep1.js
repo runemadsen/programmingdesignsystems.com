@@ -2,8 +2,8 @@ function setup() {
   createCanvas(600, 450);
   background(240);
 
-  var w = width * 0.5;
-  var h = width * 0.4;
+  const w = width * 0.5;
+  const h = width * 0.4;
 
   rectMode(CENTER);
   noStroke();

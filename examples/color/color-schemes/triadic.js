@@ -5,21 +5,21 @@ function setup() {
 
   noStroke();
 
-  var hues = [0, 120, 240];
-  var numPoints = 12;
-  var pointDegree = 360 / numPoints;
-  var radius = width / 4;
-  var strokeW = width / 10;
+  const hues = [0, 120, 240];
+  const numPoints = 12;
+  const pointDegree = 360 / numPoints;
+  const radius = width / 4;
+  const strokeW = width / 10;
 
   // Color circle
   translate(width / 2, height / 2);
   rotate(radians(-90 - pointDegree / 2));
 
-  for (var i = 0; i < numPoints; i++) {
+  for (let i = 0; i < numPoints; i++) {
     fill(i * pointDegree, 100, 50);
 
-    var thisAngle = radians(i * pointDegree);
-    var nextAngle = radians((i + 1) * pointDegree);
+    const thisAngle = radians(i * pointDegree);
+    const nextAngle = radians((i + 1) * pointDegree);
 
     beginShape();
     vertex(cos(thisAngle) * radius, sin(thisAngle) * radius);
@@ -41,18 +41,18 @@ function setup() {
   strokeWeight(strokeW / 20);
   noFill();
   beginShape();
-  for (var i = 0; i < hues.length; i++) {
-    var x = cos(radians(hues[i])) * (radius + strokeW / 2);
-    var y = sin(radians(hues[i])) * (radius + strokeW / 2);
+  for (let i = 0; i < hues.length; i++) {
+    const x = cos(radians(hues[i])) * (radius + strokeW / 2);
+    const y = sin(radians(hues[i])) * (radius + strokeW / 2);
     vertex(x, y);
   }
   endShape(CLOSE);
 
   noStroke();
   fill(0, 0, 100);
-  for (var i = 0; i < hues.length; i++) {
-    var x = cos(radians(hues[i])) * (radius + strokeW * 0.4);
-    var y = sin(radians(hues[i])) * (radius + strokeW * 0.4);
+  for (let i = 0; i < hues.length; i++) {
+    const x = cos(radians(hues[i])) * (radius + strokeW * 0.4);
+    const y = sin(radians(hues[i])) * (radius + strokeW * 0.4);
     ellipse(x, y, strokeW / 3);
   }
 

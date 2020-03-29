@@ -3,11 +3,11 @@ function setup() {
   background(255);
   noStroke();
 
-  var ellipseX = width / 2;
-  var ellipseY = height * 0.3;
-  var ellipseSize = width * 0.32;
-  var triangleY = height * 0.36;
-  var spacing = width * 0.01;
+  const ellipseX = width / 2;
+  const ellipseY = height * 0.3;
+  const ellipseSize = width * 0.32;
+  const triangleY = height * 0.36;
+  const spacing = width * 0.01;
 
   fill(40);
   ellipse(ellipseX, ellipseY, ellipseSize, ellipseSize);
