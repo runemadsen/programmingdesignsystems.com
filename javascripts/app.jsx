@@ -1,14 +1,14 @@
 // Setup custom events
-var utils = require('./other/utils');
+const utils = require('./other/utils');
 utils.setupCustomEvents();
 
 // Manual Rendering
 // -----------------------------------------------------
 
-var p5 = window.p5 = require('p5');
-var hsluv = window.hsluv = require('hsluv');
-var React = window.React = require('react');
-var ReactDOM = window.ReactDOM = require('react-dom');
+const p5 = window.p5 = require('p5');
+const hsluv = window.hsluv = require('hsluv');
+const React = window.React = require('react');
+const ReactDOM = window.ReactDOM = require('react-dom');
 window.pds = {
   PathInteractive: require('./components/PathInteractive'),
   Albers: require('./components/Albers'),
@@ -21,10 +21,10 @@ window.pds = {
 
 // Run all examples
 if(window.p5Examples) {
-  for(var i = 0; i < p5Examples.length; i++) {
+  for(let i = 0; i < p5Examples.length; i++) {
     // Run example in sync mode
-    var node = document.querySelector('#' + p5Examples[i][0] + ' .p5container');
-    var example = new p5(p5Examples[i][1], node, true);
+    const node = document.querySelector('#' + p5Examples[i][0] + ' .p5container');
+    const example = new p5(p5Examples[i][1], node, true);
     // Make it resizable
     example.canvas.style.width = "100%";
     example.canvas.style.height = "auto";
@@ -32,14 +32,14 @@ if(window.p5Examples) {
 }
 
 // Highlight all pre tags
-var Prism = require('prismjs');
-var pres = document.getElementsByTagName('pre');
-for(var i = 0; i < pres.length; i++) {
+const Prism = require('prismjs');
+const pres = document.getElementsByTagName('pre');
+for(let i = 0; i < pres.length; i++) {
   pres[i].firstChild.innerHTML = Prism.highlight(pres[i].firstChild.textContent, Prism.languages.javascript)
 }
 
-var tocToggle = document.getElementById('tocToggle');
-var toc = document.getElementById('tocContainer');
+const tocToggle = document.getElementById('tocToggle');
+const toc = document.getElementById('tocContainer');
 if(tocToggle && toc) {
 
   // Toggle TOC on click
@@ -56,10 +56,10 @@ if(tocToggle && toc) {
   });
 
   // Highlight active TOC
-  var as = document.querySelectorAll('#tocContainer a[href]');
-  for(var i = 0; i < as.length; i++) {
+  const as = document.querySelectorAll('#tocContainer a[href]');
+  for(let i = 0; i < as.length; i++) {
     // link is the one where link is just index.html
-    var realHref = as[i].getAttribute('href').split('#')[0];
+    const realHref = as[i].getAttribute('href').split('#')[0];
     if(realHref == 'index.html') {
       as[i].setAttribute('class', 'color1');
     }
@@ -82,7 +82,7 @@ for(let i = 0; i < overlayToggles.length; i++) {
 }
 
 // Track newsletter clicks
-var newsletter = document.getElementById('newsletter');
+const newsletter = document.getElementById('newsletter');
 if(newsletter) {
   newsletter.addEventListener('click', function() {
     ga('send', 'event', 'newsletter', 'click');

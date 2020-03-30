@@ -1,47 +1,29 @@
-var webpack = require('webpack');
+var webpack = require("webpack");
 
-// Defaults
-// -------------------------------------------------
-
-var config = {
-  entry: './javascripts/app.jsx',
+const config = {
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  entry: "./javascripts/app.jsx",
   output: {
-    path: 'assets',
-    filename: 'app-[hash].js'
+    path: "assets",
+    filename: "app-[hash].js"
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['react']
+    rules: [
+    {
+      test: /\.jsx$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-react', '@babel/preset-env']
         }
       }
-    ]
+    }
+  ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  plugins: []
+    extensions: [".js", ".jsx"]
+  }
 };
-
-// Production
-// -------------------------------------------------
-
-if(process.env.NODE_ENV == 'production') {
-
-  // Pass ENV to webpack
-  config.plugins.push(new webpack.DefinePlugin({
-    'process.env.NODE_ENV': '"production"'
-  }));
-
-  // Uglify
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-    compress: { warnings: false }
-  }));
-
-}
 
 module.exports = config;
