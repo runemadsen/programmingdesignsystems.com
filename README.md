@@ -16,6 +16,7 @@ Here's a running list of people who submitted edits.
 - Grey Vaisius
 - Enrico Baculinao
 - Tom MacWright
+- Sophia Cui
 
 # Writing
 
