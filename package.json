@@ -35,8 +35,24 @@
       "production": {
         "stack": "none",
         "bucket": "programmingdesignsystems.com",
-        "htmlCache": "300",
-        "assetsCache": "31536000"
+        "fileParams": [
+          {
+            "match": [
+              "!**/*.(html|json)"
+            ],
+            "params": {
+              "CacheControl": "public, max-age=31536000, immutable"
+            }
+          },
+          {
+            "match": [
+              "**/*.(html|json)"
+            ],
+            "params": {
+              "CacheControl": "public, max-age=300"
+            }
+          }
+        ]
       }
     }
   }

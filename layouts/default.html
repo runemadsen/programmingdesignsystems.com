@@ -5,7 +5,10 @@
       {% if page.title %}{{ page.title }} - {% endif %}{{ config.title }}
     </title>
     <meta charset="utf-8" />
-    <meta name="description" content="Programming Design Systems is a free digital book that teaches a practical introduction to the new foundations of graphic design." />
+    <meta
+      name="description"
+      content="Programming Design Systems is a free digital book that teaches a practical introduction to the new foundations of graphic design."
+    />
     <meta name="keywords" content="p5.js, Programming, Design, Systems" />
     <meta name="author" content="Rune Madsen" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,13 +33,16 @@
           </svg>
         </a>
         <a id="logo" href="/">Programming Design Systems</a>
-        <a id="newsletter" target="_blank" href="http://eepurl.com/b_kRKD"
+        <a
+          id="newsletter"
+          target="_blank"
+          href="https://confirmsubscription.com/h/t/2E81B263662AA1A0"
           >Subscribe to Newsletter</a
         >
       </div>
     </nav>
     <main>
-      <aside id="tocContainer" style="display:none">{{ toc }}</aside>
+      <aside id="tocContainer" style="display: none;">{{ toc }}</aside>
       <article>
         <div class="maxContent">{{ content }}</div>
         {% include navigation.html %}
