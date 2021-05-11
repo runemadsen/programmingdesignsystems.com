@@ -7,7 +7,7 @@
     "cheerio": "^0.20.0",
     "hsluv": "0.0.1",
     "http-server": "^0.12.1",
-    "lodash": "^4.6.1",
+    "lodash": "^4.17.21",
     "magicbook": "^0.1.19",
     "magicbook-codesplit": "^0.1.6",
     "magicbook-webpack": "0.0.4",
