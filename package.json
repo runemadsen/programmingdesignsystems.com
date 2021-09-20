@@ -12,7 +12,7 @@
     "magicbook-codesplit": "^0.1.6",
     "magicbook-webpack": "0.0.4",
     "p5": "^0.5.9",
-    "prismjs": "^1.5.1",
+    "prismjs": "^1.25.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "terser-webpack-plugin": "^2.3.5",
