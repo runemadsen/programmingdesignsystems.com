@@ -3,7 +3,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.3.0",
     "cheerio": "^0.20.0",
     "hsluv": "0.0.1",
     "http-server": "^0.12.1",
@@ -18,7 +18,7 @@
     "terser-webpack-plugin": "^2.3.5",
     "through2": "^2.0.1",
     "tinyliquid": "^0.2.31",
-    "webpack": "^4.42.1"
+    "webpack": "^5.75.0"
   },
   "scripts": {
     "dev": "magicbook build --watch",
